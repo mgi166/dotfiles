@@ -1,0 +1,13 @@
+[core]
+	editor = emacs
+	excludesfile = /Users/horowitz/.gitignore
+[user]
+	name = mgi166
+	email = skskoari@gmail.com
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
