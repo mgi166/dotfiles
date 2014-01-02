@@ -18,6 +18,15 @@ namespace :dotfiles do
     files + dirs
   end
 
+  def re_install?
+    print 'Dotfiles is already installed. Remove all dotfiles, and re-install new dotfiles? [y|n] '
+    if STDIN.gets.chomp =~ /\A(y|yes)\Z/i
+      true
+    else
+      false
+    end
+  end
+
   desc 'install all dotfiles in your home'
   task :install do
     Rake::Task['dotfiles:symlink'].invoke
@@ -36,5 +45,11 @@ namespace :dotfiles do
     items.each do |i|
       File.delete(i[/^\.(.*)/, 1])
     end
+    puts 'done uninstall'
+  end
+
+  desc 'hoge'
+  task :hoge do
+    p re_install?
   end
 end
