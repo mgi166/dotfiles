@@ -1,10 +1,10 @@
 namespace :dotfiles do
   DEFAULT_PATH = File.expand_path('~')
-  BLACKLIST_FILE_PATTERN = ['README.md', 'backup']
+  BLACKLIST_FILE_NAME = ['README.md', 'backup', 'Rakefile']
 
   def items
     [].tap do |result|
-      Dir.glob('*'){ |item| result << item unless BLACKLIST_FILE_PATTERN.include?(item) }
+      Dir.glob('*'){ |item| result << item unless BLACKLIST_FILE_NAME.include?(item) }
     end
   end
 
@@ -29,7 +29,11 @@ namespace :dotfiles do
 
   def destination_path(file)
 #    File.join(DEFAULT_PATH, file)
-    file[/^\.(.*)/, 1]
+    File.join 'test', file
+  end
+
+  def backup_path(file)
+    File.join('backup', File.basename(file))
   end
 
   desc 'install all dotfiles in your home'
@@ -41,7 +45,7 @@ namespace :dotfiles do
   desc 'create symbolic link that all files in dotfiles connect each home files'
   task :symlink do
     items.each do |f|
-      File.symlink(f, destination_path(f))
+      File.symlink(File.expand_path(f), destination_path(f))
     end
   end
 
@@ -59,10 +63,15 @@ namespace :dotfiles do
     if backup?
       items.each do |i|
         path = File.symlink?(destination_path(i)) ? File.readlink(destination_path(i)) : destination_path(i)
-        p i
-        FileUtils.cp_r(path, File.join('backup', destination_path(i)), verbose: true) if File.exist? destination_path(i)
+        FileUtils.remove_entry_secure(backup_path(i)) if File.exist? backup_path(i)
+        FileUtils.cp_r(path, backup_path(i), verbose: true) if File.exist? destination_path(i)
       end
     end
+  end
+
+  desc 'The suject files to install'
+  task :list do
+    puts items
   end
 
   desc 'test task'
