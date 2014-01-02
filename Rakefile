@@ -18,7 +18,7 @@ namespace :dotfiles do
   end
 
   def backup?
-    print 'backup? [y|n] '
+    print 'Backup current your dotfiles? [y|n] '
 
     if STDIN.gets.chomp =~ /\A(y|yes)\Z/i
       true
@@ -69,12 +69,12 @@ namespace :dotfiles do
     end
   end
 
-  desc 'The suject files to install'
+  desc 'The suject files or directories to install'
   task :list do
     puts items
   end
 
-  desc 'test task'
+  desc 'debug task'
   task :hoge do
     p items
   end
