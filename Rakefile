@@ -10,21 +10,12 @@ namespace :dotfiles do
 
   def re_install?
     print 'Dotfiles is already installed. Remove all dotfiles, and re-install new dotfiles? [y|n] '
-    if STDIN.gets.chomp =~ /\A(y|yes)\Z/i
-      true
-    else
-      false
-    end
+    STDIN.gets.chomp =~ /\A(y|yes)\Z/i ? true : false
   end
 
   def backup?
     print 'Backup current your dotfiles? [y|n] '
-
-    if STDIN.gets.chomp =~ /\A(y|yes)\Z/i
-      true
-    else
-      false
-    end
+    STDIN.gets.chomp =~ /\A(y|yes)\Z/i ? true : false
   end
 
   def destination_path(file)
@@ -38,14 +29,25 @@ namespace :dotfiles do
 
   desc 'install all dotfiles in your home'
   task :install do
-    Rake::Task['dotfiles:symlink'].invoke
-    puts 'Thank you for your install'
+    begin
+      Rake::Task['dotfiles:symlink'].invoke
+      puts 'Thank you for your install'
+    rescue => e
+      if re_install?
+        Rake::Task['dotfiles:backup'].invoke if backup?
+        Rake::Task['dotfiles:uninstall'].invoke
+        retry
+      end
+
+      puts e.backtrace.unshift(e.message).join("\n")
+      exit 1
+    end
   end
 
   desc 'create symbolic link that all files in dotfiles connect each home files'
   task :symlink do
-    items.each do |f|
-      File.symlink(File.expand_path(f), destination_path(f))
+    items.each do |i|
+      File.symlink(File.expand_path(i), destination_path(i))
     end
   end
 
@@ -69,7 +71,7 @@ namespace :dotfiles do
     end
   end
 
-  desc 'The suject files or directories to install'
+  desc 'The suject list of files or directories to install'
   task :list do
     puts items
   end
