@@ -58,23 +58,25 @@ namespace :dotfiles do
   desc 'uninstall all dotfiles in your home'
   task :uninstall do
     items.each do |i|
-      File.delete(i[/^\.(.*)/, 1])
+      File.delete(destination_path(i))
     end
     puts 'done uninstall'
   end
 
-  desc 'backup all your dotfiles'
+  desc 'backup all your dotfiles at present'
   task :backup do
     Dir.mkdir('./backup') unless File.exist?('backup')
     if backup?
       items.each do |i|
-#        FileUtils.cp(i, File.join('backup', i[/^\.(.*)/, 1])) if File.exist? i[/^\.(.*)/, 1])
+        path = File.symlink?(destination_path(i)) ? File.readlink(destination_path(i)) : destination_path(i)
+        p i
+        FileUtils.cp_r(path, File.join('backup', destination_path(i)), verbose: true) if File.exist? destination_path(i)
       end
     end
   end
 
   desc 'test task'
   task :hoge do
-    Rake::Task['dotfiles:symlink'].invoke
+    p dirs
   end
 end
