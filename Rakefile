@@ -13,8 +13,8 @@ namespace :dotfiles do
     STDIN.gets.chomp =~ /\A(y|yes)\Z/i ? true : false
   end
 
-  def backup?
-    print 'Backup current your dotfiles? [y|n] '
+  def backup?(file)
+    print "Backup current your dotfiles? `#{file}' [y|n] "
     STDIN.gets.chomp =~ /\A(y|yes)\Z/i ? true : false
   end
 
@@ -24,7 +24,17 @@ namespace :dotfiles do
   end
 
   def backup_path(file)
-    File.join('backup', File.basename(file))
+    File.join('backup', file)
+  end
+
+  def do_backup(file)
+    FileUtils.remove_entry_secure(backup_path(file))       if File.exist?(backup_path(file))
+    FileUtils.cp_r(file, backup_path(file), verbose: true) if File.exist?(destination_path(file))
+  end
+
+  def do_symlink(file)
+    FileUtils.remove_entry_secure(destination_path(file)) if File.exist? destination_path(file)
+    FileUtils.symlink(File.expand_path(file), destination_path(file), verbose: true)
   end
 
   desc 'install all dotfiles in your home'
@@ -47,15 +57,19 @@ namespace :dotfiles do
   desc 'create symbolic link that all files in dotfiles connect each home files'
   task :symlink do
     items.each do |i|
-      File.symlink(File.expand_path(i), destination_path(i))
+      if File.exist?(destination_path(i)) and !File.symlink?(destination_path(i))
+        Dir.mkdir('./backup') unless File.exist?('backup')
+        do_backup(i) if backup?(i)
+        puts "Done backup to `#{File.expand_path(backup_path(i))}'"
+      end
+
+      do_symlink(i)
     end
   end
 
   desc 'uninstall all dotfiles in your home'
   task :uninstall do
-    items.each do |i|
-      File.delete(destination_path(i))
-    end
+    items.each {|i| File.delete(destination_path(i)) if File.exist?(destination_path(i)) }
     puts 'done uninstall'
   end
 
