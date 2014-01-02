@@ -1,21 +1,11 @@
 namespace :dotfiles do
   DEFAULT_PATH = File.expand_path('~')
-
-  def files
-    [].tap do |result|
-      Dir.glob('.*'){ |item| result << item if File.file?(item) }
-    end
-  end
-
-  # TODO: it should fix match pattern
-  def dirs
-    [].tap do |result|
-      Dir.glob('.??*'){ |item| result << item if File.directory?(item) }
-    end
-  end
+  BLACKLIST_FILE_PATTERN = ['README.md', 'backup']
 
   def items
-    files + dirs
+    [].tap do |result|
+      Dir.glob('*'){ |item| result << item unless BLACKLIST_FILE_PATTERN.include?(item) }
+    end
   end
 
   def re_install?
@@ -77,6 +67,6 @@ namespace :dotfiles do
 
   desc 'test task'
   task :hoge do
-    p dirs
+    p items
   end
 end
