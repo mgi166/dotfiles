@@ -32,6 +32,18 @@ namespace :dotfiles do
     FileUtils.symlink(File.expand_path(file), destination_path(file), verbose: true)
   end
 
+  def backup(file)
+    if File.exist?(destination_path(file)) and !File.symlink?(destination_path(file))
+      Dir.mkdir('./backup') unless File.exist?('backup')
+      if backup?(file)
+        do_backup(file)
+        puts "Done backup to `#{File.expand_path(backup_path(file))}'"
+      end
+    end
+
+    yield(file) if block_given?
+  end
+
   desc 'install all dotfiles in your home'
   task :install do
     Rake::Task['dotfiles:symlink'].invoke
@@ -40,28 +52,14 @@ namespace :dotfiles do
 
   desc 'custom install that you select a file'
   task :install, :file do |t, args|
-    if File.exist?(destination_path(args[:file])) and !File.symlink?(destination_path(args[:file]))
-      Dir.mkdir('./backup') unless File.exist?('backup')
-      if backup?(args[:file])
-        do_backup(args[:file])
-        puts "Done backup to `#{File.expand_path(backup_path(args[:file]))}'"
-      end
-    end
-
+    backup(args[:file])
     do_symlink(args[:file])
   end
 
   desc 'create symbolic link that all files in dotfiles connect each home files'
   task :symlink do
     items.each do |i|
-      if File.exist?(destination_path(i)) and !File.symlink?(destination_path(i))
-        Dir.mkdir('./backup') unless File.exist?('backup')
-        if backup?(i)
-          do_backup(i)
-          puts "Done backup to `#{File.expand_path(backup_path(i))}'"
-        end
-      end
-
+      backup(i)
       do_symlink(i)
     end
   end
@@ -74,16 +72,14 @@ namespace :dotfiles do
 
   desc 'backup all your dotfiles at present'
   task :backup do
-    items.each do |i|
-      if File.exist?(destination_path(i)) and !File.symlink?(destination_path(i))
-        Dir.mkdir('./backup') unless File.exist?('backup')
-        if backup?(i)
-          do_backup(i)
-          puts "Done backup to `#{File.expand_path(backup_path(i))}'"
+    [].tap do |array|
+      items.each do |item|
+        backup(item) do |i|
+          array << i if File.exist? backup_path(i)
         end
-      else
-        puts "Done nothing because target files is symlink or don't exist"
       end
+    end.tap do |result|
+      puts "Done nothing because target files is symlink or don't exist" if result.empty?
     end
   end
 
