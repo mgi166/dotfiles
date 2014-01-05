@@ -42,8 +42,10 @@ namespace :dotfiles do
   task :install, :file do |t, args|
     if File.exist?(destination_path(args[:file])) and !File.symlink?(destination_path(args[:file]))
       Dir.mkdir('./backup') unless File.exist?('backup')
-      do_backup(args[:file]) if backup?(args[:file])
-      puts "Done backup to `#{File.expand_path(backup_path(args[:file]))}'"
+      if backup?(args[:file])
+        do_backup(args[:file])
+        puts "Done backup to `#{File.expand_path(backup_path(args[:file]))}'"
+      end
     end
 
     do_symlink(args[:file])
@@ -54,8 +56,10 @@ namespace :dotfiles do
     items.each do |i|
       if File.exist?(destination_path(i)) and !File.symlink?(destination_path(i))
         Dir.mkdir('./backup') unless File.exist?('backup')
-        do_backup(i) if backup?(i)
-        puts "Done backup to `#{File.expand_path(backup_path(i))}'"
+        if backup?(i)
+          do_backup(i)
+          puts "Done backup to `#{File.expand_path(backup_path(i))}'"
+        end
       end
 
       do_symlink(i)
@@ -73,8 +77,12 @@ namespace :dotfiles do
     items.each do |i|
       if File.exist?(destination_path(i)) and !File.symlink?(destination_path(i))
         Dir.mkdir('./backup') unless File.exist?('backup')
-        do_backup(i) if backup?(i)
-        puts "Done backup to `#{File.expand_path(backup_path(i))}'"
+        if backup?(i)
+          do_backup(i)
+          puts "Done backup to `#{File.expand_path(backup_path(i))}'"
+        end
+      else
+        puts "Done nothing because target files is symlink or don't exist"
       end
     end
   end
