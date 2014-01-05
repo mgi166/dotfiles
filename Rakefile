@@ -1,10 +1,10 @@
 namespace :dotfiles do
   DEFAULT_PATH = File.expand_path('~')
-  BLACKLIST_FILE_NAME = ['README.md', 'backup', 'Rakefile']
+  BLACKLIST_FILE_NAME = ['.', '..', '.git']
 
   def items
     [].tap do |result|
-      Dir.glob('*'){ |item| result << item unless BLACKLIST_FILE_NAME.include?(item) }
+      Dir.glob('.*'){ |item| result << item unless BLACKLIST_FILE_NAME.include?(item) }
     end
   end
 
