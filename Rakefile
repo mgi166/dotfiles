@@ -55,14 +55,6 @@ namespace :dotfiles do
     end
   end
 
-  desc 'create symbolic link that all files in dotfiles connect each home files'
-  task :symlink do
-    items.each do |i|
-      backup(i)
-      do_symlink(i)
-    end
-  end
-
   desc 'uninstall all dotfiles in your home'
   task :uninstall do
     items.each {|i| FileUtils.remove_entry_secure(destination_path(i)) if File.exist?(destination_path(i)) }
