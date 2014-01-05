@@ -44,16 +44,15 @@ namespace :dotfiles do
     yield(file) if block_given?
   end
 
-  desc 'install all dotfiles in your home'
-  task :install do
-    Rake::Task['dotfiles:symlink'].invoke
-    puts 'Thank you for your install'
-  end
-
-  desc 'custom install that you select a file'
+  desc 'install all dotfiles in your home / if you give an argument, install only that you select'
   task :install, :file do |t, args|
-    backup(args[:file])
-    do_symlink(args[:file])
+    args.with_defaults(file: items)
+    files = [].tap {|array| array << args[:file]}.flatten
+
+    files.each do |f|
+      backup(f)
+      do_symlink(f)
+    end
   end
 
   desc 'create symbolic link that all files in dotfiles connect each home files'
