@@ -1,0 +1,159 @@
+## global mode settings
+
+# EscapeをC-gで
+nmap <C-g> : Escape
+imap <C-g> : Escape
+cmap <C-g> : Escape
+emap <C-g> : Escape
+<C-g> : Escape
+
+
+## nmap keybinds
+
+# タブ操作をワンキーで
+nmap l :TabFocusNext
+nmap h :TabFocusPrev
+
+# GoCommandMode
+nmap <A-x> :GoCommandMode
+
+# 全ての開いている tab を search し jump
+nmap t :ShowTabList
+
+# 戻る & 進む
+nmap b :BackHist
+nmap n :ForwardHist
+
+# google search
+nmap s :TabOpenNew -i g
+
+# bookmark search
+nmap S :TabOpenNew -b g
+
+# search をemacs風に
+# * バグがあるため使わない
+# ** cmode で NextSearch コマンドが使えない。そのため複数 hit した時に次の検索結果に飛べない
+# ** search mode で / or Enter を押すとフリーズする(https://github.com/k2nr/ViChrome/issues/48)
+#
+# nmap <C-s> :GoSearchModeForward
+# nmap <C-r> :GoSearchModeBackward
+
+# スクロール関連をなるべくemacs風に
+nmap <C-n> :ScrollDown
+nmap <C-p> :ScrollUp
+nmap <C-v> :PageDown
+nmap <M-<> :GoTop
+nmap <M->> :GoBottom
+
+#nmap <C-x>k :TabCloseCurrent --focusprev (何故か効かない)
+
+# fキーにインプットフォーカスを割り当て( Keysnailと同じキーバインドに )
+nmap f :FocusOnFirstInput
+
+# URL/title をコピー
+nmap w :Copy '%url'
+nmap W :Copy '%title'
+
+## mappings for opening your favorite web page
+nmap <Space>t :TabOpenNew https://www.twitter.com
+nmap <Space>f :TabOpenNew https://www.facebook.com/
+nmap <Space>m :TabOpenNew https://mail.google.com/mail/#inbox
+nmap <Space>a :TabOpenNew https://maps.google.co.jp/
+nmap <Space>e :TabOpenNew chrome://extensions/
+nmap <Space>o :TabOpenNew chrome://settings/browser
+nmap <Space>d :TabOpenNew chrome://downloads
+nmap <Space>h :TabOpenNew chrome://history
+nmap <Space>g :TabOpenNew http://www.google.com/
+
+# f-Mode
+nmap e     :GoFMode
+nmap <C-e> :GoFMode --newtab --continuous
+# nmap E     :GoFMode --newtab --continuous
+
+## nmap settings end
+
+
+## cmap keybinds
+
+# フォーカス移動のキーバインドを追加
+cmap <C-n> :FocusNextCandidate
+cmap <C-p> :FocusPrevCandidate
+
+
+## pagecmd keybinds
+# 全てのページでタブ移動を可能に
+pagecmd http*://* nmap l :TabFocusNext
+pagecmd http*://* nmap h :TabFocusPrev
+pagecmd chrome://* nmap l :TabFocusNext
+pagecmd chrome://* nmap h :TabFocusPrev
+pagecmd * nmap l :TabFocusNext
+pagecmd * nmap h :TabFocusPrev
+pagecmd * nmap <C-l> :TabFocusNext
+pagecmd * nmap <C-h> :TabFocusPrev
+
+# almost all Vichrome functions don't work properly for pdf contents
+# so it's useful to enable default key bindings for pdf file.
+pagecmd *.pdf nmap <C-f> <NOP>
+
+
+## aliases
+
+alias extentions TabOpenNew chrome://extensions/
+alias extention TabOpenNew chrome://extensions/
+alias ext TabOpenNew chrome://extensions/
+alias option TabOpenNew chrome://settings/browser
+alias opt TabOpenNew chrome://settings/browser
+alias downloads TabOpenNew chrome://downloads
+alias history TabOpenNew chrome://history
+alias hist TabOpenNew chrome://history
+alias manual TabOpenNew http://github.com/k2nr/ViChrome/wiki/Vichrome-User-Manual
+alias man TabOpenNew http://github.com/k2nr/ViChrome/wiki/Vichrome-User-Manual
+alias config TabOpenNew chrome-extension://gghkfhpblkcmlkmpcpgaajbbiikbhpdi/options.html
+alias conf TabOpenNew chrome-extension://gghkfhpblkcmlkmpcpgaajbbiikbhpdi/options.html
+alias cnf TabOpenNew chrome-extension://gghkfhpblkcmlkmpcpgaajbbiikbhpdi/options.html
+alias o TabOpenNew
+alias x TabCloseCurrent
+alias new TabOpenNew chrome-internal://newtab/
+
+# use speed dial2's new tab
+#alias new TabOpenNew chrome-extension://jpfpebmajhhopeonhlcgidhclcccjcik/newtab.html
+#alias n TabOpenNew chrome-extension://jpfpebmajhhopeonhlcgidhclcccjcik/newtab.html
+
+
+## NOP keybinds
+
+# page half down
+nmap <C-d> <NOP>
+# page half up
+nmap <C-u> <NOP>
+# Default is page Down
+nmap <C-f> <NOP>
+# C-y default is ScrollUp
+nmap <C-y> <NOP>
+# yy default is copyurl
+nmap yy <NOP>
+# gt default is TabFocusNext
+nmap gt <NOP>
+# gT default is TabFocusPrevious
+nmap gT <NOP>
+# i default is FocusOnFirstInput
+nmap i <NOP>
+# / default is GoSearchModeForward
+nmap / <NOP>
+# ? default is GoSearchModeBackword
+nmap ? <NOP>
+# N default is PrevSearch
+nmap N <NOP>
+
+## DISCARD keybinds
+nmap <BS> <DISCARD>
+
+
+### Sample Settings
+# if you want to change the key used to escape EmergencyMode mode,
+# use emap like the following
+#emap <ESC> :Escape
+
+# if you want to use twitter web's key binding, write settings like below
+#pagecmd http*://twitter.com/* nmap f <NOP>
+#pagecmd http*://twitter.com/* nmap r <NOP>
