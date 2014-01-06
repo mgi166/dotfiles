@@ -8,11 +8,6 @@
 /.bundle
 vendor/bundle/
 
-# Ignore vagrant caches
-/.vagrant
-#Vagrantfile
-*.box
-
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
@@ -68,3 +63,13 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+# emacs.ignore
+ac-comphist.dat
+*/auto-save-list/*
+*~
+
+# Ignore vagrant caches
+/.vagrant
+#Vagrantfile
+*.box

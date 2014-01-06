@@ -248,7 +248,7 @@
 (global-set-key (kbd "M-/") 'undo-tree-redo)
 
 ;;(evil-set-initial-state '
-(require 'evil)
+;;(require 'evil)
 ;;(evil-mode 1)
 ;#####
 
