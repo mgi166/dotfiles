@@ -22,12 +22,12 @@ namespace :dotfiles do
     File.join('backup', file)
   end
 
-  def do_backup(file)
+  def put_backup(file)
     FileUtils.remove_entry_secure(backup_path(file))       if File.exist?(backup_path(file))
     FileUtils.cp_r(file, backup_path(file), verbose: true) if File.exist?(destination_path(file))
   end
 
-  def do_symlink(file)
+  def put_symlink(file)
     FileUtils.remove_entry_secure(destination_path(file)) if File.exist?(destination_path(file))
     FileUtils.symlink(File.expand_path(file), destination_path(file), verbose: true)
   end
@@ -36,7 +36,7 @@ namespace :dotfiles do
     if File.exist?(destination_path(file)) and !File.symlink?(destination_path(file))
       Dir.mkdir('./backup') unless File.exist?('backup')
       if backup?(file)
-        do_backup(file)
+        put_backup(file)
         puts "Done backup to `#{File.expand_path(backup_path(file))}'"
       end
     end
@@ -51,7 +51,7 @@ namespace :dotfiles do
 
     files.each do |f|
       backup(f)
-      do_symlink(f)
+      put_symlink(f)
     end
   end
 
