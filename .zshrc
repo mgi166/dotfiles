@@ -116,7 +116,7 @@ setopt prompt_subst
 case ${UID} in
   0)
 #  PROMPT="%{$fg_bold[magenta]%}[%n:%{$fg_bold[yellow]%}%c%{$fg_bold[magenta]%}]%(!.#.%%)%{$reset_color%} "
-  PROMPT="%"
+  PROMPT="%{$fg_bold[cyan]%}[%n:%{$fg_bold[yellow]%}%c%{$fg_bold[cyan]%}]%#%{$reset_color%} "
   PROMPT2="%{$fg[magenta]%}%_%{$reset_color%}%{$fg_bold[white]%}>%{$reset_color%} "
   ;;
   *)
