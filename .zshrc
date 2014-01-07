@@ -14,6 +14,9 @@ alias ll='ls -lhaF'
 alias el='less -S'
 alias le='less -S'
 alias l='ls'
+alias emacs='open -a Emacs.app' # @mac
+alias emasc='open -a Emacs.app' # @mac
+alias em='emacs'
 alias updatedb="sudo /usr/libexec/locate.updatedb" # @mac
 alias ..='cd ..'
 alias du='du -h'
@@ -21,20 +24,14 @@ alias df='df -h'
 #alias emasc='emacs' # @ubuntu
 #alias te='telnet -l hm ienari' # @ubuntu
 alias which='which -p' # zsh専用
-
-alias emacs='open -a Emacs.app' # @mac
-alias emasc='open -a Emacs.app' # @mac
-alias em='emacs'
+alias c='pbcopy'
 
 ## vcs alias
 alias g='git'
 alias gs='git status'
-alias gg='git status'
-alias gc='git commit'
-alias ga='git add'
+alias gc='git ci'
+alias gl='git log -3'
 alias gd='git diff'
-alias gp='git push'
-alias gl='git log -4'
 alias s='svn'
 alias ss='svn st'
 alias sc='svn ci'
@@ -42,7 +39,7 @@ alias so='svn co'
 alias sa='svn add'
 alias sd='svn diff'
 alias sl='svn log -l 3'
-
+alias sup='svn up'
 
 ##### keybind
 
@@ -116,12 +113,12 @@ setopt prompt_subst
 # root とその他で色を変える & prompt の色設定など
 case ${UID} in
   0)
-  PROMPT="%{$fg_bold[magenta]%}[%n:%{$fg_bold[yellow]%}%c%{$fg_bold[magenta]%}]%(!.#.%%)%{$reset_color%} "
+#  PROMPT="%{$fg_bold[magenta]%}[%n:%{$fg_bold[yellow]%}%c%{$fg_bold[magenta]%}]%(!.#.%%)%{$reset_color%} "
+  PROMPT="%"
   PROMPT2="%{$fg[magenta]%}%_%{$reset_color%}%{$fg_bold[white]%}>%{$reset_color%} "
   ;;
   *)
-#  PROMPT="%{$fg_bold[cyan]%}%m%{$fg_bold[white]%}%%%{$reset_color%} "
-  PROMPT="%{$fg_bold[cyan]%}[%n:%{$fg_bold[yellow]%}%c%{$fg_bold[cyan]%}]%# $reset_color% "
+  PROMPT="%{$fg_bold[cyan]%}[%n:%{$fg_bold[yellow]%}%c%{$fg_bold[cyan]%}]%#%{$reset_color%} "
   PROMPT2="%{$fg[cyan]%}%_%{$reset_color%}%{$fg_bold[white]%}>%{$reset_color%} "
   ;;
 esac
@@ -191,17 +188,19 @@ setopt no_flow_control
 # C-d でログアウトしないようにする
 setopt ignore_eof
 
+
 # rbenv
-export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH" # for tmux
 eval "$(rbenv init -)"
 
 ##### path 関連
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH # /usr/local/bin は homebrew で install した formula のsymboliclinkが貼られている。この directory を$PATHに記入することにより、defalut で入っているコマンドより、homebrewで入れたコマンドが常に優先されることに注意。/usr/local/mysql/bin はdmgでmysqlをインストールしたので、pathに追加している。
+# /usr/local/bin は homebrew で install した formula のsymboliclinkが貼られている。この directory を$PATHに記入することにより、defalut で入っているコマンドより、homebrewで入れたコマンドが常に優先されることに注意。/usr/local/mysql/bin はdmgでmysqlをインストールしたので、pathに追加している。
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/mysql/bin
 
 # .rbenv/libexec/../completions/rbenv.bash:14: command not found: complete と表示される場合は、chshでshellを書き換えて再起動する。
 # source ~/.rbenv/completions/rbenv.zsh
 
-export SVN_EDITOR='emacs'
+export SVN_EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 
 # mysql 5.1.69
 alias mysql=/usr/local/mysql/bin/mysql
@@ -216,7 +215,10 @@ function precmd () {
   z --add "$(pwd -P)"
 }
 
+export EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 
+#export $SVN="svn://sv01.feedforce.jp"
+#export $CF=$SVN/contents-feeder
 ##### その他
 
 # cd したら自動的にls
@@ -226,4 +228,3 @@ function precmd () {
 # auto_cd の場合でも ls
 #function chpwd() { ls -v -F --color=auto } # @ubuntu
 #function chpwd() { ls -v -F -G } # @mac
-
