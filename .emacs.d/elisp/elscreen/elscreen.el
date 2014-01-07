@@ -994,7 +994,7 @@ is ommitted, current screen will survive."
         (elscreen-goto next-screen))))
 (defalias 'elscreen-jump-0 'elscreen-jump)
 (defalias 'elscreen-jump-9 'elscreen-jump)
-(elscreen-jump)
+
 (defun elscreen-swap ()
   "Interchange screens selected currently and previously."
   (interactive)

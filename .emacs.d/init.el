@@ -39,7 +39,7 @@
 (require 'cl)
 
 ;; mac-key-mode (CocoaEmacsの時は不要)
-(when (< emacs-major-version 23)
+(when (and (eq window-system 'mac) (< emacs-major-version 23))
   (require 'mac-key-mode)
   (mac-key-mode 1)
   (define-key mac-key-mode-map [(alt {)] 'elscreen-previous)
@@ -67,8 +67,8 @@
 (color-theme-charcoal-black)
 
 ;; solarized
-;;(require 'color-theme-solarized)
-;;(color-theme-solarized-dark)
+;; (require 'color-theme-solarized)
+;; (color-theme-solarized-dark)
 
 ;; zenburn
 ;; (require 'zenburn)
@@ -90,10 +90,12 @@
 (define-key elscreen-map "\C-k" 'elscreen-kill-screen-and-buffers)
 (define-key elscreen-map "k" 'elscreen-kill-screen-and-buffers)
 
+;; [0, 1, 2] で 1 をkill-screen したときに [0, 1] となるようにする
 ;; see(http://d.hatena.ne.jp/asudofu/20091121/1258778536)
 (defun elscreen-insert-internal (screen)
   (elscreen-clone screen)
   (elscreen-kill-internal screen))
+
 (defun elscreen-get-gap-next ()
   (let ((screen-list (sort (elscreen-get-screen-list) '<))
 	(screen 0))
@@ -156,12 +158,13 @@
 (setq tags-revert-without-query t)
 (setq ctags-command "ctags -e -R")
 
-;; redo+
-(require 'redo+)
-(global-set-key (kbd "C-M-_") 'redo)
-(setq undo-no-redo t) ; 過去のundoがredoされないようにする
-(setq undo-limit 600000)
-(setq undo-strong-limit 900000)
+;; redo+ (emacs 24 だと使えないので注意)
+(when (< emacs-major-version 24)
+  (require 'redo+)
+  (global-set-key (kbd "C-M-/") 'redo)
+  (setq undo-no-redo t) ; 過去のundoがredoされないようにする
+  (setq undo-limit 600000)
+  (setq undo-strong-limit 900000))
 
 ;; anything(総合interface。フル装備は M-x の補完が取られるので使用していない)
 ;; (require 'anything-startup) ;; フル装備
@@ -169,8 +172,8 @@
 (require 'anything)
 (require 'anything-config)
 (require 'anything-match-plugin)
-;;(and (equal current-language-environment "Japanese")
-;;     (require 'anything-migemo nil t))
+(and (equal current-language-environment "Japanese")
+     (require 'anything-migemo nil t))
 (require 'anything-grep nil t) ;;; `anything-grep' replaces standard `grep' command.
 (require 'anything-show-completion)
 
@@ -195,61 +198,79 @@
 (define-key global-map "\C-x\C-b" 'anything-for-files)
 
 ;; anything-for-elscreen (elscreen のタブを pattern で incremental search する)
-;; (defun anything-for-elscreen ()
-;;   "preconfigured `anything' for anything-for-elscreen"
-;;   (interactive)
-;;   (anything anything-c-source-elscreen
-;; 	    nil nil nil nil "*anything for elscreen*"))
-;;(define-key global-map "\M-l" 'anything-for-elscreen)
-
-;; M-y を anything like な interface で
-(global-set-key (kbd "M-y") 'anything-show-kill-ring)
+(defun anything-for-elscreen ()
+  "preconfigured `anything' for anything-for-elscreen"
+  (interactive)
+  (anything anything-c-source-elscreen
+	    nil nil nil nil "*anything for elscreen*"))
+(define-key global-map "\M-l" 'anything-for-elscreen)
 
 ;; org-mode(最新版をinstallしようとして失敗。versionは古いが元々入っているらしい)
 
 ;;ESS
 ;(require 'ess-site)
 
-;; auto-install (elispのインストールが可能に。通常は起動に時間がかかるのでコメントアウト)
-;; [usage]
-;; (M-x elisp-install RET URL)
-;; (M-x auto-install-from-emacswiki RET name.el)
+;; auto-install(M-x elisp-install RET URL で elispのインストールが可能に。通常は起動に時間がかかるのでコメントアウト)
 ;; (require 'auto-install)
 ;; (setq auto-install-directory "~/.emacs.d/elisp/")
 ;; (auto-install-update-emacswiki-package-name t)
 ;; (auto-install-compatibility-setup)
 
-;; migemo
-;; (require 'migemo)
-;; (setq migemo-command "cmigemo")
-;; (setq migemo-options '("-q" "--emacs"))
-;; (setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
-;; (setq migemo-user-dictionary nil)
-;; (setq migemo-regex-dictionary nil)
-;; (setq migemo-coding-system 'utf-8-unix)
-;; (load-library "migemo")
-;; (migemo-init)
-;; (set-process-query-on-exit-flag migemo-process nil) ;; この設定がないと、Active processes exist; kill them and exit anyway?"などと云われて，"y"を押さないと終了しない
+;; dired
+(define-key global-map "\C-x\C-d" 'dired)
+
+;; recentf-ext (バッファも recentf の対象とする)
+(require 'recentf-ext)
+
+;; ido mode(ちょっとうるさいので停止)
+;; (require 'ido)
+;; (ido-mode t)
+
+;; revive.el (前回のバッファをsaveし、load する)
+(autoload 'save-current-configuration "revive" "Save status" t)
+(autoload 'resume "revive" "Resume Emacs" t)
+(autoload 'wipe "revive" "Wipe emacs" t)
+(define-key ctl-x-map "F" 'resume)                        ; C-x F で復元
+(define-key ctl-x-map "K" 'wipe)                          ; C-x K で Kill
+(add-hook 'kill-emacs-hook 'save-current-configuration)
+
+;; insert-pair (範囲で囲った部分を、シングルクォート ダブルクオート、大括弧で囲う)
+(define-key global-map (kbd "M-\'") 'insert-pair)
+(define-key global-map (kbd "M-\"") 'insert-pair)
+;; (define-key global-map (kbd "M-[") 'insert-pair)
+
+;; jaspace (全角空白、タブを強調表示。(改行だけ強調しない))
+(require 'jaspace)
+(setq jaspace-alternate-jaspace-string "□") ;; 全角空白
+(setq jaspace-alternate-eol-string nil) ;; 改行
+(setq jaspace-highlight-tabs ? ) ;; tab
+
+;; migemo (ローマ字検索で日本語が引っかかるようにする。事前に cmigemo の install が必要)
+(require 'migemo)
+(setq migemo-command "cmigemo")
+(setq migemo-options '("-q" "--emacs"))
+(setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
+(setq migemo-user-dictionary nil)
+(setq migemo-regex-dictionary nil)
+(setq migemo-coding-system 'utf-8-unix)
+(load-library "migemo")
+(migemo-init)
+(set-process-query-on-exit-flag migemo-process nil) ;; この設定がないと、Active processes exist; kill them and exit anyway?"などと云われて，"y"を押さないと終了しない
 
 ;; wdired (dired 中に r を押すと、file を rename してくれる)
 (require 'wdired)
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 
-;; ;; emacsclient
-;; (when (> emacs-major-version 223)
-;;   (require 'server)
-;;   (unless (server-running-p)
-;; 	(server-start))
-;; )
+;; tramp (リモートサーバーのファイルをローカルにあるように編集できる。パスワードを聞かれないで ssh できることが前提)
+;; 使い方 C-x C-f /ssh:user@example.com:/path/to/file
+(require 'tramp)
 
 ;; undo-tree()
-(require 'undo-tree)
-(global-undo-tree-mode t)
-(global-set-key (kbd "M-/") 'undo-tree-redo)
+;(require 'undo-tree)
+;(global-undo-tree-mode t)
+;(global-set-key (kbd "M-/") 'undo-tree-redo)
 
-;;(evil-set-initial-state '
-;;(require 'evil)
-;;(evil-mode 1)
+
 ;#####
 
 
@@ -287,15 +308,41 @@
 (autoload 'inf-ruby-keys "inf-ruby"
   "Set local key defs for inf-ruby in ruby-mode")
 
+(defun execute-rspec ()
+  (interactive)
+  (do-applescript (format "tell application \"iTerm\"
+  activate
+  tell current session of current terminal
+    write text \"rspec %s\"
+  end tell
+  end tell
+  tell application \"System Events\"
+    keystroke return
+  end tell"
+  buffer-file-name (line-number-at-pos))))
+
 (defun ruby-mode-hooks ()
   (inf-ruby-keys)
 ;  (ruby-electric-mode t)
-  (ruby-block-mode t))
+  (ruby-block-mode t)
+  (define-key ruby-mode-map (kbd "C-c r") 'execute-rspec))
 (add-hook 'ruby-mode-hook 'ruby-mode-hooks)
+(autoload 'ruby-mode "ruby-mode" nil t)
+(add-to-list 'auto-mode-alist
+			 '("\\.rake$" . ruby-mode))
+(add-to-list 'auto-mode-alist
+			 '("Rakefile$" . ruby-mode))
+(add-to-list 'auto-mode-alist
+			 '("Capfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist
+			 '("Gemfile$" . ruby-mode))
+(add-to-list 'auto-mode-alist
+			 '("\\.cap$" . ruby-mode))
 
 ;; js2-mode
 (autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist
+			 '("\\.js$" . js2-mode))
 
 ;#####
 
@@ -342,12 +389,6 @@
 (cua-mode t)
 (setq cua-enable-cua-keys nil)
 
-;; dired
-(define-key global-map "\C-x\C-d" 'dired)
-
-;; 履歴から、最近開いたファイルを開く
-(global-set-key "\C-xf" 'recentf-open-files)
-
 ;; ミニバッファの履歴を "C-p" と "C-n" で辿れるようにする
 (define-key minibuffer-local-must-match-map "\C-p" 'previous-history-element)
 (define-key minibuffer-local-must-match-map "\C-n" 'next-history-element)
@@ -355,6 +396,12 @@
 (define-key minibuffer-local-completion-map "\C-n" 'next-history-element)
 (define-key minibuffer-local-map "\C-p" 'previous-history-element)
 (define-key minibuffer-local-map "\C-n" 'next-history-element)
+
+;;; リージョンの大文字小文字変換を有効にする。
+;; C-x C-u -> upcase
+;; C-x C-l -> downcase
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
 
 ;#####
 
@@ -426,12 +473,6 @@
 (setq blink-cursor-delay 30.0)
 (blink-cursor-mode 1)
 
-;; 全角空白、タブを強調表示。改行は強調しない
-(require 'jaspace)
-(setq jaspace-alternate-jaspace-string "□") ;; 全角空白
-(setq jaspace-alternate-eol-string nil) ;; 改行
-(setq jaspace-highlight-tabs ? ) ;; tab
-
 ;#####
 
 
@@ -463,16 +504,17 @@
   "If it wasn't for this you'd be GNU/Spammed by now"
   (message ""))
 
-;; Control + すべてのキー を無視する @mac (mac-add-ignore-shortcut はCarbonEmacs限定。CocoaEmacsでは不要なのでコメントアウトしていい。
+;; Control + すべてのキーを無視する @mac (mac-add-ignore-shortcut はCarbonEmacs限定。CocoaEmacsでは不要なのでコメントアウトしていい。
 (unless (not window-system)
   (when (eq system-type 'darwin)
 ;;	(mac-add-ignore-shortcut '(control)))
 ))
 
-;; bell のマークを消す
-(setq visible-bell t)
+;; vc-git..done という表示をなくす
+(setq vc-handled-backends nil)
 
-;; フラッシュ無し
+;; ビープ音を消す
+(setq visible-bell t)
 (setq ring-bell-function 'ignore)
 
 ;#####
@@ -487,16 +529,16 @@
 (setq initial-frame-alist
       (append
        '((top                 . 22)    ; フレームの Y 位置(ピクセル数)@mac
-		 (left                . 670)   ; フレームの X 位置(ピクセル数)@mac
-		 (width               . 104)    ; フレーム幅(文字数)@mac
-		 (height              . 53))   ; フレーム高(文字数)@mac
+		 (left                . 1605)   ; フレームの X 位置(ピクセル数)@mac
+		 (width               . 222)    ; フレーム幅(文字数)@mac
+		 (height              . 72))   ; フレーム高(文字数)@mac
        initial-frame-alist))
 
 ;; 新規フレームのデフォルト設定
 (setq default-frame-alist
       (append
-       '((width               . 104)	; フレーム幅(文字数)@mac
-	 (height              . 53))	; フレーム高(文字数)@mac
+       '((width               . 80)	; フレーム幅(文字数)@mac
+	 (height              . 45))	; フレーム高(文字数)@mac
        default-frame-alist))
 
 ;;スクロールを１行づつ
@@ -507,8 +549,9 @@
 
 ;;最近使ったファイルをメニューに表示
 (recentf-mode 1)
-(setq recentf-max-menu-items 30)
-(setq recentf-max-saved-items 30)
+(setq recentf-max-menu-items 200)
+(setq recentf-max-saved-items 200)
+(global-set-key "\C-xf" 'recentf-open-files)
 
 ;;補完機能
 (setq partial-complication-mode 1)
@@ -546,19 +589,19 @@
 (setq x-select-enable-clipboard t)
 
 ;; emacs でコピーした内容とクリップボードを同期
-(setq darwin-p   (eq system-type 'darwin)
-      linux-p    (eq system-type 'gnu/linux)
-      carbon-p   (eq system-type 'mac)
-      meadow-p   (featurep 'meadow))
+(setq darwin-p	 (eq system-type 'darwin)
+	  linux-p	 (eq system-type 'gnu/linux)
+	  carbon-p	 (eq system-type 'mac)
+	  meadow-p	 (featurep 'meadow))
 
 (defun copy-from-osx ()
   (shell-command-to-string "pbpaste"))
 
 (defun paste-to-osx (text &optional push)
   (let ((process-connection-type nil))
-    (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-      (process-send-string proc text)
-      (process-send-eof proc))))
+	(let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+	  (process-send-string proc text)
+	  (process-send-eof proc))))
 
 (if (or darwin-p carbon-p)
   (setq interprogram-cut-function 'paste-to-osx)
@@ -568,19 +611,20 @@
 (defvar prev-yanked-text nil "*previous yanked text")
 
 (setq interprogram-cut-function
-      (lambda (text &optional push)
-        ; use pipe
-        (let ((process-connection-type nil))
-          (let ((proc (start-process "pbcopy" nil "pbcopy")))
-            (process-send-string proc string)
-            (process-send-eof proc)
-            ))))
+	  (lambda (text &optional push)
+		; use pipe
+		(let ((process-connection-type nil))
+		  (let ((proc (start-process "pbcopy" nil "pbcopy")))
+			(process-send-string proc string)
+			(process-send-eof proc)
+			))))
 
 (setq interprogram-paste-function
-      (lambda ()
-        (let ((text (shell-command-to-string "pbpaste")))
-          (if (string= prev-yanked-text text)
-              nil
-            (setq prev-yanked-text text)))))
+	  (lambda ()
+		(let ((text (shell-command-to-string "pbpaste")))
+		  (if (string= prev-yanked-text text)
+			  nil
+			(setq prev-yanked-text text)))))
 
 ;#####
+

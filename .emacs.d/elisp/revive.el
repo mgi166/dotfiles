@@ -1,17 +1,17 @@
-;;; -*- Emacs-Lisp -*-
-;;; <plaintext>
-;;; revive.el: Resume Emacs.
-;;; (c) 1994-2003 by HIROSE Yuuji [yuuji@gentei.org]
-;;; $Id: revive.el,v 2.19 2008/05/13 01:19:16 yuuji Exp yuuji $
-;;; Last modified Wed May  4 07:25:06 2011 on firestorm
+;;; revive.el --- Resume Emacs -*- coding: euc-jp -*-
+;;; (c) 1994-2012 by HIROSE Yuuji [yuuji@gentei.org]
+;;; $Id: revive.el,v 2.21 2012/08/12 11:56:06 yuuji Exp yuuji $
+;;; Last modified Thu Oct 18 14:47:17 2012 on firestorm
 
-;;;[[[   NOTICE ’ˆÓ NOTICE ’ˆÓ NOTICE ’ˆÓ NOTICE ’ˆÓ NOTICE ’ˆÓ   ]]]
+;;;[[[   NOTICE Ãí°Õ NOTICE Ãí°Õ NOTICE Ãí°Õ NOTICE Ãí°Õ NOTICE Ãí°Õ   ]]]
 ;;;--------------------------------------------------------------------------
 ;;;	If you are using `windows.el', you can omit the settings of
 ;;;	define-key and autoload.
-;;;	windows.el‚ğ•’ig‚Á‚Ä‚¢‚éê‡‚Í revive.el ‚Ì‚½‚ß‚ÌƒL[‚ÌŠ„‚è“–
-;;;	‚Ä‚àautoload‚Ìİ’è‚à‚·‚é•K—v‚ª‚ ‚è‚Ü‚¹‚ñB
+;;;	windows.el¤òÉáÃÊ»È¤Ã¤Æ¤¤¤ë¾ì¹ç¤Ï revive.el ¤Î¤¿¤á¤Î¥­¡¼¤Î³ä¤êÅö
+;;;	¤Æ¤âautoload¤ÎÀßÄê¤â¤¹¤ëÉ¬Í×¤¬¤¢¤ê¤Ş¤»¤ó¡£
 ;;;--------------------------------------------------------------------------
+;;;
+;;; Commentary:
 ;;;
 ;;;		Resume Emacs:		revive.el
 ;;;
@@ -135,98 +135,100 @@
 ;;;
 ;;; Japanese Document follows:
 ;;;
-;;;yrevive‚Æ‚Íz
+;;;¡Úrevive¤È¤Ï¡Û
 ;;;
-;;;	  revive.el ‚ğg‚¤‚ÆAEmacs g—p‚Ìó‘Ô‚ğƒtƒ@ƒCƒ‹‚ÉƒZ[ƒu‚µ‚ÄA
-;;;	Ÿ‰ñ Emacs ‚ğ‹N“®‚·‚é‚É‚»‚Ìó‘Ô‚É•œ‹A‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B‚à‚¿
-;;;	‚ë‚ñƒEƒBƒ“ƒhƒE‚Ì•ªŠ„ó‘Ô‚à•œŒ³‚³‚ê‚é‚Ì‚Å saveconf ‚â desktop ‚Å
-;;;	‚¢‚ç‚¢‚ç‚µ‚Ä‚¢‚½l‚É‚à‚¨Š©‚ß‚Å‚·B
+;;;	  revive.el ¤ò»È¤¦¤È¡¢Emacs »ÈÍÑ»ş¤Î¾õÂÖ¤ò¥Õ¥¡¥¤¥ë¤Ë¥»¡¼¥Ö¤·¤Æ¡¢
+;;;	¼¡²ó Emacs ¤òµ¯Æ°¤¹¤ë»ş¤Ë¤½¤Î¾õÂÖ¤ËÉüµ¢¤¹¤ë¤³¤È¤¬¤Ç¤­¤Ş¤¹¡£¤â¤Á
+;;;	¤í¤ó¥¦¥£¥ó¥É¥¦¤ÎÊ¬³ä¾õÂÖ¤âÉü¸µ¤µ¤ì¤ë¤Î¤Ç saveconf ¤ä desktop ¤Ç
+;;;	¤¤¤é¤¤¤é¤·¤Æ¤¤¤¿¿Í¤Ë¤â¤ª´«¤á¤Ç¤¹¡£
 ;;;
-;;;y‘g‚İ‚İ•ûz
+;;;¡ÚÁÈ¤ß¹ş¤ßÊı¡Û
 ;;;
-;;;	  revive.el ‚ğ load-path ‚Ì’Ê‚Á‚½ƒfƒBƒŒƒNƒgƒŠ‚É“ü‚êA~/.emacs ‚É
-;;;	ˆÈ‰º‚Ì‹Lq‚ğ“ü‚ê‚Ä‚­‚¾‚³‚¢B
+;;;	  revive.el ¤ò load-path ¤ÎÄÌ¤Ã¤¿¥Ç¥£¥ì¥¯¥È¥ê¤ËÆş¤ì¡¢~/.emacs ¤Ë
+;;;	°Ê²¼¤Îµ­½Ò¤òÆş¤ì¤Æ¤¯¤À¤µ¤¤¡£
 ;;;
 ;;;	  (autoload 'save-current-configuration "revive" "Save status" t)
 ;;;	  (autoload 'resume "revive" "Resume Emacs" t)
 ;;;	  (autoload 'wipe "revive" "Wipe emacs" t)
 ;;;
-;;;	‚»‚µ‚Äã‚ÌŠÖ”‚ğD‚«‚ÈƒL[‚ÉŠ„‚è“–‚Ä‚Ä‚­‚¾‚³‚¢BˆÈ‰º‚Í—á‚Å‚·B
+;;;	¤½¤·¤Æ¾å¤Î´Ø¿ô¤ò¹¥¤­¤Ê¥­¡¼¤Ë³ä¤êÅö¤Æ¤Æ¤¯¤À¤µ¤¤¡£°Ê²¼¤ÏÎã¤Ç¤¹¡£
 ;;;
 ;;;	  (define-key ctl-x-map "S" 'save-current-configuration)
 ;;;	  (define-key ctl-x-map "F" 'resume)
 ;;;	  (define-key ctl-x-map "K" 'wipe)
 ;;;
-;;;yg‚¢•ûz
+;;;¡Ú»È¤¤Êı¡Û
 ;;;
-;;;	  ã‚Ì define-key ‚ğ‚µ‚½ê‡‚É‚ÍAC-x S ‚ÅŒ»İ‚Ì•ÒWó‘Ô‚ğƒZ[ƒu
-;;;	‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·Bsave-current-configuration ŠÖ”‚É”ˆø”‚ğ‚Â
-;;;	‚¯‚é‚Æ•¡”‚Ìó‘Ô‚ğ•ÊX‚ÉƒZ[ƒu‚Å‚«‚Ü‚·BuC-u 2 C-x Sv‚Æ‚·‚é‚Æ2
-;;;	”Ô‚Ìƒoƒbƒtƒ@‚ÉŒ»ó‚ğƒZ[ƒu‚Å‚«‚Ü‚·B‚±‚ê‚ğƒ[ƒh‚·‚é‚à“¯—l‚É
-;;;	uC-u 2 C-x Fv‚Æƒ^ƒCƒv‚·‚é‚Æ2”Ô‚Ìƒoƒbƒtƒ@‚©‚çó‘Ô‚ğƒ[ƒh‚µ‚Ü‚·B
+;;;	  ¾å¤Î define-key ¤ò¤·¤¿¾ì¹ç¤Ë¤Ï¡¢C-x S ¤Ç¸½ºß¤ÎÊÔ½¸¾õÂÖ¤ò¥»¡¼¥Ö
+;;;	¤¹¤ë¤³¤È¤¬¤Ç¤­¤Ş¤¹¡£save-current-configuration ´Ø¿ô¤Ë¿ô°ú¿ô¤ò¤Ä
+;;;	¤±¤ë¤ÈÊ£¿ô¤Î¾õÂÖ¤òÊÌ¡¹¤Ë¥»¡¼¥Ö¤Ç¤­¤Ş¤¹¡£¡ÖC-u 2 C-x S¡×¤È¤¹¤ë¤È2
+;;;	ÈÖ¤Î¥Ğ¥Ã¥Õ¥¡¤Ë¸½¾õ¤ò¥»¡¼¥Ö¤Ç¤­¤Ş¤¹¡£¤³¤ì¤ò¥í¡¼¥É¤¹¤ë»ş¤âÆ±ÍÍ¤Ë
+;;;	¡ÖC-u 2 C-x F¡×¤È¥¿¥¤¥×¤¹¤ë¤È2ÈÖ¤Î¥Ğ¥Ã¥Õ¥¡¤«¤é¾õÂÖ¤ò¥í¡¼¥É¤·¤Ş¤¹¡£
 ;;;
-;;;y•Ï”‚ÌƒZ[ƒuz
+;;;¡ÚÊÑ¿ô¤Î¥»¡¼¥Ö¡Û
 ;;;
-;;;	  •Ï”‚Ì’l‚àƒZ[ƒu‚µ‚Ä‚¨‚­‚±‚Æ‚ª‚Å‚«‚Ü‚·BƒfƒtƒHƒ‹ƒg‚ÅƒZ[ƒu‚·‚é 
-;;;	global •Ï”‚Í revive:save-variables-global-default ‚ÉAlocal •Ï
-;;;	”‚Í revive:save-variables-local-default ‚É’è‹`‚³‚ê‚Ä‚¢‚Ü‚·B‚Ù
-;;;	‚©‚Ì•Ï”‚à•Û‘¶‚µ‚½‚¢ê‡‚ÍArevive:save-variables-global-private 
-;;;	‚É global •Ï”–¼‚ğArevive:save-variables-local-private ‚É local 
-;;;	•Ï”–¼‚ğ‚»‚ê‚¼‚êƒŠƒXƒg‚ÌŒ`‚Å’è‹`‚µ‚Ä‚¨‚«‚Ü‚·B—á‚¦‚Î gmhist ‚ğg‚Á
-;;;	‚Ä‚¢‚éê‡‚É‚ÍA
+;;;	  ÊÑ¿ô¤ÎÃÍ¤â¥»¡¼¥Ö¤·¤Æ¤ª¤¯¤³¤È¤¬¤Ç¤­¤Ş¤¹¡£¥Ç¥Õ¥©¥ë¥È¤Ç¥»¡¼¥Ö¤¹¤ë
+;;;	global ÊÑ¿ô¤Ï revive:save-variables-global-default ¤Ë¡¢local ÊÑ
+;;;	¿ô¤Ï revive:save-variables-local-default ¤ËÄêµÁ¤µ¤ì¤Æ¤¤¤Ş¤¹¡£¤Û
+;;;	¤«¤ÎÊÑ¿ô¤âÊİÂ¸¤·¤¿¤¤¾ì¹ç¤Ï¡¢revive:save-variables-global-private
+;;;	¤Ë global ÊÑ¿ôÌ¾¤ò¡¢revive:save-variables-local-private ¤Ë local
+;;;	ÊÑ¿ôÌ¾¤ò¤½¤ì¤¾¤ì¥ê¥¹¥È¤Î·Á¤ÇÄêµÁ¤·¤Æ¤ª¤­¤Ş¤¹¡£Îã¤¨¤Ğ gmhist ¤ò»È¤Ã
+;;;	¤Æ¤¤¤ë¾ì¹ç¤Ë¤Ï¡¢
 ;;;
 ;;;		(setq revive:save-variables-global-private
 ;;;		      '(file-history buffer-history minibuffer-history))
 ;;;
-;;;	‚È‚Ç‚Æ ~/.emacs ‚É‘‚¢‚Ä‚¨‚­‚Æ‰õ“K‚Å‚µ‚å‚¤B
+;;;	¤Ê¤É¤È ~/.emacs ¤Ë½ñ¤¤¤Æ¤ª¤¯¤È²÷Å¬¤Ç¤·¤ç¤¦¡£
 ;;;
-;;;y•’Ê‚Å‚È‚¢ƒoƒbƒtƒ@‚Ìˆµ‚¢z
+;;;¡ÚÉáÄÌ¤Ç¤Ê¤¤¥Ğ¥Ã¥Õ¥¡¤Î°·¤¤¡Û
 ;;;
-;;;	  mh-rmail ‚Å‚ÍƒJƒŒƒ“ƒgƒoƒbƒtƒ@‚ª mh-folder-mode, gnus ‚Å‚ÍƒJƒŒ
-;;;	ƒ“ƒgƒoƒbƒtƒ@‚ª gnus-Group-mode ‚É‚È‚è‚Ü‚·B‚±‚Ì‘Î‰ŠÖŒW‚ÍA•Ï” 
-;;;	revive:major-mode-command-alist-default ‚É‘‚©‚ê‚Ä‚¢‚Ü‚·B‚±‚Ì•Ï
-;;;	”‚É“o˜^‚³‚ê‚Ä‚¢‚éˆÈŠO‚Ì‚à‚Ì‚ğ’è‹`‚µ‚½‚¢ê‡‚ÍA
+;;;	  mh-rmail ¤Ç¤Ï¥«¥ì¥ó¥È¥Ğ¥Ã¥Õ¥¡¤¬ mh-folder-mode, gnus ¤Ç¤Ï¥«¥ì
+;;;	¥ó¥È¥Ğ¥Ã¥Õ¥¡¤¬ gnus-Group-mode ¤Ë¤Ê¤ê¤Ş¤¹¡£¤³¤ÎÂĞ±ş´Ø·¸¤Ï¡¢ÊÑ¿ô
+;;;	revive:major-mode-command-alist-default ¤Ë½ñ¤«¤ì¤Æ¤¤¤Ş¤¹¡£¤³¤ÎÊÑ
+;;;	¿ô¤ËÅĞÏ¿¤µ¤ì¤Æ¤¤¤ë°Ê³°¤Î¤â¤Î¤òÄêµÁ¤·¤¿¤¤¾ì¹ç¤Ï¡¢
 ;;;
 ;;;		(setq revive:major-mode-command-alist-private
 ;;;		  '((hogehoge-mode	. hoge)
 ;;;		    (herohero-mode	. herohero)
-;;;		    ("ƒ^ƒCƒv•ƒƒjƒ…["	. trr)))
+;;;		    ("¥¿¥¤¥×¡õ¥á¥Ë¥å¡¼"	. trr)))
 ;;;
-;;;	‚Ì‚æ‚¤‚É revive:major-mode-command-alist-private ‚Ì’l‚ğİ’è‚·‚é
-;;;	‚ÆŸ‰ñ resume ‚µ‚½‚É©“®“I‚É‘Î‰‚·‚éƒRƒ}ƒ“ƒh‚ª‹N“®‚³‚ê‚Ü‚·B‚Ü
-;;;	‚½ã‚Ì—á‚É‚ ‚é‚æ‚¤‚ÉAmajor-mode(ƒVƒ“ƒ{ƒ‹)‚Ì‘ã‚í‚è‚É buffer-name
-;;;	(•¶š—ñ)‚ğw’è‚·‚é‚±‚Æ‚à‚Å‚«‚Ü‚·B
+;;;	¤Î¤è¤¦¤Ë revive:major-mode-command-alist-private ¤ÎÃÍ¤òÀßÄê¤¹¤ë
+;;;	¤È¼¡²ó resume ¤·¤¿»ş¤Ë¼«Æ°Åª¤ËÂĞ±ş¤¹¤ë¥³¥Ş¥ó¥É¤¬µ¯Æ°¤µ¤ì¤Ş¤¹¡£¤Ş
+;;;	¤¿¾å¤ÎÎã¤Ë¤¢¤ë¤è¤¦¤Ë¡¢major-mode(¥·¥ó¥Ü¥ë)¤ÎÂå¤ï¤ê¤Ë buffer-name
+;;;	(Ê¸»úÎó)¤ò»ØÄê¤¹¤ë¤³¤È¤â¤Ç¤­¤Ş¤¹¡£
 ;;;
-;;;	  ‚Ü‚½ASKK‚Ì«‘‚Ì‚æ‚¤‚ÉƒŠƒWƒ…[ƒ€‚·‚é‚Æ‚¤‚Ü‚­“®‚©‚È‚­‚È‚Á‚Ä‚µ
-;;;	‚Ü‚¤ƒoƒbƒtƒ@‚ª‚ ‚éê‡‚ÍA•Ï” revive:ignore-buffer-pattern ‚É‚»
-;;;	‚Ìƒoƒbƒtƒ@–¼‚ªƒ}ƒbƒ`‚·‚é‚æ‚¤‚È³‹K•\Œ»‚ğİ’è‚µ‚Ä‚­‚¾‚³‚¢B
+;;;	  ¤Ş¤¿¡¢SKK¤Î¼­½ñ¤Î¤è¤¦¤Ë¥ê¥¸¥å¡¼¥à¤¹¤ë¤È¤¦¤Ş¤¯Æ°¤«¤Ê¤¯¤Ê¤Ã¤Æ¤·
+;;;	¤Ş¤¦¥Ğ¥Ã¥Õ¥¡¤¬¤¢¤ë¾ì¹ç¤Ï¡¢ÊÑ¿ô revive:ignore-buffer-pattern ¤Ë¤½
+;;;	¤Î¥Ğ¥Ã¥Õ¥¡Ì¾¤¬¥Ş¥Ã¥Á¤¹¤ë¤è¤¦¤ÊÀµµ¬É½¸½¤òÀßÄê¤·¤Æ¤¯¤À¤µ¤¤¡£
 ;;;
-;;;yƒvƒƒOƒ‰ƒ€‚©‚çg‚¤z
+;;;¡Ú¥×¥í¥°¥é¥à¤«¤é»È¤¦¡Û
 ;;;
-;;;	  ‰pŒê”ÅƒhƒLƒ…ƒƒ“ƒg [For programmers] ‚Ì€‚ğQÆ‚µ‚Ä‚­‚¾‚³‚¢B
+;;;	  ±Ñ¸ìÈÇ¥É¥­¥å¥á¥ó¥È [For programmers] ¤Î¹à¤ò»²¾È¤·¤Æ¤¯¤À¤µ¤¤¡£
 ;;;
-;;;y‚ ‚Æ‚ª‚«z
+;;;¡Ú¤¢¤È¤¬¤­¡Û
 ;;;
-;;;	  Å‰‚Í resume ‚Æ‚¢‚¤ƒtƒ@ƒCƒ‹–¼‚¾‚Á‚½‚Ì‚Å‚·‚ªAEmacs 19 ‚ÌƒfƒB
-;;;	ƒŒƒNƒgƒŠ‚É resume.el ‚Æ‚¢‚¤ƒtƒ@ƒCƒ‹‚ª‚ ‚Á‚ÄƒVƒ‡ƒbƒN‚ğó‚¯‚Ü‚µ‚½B
-;;;	‚±‚¿‚ç‚ÍƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Å‰½‰ñ emacs ‚Æ‘Å‚Á‚Ä‚àAŠù‚É‹N“®‚µ‚Ä‚¢‚é 
-;;;	emacs ‚Éƒtƒ@ƒCƒ‹‚ğ“n‚·‚Æ‚¢‚¤‚¾‚¯‚Ì(ƒs[[)ƒvƒƒOƒ‰ƒ€‚Åu‚Ç‚±‚ª 
-;;;	resume ‚â‚Ë‚ñv‚ÆŒ¾‚¢‚½‚­‚È‚è‚Ü‚µ‚½‚ª‰ä–‚µ‚Ä revive.el ‚ÉƒŠƒl[
-;;;	ƒ€‚µ‚Ü‚µ‚½B‚ ‚ ‚Ü‚Á‚½‚­Asaveconf ‚Å‚à desktop ‚Å‚à‚È‚µ“¾‚È‚©‚Á
-;;;	‚½ƒEƒBƒ“ƒhƒE•ªŠ„ó‘Ô‚Ì•œŒ³‚ğƒTƒ|[ƒg‚µ‚½‚ÆŒ¾‚¤‚Ì‚ÉcA‚È‚ñ‚Ä‚±‚Æ
-;;;	‚Í‰pŒê”Å‚É‚Í‘‚¯‚È‚¢‚È:-)B
+;;;	  ºÇ½é¤Ï resume ¤È¤¤¤¦¥Õ¥¡¥¤¥ëÌ¾¤À¤Ã¤¿¤Î¤Ç¤¹¤¬¡¢Emacs 19 ¤Î¥Ç¥£
+;;;	¥ì¥¯¥È¥ê¤Ë resume.el ¤È¤¤¤¦¥Õ¥¡¥¤¥ë¤¬¤¢¤Ã¤Æ¥·¥ç¥Ã¥¯¤ò¼õ¤±¤Ş¤·¤¿¡£
+;;;	¤³¤Á¤é¤Ï¥³¥Ş¥ó¥É¥é¥¤¥ó¤Ç²¿²ó emacs ¤ÈÂÇ¤Ã¤Æ¤â¡¢´û¤Ëµ¯Æ°¤·¤Æ¤¤¤ë
+;;;	emacs ¤Ë¥Õ¥¡¥¤¥ë¤òÅÏ¤¹¤È¤¤¤¦¤À¤±¤Î(¥Ô¡¼¡¼)¥×¥í¥°¥é¥à¤Ç¡Ö¤É¤³¤¬
+;;;	resume ¤ä¤Í¤ó¡×¤È¸À¤¤¤¿¤¯¤Ê¤ê¤Ş¤·¤¿¤¬²æËı¤·¤Æ revive.el ¤Ë¥ê¥Í¡¼
+;;;	¥à¤·¤Ş¤·¤¿¡£¤¢¤¢¤Ş¤Ã¤¿¤¯¡¢saveconf ¤Ç¤â desktop ¤Ç¤â¤Ê¤·ÆÀ¤Ê¤«¤Ã
+;;;	¤¿¥¦¥£¥ó¥É¥¦Ê¬³ä¾õÂÖ¤ÎÉü¸µ¤ò¥µ¥İ¡¼¥È¤·¤¿¤È¸À¤¦¤Î¤Ë¡Ä¡¢¤Ê¤ó¤Æ¤³¤È
+;;;	¤Ï±Ñ¸ìÈÇ¤Ë¤Ï½ñ¤±¤Ê¤¤¤Ê:-)¡£
 ;;;
-;;;yæ‚èˆµ‚¢z
+;;;¡Ú¼è¤ê°·¤¤¡Û
 ;;;
-;;;	  ‚±‚ÌƒvƒƒOƒ‰ƒ€‚ÍAƒtƒŠ[ƒ\ƒtƒgƒEƒFƒA‚Æ‚¢‚½‚µ‚Ü‚·B‚±‚ÌƒvƒƒOƒ‰
-;;;	ƒ€‚ğg—p‚µ‚Ä¶‚¶‚½‚¢‚©‚È‚éŒ‹‰Ê‚É‘Î‚µ‚Ä‚àìÒ‚ÍˆêØ‚ÌÓ”C‚ğ•‰‚í‚È
-;;;	‚¢‚à‚Ì‚Æ‚¢‚½‚µ‚Ü‚·‚ªAƒRƒƒ“ƒg‚âƒoƒOƒŒƒ|[ƒg‚Í‘å‚¢‚ÉŠ½Œ}‚¢‚½‚µ‚Ü
-;;;	‚·B‚¨‹CŒy‚É‚²˜A—‰º‚³‚¢B˜A—‚ÍˆÈ‰º‚ÌƒAƒhƒŒƒX‚Ü‚Å‚¨Šè‚¢‚¢‚½‚µ‚Ü
-;;;	‚·(2003/6Œ»İ)B
+;;;	  ¤³¤Î¥×¥í¥°¥é¥à¤Ï¡¢¥Õ¥ê¡¼¥½¥Õ¥È¥¦¥§¥¢¤È¤¤¤¿¤·¤Ş¤¹¡£¤³¤Î¥×¥í¥°¥é
+;;;	¥à¤ò»ÈÍÑ¤·¤ÆÀ¸¤¸¤¿¤¤¤«¤Ê¤ë·ë²Ì¤ËÂĞ¤·¤Æ¤âºî¼Ô¤Ï°ìÀÚ¤ÎÀÕÇ¤¤òÉé¤ï¤Ê
+;;;	¤¤¤â¤Î¤È¤¤¤¿¤·¤Ş¤¹¤¬¡¢¥³¥á¥ó¥È¤ä¥Ğ¥°¥ì¥İ¡¼¥È¤ÏÂç¤¤¤Ë´¿·Ş¤¤¤¿¤·¤Ş
+;;;	¤¹¡£¤ªµ¤·Ú¤Ë¤´Ï¢Íí²¼¤µ¤¤¡£Ï¢Íí¤Ï°Ê²¼¤Î¥¢¥É¥ì¥¹¤Ş¤Ç¤ª´ê¤¤¤¤¤¿¤·¤Ş
+;;;	¤¹(2012/8¸½ºß)¡£
 ;;;							yuuji@gentei.org
 
+;;; Code:
+
 (defconst revive:version
-  "$Id: revive.el,v 2.19 2008/05/13 01:19:16 yuuji Exp yuuji $"
+  "$Id: revive.el,v 2.21 2012/08/12 11:56:06 yuuji Exp yuuji $"
   "Version of revive.el")
 
 (defconst revive:version-prefix ";;;")
@@ -382,7 +384,7 @@ EDGES is a list of sub-windows' edges."
      ;; |top   |2 |  horizontally.  And call this function recursively on
      ;; +---+--+--+  former (that is, upper half in vertical division or
      ;; |3  |4..  |  left half in horizontal) and latter configuration.
-     ;; +---+-----+  
+     ;; +---+-----+
      (t
       (let ((flist (list topwin))
 	    (elist (cdr edges)) divwin div-x div-y former latter)
@@ -426,12 +428,13 @@ EDGES is a list of sub-windows' edges."
     ;;(c-mode		. revive:c-set-style)
     ;;(cc-mode		. revive:c-set-style)
     ;;(java-mode		. revive:c-set-style)
+    (twittering-mode . revive:twittering)
     )
-  "Default alist of major-mode vs. command name.")
+  "Default alist of `major-mode' vs. command name.")
 (defvar revive:major-mode-command-alist-private nil
   "*User defined revive:major-mode-command-alist")
 (defvar revive:major-mode-command-alist nil
-  "*Alist of major-mode vs. commandname.")
+  "*Alist of `major-mode' vs. commandname.")
 (setq revive:major-mode-command-alist
       (append revive:major-mode-command-alist-private
 	      revive:major-mode-command-alist-default))
@@ -462,7 +465,8 @@ EDGES is a list of sub-windows' edges."
     (yahtml-mode YaTeX-parent-file)
     (c-mode c-indentation-style c-basic-offset)
     (cc-mode c-indentation-style c-basic-offset)
-    (java-mode c-indentation-style c-basic-offset))
+    (java-mode c-indentation-style c-basic-offset)
+    (twittering-mode twittering-timeline-spec-string))
   "Default list of the mode specific local variables to save.
 Actually, revive doesn't make the buffer local variables assuming
 those variable have already localized by their major mode.")
@@ -515,8 +519,7 @@ window-edges whose first member is always of north west window.
 Buffer-List is a list of buffer property list of all windows.  This
 property lists are stored in order corresponding to Edge-List.  Buffer
 property list is formed as
-'((buffer-file-name) (buffer-name) (point) (window-start)).
-"
+'((buffer-file-name) (buffer-name) (point) (window-start))."
   (let ((curwin (selected-window))
 	(wlist (revive:window-list)) (edges (revive:all-window-edges)) buflist)
     (save-excursion
@@ -613,7 +616,7 @@ current-window-configuration-printable."
 
 (defun revive:varlist (var2save)
   "Return the (variable . value) list of variables in VAR2SAVE."
-  (delq nil (mapcar 
+  (delq nil (mapcar
 	     (function (lambda (s)
 			 (if (and s (boundp s)) (cons s (symbol-value s)))))
 	     var2save)))
@@ -643,7 +646,7 @@ Variable-List is a return value of revive:varlist."
 	(local-var (append revive:save-variables-local-default
 			   revive:save-variables-local-private))
 	(mode-local-var (append revive:save-variables-mode-local-default
-				revive:save-variables-mode-local-private))) 
+				revive:save-variables-mode-local-private)))
     (save-excursion
       (run-hooks 'revive:buffer-property-list-hook)
       (while buflist
@@ -754,6 +757,7 @@ Variable-List is a return value of revive:varlist."
 	    (rename-buffer (revive:prop-buffer-name x)))
 	(set-mark (revive:prop-mark x))
 	(goto-char (revive:prop-point x))
+	(and (fboundp 'region-active-p) (region-active-p) (deactivate-mark))
 	(revive:restore-value (revive:prop-varlist x))))
       (setq blist (cdr blist)))
     (run-hooks 'revive:restore-buffers-hook)))
@@ -847,7 +851,7 @@ Configuration should be saved by save-current-configuration."
 	    "~/"))
   (or (and (boundp 'mew-path) mew-path)
       (and (fboundp 'mew-init) (let (mew-demo) (mew-init))))
-  (mew-cache-flush)			;Mew should take more care of 
+  (mew-cache-flush)			;Mew should take more care of
   (get-buffer-create " *mew tmp*")	;unexisting buffer...
   (let ((b (revive:prop-buffer-name x)))
     (cond
@@ -884,15 +888,27 @@ Configuration should be saved by save-current-configuration."
   (require 'cc-mode)
   (revive:find-file (revive:prop-file-name x))
   (funcall (revive:prop-major-mode x))
-  (c-set-style (or (revive:prop-get-value x 'c-indentation-style) "gnu"))
-)
+  (c-set-style (or (revive:prop-get-value x 'c-indentation-style) "gnu")))
 
-;;(provide 'resume)
+(defun revive:twittering ()
+  "Restore buffer of twittering mode.
+This functionality is considered to be migrated from `twittering-mode'."
+  (interactive)
+  (require 'twittering-mode)
+  (twittering-visit-timeline
+   (revive:prop-get-value x 'twittering-timeline-spec-string)))
+
 (provide 'revive)
 
 
-;; $Id: revive.el,v 2.19 2008/05/13 01:19:16 yuuji Exp yuuji $
+;; $Id: revive.el,v 2.21 2012/08/12 11:56:06 yuuji Exp yuuji $
 ;; $Log: revive.el,v $
+;; Revision 2.21  2012/08/12 11:56:06  yuuji
+;; Switched to euc-jp.
+;;
+;; Revision 2.20  2012/07/25 23:37:38  yuuji
+;; Update headers and headings.
+;;
 ;; Revision 2.19  2008/05/13 01:19:16  yuuji
 ;; Add below to revive:save-variables-global-default.
 ;; * file-name-history buffer-name-history minibuffer-history
@@ -982,3 +998,4 @@ Configuration should be saved by save-current-configuration."
 ; paragraph-start: "^$\\|\\|;;;$"
 ; paragraph-separate: "^$\\|\\|;;;$"
 ; End:
+;;; revive.el ends here
