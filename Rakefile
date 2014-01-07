@@ -14,8 +14,8 @@ namespace :dotfiles do
   end
 
   def destination_path(file)
-#    File.join(DEFAULT_PATH, file)
-    File.join 'test', file
+    File.join(DEFAULT_PATH, file)
+#    File.join 'test', file
   end
 
   def backup_path(file)
@@ -23,8 +23,8 @@ namespace :dotfiles do
   end
 
   def put_backup(file)
-    FileUtils.remove_entry_secure(backup_path(file))       if File.exist?(backup_path(file))
-    FileUtils.cp_r(file, backup_path(file), verbose: true) if File.exist?(destination_path(file))
+    FileUtils.remove_entry_secure(backup_path(file)) if File.exist?(backup_path(file))
+    FileUtils.cp_r(destination_path(file), backup_path(file), verbose: true) if File.exist?(destination_path(file))
   end
 
   def put_symlink(file)
