@@ -29,9 +29,11 @@ alias c='pbcopy'
 ## vcs alias
 alias g='git'
 alias gs='git status'
+alias gg='git status'
 alias gc='git ci'
 alias gl='git log -3'
 alias gd='git diff'
+alias gp='git push'
 alias s='svn'
 alias ss='svn st'
 alias sc='svn ci'
@@ -190,7 +192,7 @@ setopt ignore_eof
 
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH" # for tmux
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
 
 ##### path 関連
