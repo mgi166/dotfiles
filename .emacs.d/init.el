@@ -400,8 +400,8 @@
 ;;; リージョンの大文字小文字変換を有効にする。
 ;; C-x C-u -> upcase
 ;; C-x C-l -> downcase
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
+;; (put 'upcase-region 'disabled nil)
+;; (put 'downcase-region 'disabled nil)
 
 ;#####
 
