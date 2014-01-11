@@ -58,7 +58,7 @@ test/tmp
 test/version_tmp
 tmp
 .rbenv-gemsets
-.rbenv-version
+.ruby-version
 
 # YARD artifacts
 .yardoc
