@@ -1,6 +1,6 @@
 [core]
 	editor = emacs
-	excludesfile = /Users/horowitz/.gitignore
+	excludesfile = ~/.gitignore
 	quotepath = false
 	precomposeunicode = true
 [user]

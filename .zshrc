@@ -28,6 +28,7 @@ alias c='pbcopy'
 
 ## vcs alias
 alias g='git'
+alias gb='git branch'
 alias gs='git status'
 alias gg='git status'
 alias gc='git ci'
