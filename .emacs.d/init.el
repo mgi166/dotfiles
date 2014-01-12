@@ -628,12 +628,16 @@
 
 ;#####
 
-(setq frame-size-hash (make-hash-table :test 'equal))
-
 (setq str "{top : 22, left : 630, width : 110, height : 53}")
-(string-match "{\\(.*\\)}" str)
-(setq content (match-string 1 str))
-(split-string content ",")
+
+;; by rubikichi
+(defun print-hash (hash)
+  (with-temp-buffer
+    (loop initially (insert "{")
+          for k being the hash-keys in hash using (hash-values v) do
+          (insert " " (prin1-to-string k) " => " (prin1-to-string v) ",")
+          finally   (delete-backward-char 2) (insert " }"))
+    (buffer-string)))
 
 (defun extract-elements (str)
   "return extract inner string '{' to '}'"
@@ -648,8 +652,6 @@
   "return cons that string split ':'"
   (split-string str ":"))
 
-(remove-blank "hoge ")
-
 (require 'cl)
 (defun remove-blank (str)
   "remove newline and space and tab"
@@ -659,16 +661,45 @@
   "return pair element key and value"
   (mapcar 'remove-blank (split-colon str)))
 
+(pair-element "top : 22")
+
+(defun push-hash (list)
+  "return hash that has the key of list car and the value of list cdr"
+  (puthash (car list) (cdr list) hash))
+
+(defun parse-elements (str)
+  (loop for ele in (split-comma str)
+		do (push-hash
+			(pair-element ele))
+))
+
+(defvar frame-hash
+  "initialize hash"
+  (make-hash-table :test 'equal))
+
+(defun frame-size-hash (str)
+  "return hash parse json string"
+  str)
 
 ;; test
 (remove-blank "hoge          ")
 (remove-blank "hoge
 ")
+(remove-blank "1hoge	2hoge 3hoge
+4hoge")
 
-(pair-element "top : 22")
+(setq hash (make-hash-table :test 'equal))
 
+(setq strings "top : 22, left : 630")
+(parse-elements strings)
+(print-hash hash)
+(gethash "left" hash)
+(gethash "top" hash)
 
 (split-elements (extract-elements "{top : 22, left : 630, width : 110, height : 53}"))
 
 (setq str2 "bbb  hoge
 aa")
+
+(loop for x in '(a b c d e)
+      do (print x))
