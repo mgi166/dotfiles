@@ -636,7 +636,7 @@
 (split-string content ",")
 
 (defun extract-elements (str)
-  "search {\\(.*\\)} and extract"
+  "return extract inner string '{' to '}'"
   (string-match "{\\(.*\\)}" str)
   (match-string 1 str))
 
@@ -655,20 +655,20 @@
   "remove newline and space and tab"
   (replace-regexp-in-string "\\s-\\|\n" "" str))
 
-
+(defun pair-element (str)
+  "return pair element key and value"
+  (mapcar 'remove-blank (split-colon str)))
 
 
 ;; test
 (remove-blank "hoge          ")
 (remove-blank "hoge
-
-
-
-
 ")
+
+(pair-element "top : 22")
+
+
 (split-elements (extract-elements "{top : 22, left : 630, width : 110, height : 53}"))
-(insert "\(\\s-\|\n\)")
-(insert "\\s-\|\n")
 
 (setq str2 "bbb  hoge
 aa")
