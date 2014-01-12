@@ -525,6 +525,7 @@
 ;;"yes or no" を "y or n"に
 (fset 'yes-or-no-p 'y-or-n-p)
 
+(load "frame")
 ;; 初期フレームの設定
 (setq initial-frame-alist
       (append
@@ -533,6 +534,16 @@
 		 (width               . 110)    ; フレーム幅(文字数)@mac
 		 (height              . 53))   ; フレーム高(文字数)@mac
        initial-frame-alist))
+
+;; '(
+;;   (top                 . 22)    ; フレームの Y 位置(ピクセル数)@mac
+;;   (left                . 630)   ; フレームの X 位置(ピクセル数)@mac
+;;   (width               . 110)    ; フレーム幅(文字数)@mac
+;;   (height              . 53))   ; フレーム高(文字数)@mac
+
+;;frame-size-hash
+;; (setq initial-frame-alist
+;; 	(append frame-size-hash initial-frame-alist))
 
 ;; 新規フレームのデフォルト設定
 (setq default-frame-alist
@@ -627,79 +638,3 @@
 			(setq prev-yanked-text text)))))
 
 ;#####
-
-(setq str "{top : 22, left : 630, width : 110, height : 53}")
-
-;; by rubikichi
-(defun print-hash (hash)
-  (with-temp-buffer
-    (loop initially (insert "{")
-          for k being the hash-keys in hash using (hash-values v) do
-          (insert " " (prin1-to-string k) " => " (prin1-to-string v) ",")
-          finally   (delete-backward-char 2) (insert " }"))
-    (buffer-string)))
-
-(defun extract-elements (str)
-  "return extract inner string '{' to '}'"
-  (string-match "{\\(.*\\)}" str)
-  (match-string 1 str))
-
-(defun split-comma (str)
-  "return element that string split ','"
-  (split-string str ","))
-
-(defun split-colon (str)
-  "return cons that string split ':'"
-  (split-string str ":"))
-
-(require 'cl)
-(defun remove-blank (str)
-  "remove newline and space and tab"
-  (replace-regexp-in-string "\\s-\\|\n" "" str))
-
-(defun pair-element (str)
-  "return pair element key and value"
-  (mapcar 'remove-blank (split-colon str)))
-
-(pair-element "top : 22")
-
-(defun push-hash (list)
-  "return hash that has the key of list car and the value of list cdr"
-  (puthash (car list) (cdr list) hash))
-
-(defun parse-elements (str)
-  (loop for ele in (split-comma str)
-		do (push-hash
-			(pair-element ele))
-))
-
-(defvar frame-hash
-  "initialize hash"
-  (make-hash-table :test 'equal))
-
-(defun frame-size-hash (str)
-  "return hash parse json string"
-  str)
-
-;; test
-(remove-blank "hoge          ")
-(remove-blank "hoge
-")
-(remove-blank "1hoge	2hoge 3hoge
-4hoge")
-
-(setq hash (make-hash-table :test 'equal))
-
-(setq strings "top : 22, left : 630")
-(parse-elements strings)
-(print-hash hash)
-(gethash "left" hash)
-(gethash "top" hash)
-
-(split-elements (extract-elements "{top : 22, left : 630, width : 110, height : 53}"))
-
-(setq str2 "bbb  hoge
-aa")
-
-(loop for x in '(a b c d e)
-      do (print x))
