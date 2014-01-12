@@ -525,26 +525,20 @@
 ;;"yes or no" を "y or n"に
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(load "frame")
 ;; 初期フレームの設定
-;; (setq initial-frame-alist
-;;       (append
-;;        '((top                 . 22)    ; フレームの Y 位置(ピクセル数)@mac
-;; 		 (left                . 630)   ; フレームの X 位置(ピクセル数)@mac
-;; 		 (width               . 110)    ; フレーム幅(文字数)@mac
-;; 		 (height              . 53))   ; フレーム高(文字数)@mac
-;;        initial-frame-alist))
+(load "frame")
 
-;;frame-size-hash
+;; top    : フレームの Y 位置(ピクセル数)
+;; left   : フレームの X 位置(ピクセル数)
+;; width  : フレーム幅(文字数)
+;; height : フレーム高(文字数)@mac
+(set-frame-size "~/.emacs.d/frame/private_mac.json")
 (setq initial-frame-alist
 	(append frame-size-hash initial-frame-alist))
 
 ;; 新規フレームのデフォルト設定
 (setq default-frame-alist
-      (append
-       '((width               . 80)	; フレーム幅(文字数)@mac
-	 (height              . 45))	; フレーム高(文字数)@mac
-       default-frame-alist))
+      (append frame-size-hash default-frame-alist))
 
 ;;スクロールを１行づつ
 (setq scroll-step 1)
