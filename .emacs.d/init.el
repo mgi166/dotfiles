@@ -653,24 +653,22 @@
 (require 'cl)
 (defun remove-blank (str)
   "remove newline and space and tab"
-;;  (replace-regexp-in-string "\n\|\t\| \|　" "" str))
-;;  (replace-regexp-in-string "\(\n\|\s-\)" "" str))
-  (replace-regexp-in-string "\s-" "" str))
+  (replace-regexp-in-string "\\s-\\|\n" "" str))
 
 
 
 
 ;; test
-(remove-blank "hoge ")
-
-
-(insert "\(\n\|\s-\)")
-
-(remove-blank "hoge  ")
-
-
-
+(remove-blank "hoge          ")
 (remove-blank "hoge
+
+
+
 
 ")
 (split-elements (extract-elements "{top : 22, left : 630, width : 110, height : 53}"))
+(insert "\(\\s-\|\n\)")
+(insert "\\s-\|\n")
+
+(setq str2 "bbb  hoge
+aa")
