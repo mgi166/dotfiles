@@ -69,6 +69,7 @@ doc/
 ac-comphist.dat
 */auto-save-list/*
 *~
+*/#!*
 
 # Ignore vagrant caches
 /.vagrant
