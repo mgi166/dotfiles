@@ -529,9 +529,9 @@
 (setq initial-frame-alist
       (append
        '((top                 . 22)    ; フレームの Y 位置(ピクセル数)@mac
-		 (left                . 1605)   ; フレームの X 位置(ピクセル数)@mac
-		 (width               . 222)    ; フレーム幅(文字数)@mac
-		 (height              . 72))   ; フレーム高(文字数)@mac
+		 (left                . 630)   ; フレームの X 位置(ピクセル数)@mac
+		 (width               . 110)    ; フレーム幅(文字数)@mac
+		 (height              . 53))   ; フレーム高(文字数)@mac
        initial-frame-alist))
 
 ;; 新規フレームのデフォルト設定
@@ -628,3 +628,16 @@
 
 ;#####
 
+(setq frame-size-hash (make-hash-table :test 'equal))
+
+(setq str "{top : 22, left : 630, width : 110, height : 53}")
+(string-match "{\\(.*\\)}" str)
+(setq content (match-string 1 str))
+(split-string content ",")
+
+(defun extract-elements(string)
+  "search {\\(.*\\)}"
+  (string-match "{\\(.*\\)}" string)
+  (match-string 1 string))
+
+(extract-elements "{hoge}")
