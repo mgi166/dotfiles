@@ -527,23 +527,17 @@
 
 (load "frame")
 ;; 初期フレームの設定
-(setq initial-frame-alist
-      (append
-       '((top                 . 22)    ; フレームの Y 位置(ピクセル数)@mac
-		 (left                . 630)   ; フレームの X 位置(ピクセル数)@mac
-		 (width               . 110)    ; フレーム幅(文字数)@mac
-		 (height              . 53))   ; フレーム高(文字数)@mac
-       initial-frame-alist))
-
-;; '(
-;;   (top                 . 22)    ; フレームの Y 位置(ピクセル数)@mac
-;;   (left                . 630)   ; フレームの X 位置(ピクセル数)@mac
-;;   (width               . 110)    ; フレーム幅(文字数)@mac
-;;   (height              . 53))   ; フレーム高(文字数)@mac
+;; (setq initial-frame-alist
+;;       (append
+;;        '((top                 . 22)    ; フレームの Y 位置(ピクセル数)@mac
+;; 		 (left                . 630)   ; フレームの X 位置(ピクセル数)@mac
+;; 		 (width               . 110)    ; フレーム幅(文字数)@mac
+;; 		 (height              . 53))   ; フレーム高(文字数)@mac
+;;        initial-frame-alist))
 
 ;;frame-size-hash
-;; (setq initial-frame-alist
-;; 	(append frame-size-hash initial-frame-alist))
+(setq initial-frame-alist
+	(append frame-size-hash initial-frame-alist))
 
 ;; 新規フレームのデフォルト設定
 (setq default-frame-alist

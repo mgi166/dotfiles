@@ -54,6 +54,6 @@
 			(pair-element ele))
 ))
 
-(setq frame-size-hash (json-read-file "./frame/frame.json"))
+(setq frame-size-hash (json-read-file "~/.emacs.d/frame/frame.json"))
 
 (provide 'frame)
