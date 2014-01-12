@@ -635,9 +635,42 @@
 (setq content (match-string 1 str))
 (split-string content ",")
 
-(defun extract-elements(string)
-  "search {\\(.*\\)}"
-  (string-match "{\\(.*\\)}" string)
-  (match-string 1 string))
+(defun extract-elements (str)
+  "search {\\(.*\\)} and extract"
+  (string-match "{\\(.*\\)}" str)
+  (match-string 1 str))
 
-(extract-elements "{hoge}")
+(defun split-comma (str)
+  "return element that string split ','"
+  (split-string str ","))
+
+(defun split-colon (str)
+  "return cons that string split ':'"
+  (split-string str ":"))
+
+(remove-blank "hoge ")
+
+(require 'cl)
+(defun remove-blank (str)
+  "remove newline and space and tab"
+;;  (replace-regexp-in-string "\n\|\t\| \|　" "" str))
+;;  (replace-regexp-in-string "\(\n\|\s-\)" "" str))
+  (replace-regexp-in-string "\s-" "" str))
+
+
+
+
+;; test
+(remove-blank "hoge ")
+
+
+(insert "\(\n\|\s-\)")
+
+(remove-blank "hoge  ")
+
+
+
+(remove-blank "hoge
+
+")
+(split-elements (extract-elements "{top : 22, left : 630, width : 110, height : 53}"))
