@@ -28,11 +28,13 @@ alias c='pbcopy'
 
 ## vcs alias
 alias g='git'
+alias gb='git branch'
 alias gs='git status'
 alias gg='git status'
 alias gc='git ci'
 alias gl='git log -3'
 alias gd='git diff'
+alias ga='git add'
 alias gp='git push'
 alias s='svn'
 alias ss='svn st'

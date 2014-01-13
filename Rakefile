@@ -30,7 +30,8 @@ namespace :dotfiles do
   def do_backup(file)
     if File.exist? destination_path(file) and !File.symlink? destination_path(file)
       if backup?(file)
-        FileUtils.remove_entry_secure(backup_path(file))
+        FileUtils.mkdir('backup') unless File.exist? 'backup'
+        FileUtils.remove_entry_secure(backup_path(file)) if File.exist? backup_path(file)
         FileUtils.cp_r(destination_path(file), backup_path(file), verbose: true)
       end
     end

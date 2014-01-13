@@ -58,6 +58,7 @@ test/tmp
 test/version_tmp
 tmp
 .rbenv-gemsets
+.ruby-version
 
 # YARD artifacts
 .yardoc
@@ -68,6 +69,7 @@ doc/
 ac-comphist.dat
 */auto-save-list/*
 *~
+*/#!*
 
 # Ignore vagrant caches
 /.vagrant
