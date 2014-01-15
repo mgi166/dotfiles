@@ -13,6 +13,7 @@
 	ci = commit
 	st = status
 	br = branch
+	lp = log -p -4
 [include]
     path = .gitconfig.local
 [merge]

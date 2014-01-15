@@ -2,7 +2,7 @@ dotfiles
 ========
 
 # Install
-You execute the installation, create symbolic link files to your home directory. If file name you want to install is already exist, ask you if you want to back up this.  
+You execute the installation, create symbolic link files to your home directory. If file name you want to install is already exist, ask you if you want to install and back up it.  
 
 ### All dotfiles install
 ```zsh

@@ -73,5 +73,5 @@ ac-comphist.dat
 
 # Ignore vagrant caches
 /.vagrant
-#Vagrantfile
+Vagrantfile
 *.box
