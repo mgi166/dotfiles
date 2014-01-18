@@ -1,11 +1,11 @@
 (require 'cl)
 (require 'json)
 
-(defvar frame-size-hash
+(defvar my-frame-size-hash
   "initialize hash for memorize frame size of configuration"
   (make-hash-table :test 'equal))
 
-(defun set-frame-size (path)
+(defun set-my-frame-size (path)
   (setq frame-size-hash (json-read-file path)))
 
-(provide 'frame)
+(provide 'my-frame)
