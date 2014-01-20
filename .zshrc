@@ -223,8 +223,22 @@ export EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 
 #export $SVN="svn://sv01.feedforce.jp"
 #export $CF=$SVN/contents-feeder
-##### その他
+##### functions
 
+function exists { which $1 &> /dev/null }
+
+if exists percol; then
+    function percol_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N percol_select_history
+    bindkey '^R' percol_select_history
+fi
 # cd したら自動的にls
 #function cd() {builtin cd $@ && ls -v -F --color=auto} # @ubuntu
 #function cd() {builtin cd $@ && ls -v -F -G} # @mac
