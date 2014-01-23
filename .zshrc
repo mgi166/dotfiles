@@ -21,10 +21,11 @@ alias updatedb="sudo /usr/libexec/locate.updatedb" # @mac
 alias ..='cd ..'
 alias du='du -h'
 alias df='df -h'
-#alias emasc='emacs' # @ubuntu
+alias emasc='emacs'
 #alias te='telnet -l hm ienari' # @ubuntu
 alias which='which -p' # zsh専用
 alias c='pbcopy'
+alias pd='popd'
 
 ## vcs alias
 alias g='git'
@@ -177,6 +178,11 @@ setopt complete_aliases
 # 補完時に文字列末尾へカーソル移動
 setopt always_to_end
 
+# cd で自動 pushd
+setopt auto_pushd
+
+# directory stack の重複を排除
+setopt pushd_ignore_dups
 
 ##### login
 
@@ -221,9 +227,30 @@ function precmd () {
 
 export EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 
-#export $SVN="svn://sv01.feedforce.jp"
-#export $CF=$SVN/contents-feeder
-##### その他
+
+##### functions
+
+function exists { which $1 &> /dev/null }
+
+if exists percol; then
+    function percol_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N percol_select_history
+    bindkey '^R' percol_select_history
+fi
+
+dir () {
+	dirs -v
+	echo -n "select number "
+	read newdir
+	cd +"$newdir"
+}
 
 # cd したら自動的にls
 #function cd() {builtin cd $@ && ls -v -F --color=auto} # @ubuntu
