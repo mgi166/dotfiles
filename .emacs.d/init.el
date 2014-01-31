@@ -526,19 +526,20 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; 初期フレームの設定
-(load "frame")
+(require 'my-frame)
 
 ;; top    : フレームの Y 位置(ピクセル数)
 ;; left   : フレームの X 位置(ピクセル数)
 ;; width  : フレーム幅(文字数)
 ;; height : フレーム高(文字数)@mac
-(set-frame-size "~/.emacs.d/frame/private_mac.json")
 (setq initial-frame-alist
-	(append frame-size-hash initial-frame-alist))
+	(append (set-my-frame-size "~/.emacs.d/frame/private_mac.json")
+			 initial-frame-alist))
 
 ;; 新規フレームのデフォルト設定
 (setq default-frame-alist
-      (append frame-size-hash default-frame-alist))
+	(append (set-my-frame-size "~/.emacs.d/frame/private_mac.json")
+			 default-frame-alist))
 
 ;;スクロールを１行づつ
 (setq scroll-step 1)
