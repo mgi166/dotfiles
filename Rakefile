@@ -1,5 +1,4 @@
 require './rake/installer'
-require './rake/release_doc'
 
 namespace :dotfiles do
   desc 'install all dotfiles in your home / if you give an argument, install only that you select'
