@@ -270,6 +270,10 @@
 ;(global-undo-tree-mode t)
 ;(global-set-key (kbd "M-/") 'undo-tree-redo)
 
+;; point-undo (ポイントの位置を undo する)
+(require 'point-undo)
+(define-key global-map [f5] 'point-undo)
+(define-key global-map [f6] 'point-redo)
 
 ;#####
 
