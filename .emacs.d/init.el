@@ -9,6 +9,18 @@
 ;;日本語infoの文字化け防止
 (auto-compression-mode t)
 
+;; font の設定
+(set-face-attribute 'default nil :family "Inconsolata" :height 150)
+(set-fontset-font (frame-parameter nil 'font)
+                  'japanese-jisx0208
+                  (cons "Ricty Discord" "iso10646-1"))
+(set-fontset-font (frame-parameter nil 'font)
+                  'japanese-jisx0212
+                  (cons "Ricty Discord" "iso10646-1"))
+(set-fontset-font (frame-parameter nil 'font)
+                  'katakana-jisx0201
+                  (cons "Ricty Discord" "iso10646-1"))
+
 ;#####
 
 ;##### load-path関連
@@ -39,7 +51,7 @@
 (require 'cl)
 
 ;; mac-key-mode (CocoaEmacsの時は不要)
-(when (and (eq window-system 'mac) (< emacs-major-version 23))
+(when (< emacs-major-version 24)
   (require 'mac-key-mode)
   (mac-key-mode 1)
   (define-key mac-key-mode-map [(alt {)] 'elscreen-previous)
@@ -243,11 +255,11 @@
 (require 'jaspace)
 (setq jaspace-alternate-jaspace-string "□") ;; 全角空白
 (setq jaspace-alternate-eol-string nil) ;; 改行
-(setq jaspace-highlight-tabs ? ) ;; tab
+(setq jaspace-highlight-tabs t ) ;; tab
 
 ;; migemo (ローマ字検索で日本語が引っかかるようにする。事前に cmigemo の install が必要)
 (require 'migemo)
-(setq migemo-command "cmigemo")
+(setq migemo-command "/usr/local/bin/cmigemo")
 (setq migemo-options '("-q" "--emacs"))
 (setq migemo-dictionary "/usr/local/share/migemo/utf-8/migemo-dict")
 (setq migemo-user-dictionary nil)
@@ -630,4 +642,14 @@
 			  nil
 			(setq prev-yanked-text text)))))
 
+(defun yel-yank ()
+  "yank to cycle kill ring"
+  (interactive "*")
+  (if (or (eq last-command 'yank-pop)
+		  (eq last-command 'yank))
+	  (yank-pop 1)
+	(yank 1)))
+(global-set-key "\C-y" 'yel-yank) ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
+
 ;#####
+
