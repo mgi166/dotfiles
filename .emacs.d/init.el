@@ -110,15 +110,15 @@
 
 (defun elscreen-get-gap-next ()
   (let ((screen-list (sort (elscreen-get-screen-list) '<))
-	(screen 0))
+        (screen 0))
     (while (eq (nth screen screen-list) screen)
       (setq screen (+ screen 1)))
     (nth screen screen-list)))
 
 (defun elscreen-get-packed-num ()
   (let ((screen-list (sort (elscreen-get-screen-list) '<))
-	(current-screen (elscreen-get-current-screen))
-	(screen 0))
+        (current-screen (elscreen-get-current-screen))
+        (screen 0))
     (while (not (eq (nth screen screen-list) current-screen))
       (setq screen (+ screen 1)))
     screen))
@@ -126,7 +126,7 @@
 (defun elscreen-pack-list ()
   (interactive)
   (let ((next (elscreen-get-gap-next))
-	(pack (elscreen-get-packed-num)))
+        (pack (elscreen-get-packed-num)))
     (while next
       (elscreen-insert-internal next)
       (setq next (elscreen-get-gap-next)))
@@ -151,7 +151,6 @@
 (define-key global-map "\M-!" 'multi-term)
 
 ;; google-maps(emacs上で、google-mapを使用。何故か使えない)
-(require 'json)
 (require 'google-maps)
 
 ;; color-moccer
@@ -191,18 +190,18 @@
 
 ;; anything-for-tags(gtags, ctags, imenu など変数一覧表示)
 ;; (when (and (require 'anything-exuberant-ctags nil t)
-;; 		   (require 'anything-gtags nil t))
-;; (setq anything-for-tags
-;; 	  (list anything-c-source-imenu
-;; 			anything-c-source-gtags-select
-;; 			anything-c-source-exuberant-ctags-select))
+;;            (require 'anything-gtags nil t))
+;;   (setq anything-for-tags
+;;         (list anything-c-source-imenu
+;;               anything-c-source-gtags-select
+;;               anything-c-source-exuberant-ctags-select))
 
 ;; (defun anything-for-tags ()
 ;;   "Preconfigured `anything' for anything-for-tags."
 ;;   (interactive)
 ;;   (anything anything-for-tags
-;; 			(thing-at-point 'symbol)
-;; 			nil nil nil "*anything for tags*"))
+;;             (thing-at-point 'symbol)
+;;             nil nil nil "*anything for tags*"))
 ;; (define-key global-map "M-t" 'anything-for-tags))
 
 ;; anything-for-files (串刺し file 検索)
@@ -214,7 +213,7 @@
   "preconfigured `anything' for anything-for-elscreen"
   (interactive)
   (anything anything-c-source-elscreen
-	    nil nil nil nil "*anything for elscreen*"))
+    nil nil nil nil "*anything for elscreen*"))
 (define-key global-map "\M-l" 'anything-for-elscreen)
 
 ;; org-mode(最新版をinstallしようとして失敗。versionは古いが元々入っているらしい)
@@ -251,11 +250,44 @@
 (define-key global-map (kbd "M-\"") 'insert-pair)
 ;; (define-key global-map (kbd "M-[") 'insert-pair)
 
-;; jaspace (全角空白、タブを強調表示。(改行だけ強調しない))
-(require 'jaspace)
-(setq jaspace-alternate-jaspace-string "□") ;; 全角空白
-(setq jaspace-alternate-eol-string nil) ;; 改行
-(setq jaspace-highlight-tabs t ) ;; tab
+
+;; jaspace (全角空白、タブを強調表示 (改行だけ強調しない。emacs 23 以下の version でのみ有効))
+(when (< emacs-major-version 23)
+  (require 'jaspace)
+  (setq jaspace-alternate-jaspace-string "□") ;; 全角空白
+  (setq jaspace-alternate-eol-string nil) ;; 改行
+  (setq jaspace-highlight-tabs t ) ;; tab
+  )
+
+;; WhiteSpace(全角空白、タブを強調表示。(emacs 23 以上の version でのみ有効))
+(when (> emacs-major-version 22)
+  (require 'whitespace)
+  (setq whitespace-style '(face           ; faceで可視化
+                           tabs           ; タブ
+                           spaces         ; スペース
+                           space-mark     ; 表示のマッピング
+                           tab-mark
+                           ))
+
+   ;; スペースは全角のみを可視化
+   (setq whitespace-space-regexp "\\(\u3000+\\)")
+
+   ;; タブやスペースに対して表示される記号
+   (setq whitespace-display-mappings
+         '((space-mark ?\u3000 [?\u25a1])
+           (tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+
+   ;; tab の色
+   (set-face-attribute 'whitespace-tab nil
+                       :foreground "LightSkyBlue"
+                       :underline t)
+
+   ;; 全角スペースの色
+   (set-face-attribute 'whitespace-space nil
+                       :foreground "GreenYellow"
+                       :weight 'bold)
+   (global-whitespace-mode t)
+   )
 
 ;; migemo (ローマ字検索で日本語が引っかかるようにする。事前に cmigemo の install が必要)
 (require 'migemo)
@@ -300,14 +332,13 @@
 ;; perl-completion
 (defun perl-completion-hook ()
   (when (require 'perl-completion nil t)
-	(perl-completion-mode t)
-	(when (require 'auto-complete nil t)
-	  (auto-complete-mode t)
-	  (make-variable-buffer-local 'ac-sources)
-	  (setq ac-sources
-			'(ac-sources-perl-completion)))))
+    (perl-completion-mode t)
+    (when (require 'auto-complete nil t)
+      (auto-complete-mode t)
+      (make-variable-buffer-local 'ac-sources)
+      (setq ac-sources
+            '(ac-sources-perl-completion)))))
 (add-hook 'cper-mode-hook 'perl-completion-hook)
-
 
 ;; ruby-mode
 
@@ -345,20 +376,20 @@
 (add-hook 'ruby-mode-hook 'ruby-mode-hooks)
 (autoload 'ruby-mode "ruby-mode" nil t)
 (add-to-list 'auto-mode-alist
-			 '("\\.rake$" . ruby-mode))
+             '("\\.rake$" . ruby-mode))
 (add-to-list 'auto-mode-alist
-			 '("Rakefile$" . ruby-mode))
+             '("Rakefile$" . ruby-mode))
 (add-to-list 'auto-mode-alist
-			 '("Capfile$" . ruby-mode))
+             '("Capfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist
-			 '("Gemfile$" . ruby-mode))
+             '("Gemfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist
-			 '("\\.cap$" . ruby-mode))
+             '("\\.cap$" . ruby-mode))
 
 ;; js2-mode
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist
-			 '("\\.js$" . js2-mode))
+             '("\\.js$" . js2-mode))
 
 ;#####
 
@@ -378,14 +409,13 @@
 (define-key global-map [(super z)] 'undo)                 ; undo ;@ubuntu
 (define-key global-map [(super c)] 'copy-region-as-kill)  ; copy ;@ubuntu
 (define-key global-map [(super v)] 'yank)                 ; yank ;@ubuntu
-(define-key global-map "\C-x\C-k" 'kill-buffer)           ; buffer close
 (define-key global-map [(super x)] 'kill-region)          ; 切り取り ;@ubuntu
+(define-key global-map "\C-x\C-k" 'kill-buffer)           ; buffer close
+(define-key global-map "\C-\M-^" 'indent-region) ;; indent-region
 
 ;; C-k で改行を含めてカット
 (setq kill-whole-line t)
 
-;; tabは４文字分
-(setq-default tab-width 4)
 
 ;; shiht+矢印キーで領域選択 CarbonEmacs 限定
 ;; (setq pc-select-selection-key-only t)
@@ -470,21 +500,21 @@
 ;;行をハイライト
 (defface my-hl-line-face
   '((((class color) (background dark))
-	(:background "Gray25" t))
-   (((class color) (background light))
-	(:background "LightGoldenrodYellow" t))
-   (t (:bold t)))
+     (:background "Gray25" t))
+    (((class color) (background light))
+     (:background "LightGoldenrodYellow" t))
+    (t (:bold t)))
   "hl-line's my face")
 (setq hl-line-face 'my-hl-line-face)
 (global-hl-line-mode t)
 
 ;; スペースとタブだけの行を強調表示
-(when
-    (boundp 'show-trailing-whitespace)
+(when (boundp 'show-trailing-whitespace)
   (setq-default show-trailing-whitespace t))
 
 ;; キャレット(カーソル)のタイプと表示
-(setq cursor-type 'box)
+(setq cursor-type 'hollow)
+;(set-cursor-color 'indianred) ; 何故か使えない
 (setq blink-cursor-interval 0.5)
 (setq blink-cursor-delay 30.0)
 (blink-cursor-mode 1)
@@ -523,7 +553,7 @@
 ;; Control + すべてのキーを無視する @mac (mac-add-ignore-shortcut はCarbonEmacs限定。CocoaEmacsでは不要なのでコメントアウトしていい。
 (unless (not window-system)
   (when (eq system-type 'darwin)
-;;	(mac-add-ignore-shortcut '(control)))
+;;(mac-add-ignore-shortcut '(control)))
 ))
 
 ;; vc-git..done という表示をなくす
@@ -532,6 +562,11 @@
 ;; ビープ音を消す
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
+
+;; Tabの代わりにスペースでインデント
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+
 
 ;#####
 
@@ -549,13 +584,13 @@
 ;; width  : フレーム幅(文字数)
 ;; height : フレーム高(文字数)@mac
 (setq initial-frame-alist
-	(append (set-my-frame-size "~/.emacs.d/frame/private_mac.json")
-			 initial-frame-alist))
+      (append (set-my-frame-size "~/.emacs.d/frame/private_mac.json")
+              initial-frame-alist))
 
 ;; 新規フレームのデフォルト設定
 (setq default-frame-alist
-	(append (set-my-frame-size "~/.emacs.d/frame/private_mac.json")
-			 default-frame-alist))
+      (append (set-my-frame-size "~/.emacs.d/frame/private_mac.json")
+              default-frame-alist))
 
 ;;スクロールを１行づつ
 (setq scroll-step 1)
@@ -595,61 +630,63 @@
 
 ;;ファイルが#!で始まる場合、+xを付けて保存する
 (add-hook 'after-save-hock
-		  'executable-make-buffer-file-executable-if-script-p)
+          'executable-make-buffer-file-executable-if-script-p)
 
 ;;オートセーブファイルを「~/.emacs.d/auto-save-list/」に保存
 (setq auto-save-file-name-transforms
-	  `((".*" ,(expand-file-name "~/.emacs.d/auto-save-list") t)))
+      `((".*" ,(expand-file-name "~/.emacs.d/auto-save-list") t)))
 
 ;; OS のクリップボードと emacs の kill-ring 連携する
 (setq x-select-enable-clipboard t)
 
 ;; emacs でコピーした内容とクリップボードを同期
-(setq darwin-p	 (eq system-type 'darwin)
-	  linux-p	 (eq system-type 'gnu/linux)
-	  carbon-p	 (eq system-type 'mac)
-	  meadow-p	 (featurep 'meadow))
+;; (setq darwin-p (eq system-type 'darwin)
+;;       linux-p  (eq system-type 'gnu/linux)
+;;       carbon-p (eq system-type 'mac)
+;;       meadow-p (featurep 'meadow))
 
-(defun copy-from-osx ()
-  (shell-command-to-string "pbpaste"))
+;; (defun copy-from-osx ()
+;;   (shell-command-to-string "pbpaste"))
 
-(defun paste-to-osx (text &optional push)
-  (let ((process-connection-type nil))
-	(let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-	  (process-send-string proc text)
-	  (process-send-eof proc))))
+;; (defun paste-to-osx (text &optional push)
+;;   (let ((process-connection-type nil))
+;;     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+;;       (process-send-string proc text)
+;;       (process-send-eof proc))))
 
-(if (or darwin-p carbon-p)
-  (setq interprogram-cut-function 'paste-to-osx)
-  (setq interprogram-paste-function 'copy-from-osx))
+;; (if (or darwin-p carbon-p)
+;;   (setq interprogram-cut-function 'paste-to-osx)
+;;   (setq interprogram-paste-function 'copy-from-osx))
 
 ;;; Mac Clipboard との共有
-(defvar prev-yanked-text nil "*previous yanked text")
+;; (defvar prev-yanked-text nil "*previous yanked text")
 
-(setq interprogram-cut-function
-	  (lambda (text &optional push)
-		; use pipe
-		(let ((process-connection-type nil))
-		  (let ((proc (start-process "pbcopy" nil "pbcopy")))
-			(process-send-string proc string)
-			(process-send-eof proc)
-			))))
+;; (setq interprogram-cut-function
+;;       (lambda (text &optional push)
+;;                                         ; use pipe
+;;         (let ((process-connection-type nil))
+;;           (let ((proc (start-process "pbcopy" nil "pbcopy")))
+;;             (process-send-string proc string)
+;;             (process-send-eof proc)
+;;             ))))
 
-(setq interprogram-paste-function
-	  (lambda ()
-		(let ((text (shell-command-to-string "pbpaste")))
-		  (if (string= prev-yanked-text text)
-			  nil
-			(setq prev-yanked-text text)))))
+;; (setq interprogram-paste-function
+;;       (lambda ()
+;;         (let ((text (shell-command-to-string "pbpaste")))
+;;           (if (string= prev-yanked-text text) nil (setq prev-yanked-text text)
+;;               ))))
 
+;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
 (defun yel-yank ()
   "yank to cycle kill ring"
   (interactive "*")
-  (if (or (eq last-command 'yank-pop)
-		  (eq last-command 'yank))
-	  (yank-pop 1)
-	(yank 1)))
-(global-set-key "\C-y" 'yel-yank) ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
+  (if (or (eq last-command 'yank-pop) (eq last-command 'yank))
+      (yank-pop 1) (yank 1))
+)
+(global-set-key "\C-y" 'yel-yank)
+
+;; zshを使う
+(setq shell-file-name "/usr/local/bin/zsh")
+
 
 ;#####
-
