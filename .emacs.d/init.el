@@ -319,6 +319,12 @@
 (define-key global-map [f5] 'point-undo)
 (define-key global-map [f6] 'point-redo)
 
+;; emacsclient
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+
 ;#####
 
 
@@ -512,12 +518,6 @@
 (when (boundp 'show-trailing-whitespace)
   (setq-default show-trailing-whitespace t))
 
-;; キャレット(カーソル)のタイプと表示
-(setq cursor-type 'hollow)
-;(set-cursor-color 'indianred) ; 何故か使えない
-(setq blink-cursor-interval 0.5)
-(setq blink-cursor-delay 30.0)
-(blink-cursor-mode 1)
 
 ;#####
 
@@ -566,6 +566,11 @@
 ;; Tabの代わりにスペースでインデント
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
+
+;; キャレット(カーソル)のタイプと表示
+(setq blink-cursor-interval 0.5)
+(setq blink-cursor-delay 30.0)
+(blink-cursor-mode 1)
 
 
 ;#####
@@ -690,3 +695,70 @@
 
 
 ;#####
+
+;; (defun kill-all-dired-buffers ()
+;;   "Kill all dired buffers."
+;;   (interactive)
+;;   (save-excursion
+;;     (let ((count 0))
+;;       (dolist (buffer (buffer-list))
+;;         (set-buffer buffer)
+;;         (when (equal major-mode 'dired-mode)
+;;           (setq count (1+ count))
+;;           (kill-buffer buffer)))
+;;       (message "Killed %i dired buffer(s)." count))))
+
+(defun create-my-scratch (&optional arg)
+  (interactive)
+  (progn
+    ;; "*scratch*" を作成して buffer-list に放り込む
+    (set-buffer (get-buffer-create "*scratch*"))
+    (funcall initial-major-mode)
+    (erase-buffer)
+    (when (and initial-scratch-message (not inhibit-startup-message))
+      (insert initial-scratch-message))
+    (or arg (progn (setq arg 0)
+                   (switch-to-buffer "*scratch*")))
+    (cond ((= arg 0) (message "*scratch* is cleared up."))
+          ((= arg 1) (message "another *scratch* is created")))))
+
+(add-hook 'kill-buffer-query-functions
+          ;; *scratch* バッファで kill-buffer したら内容を消去するだけにする
+          (lambda ()
+            (if (string= "*scratch*" (buffer-name))
+                (progn (create-my-scratch 0) nil)
+              t)))
+
+(add-hook 'after-save-hook
+          ;; *scratch* バッファの内容を保存したら *scratch* バッファを新しく作る
+          (lambda ()
+            (unless (member (get-buffer "*scratch*") (buffer-list))
+              (create-my-scratch 1))))
+
+(defun kill-other-buffers ()
+    "Kill all other buffers."
+    (interactive)
+    (mapc 'kill-buffer (delq (current-buffer) (remove-if-not 'buffer-file-name (buffer-list)))))
+
+(defun match-to-be-deleted (string)
+  (string-match "\\*.+\\*" string))
+
+(defun kill-major-buffers ()
+  "Kill the buffer otherwise *hoge* name"
+  (dolist (buffer (buffer-list))
+    (unless (match-to-be-deleted (buffer-name buffer))
+      ;(progn (message "%s" buffer) (sleep-for 1))
+      (kill-buffer buffer)
+      ))
+  )
+(kill-major-buffers)
+
+(defun elscreen-all-refresh ()
+  (dolist (screen (nbutlast (sort (elscreen-get-screen-list) '<)))
+    (elscreen-kill-screen-and-buffers screen)
+    )
+  (elscreen-create)
+  (elscreen-kill-screen-and-buffers 0)
+  (kill-major-buffers)
+  )
+(elscreen-all-refresh)

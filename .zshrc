@@ -14,6 +14,7 @@ alias ll='ls -lhaF'
 alias el='less -S'
 alias le='less -S'
 alias l='ls'
+alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
 alias emacs='open -a Emacs.app' # @mac
 alias emasc='open -a Emacs.app' # @mac
 alias em='emacs'
