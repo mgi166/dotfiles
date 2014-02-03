@@ -27,6 +27,7 @@
 
 ;;load-pathの追加
 (add-to-list 'load-path "~/.emacs.d/elisp")
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
 
 ;; emacs のversion が23以下なら、user-emacs-directory変数を定義
 (when (< emacs-major-version 23)
@@ -324,6 +325,15 @@
 (unless (server-running-p)
   (server-start))
 
+;; C-x C-c で休止
+(global-set-key (kbd "C-x C-c") 'ns-do-hide-emacs)
+
+;; M-x exit で emacs 終了
+(defalias 'exit 'save-buffers-kill-emacs)
+
+;; elscreen-server
+(require 'elscreen-server)
+
 
 ;#####
 
@@ -593,12 +603,12 @@
 ;; width  : フレーム幅(文字数)
 ;; height : フレーム高(文字数)@mac
 (setq initial-frame-alist
-      (append (set-my-frame-size "~/.emacs.d/frame/office.json")
+      (append (set-my-frame-size "~/.emacs.d/frame/private_mac.json")
               initial-frame-alist))
 
 ;; 新規フレームのデフォルト設定
 (setq default-frame-alist
-      (append (set-my-frame-size "~/.emacs.d/frame/office.json")
+      (append (set-my-frame-size "~/.emacs.d/frame/private_mac.json")
               default-frame-alist))
 
 ;;スクロールを１行づつ
@@ -727,3 +737,4 @@
             (unless (member (get-buffer "*scratch*") (buffer-list))
               (create-my-scratch 1))))
 
+(require 'my-functions)
