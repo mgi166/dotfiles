@@ -3,6 +3,14 @@
 ;;
 ;; Author:  Hiromu mogi <skskoari＠gmail.com>
 
+(defvar initial-buffer-list nil
+  "Buffer list when you have initialized")
+
+(dolist (buffer (buffer-list))
+  (setq initial-buffer-list
+        (append (make-list 1 (buffer-name buffer))
+                initial-buffer-list)
+        ))
 
 ;; test
 ;; (object-nilp nil)    ;=> should be nil
@@ -40,13 +48,6 @@
       ))
   )
 
-(setq initial-buffer-list)
-(dolist (buffer (buffer-list))
-  (setq initial-buffer-list
-        (append (make-list 1 (buffer-name buffer))
-                initial-buffer-list)
-        ))
-
 ;; nodoc
 ;;
 ;; test
@@ -68,14 +69,17 @@
       ))
   )
 
-;; TODO :comment
-(defun elscreen-all-refresh-screen-and-buffers ()
+;; close the screen and buffer of all
+;;
+(defun elscreen-refresh-and-buffers ()
   "All screens close and all buffers clear"
+  (interactive)
   (dolist (screen (nbutlast (sort (elscreen-get-screen-list) '<)))
     (elscreen-kill-screen-and-buffers screen))
   (elscreen-create)
   (elscreen-kill-screen-and-buffers 0)
-  (kill-buffers-other-initialized)
-  )
-;(elscreen-all-refresh)
+  (kill-buffers-other-initialized))
 
+(define-key global-map "\C-\M-l" 'elscreen-refresh-and-buffers)
+
+(provide 'my-functions)

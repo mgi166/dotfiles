@@ -14,15 +14,10 @@ alias ll='ls -lhaF'
 alias el='less -S'
 alias le='less -S'
 alias l='ls'
-alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
-alias emacs='open -a Emacs.app' # @mac
-alias emasc='open -a Emacs.app' # @mac
-alias em='emacs'
 alias updatedb="sudo /usr/libexec/locate.updatedb" # @mac
 alias ..='cd ..'
 alias du='du -h'
 alias df='df -h'
-alias emasc='emacs'
 #alias te='telnet -l hm ienari' # @ubuntu
 alias which='which -p' # zsh専用
 alias c='pbcopy'
@@ -46,6 +41,25 @@ alias sa='svn add'
 alias sd='svn diff'
 alias sl='svn log -l 3'
 alias sup='svn up'
+
+# emacs
+alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
+alias emacs='open -a Emacs.app' # @mac
+#alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+alias em='emacs'
+alias e='emacsclient'
+alias emasc='emacs'
+
+# if no argument, emacsclient give current_dir
+#
+# function E () {
+#     if `ps aux | grep emacs | grep -v grep | wc -l` > dev/null; then
+#         emacsclient
+#     else
+#         emacs
+#     fi
+# }
+
 
 ##### keybind
 
@@ -226,7 +240,9 @@ function precmd () {
   z --add "$(pwd -P)"
 }
 
-export EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+
+#export EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw'
 
 
 ##### functions
@@ -260,3 +276,4 @@ dir () {
 # auto_cd の場合でも ls
 #function chpwd() { ls -v -F --color=auto } # @ubuntu
 #function chpwd() { ls -v -F -G } # @mac
+
