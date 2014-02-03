@@ -397,6 +397,10 @@
 (add-to-list 'auto-mode-alist
              '("\\.js$" . js2-mode))
 
+;; yaml-mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 ;#####
 
 
@@ -589,12 +593,12 @@
 ;; width  : フレーム幅(文字数)
 ;; height : フレーム高(文字数)@mac
 (setq initial-frame-alist
-      (append (set-my-frame-size "~/.emacs.d/frame/private_mac.json")
+      (append (set-my-frame-size "~/.emacs.d/frame/office.json")
               initial-frame-alist))
 
 ;; 新規フレームのデフォルト設定
 (setq default-frame-alist
-      (append (set-my-frame-size "~/.emacs.d/frame/private_mac.json")
+      (append (set-my-frame-size "~/.emacs.d/frame/office.json")
               default-frame-alist))
 
 ;;スクロールを１行づつ
@@ -696,18 +700,6 @@
 
 ;#####
 
-;; (defun kill-all-dired-buffers ()
-;;   "Kill all dired buffers."
-;;   (interactive)
-;;   (save-excursion
-;;     (let ((count 0))
-;;       (dolist (buffer (buffer-list))
-;;         (set-buffer buffer)
-;;         (when (equal major-mode 'dired-mode)
-;;           (setq count (1+ count))
-;;           (kill-buffer buffer)))
-;;       (message "Killed %i dired buffer(s)." count))))
-
 (defun create-my-scratch (&optional arg)
   (interactive)
   (progn
@@ -735,30 +727,3 @@
             (unless (member (get-buffer "*scratch*") (buffer-list))
               (create-my-scratch 1))))
 
-(defun kill-other-buffers ()
-    "Kill all other buffers."
-    (interactive)
-    (mapc 'kill-buffer (delq (current-buffer) (remove-if-not 'buffer-file-name (buffer-list)))))
-
-(defun match-to-be-deleted (string)
-  (string-match "\\*.+\\*" string))
-
-(defun kill-major-buffers ()
-  "Kill the buffer otherwise *hoge* name"
-  (dolist (buffer (buffer-list))
-    (unless (match-to-be-deleted (buffer-name buffer))
-      ;(progn (message "%s" buffer) (sleep-for 1))
-      (kill-buffer buffer)
-      ))
-  )
-(kill-major-buffers)
-
-(defun elscreen-all-refresh ()
-  (dolist (screen (nbutlast (sort (elscreen-get-screen-list) '<)))
-    (elscreen-kill-screen-and-buffers screen)
-    )
-  (elscreen-create)
-  (elscreen-kill-screen-and-buffers 0)
-  (kill-major-buffers)
-  )
-(elscreen-all-refresh)
