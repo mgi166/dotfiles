@@ -50,7 +50,6 @@ alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
 # alias e='emacsclient'
 # alias emasc='emacs'
 
-
 function ee () {
     emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
     emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
