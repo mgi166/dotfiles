@@ -44,22 +44,70 @@ alias sup='svn up'
 
 # emacs
 alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
-alias emacs='open -a Emacs.app' # @mac
-#alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
-alias em='emacs'
-alias e='emacsclient'
-alias emasc='emacs'
+# alias emacs='open -a Emacs.app' # @mac
+# #alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+# alias em='emacs'
+# alias e='emacsclient'
+# alias emasc='emacs'
 
-# if no argument, emacsclient give current_dir
-#
-# function E () {
-#     if `ps aux | grep emacs | grep -v grep | wc -l` > dev/null; then
-#         emacsclient
-#     else
-#         emacs
-#     fi
-# }
 
+function ee () {
+    emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+    emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
+
+    if [ 1 -eq `ps aux | grep emacs | grep -v grep | wc -l` ]; then
+        if [ $# -eq 0 ]; then
+            emacsclient -n .
+        else
+            emacsclient -n $*
+        fi
+    else
+        open -a emacs $*
+    fi
+}
+function em () {
+    emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+    emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
+    if [ 1 -eq `ps aux | grep emacs | grep -v grep | wc -l` ]; then
+        if [ $# -eq 0 ]; then
+            emacsclient -n .
+        else
+            emacsclient -n $*
+        fi
+    else
+        open -a emacs $*
+    fi
+}
+function emacs () {
+    emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+    emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
+    if [ 1 -eq `ps aux | grep emacs | grep -v grep | wc -l` ]; then
+        if [ $# -eq 0 ]; then
+            emacsclient -n .
+        else
+            emacsclient -n $*
+        fi
+    else
+        open -a emacs $*
+    fi
+}
+function emasc () {
+    emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+    emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
+    if [ 1 -eq `ps aux | grep emacs | grep -v grep | wc -l` ]; then
+        if [ $# -eq 0 ]; then
+            emacsclient -n .
+        else
+            emacsclient -n $*
+        fi
+    else
+        open -a emacs $*
+    fi
+}
 
 ##### keybind
 
@@ -226,6 +274,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/mysql/bin
 # source ~/.rbenv/completions/rbenv.zsh
 
 export SVN_EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+#export SVN_EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw'
 
 # mysql 5.1.69
 alias mysql=/usr/local/mysql/bin/mysql
