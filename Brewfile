@@ -17,10 +17,10 @@ install bash        || true
 install brew-cask   || true
 install ctags       || true
 install fontforge   || true
-install gfortran    || true
 install git         || true
 install imagemagick || true
 install mysql       || true
+install nginx       || true
 install nkf         || true
 install openssl     || true
 install packer      || true
@@ -35,7 +35,27 @@ install zsh         || true
 install z           || true
 
 # Package for dmg
-
+# cask install alfred
+# cask install appcleaner
+# cask install bettertouchtool
+# cask install clipmenu
+# cask install dropbox
+# cask install emacs
+# cask install evernote
+# cask install firefox
+# cask install f-lux
+# cask install google-chrome
+# cask install iterm2
+# cask install keyremap4macbook
+# cask install limechat
+# cask install mplayerx
+# cask install skype
+# cask install the-unarchiver
+# cask install virtualbox
+# cask install vagrant
+# cask install yoruhukurou
+# cask install xquartz
+# cask install xtrafinder
 
 # Remove outdated versions from the cellar
 cleanup
