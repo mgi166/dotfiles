@@ -113,11 +113,11 @@ alias conf TabOpenNew chrome-extension://gghkfhpblkcmlkmpcpgaajbbiikbhpdi/option
 alias cnf TabOpenNew chrome-extension://gghkfhpblkcmlkmpcpgaajbbiikbhpdi/options.html
 alias o TabOpenNew
 alias x TabCloseCurrent
-alias new TabOpenNew chrome-internal://newtab/
+#alias new TabOpenNew chrome-internal://newtab/
 
 # use speed dial2's new tab
-#alias new TabOpenNew chrome-extension://jpfpebmajhhopeonhlcgidhclcccjcik/newtab.html
-#alias n TabOpenNew chrome-extension://jpfpebmajhhopeonhlcgidhclcccjcik/newtab.html
+alias new TabOpenNew chrome-extension://jpfpebmajhhopeonhlcgidhclcccjcik/newtab.html
+alias n TabOpenNew chrome-extension://jpfpebmajhhopeonhlcgidhclcccjcik/newtab.html
 
 
 ## NOP keybinds
