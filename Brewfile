@@ -35,6 +35,8 @@ install zsh         || true
 install z           || true
 
 # Package for dmg
+# To install dmg is lacked "FreeMemory", "cooViewer". so manual install that dmgs
+
 # cask install alfred
 # cask install appcleaner
 # cask install bettertouchtool
