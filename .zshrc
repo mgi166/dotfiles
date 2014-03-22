@@ -22,6 +22,9 @@ alias df='df -h'
 alias which='which -p' # zsh専用
 alias c='pbcopy'
 alias pd='popd'
+alias csv='cut -d ","'
+alias tsv='cut'
+alias psv='cut -d "|"'
 
 ## vcs alias
 alias g='git'
