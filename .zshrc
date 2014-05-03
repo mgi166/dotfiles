@@ -269,6 +269,10 @@ setopt ignore_eof
 export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
 
+# less
+export LESS="-RSj15"
+export LESSOPEN="| /usr/local/Cellar/source-highlight/3.1.7/bin/src-hilite-lesspipe.sh %s"
+
 ##### path 関連
 # /usr/local/bin は homebrew で install した formula のsymboliclinkが貼られている。この directory を$PATHに記入することにより、defalut で入っているコマンドより、homebrewで入れたコマンドが常に優先されることに注意。/usr/local/mysql/bin はdmgでmysqlをインストールしたので、pathに追加している。
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/mysql/bin

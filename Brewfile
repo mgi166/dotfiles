@@ -27,6 +27,7 @@ install packer      || true
 install R           || true
 install readline    || true
 install reattach-to-user-namespace || true
+install source-highlight || true
 install tmux        || true
 install tree        || true
 install unrar       || true
