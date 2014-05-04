@@ -707,6 +707,9 @@
 ;; zshを使う
 (setq shell-file-name "/usr/local/bin/zsh")
 
+;; find-file をした時の default の directory を設定
+(setq default-directory "~/")
+(setq command-line-default-directory "~/")
 
 ;#####
 
