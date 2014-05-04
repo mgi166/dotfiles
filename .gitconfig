@@ -1,5 +1,5 @@
 [core]
-	editor = emacs
+	editor = /Applications/Emacs.app/Contents/MacOS/Emacs -nw --no-init-file
 	excludesfile = ~/.gitignore
 	quotepath = false
 	precomposeunicode = true
@@ -17,6 +17,6 @@
 	sh = show
 	sb = show-branch -a
 [include]
-    path = .gitconfig.local
+	path = .gitconfig.local
 [merge]
 	ff = false
