@@ -48,41 +48,7 @@ alias sup='svn up'
 
 # emacs
 alias emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n'
-# alias emacs='open -a Emacs.app' # @mac
-# #alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
-# alias em='emacs'
-# alias e='emacsclient'
-# alias emasc='emacs'
 
-function ee () {
-    emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-    emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
-
-
-    if [ 1 -eq `ps aux | grep emacs | grep -v grep | wc -l` ]; then
-        if [ $# -eq 0 ]; then
-            emacsclient -n .
-        else
-            emacsclient -n $*
-        fi
-    else
-        open -a emacs $*
-    fi
-}
-function em () {
-    emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-    emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
-
-    if [ 1 -eq `ps aux | grep emacs | grep -v grep | wc -l` ]; then
-        if [ $# -eq 0 ]; then
-            emacsclient -n .
-        else
-            emacsclient -n $*
-        fi
-    else
-        open -a emacs $*
-    fi
-}
 function emacs () {
     emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
     emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
@@ -97,20 +63,10 @@ function emacs () {
         open -a emacs $*
     fi
 }
-function emasc () {
-    emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-    emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 
-    if [ 1 -eq `ps aux | grep emacs | grep -v grep | wc -l` ]; then
-        if [ $# -eq 0 ]; then
-            emacsclient -n .
-        else
-            emacsclient -n $*
-        fi
-    else
-        open -a emacs $*
-    fi
-}
+alias ee='emacs'
+alias em='emacs'
+alias emasc='emacs'
 
 ##### keybind
 
@@ -273,15 +229,20 @@ eval "$(rbenv init -)"
 export LESS="-RSj15"
 export LESSOPEN="| /usr/local/Cellar/source-highlight/3.1.7/bin/src-hilite-lesspipe.sh %s"
 
+# editor
+export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw'
+
 ##### path 関連
-# /usr/local/bin は homebrew で install した formula のsymboliclinkが貼られている。この directory を$PATHに記入することにより、defalut で入っているコマンドより、homebrewで入れたコマンドが常に優先されることに注意。/usr/local/mysql/bin はdmgでmysqlをインストールしたので、pathに追加している。
+# /usr/local/bin は homebrew で install した formula のsymboliclinkが貼られている。
+# この directory を$PATHに記入することにより、defalut で入っているコマンドより、homebrewで入れたコマンドが常に優先されることに注意。
+# /usr/local/mysql/bin はdmgでmysqlをインストールしたので、pathに追加している。
+
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/mysql/bin
 
 # .rbenv/libexec/../completions/rbenv.bash:14: command not found: complete と表示される場合は、chshでshellを書き換えて再起動する。
 # source ~/.rbenv/completions/rbenv.zsh
 
-export SVN_EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-#export SVN_EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw'
+export SVN_EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw'
 
 # mysql 5.1.69
 alias mysql=/usr/local/mysql/bin/mysql
@@ -295,10 +256,6 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$
 function precmd () {
   z --add "$(pwd -P)"
 }
-
-
-#export EDITOR='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw'
 
 
 ##### functions
@@ -318,18 +275,9 @@ if exists percol; then
     bindkey '^R' percol_select_history
 fi
 
-dir () {
-	dirs -v
-	echo -n "select number "
-	read newdir
-	cd +"$newdir"
+function dir () {
+    dirs -v
+    echo -n "select number "
+    read newdir
+    cd +"$newdir"
 }
-
-# cd したら自動的にls
-#function cd() {builtin cd $@ && ls -v -F --color=auto} # @ubuntu
-#function cd() {builtin cd $@ && ls -v -F -G} # @mac
-
-# auto_cd の場合でも ls
-#function chpwd() { ls -v -F --color=auto } # @ubuntu
-#function chpwd() { ls -v -F -G } # @mac
-
