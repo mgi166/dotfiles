@@ -15,6 +15,7 @@ tap homebrew/science  # to install R
 install apple-gcc42 || true
 install bash        || true
 install brew-cask   || true
+install cmigemo     || true
 install ctags       || true
 install fontforge   || true
 install git         || true
