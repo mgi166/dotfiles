@@ -11,8 +11,8 @@ emap <C-g> : Escape
 ## nmap keybinds
 
 # タブ操作をワンキーで
-nmap l :TabFocusNext
-nmap h :TabFocusPrev
+nmap n :TabFocusNext
+nmap p :TabFocusPrev
 
 # GoCommandMode
 nmap <A-x> :GoCommandMode
@@ -22,7 +22,7 @@ nmap t :ShowTabList
 
 # 戻る & 進む
 nmap b :BackHist
-nmap n :ForwardHist
+nmap g :ForwardHist
 
 # google search
 nmap s :TabOpenNew -i g
@@ -82,14 +82,14 @@ cmap <C-p> :FocusPrevCandidate
 
 ## pagecmd keybinds
 # 全てのページでタブ移動を可能に
-pagecmd http*://* nmap l :TabFocusNext
-pagecmd http*://* nmap h :TabFocusPrev
-pagecmd chrome://* nmap l :TabFocusNext
-pagecmd chrome://* nmap h :TabFocusPrev
-pagecmd * nmap l :TabFocusNext
-pagecmd * nmap h :TabFocusPrev
-pagecmd * nmap <C-l> :TabFocusNext
-pagecmd * nmap <C-h> :TabFocusPrev
+pagecmd http*://* nmap n :TabFocusNext
+pagecmd http*://* nmap p :TabFocusPrev
+pagecmd chrome://* nmap n :TabFocusNext
+pagecmd chrome://* nmap p :TabFocusPrev
+pagecmd * nmap n :TabFocusNext
+pagecmd * nmap p :TabFocusPrev
+#pagecmd * nmap <C-l> :TabFocusNext
+#pagecmd * nmap <C-h> :TabFocusPrev
 
 # almost all Vichrome functions don't work properly for pdf contents
 # so it's useful to enable default key bindings for pdf file.
