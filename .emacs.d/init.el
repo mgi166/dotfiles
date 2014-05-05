@@ -34,11 +34,42 @@
 
 ;#####
 
-
 ;##### elisp関連
 
-;; common lisp
-(require 'cl)
+;; linum.el(左側に行数表示)
+(require 'linum)
+(global-linum-mode t)
+(setq linum-format "%5d ")
+
+;; linum の背景色
+(custom-set-faces
+ '(linum ((t (:inherit (shadow default) :background "Gray23")))))
+
+;;ファイル更新日を自動的に書き換える
+(require 'time-stamp)
+(add-hook 'before-save-hook 'time-stamp)
+(setq time-stamp-active t)
+(setq time-stamp-start "last updated : ")
+(setq time-stamp-format "%04y/%02m/%02d")
+(setq time-stamp-end "\\|$")
+
+;; recentf.el
+;; 最近使ったファイルをメニューに表示
+(recentf-mode 1)
+(setq recentf-max-menu-items 200)
+(setq recentf-max-saved-items 200)
+(global-set-key "\C-xf" 'recentf-open-files)
+
+;; iswitchb
+(iswitchb-mode 1)
+;; C-f, C-b, C-n, C-p で候補を切り替えることができるように。
+(add-hook 'iswitchb-define-mode-map-hook
+      (lambda ()
+        (define-key iswitchb-mode-map "\C-n" 'iswitchb-next-match)
+        (define-key iswitchb-mode-map "\C-p" 'iswitchb-prev-match)
+        (define-key iswitchb-mode-map "\C-f" 'iswitchb-next-match)
+        (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)))
+
 
 ;; mac-key-mode (CocoaEmacsの時は不要)
 (when (< emacs-major-version 24)
@@ -51,15 +82,6 @@
 ;; auto-complite.el(自動補完機能)
 (require 'auto-complete)
 (global-auto-complete-mode t)
-
-;; linum.el(左側に行数表示)
-(require 'linum)
-(global-linum-mode t)
-(setq linum-format "%5d ")
-
-;; linum の背景色
-(custom-set-faces
- '(linum ((t (:inherit (shadow default) :background "Gray23")))))
 
 ;; Color-Theme.el(カラーテーマ。お気に入りは color-theme-charcoal-black )
 ;;(when window-system
@@ -217,9 +239,6 @@
 ;; (auto-install-update-emacswiki-package-name t)
 ;; (auto-install-compatibility-setup)
 
-;; dired
-(define-key global-map "\C-x\C-d" 'dired)
-
 ;; recentf-ext (バッファも recentf の対象とする)
 (require 'recentf-ext)
 
@@ -239,7 +258,6 @@
 (define-key global-map (kbd "M-\'") 'insert-pair)
 (define-key global-map (kbd "M-\"") 'insert-pair)
 ;; (define-key global-map (kbd "M-[") 'insert-pair)
-
 
 ;; jaspace (全角空白、タブを強調表示 (改行だけ強調しない。emacs 23 以下の version でのみ有効))
 (when (< emacs-major-version 23)
@@ -478,32 +496,8 @@
       (append '((cursor-color . "Gray55"))
               default-frame-alist))
 
-;;最近使ったファイルをメニューに表示
-(recentf-mode 1)
-(setq recentf-max-menu-items 200)
-(setq recentf-max-saved-items 200)
-(global-set-key "\C-xf" 'recentf-open-files)
-
 ;;補完機能
 (setq partial-complication-mode 1)
-
-;;ファイル更新日を自動的に書き換える
-(require 'time-stamp)
-(add-hook 'before-save-hook 'time-stamp)
-(setq time-stamp-active t)
-(setq time-stamp-start "last updated : ")
-(setq time-stamp-format "%04y/%02m/%02d")
-(setq time-stamp-end "\\|$")
-
-;;iswitchb モード on
-(iswitchb-mode 1) ;;iswitchbモードON
-;;; C-f, C-b, C-n, C-p で候補を切り替えることができるように。
-(add-hook 'iswitchb-define-mode-map-hook
-      (lambda ()
-        (define-key iswitchb-mode-map "\C-n" 'iswitchb-next-match)
-        (define-key iswitchb-mode-map "\C-p" 'iswitchb-prev-match)
-        (define-key iswitchb-mode-map "\C-f" 'iswitchb-next-match)
-        (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)))
 
 ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
 (defun yel-yank ()
