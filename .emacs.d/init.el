@@ -418,10 +418,6 @@
 (define-key global-map "\C-x\C-k" 'kill-buffer)           ; buffer close
 (define-key global-map "\C-\M-^" 'indent-region) ;; indent-region
 
-;; C-k で改行を含めてカット
-(setq kill-whole-line t)
-
-
 ;; shiht+矢印キーで領域選択 CarbonEmacs 限定
 ;; (setq pc-select-selection-key-only t)
 ;; (pc-selection-mode 1)
@@ -435,18 +431,6 @@
 ;; (global-set-key [mouse-5] 'scroll-up-with-lines)
 (global-set-key [wheel-up] 'scroll-down-with-lines)
 (global-set-key [wheel-down] 'scroll-up-with-lines)
-
-;; C-Ret で矩形選択
-(cua-mode t)
-(setq cua-enable-cua-keys nil)
-
-;; ミニバッファの履歴を "C-p" と "C-n" で辿れるようにする
-(define-key minibuffer-local-must-match-map "\C-p" 'previous-history-element)
-(define-key minibuffer-local-must-match-map "\C-n" 'next-history-element)
-(define-key minibuffer-local-completion-map "\C-p" 'previous-history-element)
-(define-key minibuffer-local-completion-map "\C-n" 'next-history-element)
-(define-key minibuffer-local-map "\C-p" 'previous-history-element)
-(define-key minibuffer-local-map "\C-n" 'next-history-element)
 
 ;;; リージョンの大文字小文字変換を有効にする。
 ;; C-x C-u -> upcase
@@ -465,62 +449,6 @@
 ;#####
 
 
-;##### 強調、表示
-
-;;対応する括弧を光らせる
-(show-paren-mode t)
-
-;;括弧強調表示までの時間
-(setq show-paren-delay 0)
-
-;;選択部分のハイライト
-(transient-mark-mode t)
-
-;;カーソルの位置が何文字目か表示
-(column-number-mode t)
-
-;;カーソルの位置が何行目か表示
-(line-number-mode t)
-
-;;行数表示
-(line-number-mode t)
-
-;;画像ファイルを表示
-(auto-image-file-mode t)
-
-;;最終行に必ず一行挿入する
-(setq require-final-newline t)
-
-;;現在開いているファイルのフルパスを確認
-(setq frame-title-format (format "%%f - Emacs@%s" (system-name)))
-
-;;スクロールバーを右側に表示する
-(unless (not window-system)
-  (set-scroll-bar-mode 'right)
-)
-
-;;ファイルサイズを表示
-(size-indication-mode t)
-
-;;行をハイライト
-(defface my-hl-line-face
-  '((((class color) (background dark))
-     (:background "Gray25" t))
-    (((class color) (background light))
-     (:background "LightGoldenrodYellow" t))
-    (t (:bold t)))
-  "hl-line's my face")
-(setq hl-line-face 'my-hl-line-face)
-(global-hl-line-mode t)
-
-;; スペースとタブだけの行を強調表示
-(when (boundp 'show-trailing-whitespace)
-  (setq-default show-trailing-whitespace t))
-
-
-;#####
-
-
 ;##### 不要な表示を消す
 
 ;; Control + すべてのキーを無視する @mac (mac-add-ignore-shortcut はCarbonEmacs限定。CocoaEmacsでは不要なのでコメントアウトしていい。
@@ -529,23 +457,10 @@
 ;;(mac-add-ignore-shortcut '(control)))
 ))
 
-;; Tabの代わりにスペースでインデント
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 2)
-
-;; キャレット(カーソル)のタイプと表示
-(setq blink-cursor-interval 0.5)
-(setq blink-cursor-delay 30.0)
-(blink-cursor-mode 1)
-
-
 ;#####
 
 
 ;##### その他
-
-;;"yes or no" を "y or n"に
-(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; 初期フレームの設定
 (require 'my-frame)
@@ -563,12 +478,6 @@
       (append '((cursor-color . "Gray55"))
               default-frame-alist))
 
-;;スクロールを１行づつ
-(setq scroll-step 1)
-
-;; 1行づつスクロールする
-(setq scroll-conservatively 1)
-
 ;;最近使ったファイルをメニューに表示
 (recentf-mode 1)
 (setq recentf-max-menu-items 200)
@@ -577,9 +486,6 @@
 
 ;;補完機能
 (setq partial-complication-mode 1)
-
-;; find-fileのファイル名補完で大文字小文字を区別しない設定
-(setq completion-ignore-case t)
 
 ;;ファイル更新日を自動的に書き換える
 (require 'time-stamp)
@@ -599,54 +505,6 @@
         (define-key iswitchb-mode-map "\C-f" 'iswitchb-next-match)
         (define-key iswitchb-mode-map "\C-b" 'iswitchb-prev-match)))
 
-;;ファイルが#!で始まる場合、+xを付けて保存する
-(add-hook 'after-save-hock
-          'executable-make-buffer-file-executable-if-script-p)
-
-;;オートセーブファイルを「~/.emacs.d/auto-save-list/」に保存
-(setq auto-save-file-name-transforms
-      `((".*" ,(expand-file-name "~/.emacs.d/auto-save-list") t)))
-
-;; OS のクリップボードと emacs の kill-ring 連携する
-(setq x-select-enable-clipboard t)
-
-;; emacs でコピーした内容とクリップボードを同期
-;; (setq darwin-p (eq system-type 'darwin)
-;;       linux-p  (eq system-type 'gnu/linux)
-;;       carbon-p (eq system-type 'mac)
-;;       meadow-p (featurep 'meadow))
-
-;; (defun copy-from-osx ()
-;;   (shell-command-to-string "pbpaste"))
-
-;; (defun paste-to-osx (text &optional push)
-;;   (let ((process-connection-type nil))
-;;     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-;;       (process-send-string proc text)
-;;       (process-send-eof proc))))
-
-;; (if (or darwin-p carbon-p)
-;;   (setq interprogram-cut-function 'paste-to-osx)
-;;   (setq interprogram-paste-function 'copy-from-osx))
-
-;;; Mac Clipboard との共有
-;; (defvar prev-yanked-text nil "*previous yanked text")
-
-;; (setq interprogram-cut-function
-;;       (lambda (text &optional push)
-;;                                         ; use pipe
-;;         (let ((process-connection-type nil))
-;;           (let ((proc (start-process "pbcopy" nil "pbcopy")))
-;;             (process-send-string proc string)
-;;             (process-send-eof proc)
-;;             ))))
-
-;; (setq interprogram-paste-function
-;;       (lambda ()
-;;         (let ((text (shell-command-to-string "pbpaste")))
-;;           (if (string= prev-yanked-text text) nil (setq prev-yanked-text text)
-;;               ))))
-
 ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
 (defun yel-yank ()
   "yank to cycle kill ring"
@@ -655,13 +513,6 @@
       (yank-pop 1) (yank 1))
 )
 (global-set-key "\C-y" 'yel-yank)
-
-;; zshを使う
-(setq shell-file-name "/usr/local/bin/zsh")
-
-;; find-file をした時の default の directory を設定
-(setq default-directory "~/")
-(setq command-line-default-directory "~/")
 
 ;#####
 
