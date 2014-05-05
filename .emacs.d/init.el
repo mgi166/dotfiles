@@ -405,10 +405,6 @@
 
 ;##### keybind関連
 
-;; メタキーをoptionに @mac
-(when (eq system-type 'darwin)
-  (setq mac-option-modifier 'meta))
-
 ;; keybind
 (define-key global-map "\C-h" 'delete-backward-char) ; 削除
 (define-key global-map "\M-?" 'help-command) ; help
