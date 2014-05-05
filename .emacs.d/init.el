@@ -36,15 +36,6 @@
 
 ;##### elisp関連
 
-;; linum.el(左側に行数表示)
-(require 'linum)
-(global-linum-mode t)
-(setq linum-format "%5d ")
-
-;; linum の背景色
-(custom-set-faces
- '(linum ((t (:inherit (shadow default) :background "Gray23")))))
-
 ;;ファイル更新日を自動的に書き換える
 (require 'time-stamp)
 (add-hook 'before-save-hook 'time-stamp)
