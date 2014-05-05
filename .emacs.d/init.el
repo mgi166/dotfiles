@@ -43,7 +43,6 @@
 (setq recentf-max-saved-items 200)
 (global-set-key "\C-xf" 'recentf-open-files)
 
-
 ;; mac-key-mode (CocoaEmacsの時は不要)
 (when (< emacs-major-version 24)
   (require 'mac-key-mode)
@@ -51,10 +50,6 @@
   (define-key mac-key-mode-map [(alt {)] 'elscreen-previous)
   (define-key mac-key-mode-map [(alt })] 'elscreen-next)
 )
-
-;; auto-complite.el(自動補完機能)
-(require 'auto-complete)
-(global-auto-complete-mode t)
 
 ;; Color-Theme.el(カラーテーマ。お気に入りは color-theme-charcoal-black )
 ;;(when window-system
@@ -468,9 +463,6 @@
 (setq default-frame-alist
       (append '((cursor-color . "Gray55"))
               default-frame-alist))
-
-;;補完機能
-(setq partial-complication-mode 1)
 
 ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
 (defun yel-yank ()
