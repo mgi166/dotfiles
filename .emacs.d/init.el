@@ -1,3 +1,7 @@
+;; load-path
+(add-to-list 'load-path "~/.emacs.d/elisp")
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
+
 ;##### 日本語の設定
 
 ;;日本語の設定
