@@ -43,14 +43,6 @@
 (setq recentf-max-saved-items 200)
 (global-set-key "\C-xf" 'recentf-open-files)
 
-;; mac-key-mode (CocoaEmacsの時は不要)
-(when (< emacs-major-version 24)
-  (require 'mac-key-mode)
-  (mac-key-mode 1)
-  (define-key mac-key-mode-map [(alt {)] 'elscreen-previous)
-  (define-key mac-key-mode-map [(alt })] 'elscreen-next)
-)
-
 ;; Color-Theme.el(カラーテーマ。お気に入りは color-theme-charcoal-black )
 ;;(when window-system
 (require 'color-theme)
