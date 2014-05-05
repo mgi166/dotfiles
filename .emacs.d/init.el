@@ -36,14 +36,6 @@
 
 ;##### elisp関連
 
-;;ファイル更新日を自動的に書き換える
-(require 'time-stamp)
-(add-hook 'before-save-hook 'time-stamp)
-(setq time-stamp-active t)
-(setq time-stamp-start "last updated : ")
-(setq time-stamp-format "%04y/%02m/%02d")
-(setq time-stamp-end "\\|$")
-
 ;; recentf.el
 ;; 最近使ったファイルをメニューに表示
 (recentf-mode 1)
