@@ -12,10 +12,6 @@
 (init-loader-load "~/.emacs.d/inits")
 
 
-;##### 日本語の設定
-
-;#####
-
 ;##### load-path関連
 
 ;;load-pathの追加
@@ -531,44 +527,11 @@
 
 ;##### 不要な表示を消す
 
-;;ツールバーを隠す
-(tool-bar-mode 0)
-
-;;メニューバーを消す
-(menu-bar-mode nil)
-
-;;スタートアップを表示しない
-(setq inhibit-startup-message t)
-
-;;スタートアップスクリーンを消す
-(setq setq-startup-screen -1)
-
-;;最初のメッセージを消す
-(setq initial-scratch-message "")
-
-;;バックアップファイルを作らない
-(setq make-backup-files nil)
-
-;; 終了時にオートセーブファイルを消す
-(setq delete-auto-save-files t)
-
-;; "For information about GNU Emacs and the GNU system, type C-h C-a." とミニバッファに表示しない。
-(defun display-startup-echo-area-message ()
-  "If it wasn't for this you'd be GNU/Spammed by now"
-  (message ""))
-
 ;; Control + すべてのキーを無視する @mac (mac-add-ignore-shortcut はCarbonEmacs限定。CocoaEmacsでは不要なのでコメントアウトしていい。
 (unless (not window-system)
   (when (eq system-type 'darwin)
 ;;(mac-add-ignore-shortcut '(control)))
 ))
-
-;; vc-git..done という表示をなくす
-(setq vc-handled-backends nil)
-
-;; ビープ音を消す
-(setq visible-bell t)
-(setq ring-bell-function 'ignore)
 
 ;; Tabの代わりにスペースでインデント
 (setq-default indent-tabs-mode nil)
