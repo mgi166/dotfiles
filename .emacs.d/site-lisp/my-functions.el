@@ -110,4 +110,13 @@
 
 (define-key global-map "\C-\M-l" 'elscreen-refresh-and-buffers)
 
+;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
+(defun yel-yank ()
+  "yank to cycle kill ring"
+  (interactive "*")
+  (if (or (eq last-command 'yank-pop) (eq last-command 'yank))
+      (yank-pop 1) (yank 1))
+)
+(global-set-key "\C-y" 'yel-yank)
+
 (provide 'my-functions)
