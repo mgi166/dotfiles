@@ -1,0 +1,6 @@
+;; multi-term(端末emulator)
+(require 'multi-term)
+(setq multi-term-program shell-file-name)
+(setq multi-term-program "/bin/zsh")
+(setenv "TERMINFO" "~/.terminfo") ; "4m" と出力されないようにする。必要.terminfo(参考: http://passingloop.tumblr.com/post/11324890598/emacs-terminfo-configuration)
+(define-key global-map "\M-!" 'multi-term)
