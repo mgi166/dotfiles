@@ -75,3 +75,6 @@ ac-comphist.dat
 /.vagrant
 Vagrantfile
 *.box
+
+# Ignore zsh
+.zsh/.zcompdump
