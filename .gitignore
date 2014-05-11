@@ -70,6 +70,7 @@ ac-comphist.dat
 */auto-save-list/*
 *~
 */#!*
+*/elpa/*
 
 # Ignore vagrant caches
 /.vagrant
