@@ -2,17 +2,9 @@
 (require 'ruby-block)
 (setq ruby-block-highlight-toggle t)
 
-;; inf-ruby
-(autoload 'run-ruby "inf-ruby"
-  "Run an inferior Ruby process")
-(autoload 'inf-ruby-keys "inf-ruby"
-  "Set local key defs for inf-ruby in ruby-mode")
-
 (defun ruby-mode-hooks ()
-  (inf-ruby-keys)
-;  (ruby-electric-mode t)
-  (ruby-block-mode t)
-  (define-key ruby-mode-map (kbd "C-c r") 'execute-rspec))
+  (ruby-block-mode t))
+
 (add-hook 'ruby-mode-hook 'ruby-mode-hooks)
 (autoload 'ruby-mode "ruby-mode" nil t)
 (add-to-list 'auto-mode-alist

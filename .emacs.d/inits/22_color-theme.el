@@ -1,7 +1,5 @@
 ;; Color-Theme.el(カラーテーマ。お気に入りは color-theme-charcoal-black )
-(require 'color-theme)
 (color-theme-initialize)
-
 (color-theme-charcoal-black)
 
 ;; solarized
