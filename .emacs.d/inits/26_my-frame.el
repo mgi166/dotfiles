@@ -10,9 +10,9 @@
               initial-frame-alist))
 
 ;; ;; 新規フレームのデフォルト設定
-(setq default-frame-alist
-      (append '((cursor-color . "Gray55"))
-              default-frame-alist))
+;; (setq default-frame-alist
+;;       (append '((cursor-color . "Gray55"))
+;;               default-frame-alist))
 
 ;;透明度の設定
 (add-to-list 'default-frame-alist '(alpha . 80))
