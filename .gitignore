@@ -71,6 +71,7 @@ ac-comphist.dat
 *~
 */#!*
 */elpa/*
+*/.cask/*
 
 # Ignore vagrant caches
 /.vagrant

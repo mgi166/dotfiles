@@ -18,6 +18,11 @@
 (add-to-list 'package-archives  '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
+;; cask.el
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+(require 'pallet)
+
 ;; init-loader.el
 (require 'init-loader)
 (setq init-loader-show-log-after-init nil) ;; debug したい時は t にする
