@@ -16,6 +16,7 @@
 (depends-on "pallet")
 (depends-on "perl-completion")
 (depends-on "point-undo")
+(depends-on "popwin")
 (depends-on "recentf-ext")
 (depends-on "redo+")
 (depends-on "revive")
