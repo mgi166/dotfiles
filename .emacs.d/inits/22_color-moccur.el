@@ -5,5 +5,5 @@
 
 ;(when (require 'migemo nil t) ; migemo が使えるときは migemo を使う
 ;  (setq moccur-use-migemo t))
-(define-key global-map "\M-o" 'occur-by-moccur)
-(define-key global-map (kbd "C-M-o") 'dmoccur)
+;(define-key global-map "\M-o" 'occur-by-moccur)
+;(define-key global-map (kbd "C-M-o") 'dmoccur)
