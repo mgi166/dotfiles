@@ -47,14 +47,18 @@ function emacs () {
     emacsclient='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
     emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 
-    if [ 1 -eq `ps aux | grep emacs | grep -v grep | wc -l` ]; then
+    if [ 1 -eq `ps aux | grep Emacs | grep -v grep | wc -l` ]; then
         if [ $# -eq 0 ]; then
             emacsclient -n .
         else
             emacsclient -n $*
         fi
     else
-        open -a emacs $*
+        if [ $# -eq 0 ]; then
+            open -a emacs .
+        else
+            open -a emacs $*
+        fi
     fi
 }
 
