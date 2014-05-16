@@ -9,6 +9,7 @@
 (depends-on "ctags")
 (depends-on "elscreen")
 (depends-on "evil")
+(depends-on "exec-path-from-shell")
 (depends-on "google-maps")
 (depends-on "helm")
 (depends-on "json")
