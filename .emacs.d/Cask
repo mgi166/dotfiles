@@ -3,6 +3,7 @@
 (source melpa)
 
 (depends-on "anything")
+(depends-on "anything-git-files")
 (depends-on "color-moccur")
 (depends-on "ctags")
 (depends-on "elscreen")
