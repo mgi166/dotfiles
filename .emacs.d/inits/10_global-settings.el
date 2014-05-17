@@ -101,3 +101,6 @@
 (setq blink-cursor-interval 0.5)
 (setq blink-cursor-delay 30.0)
 (blink-cursor-mode 1)
+
+;; ls does not support –dired; see `dired-use-ls-dired’ for more details. 出さない
+(setq dired-use-ls-dired t)
