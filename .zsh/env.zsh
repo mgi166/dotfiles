@@ -39,3 +39,6 @@ function precmd () {
 
 # cask
 export PATH="$HOME/.cask/bin:$PATH"
+
+# coreutils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
