@@ -12,6 +12,7 @@
 (depends-on "exec-path-from-shell")
 (depends-on "google-maps")
 (depends-on "helm")
+(depends-on "helm-ag")
 (depends-on "json")
 (depends-on "mac-key-mode")
 (depends-on "markdown-mode")
