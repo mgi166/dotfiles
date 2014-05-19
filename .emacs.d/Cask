@@ -13,6 +13,7 @@
 (depends-on "google-maps")
 (depends-on "helm")
 (depends-on "helm-ag")
+(depends-on "helm-ag-r")
 (depends-on "json")
 (depends-on "mac-key-mode")
 (depends-on "markdown-mode")
