@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: it
+# key: it
+# binding: direct-keybinding
+# --
+it '${1:description}' do
+  $2
+end

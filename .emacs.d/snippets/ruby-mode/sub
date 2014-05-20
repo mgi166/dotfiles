@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: sub
+# key: sub
+# binding: direct-keybinding
+# --
+subject { $1 }$0
