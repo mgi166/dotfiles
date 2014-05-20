@@ -1,4 +1,4 @@
-;; WhiteSpace(全角空白、タブを強調表示。(emacs 23 以上の version でのみ有効))
+;; WhiteSpace(全角空白、タブを強調表示)
 (require 'whitespace)
 (setq whitespace-style '(face           ; faceで可視化
                          tabs           ; タブ
@@ -17,11 +17,13 @@
 
 ;; tab の色
 (set-face-attribute 'whitespace-tab nil
+                    :background "Grey15"
                     :foreground "LightSkyBlue"
                     :underline t)
 
 ;; 全角スペースの色
 (set-face-attribute 'whitespace-space nil
+                    :background "Grey15"
                     :foreground "GreenYellow"
                     :weight 'bold)
 (global-whitespace-mode t)
