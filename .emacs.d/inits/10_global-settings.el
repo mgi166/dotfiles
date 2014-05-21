@@ -57,9 +57,10 @@
 (add-hook 'after-save-hock
           'executable-make-buffer-file-executable-if-script-p)
 
-;;オートセーブファイルを「~/.emacs.d/auto-save-list/」に保存
+;;auto-save-file と backup file を「~/.emacs.d/auto-save-list/」に保存
 (setq auto-save-file-name-transforms
-      `((".*" ,(expand-file-name "~/.emacs.d/auto-save-list") t)))
+      '((".*" ,(expand-file-name "~/.emacs.d/auto-save-list") t)))
+(setq backup-directory-alist '(("" . "~/.emacs.d/auto-save-list")))
 
 ;; OS のクリップボードと emacs の kill-ring 連携する
 (setq x-select-enable-clipboard t)
