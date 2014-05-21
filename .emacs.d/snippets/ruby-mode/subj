@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: sub
-# key: sub
+# name: subj
+# key: subj
 # binding: direct-keybinding
 # --
 subject { $1 }$0
