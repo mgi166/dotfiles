@@ -22,6 +22,7 @@
 (depends-on "pallet")
 (depends-on "perl-completion")
 (depends-on "point-undo")
+(depends-on "popup")
 (depends-on "popwin")
 (depends-on "recentf-ext")
 (depends-on "redo+")
