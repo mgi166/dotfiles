@@ -5,6 +5,7 @@
 (depends-on "all-ext")
 (depends-on "anything")
 (depends-on "anything-git-files")
+(depends-on "auto-complete")
 (depends-on "color-moccur")
 (depends-on "ctags")
 (depends-on "elscreen")
