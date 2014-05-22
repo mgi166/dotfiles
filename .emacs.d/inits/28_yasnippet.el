@@ -9,6 +9,8 @@
 ;; 既存スニペットを閲覧・編集する
 (define-key yas-minor-mode-map (kbd "C-x y v") 'yas-visit-snippet-file)
 
+(define-key yas-minor-mode-map (kbd "M-i") 'yas/expand)
+
 (defun toggle-yas-mode ()
   (interactive)
   (yas-global-mode 'toggle)
