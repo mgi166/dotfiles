@@ -9,6 +9,10 @@
 ;; 既存スニペットを閲覧・編集する
 (define-key yas-minor-mode-map (kbd "C-x y v") 'yas-visit-snippet-file)
 
-;; trigger key の変更
-(define-key yas-minor-mode-map (kbd "SPC") 'yas/expand)
-(define-key yas-minor-mode-map (kbd "TAB") nil)
+(defun toggle-yas-mode ()
+  (interactive)
+  (yas-global-mode 'toggle)
+  (message "Toggle yas-mode"))
+
+;; yas-mode を toggle する
+(global-set-key (kbd "C-x y m") 'toggle-yas-mode)
