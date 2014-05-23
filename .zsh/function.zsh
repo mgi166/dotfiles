@@ -27,3 +27,12 @@ fi
 function precmd () {
   z --add "$(pwd -P)"
 }
+
+# pbcopy-buffer
+pbcopy-buffer(){
+    print -rn $BUFFER | pbcopy
+    zle -M "pbcopy: ${BUFFER}"
+}
+
+zle -N pbcopy-buffer
+bindkey '^[q' pbcopy-buffer
