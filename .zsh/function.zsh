@@ -36,3 +36,8 @@ pbcopy-buffer(){
 
 zle -N pbcopy-buffer
 bindkey '^[q' pbcopy-buffer
+
+# chpwd
+function chpwd(){
+  [ -n $TMUX ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") $PWD
+}
