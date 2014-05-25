@@ -1,4 +1,8 @@
 (require 'helm-ag-r)
+
+(global-set-key (kbd "M-g c") 'helm-ag-r-current-file)
+(global-set-key (kbd "M-g g") 'helm-ag-r-from-git-repo)
+
 (defun helm-ag-r-shell-history ()
   "Search shell history"
   (interactive)
@@ -8,4 +12,3 @@
                  (case major-mode
                    (term-mode (term-send-raw-string line))
                    (t (insert line))))))))
-
