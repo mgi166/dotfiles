@@ -3,11 +3,8 @@
 
 (require 'anything)
 (require 'anything-config)
-(require 'anything-match-plugin)
 (and (equal current-language-environment "Japanese")
      (require 'anything-migemo nil t))
-(require 'anything-grep nil t) ;;; `anything-grep' replaces standard `grep' command.
-(require 'anything-show-completion)
 
 ;; anything-for-files (串刺し file 検索)
 (define-key global-map "\C-xb" 'anything-filelist+)
@@ -20,3 +17,7 @@
   (anything anything-c-source-elscreen
     nil nil nil nil "*anything for elscreen*"))
 (define-key global-map "\M-l" 'anything-for-elscreen)
+
+(require 'anything-git-files)
+(define-key global-map (kbd "C-c C-b") 'anything-git-files)
+(define-key global-map (kbd "C-c b") 'anything-git-files)

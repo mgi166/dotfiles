@@ -47,3 +47,6 @@
 
 ;killしたらpackする
 (add-hook 'elscreen-kill-hook 'elscreen-pack-list)
+
+;; elscreen-server
+(require 'elscreen-server)
