@@ -12,6 +12,7 @@ tap homebrew/binary   # to install packer
 tap homebrew/science  # to install R
 
 # Packages
+install ag          || true
 install apple-gcc42 || true
 install bash        || true
 install brew-cask   || true
