@@ -1,8 +1,8 @@
 # Using latest Homebrew
-# update
+update
 
 # Update already-installed formula
-# upgrade
+upgrade
 
 # Tap any repository
 tap phinze/cask       # to install brew-cask
@@ -26,6 +26,7 @@ install nginx       || true
 install nkf         || true
 install openssl     || true
 install packer      || true
+install python      || true
 install R           || true
 install readline    || true
 install reattach-to-user-namespace || true
