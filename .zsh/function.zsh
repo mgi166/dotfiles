@@ -39,5 +39,5 @@ bindkey '^[q' pbcopy-buffer
 
 # chpwd
 function chpwd(){
-  [ -n $TMUX ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") $PWD
+  ! [ -z $TMUX ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") $PWD
 }
