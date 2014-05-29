@@ -35,7 +35,7 @@ class Installer
   def do_backup
     unless File.symlink?(destination_path)
       if backup?
-        FileUtils.mkdir('backup', verbose: true) unless File.exist?('backup')
+        FileUtils.mkdir('backup', verbose: true) unless File.exist?('./backup')
         FileUtils.rm_r(backup_path, verbose: true, secure: true) if File.exist?(backup_path)
         FileUtils.cp_r(destination_path, backup_path, verbose: true)
       end

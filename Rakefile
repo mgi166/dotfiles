@@ -14,7 +14,6 @@ namespace :dotfiles do
 
     if target_files.empty?
       Installer.items.each {|i| Installer.uninstall(i) }
-      puts 'done uninstall'
     else
       target_files.each {|i| Installer.uninstall(i) }
     end
