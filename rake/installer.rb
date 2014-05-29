@@ -35,8 +35,8 @@ class Installer
   def do_backup
     unless File.symlink? destination_path
       if backup?
-        FileUtils.mkdir('backup') unless File.exist? 'backup'
-        FileUtils.remove_entry_secure(backup_path) if File.exist? backup_path
+        FileUtils.mkdir('backup', verbose: true) unless File.exist? 'backup'
+        FileUtils.remove_entry_secure(backup_path, verbose: true) if File.exist? backup_path
         FileUtils.cp_r(destination_path, backup_path, verbose: true)
       end
     end
@@ -54,12 +54,12 @@ class Installer
   end
 
   def put_symlink
-    FileUtils.remove_entry_secure(destination_path) if File.exist?(destination_path)
+    FileUtils.remove_entry_secure(destination_path, verbose: true) if File.exist?(destination_path)
     FileUtils.symlink(File.expand_path(@file), destination_path, verbose: true)
   end
 
   def uninstall_file
-    FileUtils.remove_entry_secure(destination_path) if File.exist?(destination_path)
+    FileUtils.remove_entry_secure(destination_path, verbose: true) if File.exist?(destination_path)
   end
 
   private
