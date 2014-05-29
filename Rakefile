@@ -5,12 +5,12 @@ namespace :dotfiles do
   task :install, :file do |t, args|
     args.with_defaults(file: Installer.items)
     files = [].tap {|array| array << args[:file]}.flatten
-    files.each { |f| Installer.install_file(f) }
+    files.each { |f| Installer.install(f) }
   end
 
   desc 'uninstall all dotfiles in your home'
   task :uninstall do
-    Installer.items.each {|i| Installer.uninstall_file(i) }
+    Installer.items.each {|i| Installer.uninstall(i) }
     puts 'done uninstall'
   end
 

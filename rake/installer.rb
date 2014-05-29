@@ -3,12 +3,12 @@ class Installer
   BLACKLIST_FILE_NAME = ['.', '..', '.git', '.DS_Store']
 
   class << self
-    def install_file(file)
-      new(file).install_file
+    def install(file)
+      new(file).install
     end
 
-    def uninstall_file(file)
-      new(file).uninstall_file
+    def uninstall(file)
+      new(file).uninstall
     end
 
     def items
@@ -42,7 +42,7 @@ class Installer
     end
   end
 
-  def install_file
+  def install
     if File.exist?(destination_path)
       if continue?
         do_backup
@@ -58,7 +58,7 @@ class Installer
     FileUtils.symlink(File.expand_path(@file), destination_path, verbose: true)
   end
 
-  def uninstall_file
+  def uninstall
     FileUtils.remove_entry_secure(destination_path, verbose: true) if File.exist?(destination_path)
   end
 
