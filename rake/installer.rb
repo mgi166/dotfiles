@@ -1,6 +1,6 @@
 class Installer
   DEFAULT_PATH = File.expand_path('~')
-  BLACKLIST_FILE_NAME = ['.', '..', '.git', '.DS_Store']
+  BLACKLIST_FILE_NAME = ['.', '..','.DS_Store', '.git', '.gitmodules']
 
   class << self
     def install(file)
