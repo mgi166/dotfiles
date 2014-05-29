@@ -10,8 +10,14 @@ namespace :dotfiles do
 
   desc 'uninstall all dotfiles in your home'
   task :uninstall do
-    Installer.items.each {|i| Installer.uninstall(i) }
-    puts 'done uninstall'
+    target_files = ARGV.drop(1)
+
+    if target_files.empty?
+      Installer.items.each {|i| Installer.uninstall(i) }
+      puts 'done uninstall'
+    else
+      target_files.each {|i| Installer.uninstall(i) }
+    end
   end
 
   desc 'backup all your dotfiles at present'
@@ -26,5 +32,6 @@ namespace :dotfiles do
 
   desc 'debug task'
   task :hoge do
+    p ARGV.drop(1)
   end
 end

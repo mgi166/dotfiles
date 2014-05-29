@@ -59,7 +59,11 @@ class Installer
   end
 
   def uninstall
-    FileUtils.remove_entry_secure(destination_path, verbose: true) if File.exist?(destination_path)
+    if File.exist?(destination_path)
+      FileUtils.remove_entry_secure(destination_path, verbose: true)
+    else
+      puts "`#{destination_path}' don't exist"
+    end
   end
 
   private
@@ -70,11 +74,11 @@ class Installer
   end
 
   def backup_path
-    File.join('backup', @file)
+    File.join('.', 'backup', @file)
   end
 
   def continue?
-    print "`#{destination_path}' is already exist. Continue to install? [y|n] "
+    print "`#{destination_path}' is already existed. Continue to install? [y|n] "
     STDIN.gets.chomp =~ /\A(y|yes)\Z/i ? true : false
   end
 
