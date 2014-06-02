@@ -25,7 +25,9 @@ class Installer
   end
 
   def do_backup
-    unless File.symlink?(destination_path)
+    if File.symlink?(destination_path) || !File.exist?(destination_path)
+      puts "`#{destination_path}' is not exist or symbolic link. aborting..."
+    else
       if backup?
         FileUtils.mkdir('backup', verbose: true) unless File.exist?('./backup')
         FileUtils.rm_r(backup_path, verbose: true, secure: true) if File.exist?(backup_path)
@@ -76,6 +78,5 @@ class Installer
 
   def destination_path
     File.join(DEFAULT_PATH, @file)
-    #    File.join 'test', file
   end
 end
