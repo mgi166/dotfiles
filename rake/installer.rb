@@ -15,16 +15,8 @@ class Installer
       Dir.glob('.*').reject {|item| BLACKLIST_FILE_NAME.include?(item) }
     end
 
-    def backup
-      backup_list = items.map do |i|
-        ins = new(i)
-        ins.do_backup
-        ins.backup_path
-      end
-
-      unless bakup_list.all? {|b| File.exist?(b)}
-        puts "Done nothing because target files is symlink or don't exist"
-      end
+    def backup(file)
+      new(file).do_backup
     end
   end
 
