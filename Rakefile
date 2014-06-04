@@ -12,7 +12,7 @@ namespace :dotfiles do
     end
   end
 
-  desc 'uninstall all dotfiles in your home'
+  desc 'uninstall all dotfiles in your home / if you give arguments, install only that you select'
   task :uninstall do
     target_files = ENV['f'] ? ENV['f'] : ARGV.drop(1)
 
@@ -23,7 +23,7 @@ namespace :dotfiles do
     end
   end
 
-  desc 'backup all your dotfiles at present'
+  desc 'backup all your dotfiles at present / if you give arguments, install only that you select'
   task :backup do
     target_files = ENV['f'] ? ENV['f'] : ARGV.drop(1)
 
