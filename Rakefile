@@ -1,22 +1,37 @@
 require './rake/installer'
 
 namespace :dotfiles do
-  desc 'install all dotfiles in your home / if you give an argument, install only that you select'
-  task :install, :file do |t, args|
-    args.with_defaults(file: Installer.items)
-    files = [].tap {|array| array << args[:file]}.flatten
-    files.each { |f| Installer.install_file(f) }
+  desc 'install dotfiles in your home / if you give arguments, install only that you select'
+  task :install do
+    target_files = ENV['f'] ? ENV['f'] : ARGV.drop(1)
+
+    if target_files
+      target_files.each {|i| Installer.install(i) }
+    else
+      Installer.items.each {|i| Installer.install(i) }
+    end
   end
 
-  desc 'uninstall all dotfiles in your home'
+  desc 'uninstall all dotfiles in your home / if you give arguments, install only that you select'
   task :uninstall do
-    Installer.items.each {|i| Installer.uninstall_file(i) }
-    puts 'done uninstall'
+    target_files = ENV['f'] ? ENV['f'] : ARGV.drop(1)
+
+    if target_files
+      target_files.each {|i| Installer.uninstall(i) }
+    else
+      Installer.items.each {|i| Installer.uninstall(i) }
+    end
   end
 
-  desc 'backup all your dotfiles at present'
+  desc 'backup all your dotfiles at present / if you give arguments, install only that you select'
   task :backup do
-    Installer.backup
+    target_files = ENV['f'] ? ENV['f'] : ARGV.drop(1)
+
+    if target_files
+      target_files.each {|i| Installer.backup(i) }
+    else
+      Installer.items.each {|i| Installer.backup(i) }
+    end
   end
 
   desc 'The target list of files or directories to install'

@@ -1,73 +1,43 @@
 class Installer
   DEFAULT_PATH = File.expand_path('~')
-  BLACKLIST_FILE_NAME = ['.', '..', '.git']
+  BLACKLIST_FILE_NAME = ['.', '..','.DS_Store', '.git', '.gitmodules']
+
+  class << self
+    def install(file)
+      new(file).install
+    end
+
+    def uninstall(file)
+      new(file).uninstall
+    end
+
+    def items
+      Dir.glob('.*').reject {|item| BLACKLIST_FILE_NAME.include?(item) }
+    end
+
+    def backup(file)
+      new(file).do_backup
+    end
+  end
 
   def initialize(file)
     @file = file
   end
 
-  def self.install_file(file)
-    new(file).install_file
-  end
-
-  def self.uninstall_file(file)
-    new(file).uninstall_file
-  end
-
-  def self.items
-    [].tap do |result|
-      Dir.glob('.*'){ |item| result << item unless BLACKLIST_FILE_NAME.include?(item) }
-    end
-  end
-
-  def self.backup
-    [].tap do |array|
-      items.each do |i|
-        ins = new(i)
-        ins.do_backup
-        array << ins.backup_path
-      end
-    end.tap do |result|
-      puts "Done nothing because target files is symlink or don't exist" unless result.all?{|path| File.exist? path}
-    end
-  end
-
-  def destination_path
-    File.join(DEFAULT_PATH, @file)
-    #    File.join 'test', file
-  end
-
-  def backup_path
-    File.join('backup', @file)
-  end
-
-  def backup?
-    print "Backup current your dotfiles? `#{destination_path}' [y|n] "
-    STDIN.gets.chomp =~ /\A(y|yes)\Z/i ? true : false
-  end
-
-  def continue?
-    print "`#{destination_path}' is already exist. Continue to install? [y|n] "
-    STDIN.gets.chomp =~ /\A(y|yes)\Z/i ? true : false
-  end
-
   def do_backup
-    unless File.symlink? destination_path
+    if File.symlink?(destination_path) || !File.exist?(destination_path)
+      puts "`#{destination_path}' is not exist or symbolic link. aborting..."
+    else
       if backup?
-        FileUtils.mkdir('backup') unless File.exist? 'backup'
-        FileUtils.remove_entry_secure(backup_path) if File.exist? backup_path
+        FileUtils.mkdir('backup', verbose: true) unless File.exist?('./backup')
+        FileUtils.rm_r(backup_path, verbose: true, secure: true) if File.exist?(backup_path)
         FileUtils.cp_r(destination_path, backup_path, verbose: true)
       end
     end
   end
 
-  def put_symlink
-    FileUtils.remove_entry_secure(destination_path) if File.exist?(destination_path)
-    FileUtils.symlink(File.expand_path(@file), destination_path, verbose: true)
-  end
-
-  def install_file
-    if File.exist? destination_path
+  def install
+    if File.exist?(destination_path)
       if continue?
         do_backup
         put_symlink
@@ -77,7 +47,36 @@ class Installer
     end
   end
 
-  def uninstall_file
-    FileUtils.remove_entry_secure(destination_path) if File.exist?(destination_path)
+  def put_symlink
+    FileUtils.rm_r(destination_path, verbose: true, secure: true) if File.exist?(destination_path)
+    FileUtils.symlink(File.expand_path(@file), destination_path, verbose: true)
+  end
+
+  def uninstall
+    if File.exist?(destination_path)
+      FileUtils.rm_r(destination_path, verbose: true, secure: true)
+    else
+      puts "`#{destination_path}' don't exist"
+    end
+  end
+
+  private
+
+  def backup?
+    print "Backup current your dotfiles? `#{destination_path}' [y|n] "
+    STDIN.gets.chomp =~ /\A(y|yes)\Z/i ? true : false
+  end
+
+  def backup_path
+    File.join('.', 'backup', @file)
+  end
+
+  def continue?
+    print "`#{destination_path}' is already existed. Continue to install? [y|n] "
+    STDIN.gets.chomp =~ /\A(y|yes)\Z/i ? true : false
+  end
+
+  def destination_path
+    File.join(DEFAULT_PATH, @file)
   end
 end
