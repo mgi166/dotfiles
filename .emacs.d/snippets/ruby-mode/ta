@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: ta
+# key: ta
+# binding: direct-keybinding
+# --
+tap{|x| p x}
