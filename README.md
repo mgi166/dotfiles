@@ -11,19 +11,27 @@ rake dotfiles:install
 ```
 
 ### Custom install
-You want to install only the file that you specify, give file name that format rake argument  
+You want to install only the file that you specify, give file name with argument.  
 
 ```zsh
-rake dotfiles:install[.tmux.conf]
+rake dotfiles:install .tmux.conf
 ```
 
-If you are using zsh, look like this.  
+If set environments "f", The same like this  
+
 ```zsh
-rake 'dotfiles:install[.tmux.conf]'
+rake dotfiles:install f=.tmux.conf
 ```
 
 # Uninstall
 Remove all symbolic link you installed.  
 ```zsh
 rake dotfiles:uninstall
+```
+
+### Custom uninstall
+You want to uninstall only the file that you specify, give file name with an argument.  
+
+```zsh
+rake dotfiles:uninstall .tmux.conf
 ```
