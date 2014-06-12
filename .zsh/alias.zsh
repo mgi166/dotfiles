@@ -21,6 +21,8 @@ alias tsv='cut'
 alias psv='cut -d "|"'
 
 ## vcs alias
+alias git='hub'
+
 alias g='git'
 alias gb='git branch'
 alias gs='git show'
