@@ -13,9 +13,9 @@
 	ci = commit
 	st = status
 	br = branch
-	lp = log -p -4
 	sh = show
 	sb = show-branch -a
+	rw = browse
 [include]
 	path = .gitconfig.local
 [merge]
