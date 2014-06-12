@@ -20,6 +20,7 @@ install cmigemo     || true
 install ctags       || true
 install fontforge   || true
 install git         || true
+install hub         || true
 install imagemagick || true
 install mysql       || true
 install nginx       || true
