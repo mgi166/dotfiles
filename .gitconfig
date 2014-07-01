@@ -20,3 +20,5 @@
 	path = .gitconfig.local
 [merge]
 	ff = false
+[branch]
+	autosetuprebase = always
