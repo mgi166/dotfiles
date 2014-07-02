@@ -3,4 +3,4 @@
 # key: subj
 # binding: direct-keybinding
 # --
-subject { $1 }$0
+subject { $0 }

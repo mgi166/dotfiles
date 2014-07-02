@@ -4,5 +4,5 @@
 # binding: direct-keybinding
 # --
 it '${1:description}' do
-  $2
+  $0
 end
