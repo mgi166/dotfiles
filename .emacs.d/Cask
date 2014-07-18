@@ -16,6 +16,7 @@
 (depends-on "helm-ag")
 (depends-on "helm-ag-r")
 (depends-on "json")
+(depends-on "json-reformat")
 (depends-on "mac-key-mode")
 (depends-on "markdown-mode")
 (depends-on "migemo")
