@@ -19,6 +19,7 @@ alias pd='popd'
 alias csv='cut -d ","'
 alias tsv='cut'
 alias psv='cut -d "|"'
+alias rr='rbenv rehash'
 
 ## vcs alias
 alias git='hub'
