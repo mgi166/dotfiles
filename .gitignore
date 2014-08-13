@@ -75,7 +75,6 @@ ac-comphist.dat
 
 # Ignore vagrant caches
 /.vagrant
-Vagrantfile
 *.box
 
 # Ignore zsh
