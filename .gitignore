@@ -28,7 +28,7 @@ Thumbs.db
 *.sassc
 .sass-cache
 capybara-*.html
-.rspec
+#.rspec
 .rvmrc
 /.bundle
 /vendor/bundle
