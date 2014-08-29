@@ -5,6 +5,13 @@
 (defun ruby-mode-hooks ()
   (ruby-block-mode t))
 
+(defun toggle-ruby-magic-comment ()
+  "toggle magic comment top of line"
+  (interactive)
+  (if (null ruby-insert-encoding-magic-comment)
+      (setq ruby-insert-encoding-magic-comment t)
+    (setq ruby-insert-encoding-magic-comment nil)))
+
 (add-hook 'ruby-mode-hook 'ruby-mode-hooks)
 (autoload 'ruby-mode "ruby-mode" nil t)
 (add-to-list 'auto-mode-alist
