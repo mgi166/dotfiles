@@ -5,11 +5,12 @@ update
 upgrade
 
 # Tap any repository
-tap phinze/cask       # to install brew-cask
-tap homebrew/versions # to install any library
-tap homebrew/dupes    # to install apple-gcc42
-tap homebrew/binary   # to install packer
-tap homebrew/science  # to install R
+tap phinze/cask         # to install brew-cask
+tap benswift/extempore  # to install extempore
+tap homebrew/versions   # to install any library
+tap homebrew/dupes      # to install apple-gcc42
+tap homebrew/binary     # to install packer
+tap homebrew/science    # to install R
 
 # Packages
 install ag          || true
@@ -18,6 +19,8 @@ install bash        || true
 install brew-cask   || true
 install cmigemo     || true
 install ctags       || true
+install extempore   || true
+install erlang      || true
 install fontforge   || true
 install git         || true
 install hub         || true
