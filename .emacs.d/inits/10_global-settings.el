@@ -98,6 +98,5 @@
 (global-hl-line-mode t)
 
 ;; キャレット(カーソル)のタイプと表示
-(setq blink-cursor-interval 0.5)
-(setq blink-cursor-delay 30.0)
-(blink-cursor-mode 1)
+(setq cursor-type 'box)
+(blink-cursor-mode 0)
