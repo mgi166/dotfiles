@@ -82,3 +82,6 @@ ac-comphist.dat
 
 # Ignore svn
 .svn
+
+# Ignore direnv
+.envrc
