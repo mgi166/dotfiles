@@ -19,6 +19,7 @@ install bash        || true
 install brew-cask   || true
 install cmigemo     || true
 install ctags       || true
+install direnv      || true
 install extempore   || true
 install erlang      || true
 install fontforge   || true
