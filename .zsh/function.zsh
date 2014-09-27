@@ -71,3 +71,6 @@ bindkey '^[q' pbcopy-buffer
 function chpwd(){
   ! [ -z $TMUX ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") $PWD
 }
+
+# direnv
+eval "$(direnv hook zsh)"
