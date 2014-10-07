@@ -11,6 +11,7 @@ tap homebrew/versions   # to install any library
 tap homebrew/dupes      # to install apple-gcc42
 tap homebrew/binary     # to install packer
 tap homebrew/science    # to install R
+tap peco/peco           # to install peco
 
 # Packages
 install ag          || true
@@ -31,6 +32,7 @@ install nginx       || true
 install nkf         || true
 install openssl     || true
 install packer      || true
+install peco        || true
 install python      || true
 install R           || true
 install readline    || true
