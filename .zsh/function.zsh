@@ -6,8 +6,10 @@ function dir () {
     cd +"$newdir"
 }
 
+# exists
 function exists { which $1 &> /dev/null }
 
+# peco
 if exists peco; then
     function peco_select_history() {
         local tac
@@ -52,7 +54,6 @@ if exists peco; then
     zle -N peco-git-recent-all-branches
     bindkey '^xb' peco-git-recent-all-branches
 fi
-
 
 # z
 . /usr/local/etc/profile.d/z.sh
