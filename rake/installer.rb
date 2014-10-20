@@ -25,9 +25,7 @@ class Installer
   end
 
   def do_backup
-    if File.symlink?(destination_path) || !File.exist?(destination_path)
-      puts "`#{destination_path}' is not exist or symbolic link. aborting..."
-    else
+    if File.exist?(destination_path) && !File.symlink?(destination_path)
       if backup?
         FileUtils.mkdir('backup', verbose: true) unless File.exist?('./backup')
         FileUtils.rm_r(backup_path, verbose: true, secure: true) if File.exist?(backup_path)
@@ -48,7 +46,10 @@ class Installer
   end
 
   def put_symlink
-    FileUtils.rm_r(destination_path, verbose: true, secure: true) if File.exist?(destination_path)
+    if File.exist?(destination_path)
+      puts "`#{destination_path}' is symbolic link. so reattach the symbolic link"
+      FileUtils.rm_r(destination_path, verbose: true, secure: true)
+    end
     FileUtils.symlink(File.expand_path(@file), destination_path, verbose: true)
   end
 
