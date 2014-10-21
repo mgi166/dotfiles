@@ -10,86 +10,86 @@ hg_colour="45"
 SEGMENT_FG=123 # colour number
 
 run_segment() {
-#	tmux_path=$(get_tmux_cwd)
-#	cd "$tmux_path"
-	branch=""
-	if [ -n "${git_branch=$(__parse_git_branch)}" ]; then
-		branch="$git_branch"
-	elif [ -n "${svn_branch=$(__parse_svn_branch)}" ]; then
-		branch="$svn_branch"
-	elif [ -n "${hg_branch=$(__parse_hg_branch)}" ]; then
-		branch="$hg_branch"
-	fi
+    # tmux_path=$(get_tmux_cwd)
+    # cd "$tmux_path"
+    branch=""
+    if [ -n "${git_branch=$(__parse_git_branch)}" ]; then
+        branch="$git_branch"
+    elif [ -n "${svn_branch=$(__parse_svn_branch)}" ]; then
+        branch="$svn_branch"
+    elif [ -n "${hg_branch=$(__parse_hg_branch)}" ]; then
+        branch="$hg_branch"
+    fi
 
-	if [ -n "$branch" ]; then
-		echo "${branch}"
-	else
-		echo "${branch_symbol}"
-	fi
-	return 0
+    if [ -n "$branch" ]; then
+        echo "${branch}"
+    else
+        echo "${branch_symbol}"
+    fi
+    return 0
 }
 
 # Show git banch.
 __parse_git_branch() {
-	type git >/dev/null 2>&1
-	if [ "$?" -ne 0 ]; then
-		return
-	fi
+    type git >/dev/null 2>&1
+    if [ "$?" -ne 0 ]; then
+        return
+    fi
 
-	#git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \[\1\]/'
+    #branch=$(git symbolic-ref HEAD 2> /dev/null)
+    branch=$(git rev-parse --abbrev-ref HEAD)
 
-	# Quit if this is not a Git repo.
-	branch=$(git symbolic-ref HEAD 2> /dev/null)
-	if [[ -z $branch ]] ; then
-		# attempt to get short-sha-name
-		branch=":$(git rev-parse --short HEAD 2> /dev/null)"
-	fi
-	if [ "$?" -ne 0 ]; then
-		# this must not be a git repo
-		return
-	fi
+    # Quit if this is not a Git repo.
+    if [ $? -ne 0 ]; then
+        # this must not be a git repo
+        return
+    fi
 
-	# Clean off unnecessary information.
-	branch=${branch##*/}
+    if [[ -z $branch ]] ; then
+        # attempt to get short-sha-name
+        branch=":$(git rev-parse --short HEAD)"
+    fi
 
-#	echo "#[fg=colour${git_colour}]${branch_symbol} #[fg=colour${SEGMENT_FG}]${branch}"
-	echo "${branch_symbol} ${branch}"
+    # Clean off unnecessary information.
+    branch=${branch##*/}
+
+    # echo "#[fg=colour${git_colour}]${branch_symbol} #[fg=colour${SEGMENT_FG}]${branch}"
+    echo "${branch_symbol} ${branch}"
 }
 
 # Show SVN branch.
 __parse_svn_branch() {
-	type svn >/dev/null 2>&1
-	if [ "$?" -ne 0 ]; then
-		return
-	fi
+    type svn >/dev/null 2>&1
+    if [ "$?" -ne 0 ]; then
+        return
+    fi
 
-	local svn_info=$(svn info 2>/dev/null)
-	if [ -z "${svn_info}" ]; then
-		return
-	fi
+    local svn_info=$(svn info 2>/dev/null)
+    if [ -z "${svn_info}" ]; then
+        return
+    fi
 
+    local svn_root=$(echo "${svn_info}" | sed -ne 's#^Repository Root: ##p')
+    local svn_url=$(echo "${svn_info}" | sed -ne 's#^URL: ##p')
 
-	local svn_root=$(echo "${svn_info}" | sed -ne 's#^Repository Root: ##p')
-	local svn_url=$(echo "${svn_info}" | sed -ne 's#^URL: ##p')
-
-	local branch=$(echo "${svn_url}" | egrep -o '[^/]+$')
-#	echo "#[fg=colour${svn_colour}]${branch_symbol} #[fg=colour${SEGMENT_FG}]${branch}"
-	echo "${branch_symbol} ${branch}"
+    local branch=$(echo "${svn_url}" | egrep -o '[^/]+$')
+    # echo "#[fg=colour${svn_colour}]${branch_symbol} #[fg=colour${SEGMENT_FG}]${branch}"
+    echo "${branch_symbol} ${branch}"
 }
 
 __parse_hg_branch() {
-	type hg >/dev/null 2>&1
-	if [ "$?" -ne 0 ]; then
-		return
-	fi
+    type hg >/dev/null 2>&1
+    if [ "$?" -ne 0 ]; then
+        return
+    fi
 
-	summary=$(hg summary)
-	if [ "$?" -ne 0 ]; then
-		return
-	fi
+    summary=$(hg summary)
+    if [ "$?" -ne 0 ]; then
+        return
+    fi
 
-	local branch=$(echo "$summary" | grep 'branch:' | cut -d ' ' -f2)
-	echo  "#[fg=colour${hg_colour}]${branch_symbol} #[fg=colour${SEGMENT_FG}]${branch}"
+    local branch=$(echo "$summary" | grep 'branch:' | cut -d ' ' -f2)
+    echo  "#[fg=colour${hg_colour}]${branch_symbol} #[fg=colour${SEGMENT_FG}]${branch}"
 }
 
 run_segment
