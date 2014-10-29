@@ -1,6 +1,6 @@
-# -*- mode: snippet; require-final-newline: nil -*-
+# -*- mode: snippet -*-
 # name: b
 # key: b
 # binding: direct-keybinding
 # --
-binding.pry
+require 'pry'; binding.pry
