@@ -53,6 +53,7 @@ nmap f :FocusOnFirstInput
 # URL/title をコピー
 nmap w :Copy '%url'
 nmap W :Copy '%title'
+nmap i :Copy '[%title](%url)'
 
 ## mappings for opening your favorite web page
 nmap <Space>t :TabOpenNew https://www.twitter.com
@@ -137,7 +138,7 @@ nmap gt <NOP>
 # gT default is TabFocusPrevious
 nmap gT <NOP>
 # i default is FocusOnFirstInput
-nmap i <NOP>
+# nmap i <NOP>
 # / default is GoSearchModeForward
 nmap / <NOP>
 # ? default is GoSearchModeBackword
