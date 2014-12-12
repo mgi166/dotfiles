@@ -12,6 +12,9 @@
       (setq ruby-insert-encoding-magic-comment t)
     (setq ruby-insert-encoding-magic-comment nil)))
 
+;; デフォルトではマジックコメントを挿入しない
+(toggle-ruby-magic-comment)
+
 (add-hook 'ruby-mode-hook 'ruby-mode-hooks)
 (autoload 'ruby-mode "ruby-mode" nil t)
 (add-to-list 'auto-mode-alist
