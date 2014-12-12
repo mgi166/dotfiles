@@ -88,3 +88,9 @@ ac-comphist.dat
 
 # Ignore packer
 packer_cache/
+
+# Ignore tags file
+TAGS
+GTAGS
+GRTAGS
+GPATH
