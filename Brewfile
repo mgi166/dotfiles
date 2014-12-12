@@ -25,11 +25,13 @@ install extempore   || true
 install erlang      || true
 install fontforge   || true
 install git         || true
+install global      || true
 install hub         || true
 install imagemagick || true
 install mysql       || true
 install nginx       || true
 install nkf         || true
+install node        || true
 install openssl     || true
 install packer      || true
 install peco        || true
