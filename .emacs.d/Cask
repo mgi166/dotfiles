@@ -20,6 +20,7 @@
 (depends-on "mac-key-mode")
 (depends-on "markdown-mode")
 (depends-on "migemo")
+(depends-on "open-junk-file")
 (depends-on "pallet")
 (depends-on "perl-completion")
 (depends-on "point-undo")
