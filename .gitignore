@@ -94,3 +94,5 @@ TAGS
 GTAGS
 GRTAGS
 GPATH
+
+node_modules
