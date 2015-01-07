@@ -10,6 +10,7 @@
 (define-key global-map "\C-\M-^" 'indent-region)
 (define-key global-map "\C-\M-^" 'indent-region)
 (define-key global-map "\C-l" 'recenter)
+(define-key global-map "\M-q" 'query-replace-regexp)
 
 ;; マウスのホイールスクロールスピードを調節
 (defun scroll-down-with-lines ()
