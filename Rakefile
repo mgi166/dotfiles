@@ -1,4 +1,4 @@
-require './lib/installer'
+require_relative './lib/installer'
 
 desc 'install dotfiles in your home / if you give arguments, install only that you select'
 task :install do
