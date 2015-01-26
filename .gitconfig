@@ -16,6 +16,7 @@
 	sh = show
 	sb = show-branch -a
 	rw = browse
+	pr = pull-request
 [include]
 	path = .gitconfig.local
 [merge]
