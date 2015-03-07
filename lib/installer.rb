@@ -78,6 +78,10 @@ class Installer
   end
 
   def destination_path
-    File.join(DEFAULT_PATH, @file)
+    if @file == 'default-gems'
+      File.expand_path('~/.rbenv/default-gems')
+    else
+      File.join(DEFAULT_PATH, @file)
+    end
   end
 end
