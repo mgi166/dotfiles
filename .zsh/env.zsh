@@ -31,3 +31,6 @@ export PATH="$HOME/.cask/bin:$PATH"
 # go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+# embulk
+export PATH="$HOME/.embulk/bin:$PATH"
