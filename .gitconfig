@@ -17,6 +17,9 @@
 	sb = show-branch -a
 	rw = browse
 	pr = pull-request
+	see = browse
+	sepr = !hub browse -- pull/$(git symbolic-ref --short HEAD)
+
 [include]
 	path = .gitconfig.local
 [merge]
