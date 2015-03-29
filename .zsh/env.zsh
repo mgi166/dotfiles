@@ -34,3 +34,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # embulk
 export PATH="$HOME/.embulk/bin:$PATH"
+
+# postgresql
+export PGDATA=/usr/local/var/postgres
