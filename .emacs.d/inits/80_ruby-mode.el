@@ -12,6 +12,8 @@
       (setq ruby-insert-encoding-magic-comment t)
     (setq ruby-insert-encoding-magic-comment nil)))
 
+(setq ruby-deep-indent-paren-style nil)
+
 (defadvice ruby-indent-line (after unindent-closing-paren activate)
   (let ((column (current-column))
         indent offset)
