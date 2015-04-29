@@ -1,4 +1,6 @@
 # default
+export ZDOTDIR=$HOME/.zsh
+
 [ -f $ZDOTDIR/alias.zsh ]      && source $ZDOTDIR/alias.zsh
 [ -f $ZDOTDIR/color.zsh ]      && source $ZDOTDIR/color.zsh
 [ -f $ZDOTDIR/env.zsh ]        && source $ZDOTDIR/env.zsh
