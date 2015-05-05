@@ -1,15 +1,12 @@
-# default
-export ZDOTDIR=$HOME/.zsh
-
-[ -f $ZDOTDIR/alias.zsh ]      && source $ZDOTDIR/alias.zsh
-[ -f $ZDOTDIR/color.zsh ]      && source $ZDOTDIR/color.zsh
-[ -f $ZDOTDIR/env.zsh ]        && source $ZDOTDIR/env.zsh
-[ -f $ZDOTDIR/completion.zsh ] && source $ZDOTDIR/completion.zsh
-[ -f $ZDOTDIR/function.zsh ]   && source $ZDOTDIR/function.zsh
-[ -f $ZDOTDIR/history.zsh ]    && source $ZDOTDIR/history.zsh
-[ -f $ZDOTDIR/option.zsh ]     && source $ZDOTDIR/option.zsh
-[ -f $ZDOTDIR/prompt.zsh ]     && source $ZDOTDIR/prompt.zsh
+[ -f $HOME/.zsh/alias.zsh ]      && source $HOME/.zsh/alias.zsh
+[ -f $HOME/.zsh/color.zsh ]      && source $HOME/.zsh/color.zsh
+[ -f $HOME/.zsh/env.zsh ]        && source $HOME/.zsh/env.zsh
+[ -f $HOME/.zsh/completion.zsh ] && source $HOME/.zsh/completion.zsh
+[ -f $HOME/.zsh/function.zsh ]   && source $HOME/.zsh/function.zsh
+[ -f $HOME/.zsh/history.zsh ]    && source $HOME/.zsh/history.zsh
+[ -f $HOME/.zsh/option.zsh ]     && source $HOME/.zsh/option.zsh
+[ -f $HOME/.zsh/prompt.zsh ]     && source $HOME/.zsh/prompt.zsh
 
 # environment dependence file
-[ -f $ZDOTDIR/.zshrc_`uname` ] && . $ZDOTDIR/.zshrc_`uname`
-[ -f $ZDOTDIR/.zshrc_local ]   && . $ZDOTDIR/.zshrc_local
+[ -f $HOME/.zsh/.zshrc_`uname` ] && . $HOME/.zsh/.zshrc_`uname`
+[ -f $HOME/.zsh/.zshrc_local ]   && . $HOME/.zsh/.zshrc_local
