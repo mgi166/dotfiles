@@ -95,4 +95,15 @@ GTAGS
 GRTAGS
 GPATH
 
+# Ignore npm
 node_modules
+
+# Ignore redis
+dump.rdb
+db.dump
+
+# dotenv
+.env.staging
+
+# tempfile
+hoge
