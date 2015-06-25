@@ -67,9 +67,9 @@ nmap <Space>h :TabOpenNew chrome://history
 nmap <Space>g :TabOpenNew http://www.google.com/
 
 # f-Mode
-nmap e     :GoFMode
-nmap <C-e> :GoFMode --newtab --continuous
-# nmap E     :GoFMode --newtab --continuous
+nmap e     :GoFMode --newtab --continuous
+nmap <C-e> :GoFMode --newtab --continuous --background
+nmap E     :GoFMode
 
 ## nmap settings end
 
