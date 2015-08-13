@@ -1,4 +1,4 @@
-(require 'coffee-mode)
+(autoload 'coffee-mode "coffee-mode" nil t)
 (defun coffee-custom ()
   "coffee-mode-hook"
   (and (set (make-local-variable 'tab-width) 2)
