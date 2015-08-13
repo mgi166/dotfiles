@@ -1,5 +1,5 @@
 ;; end に対応する行の highlight
-(require 'ruby-block)
+(autoload 'ruby-block "ruby-block" nil t)
 (setq ruby-block-highlight-toggle t)
 
 (defun ruby-mode-hooks ()
