@@ -26,7 +26,13 @@
 (require 'pallet)
 (pallet-mode t)
 
+;; initchart
+(require 'initchart)
+(initchart-record-execution-time-of load file)
+(initchart-record-execution-time-of require feature)
+
 ;; init-loader.el
 (require 'init-loader)
-(setq init-loader-show-log-after-init nil) ;; debug したい時は t にする
+(setq init-loader-show-log-after-init t) ;; debug したい時は t にする
 (init-loader-load "~/.emacs.d/inits")
+nil
