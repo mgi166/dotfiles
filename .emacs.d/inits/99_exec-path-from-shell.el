@@ -1,2 +1,3 @@
 (require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
+(let ((envs '("PATH")))
+  (exec-path-from-shell-copy-envs envs))
