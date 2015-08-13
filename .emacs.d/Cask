@@ -16,6 +16,7 @@
 (depends-on "helm-ag")
 (depends-on "helm-ag-r")
 (depends-on "jade-mode")
+(depends-on "js2-mode")
 (depends-on "json")
 (depends-on "json-reformat")
 (depends-on "mac-key-mode")
