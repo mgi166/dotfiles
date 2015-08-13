@@ -1,3 +1,4 @@
+(setq gc-cons-threshold 134217728)
 (require 'cl)
 
 ;; 引数の directory とその sub_directory を load-path に追加
