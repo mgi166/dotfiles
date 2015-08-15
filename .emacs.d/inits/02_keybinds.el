@@ -11,6 +11,7 @@
 (define-key global-map "\C-\M-^" 'indent-region)
 (define-key global-map "\C-l" 'recenter)
 (define-key global-map "\M-q" 'query-replace-regexp)
+(define-key global-map (kbd "C-c q") 'quoted-insert)
 
 ;; マウスのホイールスクロールスピードを調節
 (defun scroll-down-with-lines ()
