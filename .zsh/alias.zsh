@@ -50,19 +50,19 @@ alias sw='svn switch'
 alias sl='svn log -l 3'
 alias sup='svn up'
 
-# emacs
-function emacs () {
-  EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-  EMACS='/Applications/Emacs.app'
+# emacs (GUI)
+# function emacs () {
+#   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+#   EMACS='/Applications/Emacs.app'
 
-  [[ ! $* ]] && _ARGS='.' || _ARGS=$*
+#   [[ ! $* ]] && _ARGS='.' || _ARGS=$*
 
-  if [ 1 -eq `ps aux | grep Emacs | grep -v grep | wc -l` ]; then
-    $EMACS_CLIENT -n $_ARGS
-  else
-    open -a $EMACS $_ARGS
-  fi
-}
+#   if [ 1 -eq `ps aux | grep Emacs | grep -v grep | wc -l` ]; then
+#     $EMACS_CLIENT -n $_ARGS
+#   else
+#     open -a $EMACS $_ARGS
+#   fi
+# }
 
 alias ee='emacs'
 alias em='emacs'
