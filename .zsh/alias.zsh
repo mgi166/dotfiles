@@ -64,6 +64,32 @@ alias sup='svn up'
 #   fi
 # }
 
+# emacs -nw
+function emacs () {
+  EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+  EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
+  [[ ! $* ]] && _ARGS='.' || _ARGS=$*
+
+  if ! pgrep Emacs; then
+    $EMACS --daemon
+  fi
+
+  $EMACS_CLIENT -nw -q $_ARGS
+}
+
+function ekill () {
+  pkill Emacs
+}
+
+function gemacs () {
+  EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+
+  [[ ! $* ]] && _ARGS='.' || _ARGS=$*
+
+  $EMACS_CLIENT -c -q $_ARGS
+}
+
 alias ee='emacs'
 alias em='emacs'
 alias emasc='emacs'
