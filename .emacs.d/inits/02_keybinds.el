@@ -14,6 +14,9 @@
 (define-key global-map (kbd "C-c q") 'quoted-insert)
 (define-key global-map (kbd "M-q") 'shell-command)
 
+;; copy
+(define-key global-map (kbd "M-w") 'clipboard-kill-ring-save)
+
 ;; マウスのホイールスクロールスピードを調節
 (defun scroll-down-with-lines ()
   "" (interactive) (scroll-down 3))
