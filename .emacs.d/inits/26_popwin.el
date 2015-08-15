@@ -6,4 +6,6 @@
 (push '("all" :regexp t :height 0.4) popwin:special-display-config)
 (push '(dired-mode :height 0.4) popwin:special-display-config)
 (push '("backtrace" :regexp t :height 0.5) popwin:special-display-config)
-(push '("magit" :regexp t :height 0.5) popwin:special-display-config)
+(push '("*magit-diff:" :regexp t :width 0.5 :position right :noselect t) popwin:special-display-config)
+(push '("*magit-rev:" :regexp t :width 0.5 :position right :noselect t) popwin:special-display-config)
+(push '("*magit:" :regexp t :width 0.5 :position right) popwin:special-display-config)
