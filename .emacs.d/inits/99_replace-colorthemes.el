@@ -2,8 +2,8 @@
              (file-name-as-directory "~/.emacs.d/elisp/replace-colorthemes"))
 
 (cond ((not window-system)
-       (progn (load-theme 'manoj-dark t t)
-              (enable-theme 'manoj-dark)))
+       (progn (load-theme 'clarity t t)
+              (enable-theme 'clarity)))
 
       ((eq window-system 'ns)
        (progn (load-theme 'charcoal-black t t)
