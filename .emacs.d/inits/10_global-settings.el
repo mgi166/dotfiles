@@ -86,17 +86,6 @@
 (define-key minibuffer-local-map "\C-p" 'previous-history-element)
 (define-key minibuffer-local-map "\C-n" 'next-history-element)
 
-;;行をハイライト
-(defface my-hl-line-face
-  '((((class color) (background dark))
-     (:background "Gray25" t))
-    (((class color) (background light))
-     (:background "LightGoldenrodYellow" t))
-    (t (:bold t)))
-  "hl-line's my face")
-(setq hl-line-face 'my-hl-line-face)
-(global-hl-line-mode t)
-
 ;; キャレット(カーソル)のタイプと表示
 (setq cursor-type 'box)
 (blink-cursor-mode 0)

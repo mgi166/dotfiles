@@ -18,6 +18,6 @@
     nil nil nil nil "*anything for elscreen*"))
 (define-key global-map "\M-l" 'anything-for-elscreen)
 
-(require 'anything-git-files)
-(define-key global-map (kbd "C-c C-b") 'anything-git-files)
-(define-key global-map (kbd "C-c b") 'anything-git-files)
+;; (require 'anything-git-files)
+;; (define-key global-map (kbd "C-c C-b") 'anything-git-files)
+;; (define-key global-map (kbd "C-c b") 'anything-git-files)

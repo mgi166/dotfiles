@@ -30,3 +30,7 @@
 ;; ビープ音を消す
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
+
+;; "ls does not support --dired see `dired-use-ls-dired' for more details." とミニバッファに表示しない
+(require 'ls-lisp)
+(setq ls-lisp-use-insert-directory-program nil)

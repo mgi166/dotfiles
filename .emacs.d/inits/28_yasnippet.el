@@ -1,6 +1,7 @@
 (require 'yasnippet)
-(yas-global-mode 1)
+(setq yas-snippet-dirs nil)
 (yas-load-directory "~/.emacs.d/snippets")
+(yas-global-mode 1)
 
 ;; 既存スニペットを挿入する
 (define-key yas-minor-mode-map (kbd "C-x y i") 'yas-insert-snippet)
@@ -18,3 +19,5 @@
 
 ;; yas-mode を toggle する
 (global-set-key (kbd "C-x y m") 'toggle-yas-mode)
+
+

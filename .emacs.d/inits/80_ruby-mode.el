@@ -1,16 +1,9 @@
 ;; end に対応する行の highlight
-(require 'ruby-block)
+(autoload 'ruby-block "ruby-block" nil t)
 (setq ruby-block-highlight-toggle t)
 
 (defun ruby-mode-hooks ()
   (ruby-block-mode t))
-
-(defun toggle-ruby-magic-comment ()
-  "toggle magic comment top of line"
-  (interactive)
-  (if (null ruby-insert-encoding-magic-comment)
-      (setq ruby-insert-encoding-magic-comment t)
-    (setq ruby-insert-encoding-magic-comment nil)))
 
 (setq ruby-deep-indent-paren-style nil)
 
@@ -28,9 +21,6 @@
     (when indent
       (indent-line-to indent)
       (when (> offset 0) (forward-char offset)))))
-
-;; デフォルトではマジックコメントを挿入しない
-(toggle-ruby-magic-comment)
 
 (add-hook 'ruby-mode-hook 'ruby-mode-hooks 'ruby-indent-line)
 (autoload 'ruby-mode "ruby-mode" nil t)
