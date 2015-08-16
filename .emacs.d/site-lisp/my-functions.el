@@ -102,6 +102,7 @@
 (defun elscreen-refresh-and-buffers ()
   "All screens close and all buffers clear"
   (interactive)
+  (kill-all-dired-buffers)
   (dolist (screen (nbutlast (sort (elscreen-get-screen-list) '<)))
     (elscreen-kill-screen-and-buffers screen))
   (elscreen-create)
