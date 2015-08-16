@@ -3,7 +3,17 @@
 
 (cond ((not window-system)
        (progn (load-theme 'clarity t t)
-              (enable-theme 'clarity)))
+              (enable-theme 'clarity)
+
+              (defface my-hl-line-face
+                '((((class color) (background dark))
+                   (:background "Gray12" t))
+                  (((class color) (background light))
+                   (:background "LightGoldenrodYellow" t))
+                  (t (:bold t)))
+                "hl-line's my face")
+              (setq hl-line-face 'my-hl-line-face)
+              (global-hl-line-mode t))
 
       ((eq window-system 'ns)
        (progn (load-theme 'charcoal-black t t)
@@ -22,4 +32,4 @@
                   (t (:bold t)))
                 "hl-line's my face")
               (setq hl-line-face 'my-hl-line-face)
-              (global-hl-line-mode t))))
+              (global-hl-line-mode t)))))
