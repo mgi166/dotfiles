@@ -4,7 +4,7 @@
 
 (define-key magit-status-mode-map (kbd "j") 'magit-section-forward)
 (define-key magit-status-mode-map (kbd "k") 'magit-section-backward)
-(define-key magit-status-mode-map (kbd "TAB") 'magit-show-commit)
+(define-key magit-status-mode-map (kbd "TAB") 'magit-diff-dwim)
 
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
