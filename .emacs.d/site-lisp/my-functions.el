@@ -111,6 +111,22 @@
 
 (define-key global-map "\C-\M-l" 'elscreen-refresh-and-buffers)
 
+(defun elscreen-anything-filelist+ ()
+  "Create screen and anything-filelist+"
+  (interactive)
+  (elscreen-create)
+  (anything-filelist+))
+
+(define-key global-map (kbd "C-x C-b") 'elscreen-helm-ls-git-ls)
+
+(defun elscreen-helm-ls-git-ls ()
+  "Create screen and helm-ls-git-ls+"
+  (interactive)
+  (elscreen-create)
+  (helm-ls-git-ls))
+
+(define-key global-map (kbd "C-c C-b") 'elscreen-helm-ls-git-ls)
+
 ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
 (defun yel-yank ()
   "yank to cycle kill ring"
