@@ -69,13 +69,11 @@ function emacs () {
   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
   EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
 
-  [[ ! $* ]] && _ARGS='.' || _ARGS=$*
-
   if ! pgrep Emacs; then
     $EMACS --daemon
   fi
 
-  $EMACS_CLIENT -nw -q $_ARGS
+  $EMACS_CLIENT -nw -q
 }
 
 function ekill () {
@@ -84,10 +82,7 @@ function ekill () {
 
 function gemacs () {
   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-
-  [[ ! $* ]] && _ARGS='.' || _ARGS=$*
-
-  $EMACS_CLIENT -c -q $_ARGS
+  $EMACS_CLIENT -c -q
 }
 
 alias ee='emacs'
