@@ -117,7 +117,7 @@
   (elscreen-clone)
   (anything-filelist+))
 
-(define-key global-map (kbd "C-x C-b") 'elscreen-helm-ls-git-ls)
+(define-key global-map (kbd "C-x C-b") 'elscreen-anything-filelist+)
 
 (defun elscreen-helm-ls-git-ls ()
   "Create screen and helm-ls-git-ls+"
