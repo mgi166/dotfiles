@@ -13,7 +13,7 @@
                   (t (:bold t)))
                 "hl-line's my face")
               (setq hl-line-face 'my-hl-line-face)
-              (global-hl-line-mode t))
+              (global-hl-line-mode t)))
 
       ((eq window-system 'ns)
        (progn (load-theme 'charcoal-black t t)
@@ -32,4 +32,4 @@
                   (t (:bold t)))
                 "hl-line's my face")
               (setq hl-line-face 'my-hl-line-face)
-              (global-hl-line-mode t)))))
+              (global-hl-line-mode t))))
