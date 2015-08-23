@@ -55,7 +55,7 @@ alias sup='svn up'
 #   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
 #   EMACS='/Applications/Emacs.app'
 
-#   [[ ! $* ]] && _ARGS='.' || _ARGS=$*
+#   [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
 
 #   if [ 1 -eq `ps aux | grep Emacs | grep -v grep | wc -l` ]; then
 #     $EMACS_CLIENT -n $_ARGS
@@ -73,7 +73,9 @@ function emacs () {
     $EMACS --daemon
   fi
 
-  $EMACS_CLIENT -nw -q
+  [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
+
+  $EMACS_CLIENT -nw -q $_ARGV
 }
 
 function ekill () {
