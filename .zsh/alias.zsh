@@ -58,9 +58,9 @@ alias sup='svn up'
 #   [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
 
 #   if [ 1 -eq `ps aux | grep Emacs | grep -v grep | wc -l` ]; then
-#     $EMACS_CLIENT -n $_ARGS
+#     $EMACS_CLIENT -n $_ARGV
 #   else
-#     open -a $EMACS $_ARGS
+#     open -a $EMACS $_ARGV
 #   fi
 # }
 
