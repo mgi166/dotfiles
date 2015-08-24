@@ -8,6 +8,7 @@
 (defun toggle-ruby-magic-comment ()
   "toggle magic comment top of line"
   (interactive)
+  (setq ruby-insert-encoding-magic-comment nil)
   (if (null ruby-insert-encoding-magic-comment)
       (setq ruby-insert-encoding-magic-comment t)
     (setq ruby-insert-encoding-magic-comment nil)))
