@@ -2,9 +2,8 @@
 (define-key global-map (kbd "M-m") 'magit-status)
 (define-key global-map (kbd "C-x g") 'magit-status)
 
-(define-key magit-status-mode-map (kbd "j") 'magit-section-forward)
-(define-key magit-status-mode-map (kbd "k") 'magit-section-backward)
 (define-key magit-status-mode-map (kbd "TAB") 'magit-diff-dwim)
+(define-key magit-log-mode-map (kbd "TAB") 'magit-diff-dwim)
 
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
