@@ -22,3 +22,6 @@ setopt complete_aliases
 
 # 補完時に文字列末尾へカーソル移動
 setopt always_to_end
+
+# 補完関数の path を追加
+fpath=($fpath ~/.nodebrew/completions/zsh/)

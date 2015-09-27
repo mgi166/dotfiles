@@ -37,3 +37,6 @@ export PATH="$HOME/.embulk/bin:$PATH"
 
 # postgresql
 export PGDATA=/usr/local/var/postgres
+
+# nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
