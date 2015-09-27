@@ -50,3 +50,7 @@
 
 ;; elscreen-server
 (require 'elscreen-server)
+
+;; elscreen-separate-buffer-list
+(require 'elscreen-separate-buffer-list)
+(elscreen-separate-buffer-list-mode)

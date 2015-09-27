@@ -10,6 +10,7 @@
 (depends-on "color-moccur")
 (depends-on "ctags")
 (depends-on "elscreen")
+(depends-on "elscreen-separate-buffer-list")
 (depends-on "esup")
 (depends-on "evil")
 (depends-on "exec-path-from-shell")
