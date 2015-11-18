@@ -1,5 +1,9 @@
 (require 'helm)
 (require 'helm-config)
+(require 'vc)
+(require 'vc-git)
+(require 'helm-files)
+(require 'helm-types)
 (require 'helm-ls-git)
 
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
