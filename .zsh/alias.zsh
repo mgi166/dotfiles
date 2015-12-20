@@ -51,21 +51,21 @@ alias sl='svn log -l 3'
 alias sup='svn up'
 
 # emacs (GUI)
-# function emacs () {
-#   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-#   EMACS='/Applications/Emacs.app'
+function emacs () {
+   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+   EMACS='/Applications/Emacs.app'
 
-#   [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
+   [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
 
-#   if [ 1 -eq `ps aux | grep Emacs | grep -v grep | wc -l` ]; then
-#     $EMACS_CLIENT -n $_ARGV
-#   else
-#     open -a $EMACS $_ARGV
-#   fi
-# }
+   if pgrep Emacs; then
+     open -a $EMACS $_ARGV
+   else
+     $EMACS_CLIENT -n $_ARGV
+   fi
+}
 
 # emacs -nw
-function emacs () {
+function emacsnw () {
   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
   EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
 
@@ -77,6 +77,9 @@ function emacs () {
 
   $EMACS_CLIENT -nw -q $_ARGV
 }
+alias emacsn='emacsnw'
+alias nemacs='emacsnw'
+#alias emacs='emacsnw'
 
 function ekill () {
   pkill Emacs
