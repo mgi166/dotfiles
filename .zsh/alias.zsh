@@ -58,9 +58,9 @@ function emacs () {
    [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
 
    if pgrep Emacs; then
-     open -a $EMACS $_ARGV
-   else
      $EMACS_CLIENT -n $_ARGV
+   else
+     open -a $EMACS $_ARGV
    fi
 }
 
