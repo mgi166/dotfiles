@@ -7,7 +7,6 @@ eval "$(rbenv init -)"
 
 # less
 export LESS="-RSj15"
-export LESSOPEN="| /usr/local/Cellar/source-highlight/3.1.7/bin/src-hilite-lesspipe.sh %s"
 
 # editor
 export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw'
