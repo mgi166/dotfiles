@@ -9,10 +9,10 @@ task :install do
     task file.to_sym do; end
   end
 
-  if target_files
-    target_files.each {|i| Installer.install(i) }
-  else
+  if target_files.empty?
     Installer.items.each {|i| Installer.install(i) }
+  else
+    target_files.each {|i| Installer.install(i) }
   end
 end
 
@@ -24,10 +24,10 @@ task :uninstall do
     task file.to_sym do; end
   end
 
-  if target_files
-    target_files.each {|i| Installer.uninstall(i) }
-  else
+  if target_files.empty?
     Installer.items.each {|i| Installer.uninstall(i) }
+  else
+    target_files.each {|i| Installer.uninstall(i) }
   end
 end
 
@@ -40,9 +40,9 @@ task :backup do
   end
 
   if target_files
-    target_files.each {|i| Installer.backup(i) }
-  else
     Installer.items.each {|i| Installer.backup(i) }
+  else
+    target_files.each {|i| Installer.backup(i) }
   end
 end
 
