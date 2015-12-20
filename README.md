@@ -18,6 +18,15 @@ You want to install only the file that you specify, give file name with argument
 rake install .tmux.conf
 ```
 
+## Emacs
+
+Use [cask/cask](https://github.com/cask/cask)
+
+```
+cd .emacs.d
+cask install
+```
+
 # Uninstall
 Remove all symbolic link you installed.  
 
