@@ -31,7 +31,6 @@ install imagemagick || true
 install mysql       || true
 install nginx       || true
 install nkf         || true
-install node        || true
 install openssl     || true
 install packer      || true
 install peco        || true
