@@ -1,6 +1,7 @@
 {
 	"segments": {
 		"right": [
+      { "function": "powerline.segments.common.vcs.branch" },
 			{
 				"function": "powerline.segments.common.time.date"
 			},
