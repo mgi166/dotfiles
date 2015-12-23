@@ -2,9 +2,6 @@
 	"segments": {
 		"right": [
       { "function": "powerline.segments.common.vcs.branch" },
-			{
-				"function": "powerline.segments.common.time.date"
-			},
       {
         "function": "powerline.segments.common.net.external_ip"
       },
@@ -15,7 +12,7 @@
 				"function": "powerline.segments.common.time.date",
 				"name": "time",
 				"args": {
-					"format": "%H:%M",
+					"format": "%Y-%m-%d %H:%M",
 					"istime": true
 				}
 			}
