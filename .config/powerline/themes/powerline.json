@@ -79,7 +79,8 @@
 					"windy":         "☴",
 					"not_available": "�",
 					"unknown":       "⚠"
-				}
+				},
+        "location_query": "tokyo"
 			}
 		},
 		"powerline.segments.common.time.fuzzy_time": {
