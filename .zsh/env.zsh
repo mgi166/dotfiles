@@ -39,3 +39,8 @@ export PGDATA=/usr/local/var/postgres
 
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+# pyenv
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
