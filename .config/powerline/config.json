@@ -27,10 +27,6 @@
 		"tmux": {
 			"colorscheme": "default",
 			"theme": "default"
-		},
-		"wm": {
-			"colorscheme": "default",
-			"theme": "default"
 		}
 	}
 }
