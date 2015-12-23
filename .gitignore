@@ -47,7 +47,6 @@ pickle-email-*.html
 *.gem
 *.rbc
 .bundle
-.config
 coverage
 InstalledFiles
 lib/bundler/man
