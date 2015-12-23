@@ -57,7 +57,7 @@ function emacs () {
 
    [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
 
-   if pgrep Emacs; then
+   if pgrep Emacs > /dev/null; then
      $EMACS_CLIENT -n $_ARGV
    else
      open -a $EMACS $_ARGV
@@ -69,7 +69,7 @@ function emacsnw () {
   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
   EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
 
-  if ! pgrep Emacs; then
+  if ! pgrep Emacs > /dev/null; then
     $EMACS --daemon
   fi
 
