@@ -18,12 +18,6 @@ export PATH=$HOMEBREW_PREFIX/bin:$PATH
 # tmux
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
-# z
-#. /usr/local/etc/profile.d/z.sh
-function precmd () {
-  z --add "$(pwd -P)"
-}
-
 # cask
 export PATH="$HOME/.cask/bin:$PATH"
 
