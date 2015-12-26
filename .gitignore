@@ -104,6 +104,7 @@ db.dump
 
 # dotenv
 .env.staging
+.config/direnv
 
 # tempfile
 hoge
