@@ -9,6 +9,12 @@
 		"window:current":       {"fg": "mediumcyan", "bg": "darkblue", "attrs": []},
 		"window_name":          {"fg": "white",      "bg": "darkblue", "attrs": ["bold"]},
 		"session":              {"fg": "black",      "bg": "gray90",   "attrs": ["bold"]},
-		"session:prefix":       {"fg": "gray90",     "bg": "darkblue", "attrs": ["bold"]}
+		"session:prefix":       {"fg": "gray90",     "bg": "darkblue", "attrs": ["bold"]},
+
+		"branch":                    { "fg": "gray0", "bg": "brightyellow", "attrs": [] },
+		"external_ip":               { "fg": "white", "bg": "deepblue", "attrs": [] },
+
+		"weather_temp_gradient":     { "fg": "white", "bg": "darkblue", "attrs": [] },
+    "weather_conditions": { "fg": "white", "bg": "darkblue", "attrs": [] }
 	}
 }
