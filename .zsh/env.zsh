@@ -11,15 +11,15 @@ export LESS="-RSj15"
 # editor
 export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw'
 
-##### path 関連
-export PATH=/usr/local/bin:$PATH
-export SVN_EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw'
+# homebrew
+export HOMEBREW_PREFIX=$HOME/.homebrew
+export PATH=$HOMEBREW_PREFIX/bin:$PATH
 
 # tmux
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
 # z
-. /usr/local/etc/profile.d/z.sh
+#. /usr/local/etc/profile.d/z.sh
 function precmd () {
   z --add "$(pwd -P)"
 }
