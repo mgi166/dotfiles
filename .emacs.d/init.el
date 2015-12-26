@@ -21,10 +21,20 @@
 (package-initialize)
 
 ;; cask.el
-(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
-(cask-initialize)
-(require 'pallet)
-(pallet-mode t)
+(condition-case err
+    (progn
+      (let
+          ((homebrew-cask-path (concat (getenv "HOMEBREW_PREFIX") "/share/emacs/site-lisp/cask/cask.el"))
+           (cask-path "~/.cask/cask.el"))
+        (if (file-exists-p homebrew-cask-path)
+            (require 'cask homebrew-cask-path))
+        (if (file-exists-p cask-path)
+            (require 'cask cask-path)))
+
+      (cask-initialize)
+      (require 'pallet)
+      (pallet-mode t))
+  (error "Load error cask.el: %s" err))
 
 ;; initchart
 ;; (require 'initchart)
