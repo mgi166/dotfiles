@@ -2,8 +2,9 @@
 export LANG=ja_JP.UTF-8
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)"
+fi
 
 # less
 export LESS="-RSj15"
