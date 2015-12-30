@@ -56,10 +56,9 @@ if exists peco; then
 fi
 
 # z
-. /usr/local/etc/profile.d/z.sh
-function precmd () {
-  z --add "$(pwd -P)"
-}
+if [ -f $HOMEBREW_PREFIX/etc/profile.d/z.sh ]; then
+  . `brew --prefix`/etc/profile.d/z.sh
+fi
 
 # pbcopy-buffer
 pbcopy-buffer(){

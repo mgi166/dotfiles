@@ -77,7 +77,8 @@
 (setq interprogram-paste-function 'copy-from-osx)
 
 ;; zshを使う
-(setq shell-file-name "/usr/local/bin/zsh")
+(cond ((file-exists-p (concat (getenv "HOMEBREW_PREFIX") "/bin/zsh")) (setq shell-file-name (concat (getenv "HOMEBREW_PREFIX") "/bin/zsh")))
+      ((file-exists-p "/bin/zsh") (setq shell-file-name "/bin/zsh")))
 
 ;; find-file をした時の default の directory を設定
 (setq default-directory "~/")
