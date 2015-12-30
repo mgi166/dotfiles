@@ -47,7 +47,6 @@ pickle-email-*.html
 *.gem
 *.rbc
 .bundle
-.config
 coverage
 InstalledFiles
 lib/bundler/man
@@ -72,6 +71,7 @@ ac-comphist.dat
 */#!*
 */elpa/*
 */.cask/*
+recentf
 
 # Ignore vagrant caches
 /.vagrant
@@ -104,6 +104,7 @@ db.dump
 
 # dotenv
 .env.staging
+.config/direnv
 
 # tempfile
 hoge

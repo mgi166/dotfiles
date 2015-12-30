@@ -1,0 +1,9 @@
+{
+	"segments": {
+		"right": [
+      { "function": "powerline.segments.common.vcs.branch" },
+      { "function": "powerline.segments.common.wthr.weather" },
+      { "function": "powerline.segments.common.net.external_ip" }
+		]
+	}
+}

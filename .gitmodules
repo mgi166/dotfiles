@@ -1,6 +1,3 @@
-[submodule ".tmux/tmux-powerline"]
-	path = .tmux/tmux-powerline
-	url = git@github.com:mgi166/tmux-powerline.git
 [submodule ".emacs.d/elisp/replace-colorthemes"]
 	path = .emacs.d/elisp/replace-colorthemes
 	url = https://github.com/emacs-jp/replace-colorthemes.git
