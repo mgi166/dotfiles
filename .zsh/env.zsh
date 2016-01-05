@@ -2,6 +2,7 @@
 export LANG=ja_JP.UTF-8
 
 # rbenv
+export PATH=$HOME/.rbenv/bin:$PATH
 if which rbenv > /dev/null; then
   eval "$(rbenv init -)"
 fi
