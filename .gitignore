@@ -104,7 +104,11 @@ db.dump
 
 # dotenv
 .env.staging
-.config/direnv
+
+# powerline
+.config/*
+!.config/powerline
 
 # tempfile
 hoge
+
