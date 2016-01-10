@@ -9,7 +9,16 @@ add-zsh-hook precmd vcs_precmd
 
 vcs_precmd () {
   vcs_info
-  PROMPT="%{$fg_bold[cyan]%}[%{$fg_bold[yellow]%}%c%{$fg_bold[cyan]%}:  ${vcs_info_msg_0_}] %#%{$reset_color%} "
+
+  branch_name=$(echo ${vcs_info_msg_0_} | cut -c 1-17)
+
+  if [ ${#vcs_info_msg_0_} -gt 12 ]; then
+    branch_name=$(echo ${vcs_info_msg_0_} | cut -c 1-17)"..."
+  else
+    branch_name=${vcs_info_msg_0_}
+  fi
+
+  PROMPT="%{$fg_bold[cyan]%}[%{$fg_bold[yellow]%}%c%{$fg_bold[cyan]%}:  ${branch_name}] %#%{$reset_color%} "
 }
 # terminal のタイトルに「ユーザ@ホスト:カレントディレクトリ」と表示
 case "${TERM}" in
