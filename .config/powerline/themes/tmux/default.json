@@ -1,4 +1,12 @@
 {
+  "segment_data": {
+    "internal_ip": {
+      "before": " ⓛ "
+    },
+    "external_ip": {
+      "before": "ⓦ "
+    }
+  },
 	"segments": {
 		"right": [
       { "function": "powerline.segments.common.vcs.branch" },
