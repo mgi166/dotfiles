@@ -15,6 +15,10 @@
 		"branch":                    { "fg": "gray0", "bg": "brightyellow", "attrs": [] },
 		"external_ip":               { "fg": "white", "bg": "deepblue", "attrs": [] },
 		"weather_temp_gradient":     { "fg": "white", "bg": "darkblue", "attrs": [] },
-    "weather_conditions":        { "fg": "white", "bg": "darkblue", "attrs": [] }
+    "weather_conditions":        { "fg": "white", "bg": "darkblue", "attrs": [] },
+		"weather_temp_gradient":     { "fg": "white", "bg": "darkblue", "attrs": [] },
+		"weather_condition_hot":     { "fg": "white", "bg": "darkblue", "attrs": [] },
+		"weather_condition_snowy":   { "fg": "white", "bg": "darkblue", "attrs": [] },
+		"weather_condition_rainy":   { "fg": "white", "bg": "darkblue", "attrs": [] }
 	}
 }
