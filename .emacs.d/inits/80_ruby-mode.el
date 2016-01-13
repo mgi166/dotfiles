@@ -1,9 +1,10 @@
 ;; end に対応する行の highlight
-(autoload 'ruby-block "ruby-block" nil t)
+(autoload 'ruby-block-mode "ruby-block" nil t)
 (setq ruby-block-highlight-toggle t)
 
 (defun ruby-mode-hooks ()
-  (ruby-block-mode t))
+  (ruby-block-mode t)
+  (setq ruby-block-highlight-toggle t))
 
 (defun toggle-ruby-magic-comment ()
   "toggle magic comment top of line"
