@@ -102,3 +102,6 @@
 ;; キャレット(カーソル)のタイプと表示
 (setq cursor-type 'box)
 (blink-cursor-mode 0)
+
+;; ¥(yen) を \(backslash) に
+(define-key global-map [165] [92])
