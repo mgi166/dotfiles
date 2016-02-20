@@ -4,4 +4,4 @@
 # binding: direct-keybinding
 # --
 describe('subj', () => {
-})
+});

@@ -4,4 +4,4 @@
 # binding: direct-keybinding
 # --
 context('subj', () => {
-})
+});
