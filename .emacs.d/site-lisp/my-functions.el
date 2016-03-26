@@ -123,7 +123,7 @@
 (defun elscreen-anything-filelist+ ()
   "Create screen and anything-filelist+"
   (interactive)
-  (elscreen-create)
+  (elscreen-clone)
   (anything-filelist+))
 
 (define-key global-map (kbd "C-x C-b") 'elscreen-anything-filelist+)
