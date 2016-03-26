@@ -109,12 +109,21 @@
   (elscreen-kill-screen-and-buffers 0)
   (kill-buffers-other-initialized))
 
+(defun refresh-all-buffers-and-elscreen ()
+  "All buffers clear, and all elscreens close."
+  (interactive)
+  (dolist (buffer (buffer-list))
+    (kill-buffer buffer))
+  (cond
+   ((elscreen-one-screen-p) (nil))
+   (t (elscreen-kill 0))))
+
 (define-key global-map "\C-\M-l" 'elscreen-refresh-and-buffers)
 
 (defun elscreen-anything-filelist+ ()
   "Create screen and anything-filelist+"
   (interactive)
-  (elscreen-clone)
+  (elscreen-create)
   (anything-filelist+))
 
 (define-key global-map (kbd "C-x C-b") 'elscreen-anything-filelist+)
