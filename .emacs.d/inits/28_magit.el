@@ -24,3 +24,9 @@
   (jump-to-register :magit-fullscreen))
 
 (define-key magit-status-mode-map (kbd "q") 'magit-mode-quit-window)
+
+(defun with-editor-post-finish-hook-1 ()
+  (delete-all-magit-buffers))
+
+(defun with-editor-post-cancel-hook-1 ()
+  (delete-all-magit-buffers))
