@@ -51,6 +51,13 @@
 
 (define-key global-map (kbd "C-M-l") 'refresh-all-buffers-and-elscreen)
 
+(defun elscreen-kill-all-scratch-screen ()
+  "Delete all scratch screen"
+  (interactive)
+  (dolist (screen-and-buffer (elscreen-get-screen-to-name-alist))
+    (when (string-match "*scratch*" (cdr screen-and-buffer))
+      (elscreen-kill (car screen-and-buffer)))))
+
 (defun elscreen-anything-filelist+ ()
   "Create screen and anything-filelist+"
   (interactive)
