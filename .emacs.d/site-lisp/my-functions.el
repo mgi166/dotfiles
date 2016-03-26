@@ -37,12 +37,14 @@
   (delete-all-buffers))
 
 (defun elscreen-delete-all-screen ()
+  "Delete all elscreen tabs"
   (interactive)
   (while (> (length (elscreen-get-screen-list)) 1)
     (dolist (screen-index (nbutlast (sort (elscreen-get-screen-list) '>)))
       (elscreen-kill screen-index))))
 
 (defun delete-all-buffers ()
+  "Delete all buffers"
   (interactive)
   (dolist (buffer (buffer-list))
     (kill-buffer buffer)))
