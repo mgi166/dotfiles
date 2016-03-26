@@ -118,7 +118,7 @@
    ((elscreen-one-screen-p) (nil))
    (t (elscreen-kill 0))))
 
-(define-key global-map "\C-\M-l" 'elscreen-refresh-and-buffers)
+(define-key global-map (kbd "C-M-l") 'refresh-all-buffers-and-elscreen)
 
 (defun elscreen-anything-filelist+ ()
   "Create screen and anything-filelist+"
