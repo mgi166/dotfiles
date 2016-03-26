@@ -112,11 +112,19 @@
 (defun refresh-all-buffers-and-elscreen ()
   "All buffers clear, and all elscreens close."
   (interactive)
+  (elscreen-delete-all-screen)
+  (delete-all-buffers))
+
+(defun elscreen-delete-all-screen ()
+  (interactive)
+  (while (> (length (elscreen-get-screen-list)) 1)
+    (dolist (screen-index (nbutlast (sort (elscreen-get-screen-list) '>)))
+      (elscreen-kill screen-index))))
+
+(defun delete-all-buffers ()
+  (interactive)
   (dolist (buffer (buffer-list))
-    (kill-buffer buffer))
-  (cond
-   ((elscreen-one-screen-p) (nil))
-   (t (elscreen-kill 0))))
+    (kill-buffer buffer)))
 
 (define-key global-map (kbd "C-M-l") 'refresh-all-buffers-and-elscreen)
 
