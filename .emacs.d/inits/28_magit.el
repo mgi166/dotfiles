@@ -26,7 +26,9 @@
 (define-key magit-status-mode-map (kbd "q") 'magit-mode-quit-window)
 
 (defun with-editor-post-finish-hook-1 ()
-  (delete-all-magit-buffers))
+  (delete-all-magit-buffers)
+  (elscreen-kill-all-scratch-screen))
 
 (defun with-editor-post-cancel-hook-1 ()
-  (delete-all-magit-buffers))
+  (delete-all-magit-buffers)
+  (elscreen-kill-all-scratch-screen))
