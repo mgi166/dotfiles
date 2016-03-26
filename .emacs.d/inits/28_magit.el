@@ -5,6 +5,13 @@
 (define-key magit-status-mode-map (kbd "TAB") 'magit-diff-dwim)
 (define-key magit-log-mode-map (kbd "TAB") 'magit-diff-dwim)
 
+(defun delete-all-magit-buffers ()
+  "Delete all *magit buffer"
+  (interactive)
+  (dolist (buffer (buffer-list))
+    (when (string-match "*magit" (buffer-name buffer))
+      (kill-buffer buffer))))
+
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
   ad-do-it
@@ -13,7 +20,7 @@
 (defun magit-mode-quit-window ()
   "Restores the previous window configuration and kills the magit buffer"
   (interactive)
-  (kill-buffer)
+  (delete-all-magit-buffers)
   (jump-to-register :magit-fullscreen))
 
 (define-key magit-status-mode-map (kbd "q") 'magit-mode-quit-window)
