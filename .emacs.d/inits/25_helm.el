@@ -5,6 +5,8 @@
 (require 'helm-files)
 (require 'helm-types)
 (require 'helm-ls-git)
+(require 'helm-ls-git)
+(require 'helm-descbinds)
 
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-o") 'helm-occur)
