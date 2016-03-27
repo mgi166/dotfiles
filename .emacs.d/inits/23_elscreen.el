@@ -16,6 +16,7 @@
 (define-key elscreen-map "k" 'elscreen-kill-screen-and-buffers)
 (define-key elscreen-map "K" 'elscreen-kill)
 (define-key elscreen-map "\C-K" 'elscreen-kill)
+(define-key elscreen-map "\C-o" 'elscreen-kill-others)
 
 ;; [0, 1, 2] で 1 をkill-screen したときに [0, 1] となるようにする
 ;; see(http://d.hatena.ne.jp/asudofu/20091121/1258778536)
