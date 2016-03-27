@@ -55,7 +55,8 @@
   "Delete all scratch screen"
   (interactive)
   (dolist (screen-and-buffer (elscreen-get-screen-to-name-alist))
-    (when (string-match "*scratch*" (cdr screen-and-buffer))
+    (when (and (string-match "*scratch*" (cdr screen-and-buffer))
+               (> (length (elscreen-get-screen-list)) 1))
       (elscreen-kill (car screen-and-buffer)))))
 
 (defun elscreen-anything-filelist+ ()
