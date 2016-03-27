@@ -11,8 +11,11 @@
 (define-key global-map "\M-]" 'elscreen-next)
 
 ;; C-z k or C-z C-k でバッファもkillするように
+;; C-z K or C-z C-K で screen のみ kill する
 (define-key elscreen-map "\C-k" 'elscreen-kill-screen-and-buffers)
 (define-key elscreen-map "k" 'elscreen-kill-screen-and-buffers)
+(define-key elscreen-map "K" 'elscreen-kill)
+(define-key elscreen-map "\C-K" 'elscreen-kill)
 
 ;; [0, 1, 2] で 1 をkill-screen したときに [0, 1] となるようにする
 ;; see(http://d.hatena.ne.jp/asudofu/20091121/1258778536)
