@@ -21,6 +21,7 @@
   "Restores the previous window configuration and kills the magit buffer"
   (interactive)
   (delete-all-magit-buffers)
+  (elscreen-kill-all-scratch-screen)
   (jump-to-register :magit-fullscreen))
 
 (define-key magit-status-mode-map (kbd "q") 'magit-mode-quit-window)
