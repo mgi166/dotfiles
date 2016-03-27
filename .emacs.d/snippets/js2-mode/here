@@ -3,4 +3,4 @@
 # key: here
 # binding: direct-keybinding
 # --
-console.log('here);
+console.log('here');
