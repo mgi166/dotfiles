@@ -76,3 +76,10 @@ function chpwd(){
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# Launch screen saver in mac
+function screensaver () {
+  open /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app
+}
+
+alias sc=screensaver
