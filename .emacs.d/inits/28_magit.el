@@ -20,9 +20,9 @@
 (defun magit-mode-quit-window ()
   "Restores the previous window configuration and kills the magit buffer"
   (interactive)
+  (jump-to-register :magit-fullscreen)
   (delete-all-magit-buffers)
-  (elscreen-kill-all-scratch-screen)
-  (jump-to-register :magit-fullscreen))
+  (elscreen-kill-all-scratch-screen))
 
 (define-key magit-status-mode-map (kbd "q") 'magit-mode-quit-window)
 
