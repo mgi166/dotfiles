@@ -22,7 +22,8 @@
   (interactive)
   (jump-to-register :magit-fullscreen)
   (delete-all-magit-buffers)
-  (elscreen-kill-all-scratch-screen))
+  (elscreen-kill-all-scratch-screen)
+  (elscreen-squish-duplicated-screens))
 
 (define-key magit-status-mode-map (kbd "q") 'magit-mode-quit-window)
 
