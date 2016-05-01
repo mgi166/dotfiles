@@ -75,6 +75,28 @@
 
 (define-key global-map (kbd "C-c C-b") 'elscreen-helm-ls-git-ls)
 
+(defun elscreen-unique-screen-p ()
+  "Return t if elscreen has unique names of screens. Other return nil"
+  (interactive)
+  (let ((hash (make-hash-table :test 'equal)))
+    (dolist (screen-name (mapcar 'cdr (elscreen-get-screen-to-name-alist)))
+      (unless (gethash screen-name hash)
+        (puthash screen-name t hash)))
+    (eq (length (elscreen-get-screen-to-name-alist)) (hash-table-count hash))))
+
+(defun elscreen-squish-duplicated-screens ()
+  "Unique all screen by screen-name"
+  (interactive)
+  (while (not (elscreen-unique-screen-p))
+    (let ((hash (make-hash-table :test 'equal)))
+      (dolist (screen (sort (elscreen-get-screen-list) '<))
+        (let ((screen-name (assoc-default screen (elscreen-get-screen-to-name-alist))))
+          (when (gethash screen-name hash)
+            (elscreen-kill screen))
+          (puthash screen-name t hash))))))
+
+(define-key elscreen-map (kbd "u") 'elscreen-squish-duplicated-screens)
+
 ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
 (defun yel-yank ()
   "yank to cycle kill ring"
