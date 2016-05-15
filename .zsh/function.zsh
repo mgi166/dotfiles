@@ -53,6 +53,11 @@ if exists peco; then
     }
     zle -N peco-git-recent-all-branches
     bindkey '^xb' peco-git-recent-all-branches
+
+    function peco-git-branches() {
+      BUFFER="${BUFFER}$(echo `git branch | peco | sed -e "s/^[\* ]*//g"` | tr -d "\n")"
+      CURSOR=$#BUFFER
+    }
 fi
 
 # z
