@@ -80,11 +80,14 @@ if exists peco; then
     }
 
     zle -N peco-git-branch-checkout
+    bindkey '^x^b' peco-git-branch-checkout
 
     function peco-git-branches() {
       BUFFER="${BUFFER}$(echo `git branch | peco | sed -e "s/^[\* ]*//g"` | tr -d "\n")"
       CURSOR=$#BUFFER
     }
+    zle -N peco-git-branches
+    bindkey '^xb' peco-git-branch-checkout
 fi
 
 # z
