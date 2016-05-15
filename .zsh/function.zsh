@@ -54,6 +54,33 @@ if exists peco; then
     zle -N peco-git-recent-all-branches
     bindkey '^xb' peco-git-recent-all-branches
 
+    function peco-git-branch-checkout () {
+      local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads refs/remotes | \
+            perl -pne 's{^refs/(heads|remotes)/}{}' | \
+            peco)
+
+      case "$selected_branch" in
+        "" ) ;;
+        origin* )
+          local branch_name=$(echo ${selected_branch} | sed -e "s|^origin/||g")
+
+          if git branch | grep ${branch_name} > /dev/null; then
+            BUFFER="git checkout ${branch_name}"
+          else
+            BUFFER="git checkout -t ${selected_branch}"
+          fi
+
+          zle accept-line ;;
+        * )
+          BUFFER="git checkout ${selected_branch}"
+          zle accept-line
+      esac
+
+      zle redisplay
+    }
+
+    zle -N peco-git-branch-checkout
+
     function peco-git-branches() {
       BUFFER="${BUFFER}$(echo `git branch | peco | sed -e "s/^[\* ]*//g"` | tr -d "\n")"
       CURSOR=$#BUFFER
