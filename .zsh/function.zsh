@@ -63,6 +63,21 @@ if exists peco; then
     zle -N peco-git-branches
     bindkey '^xb' peco-git-branches
 
+    function peco-git-delete-branch () {
+      local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | \
+            perl -pne 's{^refs/(heads|remotes)/}{}' | \
+            grep -v '^master$' | \
+            peco)
+
+      if [ -n "$selected_branch" ]; then
+        BUFFER="git branch -D ${selected_branch}"
+        zle accept-line
+      fi
+
+      zle redisplay
+    }
+    zle -N peco-git-delete-branch
+    bindkey '^x^d' peco-git-delete-branch
 fi
 
 # z
