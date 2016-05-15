@@ -22,7 +22,7 @@ if exists peco; then
             eval $tac | \
             peco --query "$LBUFFER")
         CURSOR=$#BUFFER
-        zle clear-screen
+        zle redisplay
     }
 
     zle -N peco_select_history
@@ -36,7 +36,7 @@ if exists peco; then
             BUFFER="git checkout ${selected_branch}"
             zle accept-line
         fi
-        zle clear-screen
+        zle redisplay
     }
     zle -N peco-git-recent-branches
     bindkey '^x^b' peco-git-recent-branches
@@ -49,7 +49,7 @@ if exists peco; then
             BUFFER="git checkout -t ${selected_branch}"
             zle accept-line
         fi
-        zle clear-screen
+        zle redisplay
     }
     zle -N peco-git-recent-all-branches
     bindkey '^xb' peco-git-recent-all-branches
