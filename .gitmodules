@@ -4,3 +4,6 @@
 [submodule ".emacs.d/site-lisp/jumar"]
 	path = .emacs.d/site-lisp/jumar
 	url = https://github.com/kenoss/jumar
+[submodule ".emacs.d/site-lisp/erfi"]
+	path = .emacs.d/site-lisp/erfi
+	url = https://github.com/kenoss/erfi
