@@ -108,3 +108,11 @@ function screensaver () {
 }
 
 alias sc=screensaver
+
+if exists git; then
+  function refresh-git-branches () {
+      local branches=$(git branch | sed -e "s/^[\* ]*//g" | grep -v '^master$')
+
+      git branch -D $(echo ${branches} | sed -e "s/\n/ /g")
+  }
+fi
