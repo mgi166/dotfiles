@@ -61,7 +61,8 @@ if exists peco; then
       CURSOR=$#BUFFER
     }
     zle -N peco-git-branches
-    bindkey '^xb' peco-git-branch-checkout
+    bindkey '^xb' peco-git-branches
+
 fi
 
 # z
