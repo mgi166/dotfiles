@@ -854,7 +854,7 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 9</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/iterm2</string>
+	<string>~/dotfiles/iterm2/argerich</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 459}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -885,7 +885,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>908 380 924 485 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 164 1810 886 0 0 1920 1057 </string>
+	<string>0 26 1920 1031 0 0 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2367,10 +2367,12 @@
 			<string>/Users/horowitz</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveShownPromoWithId_4</key>
+	<true/>
 	<key>NoSyncTimeOfLastPromo</key>
-	<real>472279581.13214099</real>
+	<real>477670229.61062002</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>474088475.18128097</real>
+	<real>486202831.39917099</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -2417,7 +2419,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/argerich/dotfiles/iterm2</string>
+	<string>/Users/argerich/dotfiles/iterm2/argerich</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2435,7 +2437,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-01-10T03:14:35Z</date>
+	<date>2016-05-29T08:20:29Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
