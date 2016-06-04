@@ -863,6 +863,8 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
+	<key>NSScrollViewShouldScrollUnderTitlebar</key>
+	<false/>
 	<key>NSTableView Columns KeyBingingTable</key>
 	<array>
 		<data>
@@ -874,7 +876,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>302</string>
+		<string>322</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -883,9 +885,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1409 37 445 77 0 0 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>908 380 924 485 0 0 1920 1057 </string>
+	<string>908 409 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 26 1920 1031 0 0 1920 1057 </string>
+	<string>0 25 1920 1032 0 0 1920 1057 </string>
+	<key>NeverWarnAboutShortLivedSessions_85E2AB66-CB3F-4DB6-861F-10269CF4AB1B</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_85E2AB66-CB3F-4DB6-861F-10269CF4AB1B_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2369,6 +2375,10 @@
 	</array>
 	<key>NoSyncHaveShownPromoWithId_4</key>
 	<true/>
+	<key>NoSyncInstallationId</key>
+	<string>92D247EF-04AD-4278-B4C4-55466648ADC4</string>
+	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
+	<real>486564422.10875201</real>
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>477670229.61062002</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
@@ -2432,12 +2442,14 @@
 	<integer>3</integer>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
+	<key>SUFeedAlternateAppNameKey</key>
+	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/testing.xml</string>
+	<string>https://iterm2.com/appcasts/testing.xml?shard=29</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-05-29T08:20:29Z</date>
+	<date>2016-06-02T12:38:23Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -2491,6 +2503,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.1.4</string>
+	<string>3.0.0</string>
 </dict>
 </plist>
