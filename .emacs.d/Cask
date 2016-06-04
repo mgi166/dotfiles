@@ -40,6 +40,7 @@
 (depends-on "redo+")
 (depends-on "revive")
 (depends-on "ruby-block")
+(depends-on "svg-mode-line-themes")
 (depends-on "terraform-mode")
 (depends-on "undo-tree")
 (depends-on "web-mode")
