@@ -2,6 +2,7 @@
 (source marmalade)
 (source melpa)
 
+(depends-on "ag")
 (depends-on "all-ext")
 (depends-on "anything")
 (depends-on "anything-git-files")
