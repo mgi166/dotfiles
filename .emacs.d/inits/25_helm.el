@@ -16,3 +16,6 @@
 (global-set-key (kbd "C-c C-b") 'helm-ls-git-ls)
 (global-set-key (kbd "C-c d") 'helm-browse-project)
 (global-set-key (kbd "C-c C-d") 'helm-browse-project)
+
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "M-r") 'helm-resume)
