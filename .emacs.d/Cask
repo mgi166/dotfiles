@@ -14,6 +14,7 @@
 (depends-on "esup")
 (depends-on "evil")
 (depends-on "exec-path-from-shell")
+(depends-on "git-gutter-fringe")
 (depends-on "google-maps")
 (depends-on "helm")
 (depends-on "helm-ag")

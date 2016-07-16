@@ -23,6 +23,11 @@
               (custom-set-faces
                '(linum ((t (:inherit (shadow default) :background "Gray23")))))
 
+              (set-face-attribute 'fringe nil :background "Gray18")
+              (set-face-background 'git-gutter:modified "Gray18")
+              (set-face-background 'git-gutter:added "Gray18")
+              (set-face-background 'git-gutter:deleted "Gray18")
+
               ;;行をハイライト
               (defface my-hl-line-face
                 '((((class color) (background dark))
