@@ -112,3 +112,5 @@ db.dump
 # tempfile
 hoge
 
+# zshrc_local
+.zshrc_local
