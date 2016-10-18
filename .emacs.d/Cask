@@ -32,6 +32,7 @@
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "migemo")
+(depends-on "nginx-mode")
 (depends-on "open-junk-file")
 (depends-on "pallet")
 (depends-on "perl-completion")
