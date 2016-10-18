@@ -34,3 +34,6 @@
 (defun with-editor-post-cancel-hook-1 ()
   (delete-all-magit-buffers)
   (elscreen-kill-all-scratch-screen))
+
+(set-face-foreground 'magit-blame-heading "white")
+(set-face-background 'magit-blame-heading "grey25")
