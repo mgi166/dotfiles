@@ -39,6 +39,7 @@ alias gd='git diff'
 alias gdh='git diff HEAD'
 alias ga='git add --all'
 alias gp='git pull origin `git rev-parse --abbrev-ref HEAD`'
+alias gpp='git push origin $(git rev-parse --abbrev-ref HEAD)'
 
 alias s='svn'
 alias ss='svn st'
