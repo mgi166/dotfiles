@@ -54,3 +54,5 @@ alias sup='svn up'
 alias ee='emacs'
 alias em='emacs'
 alias emasc='emacs'
+
+alias ya='yarn'
