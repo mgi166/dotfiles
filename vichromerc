@@ -77,9 +77,8 @@ nmap E     :GoFMode
 ## cmap keybinds
 
 # フォーカス移動のキーバインドを追加
-cmap <C-n> :FocusNextCandidate
-cmap <C-p> :FocusPrevCandidate
-
+cmap <ArrowDown> :FocusNextCandidate
+cmap <ArrowUp> :FocusPrevCandidate
 
 ## pagecmd keybinds
 # 全てのページでタブ移動を可能に
