@@ -1,4 +1,6 @@
 (require 'git-gutter-fringe)
+(custom-set-variables
+ '(git-gutter:update-interval 2))
 (setq-default left-fringe-width  18)
 (setq-default right-fringe-width 18)
 (custom-set-variables
