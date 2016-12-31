@@ -9,6 +9,8 @@
 ;;(define-key mac-key-mode-map [(alt t)] 'elscreen-create) ;; 新しいタブを開く(elscreen + mac-key-mode 必須)
 (define-key global-map "\M-[" 'elscreen-previous)
 (define-key global-map "\M-]" 'elscreen-next)
+(define-key global-map (kbd "s-{") 'elscreen-previous)
+(define-key global-map (kbd "s-}") 'elscreen-next)
 
 ;; C-z k or C-z C-k でバッファもkillするように
 ;; C-z K or C-z C-K で screen のみ kill する
