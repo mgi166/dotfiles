@@ -11,6 +11,8 @@
 (define-key global-map "\M-]" 'elscreen-next)
 (define-key global-map (kbd "s-{") 'elscreen-previous)
 (define-key global-map (kbd "s-}") 'elscreen-next)
+(define-key global-map (kbd "“") 'elscreen-previous)
+(define-key global-map (kbd "”") 'elscreen-next)
 
 ;; C-z k or C-z C-k でバッファもkillするように
 ;; C-z K or C-z C-K で screen のみ kill する
