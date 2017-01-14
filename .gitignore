@@ -114,3 +114,7 @@ hoge
 
 # zshrc_local
 .zshrc_local
+
+# ignore mitamae
+mitamae*
+
