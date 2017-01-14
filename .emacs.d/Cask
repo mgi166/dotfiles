@@ -37,6 +37,7 @@
 (depends-on "open-junk-file")
 (depends-on "pallet")
 (depends-on "perl-completion")
+(depends-on "php-mode")
 (depends-on "point-undo")
 (depends-on "popup")
 (depends-on "popwin")
