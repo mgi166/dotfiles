@@ -888,12 +888,17 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>929 110 445 103 0 0 1440 877 </string>
+	<string>2543 235 445 77 1440 -300 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 192 796 473 0 0 1440 877 </string>
+	<string>1972 42 937 465 1440 -300 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 33 1432 844 0 0 1440 877 </string>
+	<string>0 33 1440 844 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1457,11 +1462,11 @@
 			<key>Name</key>
 			<string>Horowitz</string>
 			<key>Non Ascii Font</key>
-			<string>PowerlineSymbols 18</string>
+			<string>PowerlineSymbols 24</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Ricty-RegularForPowerline 18</string>
+			<string>Ricty-RegularForPowerline 24</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2436,7 +2441,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-01-10T01:39:22Z</date>
+	<date>2017-01-14T01:59:50Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2447,6 +2452,8 @@
 	<false/>
 	<key>ShowBookmarkName</key>
 	<true/>
+	<key>ShowFullScreenTabBar</key>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<true/>
 	<key>SmartPlacement</key>
