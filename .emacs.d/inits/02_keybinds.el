@@ -13,6 +13,7 @@
 (define-key global-map (kbd "C-c M-q") 'query-replace-regexp)
 (define-key global-map (kbd "C-c q") 'quoted-insert)
 (define-key global-map (kbd "M-q") 'shell-command)
+(define-key global-map (kbd "M-<delete>") 'kill-word)
 
 ;; copy
 (define-key global-map (kbd "M-w") 'clipboard-kill-ring-save)
