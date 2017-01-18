@@ -1,9 +1,9 @@
 [submodule ".emacs.d/elisp/replace-colorthemes"]
-	path = .emacs.d/elisp/replace-colorthemes
+	path = cookbooks/emacs/files/.emacs.d/elisp/replace-colorthemes
 	url = https://github.com/emacs-jp/replace-colorthemes.git
 [submodule ".emacs.d/site-lisp/jumar"]
-	path = .emacs.d/site-lisp/jumar
+	path = cookbooks/emacs/files/.emacs.d/site-lisp/jumar
 	url = https://github.com/kenoss/jumar
 [submodule ".emacs.d/site-lisp/erfi"]
-	path = .emacs.d/site-lisp/erfi
+	path = cookbooks/emacs/files/.emacs.d/site-lisp/erfi
 	url = https://github.com/kenoss/erfi
