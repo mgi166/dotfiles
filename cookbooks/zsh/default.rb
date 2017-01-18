@@ -18,6 +18,5 @@ end
 
 link File.expand_path("~/.zsh") do
   to File.expand_path("cookbooks/zsh/files/.zsh")
-  to File.expand_path(".zsh")
   force true
 end
