@@ -12,11 +12,12 @@ execute "chsh -s #{zsh_path}" do
 end
 
 link File.expand_path("~/.zshrc") do
-  to File.expand_path(".zshrc")
+  to File.expand_path("cookbooks/zsh/files/.zshrc")
   force true
 end
 
 link File.expand_path("~/.zsh") do
+  to File.expand_path("cookbooks/zsh/files/.zsh")
   to File.expand_path(".zsh")
   force true
 end
