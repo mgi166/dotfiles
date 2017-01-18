@@ -6,7 +6,7 @@ end
 
 execute "cask install" do
   cwd ".emacs.d"
-  not_if "[[ -e .emacs.d/.cask ]]"
+  not_if "[[ -e #{files_path}/.emacs.d/.cask ]]"
 end
 
 link File.expand_path("~/.emacs.d") do
