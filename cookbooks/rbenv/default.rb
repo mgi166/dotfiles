@@ -3,7 +3,7 @@ git File.expand_path("~/.rbenv") do
 end
 
 link File.expand_path("~/.rbenv/default-gems") do
-  to File.expand_path("./default-gems")
+  to File.expand_path("cookbooks/rbenv/files/default-gems")
   force true
 end
 
