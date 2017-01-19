@@ -28,4 +28,4 @@ fi
 ln -sf "${mitamae_cache}" bin/mitamae
 
 # FIXME: Always run Darwin recipe.
-bin/mitamae local roles/darwin.rb
+bin/mitamae local --node-json nodes/darwin_packages.json roles/darwin.rb
