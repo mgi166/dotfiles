@@ -26,3 +26,6 @@ if ! [ -f "bin/${mitamae_cache}" ]; then
 fi
 
 ln -sf "${mitamae_cache}" bin/mitamae
+
+# FIXME: Always run Darwin recipe.
+bin/mitamae local roles/darwin.rb
