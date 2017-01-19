@@ -1,6 +1,6 @@
 include_recipe "../cookbooks/homebrew/default"
 include_recipe "../cookbooks/zsh/default"
-# include_recipe "cookbooks/emacs/default"
+include_recipe "../cookbooks/emacs/default"
 include_recipe "../cookbooks/bundle/default"
 include_recipe "../cookbooks/gemrc/default"
 include_recipe "../cookbooks/gitconfig/default"
