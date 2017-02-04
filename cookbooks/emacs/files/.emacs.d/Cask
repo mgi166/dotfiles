@@ -15,6 +15,7 @@
 (depends-on "evil")
 (depends-on "exec-path-from-shell")
 (depends-on "git-gutter-fringe")
+(depends-on "go-mode")
 (depends-on "google-maps")
 (depends-on "helm")
 (depends-on "helm-ag")
