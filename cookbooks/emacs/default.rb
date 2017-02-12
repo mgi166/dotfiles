@@ -4,6 +4,8 @@ execute "git submodule update --init" do
   not_if "[[ -e #{files_path}/.emacs.d/elisp/replace-colorthemes ]] && [[ -e #{files_path}/.emacs.d/site-lisp/jumar ]] && [[ -e #{files_path}/.emacs.d/site-lisp/erfi ]]"
 end
 
+package "cask"
+
 execute "cask install" do
   not_if "[[ -e #{files_path}/.emacs.d/.cask ]]"
 end
