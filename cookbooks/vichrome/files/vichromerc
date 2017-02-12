@@ -42,8 +42,8 @@ nmap S :TabOpenNew -b g
 nmap <C-n> :ScrollDown
 nmap <C-p> :ScrollUp
 nmap <C-v> :PageDown
-nmap <M-<> :GoTop
-nmap <M->> :GoBottom
+nmap <A-Home> :GoTop
+nmap <A-End> :GoBottom
 
 #nmap <C-x>k :TabCloseCurrent --focusprev (何故か効かない)
 
