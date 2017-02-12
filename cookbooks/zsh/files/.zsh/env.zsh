@@ -20,9 +20,6 @@ export PATH=$HOMEBREW_PREFIX/bin:$PATH
 # tmux
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
-# cask
-export PATH="$HOME/.cask/bin:$PATH"
-
 # go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
