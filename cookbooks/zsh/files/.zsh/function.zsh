@@ -128,7 +128,8 @@ fi
 
 # emacs (GUI)
 function emacs () {
-   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+   #EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+   EMACS_CLIENT='/Users/hiromu.mogi/.homebrew/bin/emacsclient'
    EMACS='/Applications/Emacs.app'
 
    [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
