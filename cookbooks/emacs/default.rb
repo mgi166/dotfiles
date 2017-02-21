@@ -4,6 +4,15 @@ execute "git submodule update --init" do
   not_if "[[ -e #{files_path}/.emacs.d/elisp/replace-colorthemes ]] && [[ -e #{files_path}/.emacs.d/site-lisp/jumar ]] && [[ -e #{files_path}/.emacs.d/site-lisp/erfi ]]"
 end
 
+package "emacs" do
+  options "--with-cocoa"
+end
+
+# NOTE: Deprecate `linkapps` command
+execute "brew linkapps emacs" do
+  not_if "[[ -e /Applications/Emacs.app ]]"
+end
+
 package "cask"
 
 execute "cd #{files_path}/.emacs.d; cask install" do
