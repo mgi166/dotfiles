@@ -6,7 +6,7 @@ end
 
 package "cask"
 
-execute "cask install" do
+execute "cd #{files_path}/.emacs.d; cask install" do
   not_if "[[ -e #{files_path}/.emacs.d/.cask ]]"
 end
 
