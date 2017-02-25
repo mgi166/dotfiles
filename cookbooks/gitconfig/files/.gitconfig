@@ -1,5 +1,5 @@
 [core]
-	editor = /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw -q
+	editor = emacsclient -nw -q
 	excludesfile = ~/.gitignore
 	quotepath = false
 	precomposeunicode = true
