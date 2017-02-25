@@ -128,14 +128,12 @@ fi
 
 # emacs (GUI)
 function emacs () {
-   #EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
-   EMACS_CLIENT='/Users/hiromu.mogi/.homebrew/bin/emacsclient'
    EMACS='/Applications/Emacs.app'
 
    [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
 
    if pgrep Emacs > /dev/null; then
-     $EMACS_CLIENT -n $_ARGV
+     emacsclient -n $_ARGV
    else
      open -a $EMACS $_ARGV
    fi
@@ -143,7 +141,6 @@ function emacs () {
 
 # emacs -nw
 function emacsnw () {
-  EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
   EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
 
   if ! pgrep Emacs > /dev/null; then
@@ -152,7 +149,7 @@ function emacsnw () {
 
   [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
 
-  $EMACS_CLIENT -nw -q $_ARGV
+  emacsclient -nw -q $_ARGV
 }
 alias emacsn='emacsnw'
 alias nemacs='emacsnw'
