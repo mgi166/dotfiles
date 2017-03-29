@@ -2,7 +2,7 @@ git File.expand_path("~/.pyenv") do
   repository "https://github.com/yyuu/pyenv.git"
 end
 
-python_version = "2.7.13"
+python_version = "3.6.0"
 
 execute "pyenv install #{python_version}" do
   not_if "pyenv versions | grep #{python_version}"
