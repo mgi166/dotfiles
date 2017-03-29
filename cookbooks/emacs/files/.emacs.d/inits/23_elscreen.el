@@ -5,6 +5,11 @@
   (define-key elscreen-map "\C-z" 'iconify-or-deiconify-frame)
   (define-key elscreen-map "\C-z" 'suspend-emacs))
 
+;; [X]を表示しない
+(setq elscreen-tab-display-kill-screen nil)
+;; [<->]を表示しない
+(setq elscreen-tab-display-control nil)
+
 ;; elscreen 用 keybind
 ;;(define-key mac-key-mode-map [(alt t)] 'elscreen-create) ;; 新しいタブを開く(elscreen + mac-key-mode 必須)
 (define-key global-map "\M-[" 'elscreen-previous)
