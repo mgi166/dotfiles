@@ -7,8 +7,7 @@
      (require 'anything-migemo nil t))
 
 ;; anything-for-files (串刺し file 検索)
-(define-key global-map "\C-xb" 'anything-filelist+)
-(define-key global-map "\C-x\C-b" 'anything-filelist+)
+(define-key global-map (kbd "C-x C-b") 'anything-filelist+)
 
 ;; anything-for-elscreen (elscreen のタブを pattern で incremental search する)
 (defun anything-for-elscreen ()
