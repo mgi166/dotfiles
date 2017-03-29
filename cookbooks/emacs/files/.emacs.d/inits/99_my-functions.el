@@ -81,7 +81,7 @@
   (elscreen-clone)
   (anything-filelist+))
 
-(define-key global-map (kbd "C-x C-b") 'elscreen-anything-filelist+)
+(define-key global-map (kbd "C-x b") 'elscreen-anything-filelist+)
 
 (defun elscreen-helm-ls-git-ls ()
   "Create screen and helm-ls-git-ls+"
@@ -89,7 +89,7 @@
   (elscreen-clone)
   (helm-ls-git-ls))
 
-(define-key global-map (kbd "C-c C-b") 'elscreen-helm-ls-git-ls)
+(define-key global-map (kbd "C-c b") 'elscreen-helm-ls-git-ls)
 
 (defun elscreen-unique-screen-p ()
   "Return t if elscreen has unique names of screens. Other return nil"
