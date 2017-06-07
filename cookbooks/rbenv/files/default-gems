@@ -2,3 +2,4 @@ bundler
 pry
 pry-byebug
 ripper-tags
+docker-sync
