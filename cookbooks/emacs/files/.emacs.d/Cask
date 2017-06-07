@@ -49,6 +49,7 @@
 (depends-on "revive")
 (depends-on "ruby-block")
 (depends-on "ruby-end")
+(depends-on "slim-mode")
 (depends-on "svg-mode-line-themes")
 (depends-on "terraform-mode")
 (depends-on "undo-tree")
