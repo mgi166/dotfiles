@@ -11,7 +11,7 @@ fi
 export LESS="-RSj15"
 
 # editor
-export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw'
+export EDITOR="emacsclient -nw"
 
 # homebrew
 export HOMEBREW_PREFIX=$HOME/.homebrew
