@@ -25,3 +25,4 @@ setopt always_to_end
 
 # 補完関数の path を追加
 fpath=($fpath ~/.nodebrew/completions/zsh/)
+fpath=($fpath ~/.zsh/completion.d)
