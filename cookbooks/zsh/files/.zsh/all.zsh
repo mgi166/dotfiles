@@ -8,5 +8,4 @@
 [ -f $HOME/.zsh/prompt.zsh ]     && source $HOME/.zsh/prompt.zsh
 
 # environment dependence file
-[ -f $HOME/.zsh/.zshrc_`uname` ] && . $HOME/.zsh/.zshrc_`uname`
 [ -f $HOME/.zsh/.zshrc_local ]   && . $HOME/.zsh/.zshrc_local
