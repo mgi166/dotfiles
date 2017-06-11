@@ -79,6 +79,7 @@ recentf
 
 # Ignore zsh
 .zsh/.zcompdump
+*/zsh/*/.zsh/completion.d
 
 # Ignore svn
 .svn
