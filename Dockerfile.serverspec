@@ -1,0 +1,9 @@
+FROM ruby:2.4.1-alpine
+
+# Security fix for CVE-2016-0777 and CVE-2016-0778
+RUN apk update && apk add openssh-client && echo -e 'Host *\nUseRoaming no' >> /etc/ssh/ssh_config
+
+ENV SERVERSPEC_VERSION 2.39.1
+RUN gem install serverspec -v ${SERVERSPEC_VERSION}
+
+WORKDIR /serverspec
