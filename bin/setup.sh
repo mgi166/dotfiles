@@ -18,7 +18,7 @@ if ! [ -f "bin/${mitamae_cache}" ]; then
       ;;
   esac
 
-  curl -o "bin/${mitamae_bin}.tar.gz" -sL "https://github.com/k0kubun/mitamae/releases/download/v${mitamae_version}/${mitamae_bin}.tar.gz"
+  wget -O "bin/${mitamae_bin}.tar.gz" --max-redirect 3 -q "https://github.com/k0kubun/mitamae/releases/download/v${mitamae_version}/${mitamae_bin}.tar.gz"
   tar xvzf "bin/${mitamae_bin}.tar.gz"
   rm "bin/${mitamae_bin}.tar.gz"
   mv "${mitamae_bin}" "bin/${mitamae_cache}"
