@@ -9,6 +9,8 @@ RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config 
 
 RUN passwd -d root
 
+WORKDIR /home/root
+
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-E", "/var/log/sshd", "-D"]
