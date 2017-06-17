@@ -1,9 +1,5 @@
 version: '3'
 services:
-  # gentoo:
-  #   image: gentoo/stage3-amd64
-  #   expose:
-  #     - "22"
   serverspec:
     build:
       context: .
