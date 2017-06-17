@@ -20,3 +20,5 @@ services:
       dockerfile: Dockerfile.ubuntu
     expose:
       - "22"
+    volumes:
+      - .:/home/root
