@@ -24,6 +24,8 @@ set :ssh_options, options
 # Disable sudo
 set :disable_sudo, true
 
+Dir['./spec/shared/*'].each { |f| require f }
+
 # Set environment variables
 # set :env, :LANG => 'C', :LC_MESSAGES => 'C'
 
