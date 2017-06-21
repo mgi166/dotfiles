@@ -16,9 +16,10 @@ end
 
 options = Net::SSH::Config.for(host)
 
-options[:user] = 'root'
+options[:user] = 'ubuntu'
+options[:keys] = '.vagrant/machines/default/virtualbox/private_key'
 
-set :host,        options[:host_name] || ENV['TARGET_HOST']
+set :host,        ENV['TARGET_HOST'] || "192.168.33.10"
 set :ssh_options, options
 
 # Disable sudo
