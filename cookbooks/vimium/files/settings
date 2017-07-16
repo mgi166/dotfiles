@@ -1,0 +1,18 @@
+unmap f
+unmap F
+unmap b
+unmap n
+unmap u
+unmap gi
+unmap <c-e>
+unmap <c-y>
+
+map <c-s> enterFindMode
+map b goBack
+map n goForward
+map f focusInput
+map <a-End> scrollToBottom
+map <a-Home> scrollToTop
+map u restoreTab
+map e LinkHints.activateMode
+map <c-e> LinkHints.activateModeToOpenInNewTab
