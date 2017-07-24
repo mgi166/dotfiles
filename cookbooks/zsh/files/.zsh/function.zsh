@@ -193,3 +193,12 @@ PATH_add vendor/bundle/bin
 # export AWS_PROFILE=zzzz
 EOF
 }
+
+function pet-select() {
+  BUFFER=$(pet search --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle redisplay
+}
+zle -N pet-select
+stty -ixon
+bindkey '^t' pet-select
