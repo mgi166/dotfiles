@@ -16,6 +16,7 @@
     "hub",
     "imagemagick",
     "jq",
+    "knqyf264/pet/pet",
     "libyaml",
     "mecab",
     "mysql",
