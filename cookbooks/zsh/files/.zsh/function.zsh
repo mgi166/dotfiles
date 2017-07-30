@@ -177,7 +177,7 @@ function init-direnv() {
       return 1
     fi
   else
-    create-envrc > .envrc
+    default-envrc-contents > .envrc
   fi
 }
 
