@@ -17,6 +17,7 @@
     "imagemagick",
     "jq",
     "knqyf264/pet/pet",
+    "libxml2",
     "libyaml",
     "mecab",
     "mysql",
