@@ -162,3 +162,34 @@ function gemacs () {
   EMACS_CLIENT='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
   $EMACS_CLIENT -c -q
 }
+
+# direnv
+function init-direnv() {
+  if [ -e .envrc ]; then
+    echo "Append PATH_add? (y or n)"
+    read res
+
+    if [ $res = 'y' ]; then
+      default-envrc-contents >> .envrc
+      return 0
+    else
+      echo "Cancelled" >&2
+      return 1
+    fi
+  else
+    create-envrc > .envrc
+  fi
+}
+
+function default-envrc-contents() {
+  cat <<-'EOF'
+source_env ~/.envrc
+PATH_add $(npm bin)
+PATH_add vendor/bundle/bin
+
+# export AWS_REGION=ap-northeast-1
+# export AWS_ACCESS_KEY_ID=xxxx
+# export AWS_SECRET_ACCESS_KEY=yyyy
+# export AWS_PROFILE=zzzz
+EOF
+}
