@@ -13,6 +13,10 @@ export LESS="-RSj15"
 # editor
 export EDITOR="emacsclient -nw"
 
+# whalebrew
+export WHALEBREW_INSTALL_PATH=$HOME/.whalebrew/bin
+export PATH=$WHALEBREW_INSTALL_PATH:$PATH
+
 # homebrew
 export HOMEBREW_PREFIX=$HOME/.homebrew
 export PATH=$HOMEBREW_PREFIX/bin:$PATH
