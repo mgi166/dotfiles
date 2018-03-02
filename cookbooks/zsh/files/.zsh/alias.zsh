@@ -13,7 +13,6 @@ alias ..='cd ..'
 alias du='du -h'
 alias df='df -h'
 #alias te='telnet -l hm ienari' # @ubuntu
-alias which='which -p' # zsh専用
 alias c='pbcopy'
 alias pd='popd'
 alias csv='cut -d ","'
