@@ -14,6 +14,8 @@
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
 	<integer>1</integer>
+	<key>AppleWindowTabbingMode</key>
+	<string>manual</string>
 	<key>AutoHideTmuxClientSession</key>
 	<false/>
 	<key>CheckTestRelease</key>
@@ -837,6 +839,8 @@
 	<integer>0</integer>
 	<key>HotkeyCode</key>
 	<integer>0</integer>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>0</integer>
 	<key>IRMemory</key>
@@ -854,7 +858,7 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 9</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/dotfiles/iterm2/argerich</string>
+	<string>~/dotfiles/cookbooks/iterm2/files/argerich</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 459}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -876,7 +880,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>322</string>
+		<string>330</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -890,10 +894,14 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1409 37 445 77 0 0 1920 1057 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>908 496 606 456 0 0 1920 1057 </string>
+	<string>908 583 606 456 0 0 1920 1057 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 499 620 392 0 0 1920 1057 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>269 166 770 429 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
+	<string>0 27 1920 1030 0 0 1920 1057 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 4 1920 1053 0 0 1920 1057 </string>
 	<key>NeverWarnAboutShortLivedSessions_85E2AB66-CB3F-4DB6-861F-10269CF4AB1B</key>
 	<true/>
@@ -2448,7 +2456,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/argerich/dotfiles/iterm2/argerich</string>
+	<string>/Users/argerich/dotfiles/cookbooks/iterm2/files/argerich</string>
 	<key>PromptOnClose</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -2468,7 +2476,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-07-08T06:06:01Z</date>
+	<date>2017-10-25T15:18:00Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -2487,6 +2495,8 @@
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
 	<integer>6</integer>
+	<key>TabStyle</key>
+	<integer>1</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
 	<key>ThreeFingerEmulates</key>
@@ -2522,6 +2532,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.2</string>
+	<string>3.1.3</string>
 </dict>
 </plist>
