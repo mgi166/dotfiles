@@ -18,9 +18,9 @@ if ! [ -f "bin/${mitamae_cache}" ]; then
       ;;
   esac
 
-  if which wget; then
+  if which wget &> /dev/null; then
     wget -O "bin/${mitamae_bin}.tar.gz" --max-redirect 3 -q "https://github.com/k0kubun/mitamae/releases/download/v${mitamae_version}/${mitamae_bin}.tar.gz"
-  elif which curl; then
+  elif which curl &> /dev/null; then
     curl -L "https://github.com/k0kubun/mitamae/releases/download/v${mitamae_version}/${mitamae_bin}.tar.gz" -o "bin/${mitamae_bin}.tar.gz"
   else
     echo "wget or curl command does not installed."

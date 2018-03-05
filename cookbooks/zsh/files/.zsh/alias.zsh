@@ -59,4 +59,4 @@ alias emasc='emacs'
 alias ya='yarn'
 
 alias dc='docker-compose'
-compdef dc="docker-compose"
+# compdef dc="docker-compose"
