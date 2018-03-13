@@ -85,7 +85,7 @@ recentf
 .svn
 
 # Ignore .config files
-**/*/.config/*
+# **/*/.config/*
 
 # Ignore direnv
 .envrc
@@ -110,7 +110,7 @@ db.dump
 .env.staging
 
 # powerline
-!.config/powerline
+# !.config/powerline
 
 # tempfile
 hoge
