@@ -25,6 +25,7 @@
     "nmap",
     "openssl",
     "packer",
+    "peco",
     "postgresql",
     "pstree",
     "readline",
