@@ -28,6 +28,13 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+# goenv
+if which goenv > /dev/null; then
+  eval "$(goenv init -)"
+fi
+
 # embulk
 export PATH="$HOME/.embulk/bin:$PATH"
 
