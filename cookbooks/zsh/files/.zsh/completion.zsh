@@ -25,7 +25,3 @@ setopt complete_aliases
 
 # 補完時に文字列末尾へカーソル移動
 setopt always_to_end
-
-if which docker-compose &> /dev/null; then
-  compdef dc="docker-compose"
-fi
