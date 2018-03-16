@@ -6,7 +6,7 @@
 
 [Gist]
   file_name = "pet-snippet.toml"
-  access_token = ""
-  gist_id = ""
+  access_token = "<Get access_token from GitHub>"
+  gist_id = "<Get snippet gist id>"
   public = false
   auto_sync = false
