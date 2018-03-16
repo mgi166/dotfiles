@@ -1,16 +1,16 @@
 -- NOTE: For sample from  http://qiita.com/naoya@github/items/81027083aeb70b309c14
--- local function keyCode(key, modifiers)
---    modifiers = modifiers or {}
---    return function()
---       hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post()
---       hs.timer.usleep(1000)
---       hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post()
---    end
--- end
+local function keyCode(key, modifiers)
+   modifiers = modifiers or {}
+   return function()
+      hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post()
+      hs.timer.usleep(1000)
+      hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post()
+   end
+end
 
--- local function remapKey(modifiers, key, keyCode)
---    hs.hotkey.bind(modifiers, key, keyCode, nil, keyCode)
--- end
+local function remapKey(modifiers, key, keyCode)
+   hs.hotkey.bind(modifiers, key, keyCode, nil, keyCode)
+end
 
 -- local function disableAllHotkeys()
 --    for k, v in pairs(hs.hotkey.getHotkeys()) do
@@ -58,8 +58,8 @@
 -- ページスクロール
 -- remapKey({'ctrl'}, 'v', keyCode('pagedown'))
 -- remapKey({'alt'}, 'v', keyCode('pageup'))
--- remapKey({'alt', 'shift'}, ',', keyCode('home'))
--- remapKey({'alt', 'shift'}, '.', keyCode('end'))
+remapKey({'alt', 'shift'}, ',', keyCode('home'))
+remapKey({'alt', 'shift'}, '.', keyCode('end'))
 
 -- NOTE: For debug
 -- http://kitak.hatenablog.jp/entry/2016/11/28/104038
