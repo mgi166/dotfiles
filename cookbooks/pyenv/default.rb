@@ -4,10 +4,10 @@ end
 
 python_version = "3.6.0"
 
-execute "pyenv install #{python_version}" do
+execute "PATH=$HOME/.pyenv/bin:$PATH pyenv install #{python_version}" do
   not_if "pyenv versions | grep #{python_version}"
 end
 
-execute "pyenv global #{python_version}" do
+execute "PATH=$HOME/.pyenv/bin:$PATH pyenv global #{python_version}" do
   not_if "pyenv versions | grep '\*' | grep #{python_version}"
 end
