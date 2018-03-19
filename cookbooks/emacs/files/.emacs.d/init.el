@@ -52,7 +52,9 @@
  ;; If there is more than one, they won't work right.
  '(git-gutter:modified-sign "=")
  '(git-gutter:update-interval 2)
- '(package-selected-packages (quote (package-build shut-up epl git commander f dash s)))
+ '(package-selected-packages
+   (quote
+    (helm-gtags package-build shut-up epl git commander f dash s)))
  '(terraform-indent-level 4))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
