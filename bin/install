@@ -4,4 +4,25 @@ set -ex
 . ./bin/setup
 
 # FIXME: Always run Darwin recipe.
-bin/mitamae local -l debug --node-json nodes/darwin.json roles/darwin.rb
+bin/mitamae local -l debug cookbooks/homebrew/default.rb
+
+export HOMEBREW_PREFIX=$HOME/.homebrew
+export PATH=$HOMEBREW_PREFIX/bin:$PATH
+
+bin/mitamae local -l debug cookbooks/git/default.rb
+bin/mitamae local -l debug cookbooks/zsh/default.rb
+bin/mitamae local -l debug cookbooks/emacs/default.rb
+bin/mitamae local -l debug cookbooks/bundle/default.rb
+bin/mitamae local -l debug cookbooks/config/default.rb
+bin/mitamae local -l debug cookbooks/gemrc/default.rb
+bin/mitamae local -l debug cookbooks/gitconfig/default.rb
+bin/mitamae local -l debug cookbooks/gitignore/default.rb
+bin/mitamae local -l debug cookbooks/hammerspoon/default.rb
+bin/mitamae local -l debug cookbooks/irbrc/default.rb
+bin/mitamae local -l debug cookbooks/nodebrew/default.rb
+bin/mitamae local -l debug cookbooks/pyenv/default.rb
+bin/mitamae local -l debug cookbooks/rbenv/default.rb
+bin/mitamae local -l debug cookbooks/tmux/default.rb
+bin/mitamae local -l debug cookbooks/peco/default.rb
+bin/mitamae local -l debug cookbooks/osx_defaults/default.rb
+bin/mitamae local -l debug --node-json nodes/darwin.json cookbooks/packages/default.rb
