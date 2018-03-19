@@ -6,7 +6,7 @@ dotfiles.
 # Getting started
 
 ```
-$ git clone git@github.com:mgi166/dotfiles.git
+$ git clone https://github.com/mgi166/dotfiles.git
 ```
 
 ## Install dotfiles
