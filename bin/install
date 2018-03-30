@@ -25,4 +25,5 @@ bin/mitamae local -l debug cookbooks/rbenv/default.rb
 bin/mitamae local -l debug cookbooks/tmux/default.rb
 bin/mitamae local -l debug cookbooks/peco/default.rb
 bin/mitamae local -l debug cookbooks/osx_defaults/default.rb
+bin/mitamae local -l debug cookbooks/ssh/default.rb
 bin/mitamae local -l debug --node-json nodes/darwin.json cookbooks/packages/default.rb
