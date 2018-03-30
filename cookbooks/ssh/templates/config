@@ -1,0 +1,16 @@
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/github/id_rsa
+  StrictHostKeyChecking no
+  User git
+
+Host bitbucket.org
+  HostName bitbucket.org
+  IdentityFile ~/.ssh/bitbucket/id_rsa
+  StrictHostKeyChecking no
+  User git
+
+Host *
+  ServerAliveInterval 300
+  ServerAliveCountMax 2
+  TCPKeepAlive yes
