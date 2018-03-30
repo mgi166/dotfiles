@@ -6,7 +6,7 @@
 ;; width  : フレーム幅(文字数)
 ;; height : フレーム高(文字数)@mac
 (setq initial-frame-alist
-      (append (set-my-frame-size "~/.emacs.d/frame/argerich.json")
+      (append (set-my-frame-size "~/.emacs.d/frame/office.json")
               initial-frame-alist))
 
 ;; ;; 新規フレームのデフォルト設定
