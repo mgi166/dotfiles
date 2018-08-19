@@ -11,4 +11,5 @@
                    tab-width        2
                    indent-tabs-mode nil
                    js2-cleanup-whitespace nil
+                   js2-strict-missing-semi-warning nil
                    js2-strict-trailing-comma-warning nil)))
