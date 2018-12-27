@@ -54,6 +54,7 @@
 (depends-on "slim-mode")
 (depends-on "svg-mode-line-themes")
 (depends-on "terraform-mode")
+(depends-on "typescript-mode")
 (depends-on "undo-tree")
 (depends-on "web-mode")
 (depends-on "wgrep")
