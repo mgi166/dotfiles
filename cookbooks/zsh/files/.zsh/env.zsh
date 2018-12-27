@@ -50,3 +50,7 @@ export PATH=$PYENV_ROOT/bin:$PATH
 if which pyenv > /dev/null; then
   eval "$(pyenv init -)"
 fi
+
+if [ -e $PYENV_ROOT/plugins/pyenv-virtualenv ]; then
+  eval "$(pyenv virtualenv-init -)"
+fi
