@@ -89,6 +89,7 @@ recentf
 
 # Ignore direnv
 .envrc
+**/*/.config/direnv
 
 # Ignore packer
 packer_cache/
