@@ -14,7 +14,7 @@ setopt list_packed
 # 補完候補を色分け
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# 補完の時に大文字小文字を区別しない。ただし、大文字を売った場合は小文字に変換しない
+# 補完の時に大文字小文字を区別しない。ただし、大文字を使用した場合は小文字に変換しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 # 補完候補を ←↓↑→ で選択 (補完候補が色分け表示される)
