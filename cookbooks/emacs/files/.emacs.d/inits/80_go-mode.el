@@ -3,6 +3,7 @@
 (eval-after-load "go-mode"
   '(progn
      (require 'go-autocomplete)
+     (ac-config-default)
      (require 'company-go)
 
 ; NOTE: $ go get -u github.com/rogpeppe/godef
@@ -17,7 +18,3 @@
 ; NOTE: $ go get golang.org/x/tools/cmd/goimports
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
-
-(require 'go-autocomplete)
-(require 'auto-complete-config)
-(ac-config-default)
