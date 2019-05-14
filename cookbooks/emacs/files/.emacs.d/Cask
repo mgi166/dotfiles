@@ -9,6 +9,7 @@
 (depends-on "auto-complete")
 (depends-on "coffee-mode")
 (depends-on "color-moccur")
+(depends-on "company-go")
 (depends-on "ctags")
 (depends-on "dockerfile-mode")
 (depends-on "elscreen")
