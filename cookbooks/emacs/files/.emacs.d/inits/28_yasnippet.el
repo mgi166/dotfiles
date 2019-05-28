@@ -1,6 +1,6 @@
 (require 'yasnippet)
 (setq yas-snippet-dirs nil)
-(yas-load-directory "~/.emacs.d/snippets")
+(setq yas-snippet-dirs '("~/.emacs.d/snippets"))
 (yas-global-mode 1)
 
 ;; 既存スニペットを挿入する
