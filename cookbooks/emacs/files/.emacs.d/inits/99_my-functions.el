@@ -121,3 +121,15 @@
       (yank-pop 1) (yank 1))
 )
 (global-set-key "\C-y" 'yel-yank)
+
+(defun my/helm-mini-elscreen-goto-by-buffer (candidate)
+  (elscreen-find-and-goto-by-buffer candidate 'create))
+
+(setq helm-type-buffer-actions
+      (append '(("Open to elscreen" . my/helm-mini-elscreen-goto-by-buffer)) helm-type-buffer-actions))
+
+(setq helm-type-file-actions
+      (append '(("Open to elscreen" . elscreen-find-file)) helm-type-file-actions))
+
+(setq helm-find-files-actions
+      (append '(("Open to elscreen" . elscreen-find-file)) helm-find-files-actions))
