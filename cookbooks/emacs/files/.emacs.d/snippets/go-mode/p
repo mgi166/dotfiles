@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: f
-# key: f
+# name: p
+# key: p
 # --
 fmt.Println("${1:here}")
