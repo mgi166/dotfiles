@@ -35,7 +35,6 @@
 (depends-on "jsonnet-mode")
 (depends-on "kotlin-mode")
 (depends-on "lua-mode")
-;;(depends-on "mac-key-mode")
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "migemo")
