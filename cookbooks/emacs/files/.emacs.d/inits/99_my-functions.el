@@ -75,13 +75,13 @@
                (> (length (elscreen-get-screen-list)) 1))
       (elscreen-kill (car screen-and-buffer)))))
 
-(defun elscreen-anything-filelist+ ()
-  "Create screen and anything-filelist+"
-  (interactive)
-  (elscreen-clone)
-  (anything-filelist+))
+;; (defun elscreen-anything-filelist+ ()
+;;   "Create screen and anything-filelist+"
+;;   (interactive)
+;;   (elscreen-clone)
+;;   (anything-filelist+))
 
-(define-key global-map (kbd "C-x b") 'elscreen-anything-filelist+)
+;; (define-key global-map (kbd "C-x b") 'elscreen-anything-filelist+)
 
 (defun elscreen-helm-ls-git-ls ()
   "Create screen and helm-ls-git-ls+"
