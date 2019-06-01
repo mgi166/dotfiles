@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: for
+# key: for
+# --
+for idx, v := range ${1:iteratable} {
+    $0
+}
