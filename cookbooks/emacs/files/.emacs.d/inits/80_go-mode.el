@@ -1,3 +1,4 @@
+
 ; NOTE: require
 ; go get -u github.com/nsf/gocode
 (eval-after-load "go-mode"
@@ -9,6 +10,9 @@
 ; NOTE: $ go get -u github.com/rogpeppe/godef
      (define-key go-mode-map (kbd "M-.") 'godef-jump)
      (define-key go-mode-map (kbd "M-,") 'pop-tag-mark)
+
+     (require 'go-eldoc)
+     (add-hook 'go-mode-hook 'go-eldoc-setup)
 
      (company-mode)
      (setq company-idle-delay 0)
