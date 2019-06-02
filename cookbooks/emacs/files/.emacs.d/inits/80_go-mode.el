@@ -3,6 +3,7 @@
 ; go get -u github.com/nsf/gocode
 (eval-after-load "go-mode"
   '(progn
+     (subword-mode)
      (require 'go-autocomplete)
      (ac-config-default)
      (require 'company-go)
