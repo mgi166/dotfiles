@@ -1,11 +1,13 @@
 (require 'string-inflection)
 
-  "foo_bar => fooBar => FOO_BAR => foo_bar"
 (defun my/string-inflection-cycle-function (str)
+  "foo_bar => fooBar => FooBar => FOO_BAR => foo_bar"
   (cond
    ((string-inflection-underscore-p str)
     (string-inflection-camelcase-function str))
    ((string-inflection-camelcase-p str)
+    (string-inflection-pascal-case-function str))
+   ((string-inflection-pascal-case-p str)
     (string-inflection-upcase-function str))
    (t
     (string-inflection-underscore-function str))))
