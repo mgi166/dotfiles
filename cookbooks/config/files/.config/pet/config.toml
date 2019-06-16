@@ -1,5 +1,5 @@
 [General]
-  snippetfile = "/Users/hiromu.mogi/.config/pet/snippet.toml"
+  snippetfile = "~/.config/pet/pet-snippet.toml"
   editor = "emacsclient -nw"
   column = 40
   selectcmd = "fzf"
