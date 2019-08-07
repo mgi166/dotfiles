@@ -31,9 +31,10 @@
     "redis",
     "source-highlight",
     "sqlite",
+    "stern"
+    "terraform",
     "tig",
     "tree",
-    "terraform",
     "unrar",
     "wget",
     "z"
