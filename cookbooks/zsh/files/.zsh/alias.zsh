@@ -24,6 +24,8 @@ alias xargs='xargs -I {}'
 ## vcs alias
 alias git='hub'
 
+alias gh='ghq'
+
 alias g='git'
 alias gb='git branch'
 alias gs='git show'
