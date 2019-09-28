@@ -28,6 +28,7 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+export GOENV_DISABLE_GOPATH=1
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 # goenv
