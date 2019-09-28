@@ -55,3 +55,5 @@ fi
 if [ -e $PYENV_ROOT/plugins/pyenv-virtualenv ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
+
+export LC_ALL=$LANG
