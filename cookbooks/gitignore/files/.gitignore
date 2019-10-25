@@ -121,3 +121,19 @@ hoge
 
 # ignore mitamae
 mitamae*
+
+# terraform
+.terraform
+terraform.tfstate*
+
+# virtualenv
+.venv
+
+# glide
+.glide
+.go-version
+
+.python-version
+amplify
+
+vendor
