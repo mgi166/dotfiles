@@ -59,3 +59,6 @@ fi
 export LC_ALL=$LANG
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
+
+# krew
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
