@@ -39,5 +39,7 @@
     "wget",
     "wireshark"
     "z"
+    "zsh",
+    "zsh-completions",
   ]
 }
