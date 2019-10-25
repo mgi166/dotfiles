@@ -12,6 +12,7 @@
     "heroku",
     "hub",
     "imagemagick",
+    "iproute2mac",
     "jq",
     "libxml2",
     "libyaml",
