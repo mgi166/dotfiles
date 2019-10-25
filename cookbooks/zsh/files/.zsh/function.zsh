@@ -202,3 +202,25 @@ function pet-select() {
 zle -N pet-select
 stty -ixon
 bindkey '^t' pet-select
+
+# https://gist.github.com/civitaspo/128062e89733edd777b011c1e08b8272
+function peco-ssm-select() {
+  INSTANCE_ID="$(
+    aws ec2 describe-instances \
+        | jq -cr '.Reservations[].Instances[]
+                    | select(.State.Name == "running")
+                    | .InstanceId + " (" +
+                    ( [.Tags[] | .Key + ":" + .Value]
+                        | sort
+                        | join(", ")) + ")"' \
+        | peco \
+        | cut -d' ' -f1
+  )"
+
+  if [ -z "$INSTANCE_ID" ]; then
+    echo "$(date +'%Y-%m-%d %H:%M:%S %z') [ERROR] Unable to fetch any instance."
+    return 1
+  fi
+
+  aws ssm start-session --target $INSTANCE_ID
+}
