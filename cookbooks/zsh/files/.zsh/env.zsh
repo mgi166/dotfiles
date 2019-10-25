@@ -57,3 +57,5 @@ if [ -e $PYENV_ROOT/plugins/pyenv-virtualenv ]; then
 fi
 
 export LC_ALL=$LANG
+# tfenv
+export PATH="$HOME/.tfenv/bin:$PATH"
