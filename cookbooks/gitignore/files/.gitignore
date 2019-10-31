@@ -85,11 +85,10 @@ recentf
 .svn
 
 # Ignore .config files
-# **/*/.config/*
+**/*/.config/*
 
 # Ignore direnv
 .envrc
-**/*/.config/direnv
 
 # Ignore packer
 packer_cache/
