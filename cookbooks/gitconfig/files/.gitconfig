@@ -31,8 +31,8 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
-[commit]
-	template = ~/.gitmessage.txt
+# [commit]
+# 	template = ~/.gitmessage.txt
 
 [ghq]
 	root = ~/src
