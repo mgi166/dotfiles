@@ -34,3 +34,5 @@
 [commit]
 	template = ~/.gitmessage.txt
 
+[ghq]
+	root = ~/src
