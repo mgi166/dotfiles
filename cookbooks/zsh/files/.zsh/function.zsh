@@ -224,3 +224,25 @@ function peco-ssm-select() {
 
   aws ssm start-session --target $INSTANCE_ID
 }
+
+function ghq-new() {
+  REPO_NAME=$1
+
+  if [ -z "$REPO_NAME" ]; then
+    echo 'Repository name must be specified.'
+    return 1
+  fi
+
+  ROOT=$(ghq root)
+  GITHUB_USER=$(git config --get user.name)
+
+  DEST=${ROOT}/github.com/${GITHUB_USER}/${REPO_NAME}
+
+  if [ -e ${DEST} ]; then
+    echo 'Repository is already exists.'
+    return 1
+  fi
+
+  mkdir -p ${DEST} && cd $_
+  pwd
+}
