@@ -244,5 +244,6 @@ function ghq-new() {
   fi
 
   mkdir -p ${DEST} && cd $_
+  git init > /dev/null
   pwd
 }
