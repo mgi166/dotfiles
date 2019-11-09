@@ -35,4 +35,4 @@
 # 	template = ~/.gitmessage.txt
 
 [ghq]
-	root = ~/src
+	root = ~/repositories
