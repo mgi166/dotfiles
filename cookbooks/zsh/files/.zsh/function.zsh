@@ -247,3 +247,14 @@ function ghq-new() {
   git init > /dev/null
   pwd
 }
+
+function peco-src() {
+  local REPO_DIR=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$REPO_DIR" ]; then
+        BUFFER="cd ${REPO_DIR}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+bindkey '^s' peco-src
