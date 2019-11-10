@@ -25,7 +25,7 @@ export PATH=$HOMEBREW_PREFIX/bin:$PATH
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
 # go
-export GOPATH=$HOME/go
+export GOPATH=$HOME/repositories
 export PATH=$PATH:$GOPATH/bin
 
 export GOENV_DISABLE_GOPATH=1
