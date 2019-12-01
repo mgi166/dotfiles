@@ -32,6 +32,7 @@
     "readline",
     "reattach-to-user-namespace",
     "redis",
+    "skaffold",
     "source-highlight",
     "sqlite",
     "stern"
