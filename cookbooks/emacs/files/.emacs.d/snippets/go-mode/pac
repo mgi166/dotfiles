@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: pac
+# key: pac
+# --
+package main
+
+func main() {
+	$0
+}
