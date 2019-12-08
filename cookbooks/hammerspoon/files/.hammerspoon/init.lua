@@ -109,8 +109,8 @@ hs.hotkey.bind({'cmd', 'shift' }, '2', moveMousePointerOnMac)
 karabinerDefaultProfile = "Default profile"
 karabinerKinesisProfile = "Kinesis"
 
-kinesisProductID = 10730
-kinesisVendorID = 258
+kinesisProductID = 258
+kinesisVendorID = 10730
 
 karabinerCliPath = "/Library/Application\\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli"
 
