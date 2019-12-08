@@ -105,3 +105,34 @@ end
 
 hs.hotkey.bind({'cmd', 'shift' }, '1', moveMousePointerOnDisplay)
 hs.hotkey.bind({'cmd', 'shift' }, '2', moveMousePointerOnMac)
+
+karabinerDefaultProfile = "Default profile"
+karabinerKinesisProfile = "Kinesis"
+
+kinesisProductID = 10730
+kinesisVendorID = 258
+
+karabinerCliPath = "/Library/Application\\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli"
+
+local function changeKarabinerProfile(tbl)
+   if tbl["eventType"] == "added" then
+      -- if tbl["vendorID"] == kinesisVendorID && tbl["ProductID"] == kinesisProductID then
+      -- end
+
+      cmd = string.format("%s --select-profile '%s'", karabinerCliPath, karabinerKinesisProfile)
+      hs.alert.show(cmd)
+   end
+
+   if tbl["eventType"] == "removed" then
+      -- if tbl["vendorID"] == kinesisVendorID && tbl["ProductID"] == kinesisProductID then
+      -- end
+
+      cmd = string.format("%s --select-profile '%s'", karabinerCliPath, karabinerDefaultProfile)
+      hs.alert.show(cmd)
+   end
+
+   hs.alert.show(cmd)
+   os.execute(cmd)
+end
+
+hs.usb.watcher.new(changeKarabinerProfile):start()
