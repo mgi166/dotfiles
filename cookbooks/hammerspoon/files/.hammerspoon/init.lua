@@ -115,24 +115,24 @@ kinesisVendorID = 10730
 karabinerCliPath = "/Library/Application\\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli"
 
 local function changeKarabinerProfile(tbl)
-   if tbl["eventType"] == "added" then
-      -- if tbl["vendorID"] == kinesisVendorID && tbl["ProductID"] == kinesisProductID then
-      -- end
+   cmd = ""
 
-      cmd = string.format("%s --select-profile '%s'", karabinerCliPath, karabinerKinesisProfile)
-      hs.alert.show(cmd)
+   if tbl["eventType"] == "added" then
+      if tbl["vendorID"] == kinesisVendorID and tbl["productID"] == kinesisProductID then
+         cmd = string.format("%s --select-profile '%s'", karabinerCliPath, karabinerKinesisProfile)
+      end
    end
 
    if tbl["eventType"] == "removed" then
-      -- if tbl["vendorID"] == kinesisVendorID && tbl["ProductID"] == kinesisProductID then
-      -- end
-
-      cmd = string.format("%s --select-profile '%s'", karabinerCliPath, karabinerDefaultProfile)
-      hs.alert.show(cmd)
+      if tbl["vendorID"] == kinesisVendorID and tbl["productID"] == kinesisProductID then
+         cmd = string.format("%s --select-profile '%s'", karabinerCliPath, karabinerDefaultProfile)
+      end
    end
 
-   hs.alert.show(cmd)
-   os.execute(cmd)
+   if cmd ~= "" then
+      hs.alert.show(cmd)
+      os.execute(cmd)
+   end
 end
 
 usbWatcher = hs.usb.watcher.new(changeKarabinerProfile)
