@@ -135,4 +135,5 @@ local function changeKarabinerProfile(tbl)
    os.execute(cmd)
 end
 
-hs.usb.watcher.new(changeKarabinerProfile):start()
+usbWatcher = hs.usb.watcher.new(changeKarabinerProfile)
+usbWatcher:start()
