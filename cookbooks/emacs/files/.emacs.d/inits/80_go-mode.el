@@ -1,4 +1,3 @@
-
 ; NOTE: require
 ; go get -u github.com/nsf/gocode
 (eval-after-load "go-mode"
