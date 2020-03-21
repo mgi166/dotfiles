@@ -43,4 +43,4 @@ case ${UID} in
 esac
 
 # 右promptに現在の 絶対path を表示
-RPROMPT='%{$fg_bold[cyan]%}[%{$fg_bold[yellow]%}%~%{$fg_bold[cyan]%}]%{$reset_color%}'
+# RPROMPT='%{$fg_bold[cyan]%}[%{$fg_bold[yellow]%}%~%{$fg_bold[cyan]%}]%{$reset_color%}'
