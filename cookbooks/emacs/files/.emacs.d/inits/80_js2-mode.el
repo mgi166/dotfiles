@@ -13,4 +13,5 @@
                    js2-cleanup-whitespace nil
                    js2-strict-missing-semi-warning nil
                    js2-missing-semi-one-line-override nil
-                   js2-strict-trailing-comma-warning nil)))
+                   js2-strict-trailing-comma-warning nil)
+             (subword-mode)))
