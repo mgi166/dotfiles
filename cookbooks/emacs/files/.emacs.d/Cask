@@ -11,6 +11,7 @@
 (depends-on "coffee-mode")
 (depends-on "color-moccur")
 (depends-on "company-go")
+(depends-on "company-terraform")
 (depends-on "dockerfile-mode")
 (depends-on "elscreen")
 (depends-on "esup")
