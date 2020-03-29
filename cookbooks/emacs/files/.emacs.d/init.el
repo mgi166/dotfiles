@@ -13,6 +13,9 @@
 (add-to-load-path "elisp")
 (add-to-load-path "site-lisp")
 
+;; https://github.com/syl20bnr/spacemacs/issues/12535
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
 ;; package.el
 ;; M-x package-refresh-contents で repository を最新にする
 (require 'package)
