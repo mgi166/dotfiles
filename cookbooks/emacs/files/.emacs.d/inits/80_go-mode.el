@@ -7,7 +7,7 @@
      (ac-config-default)
      (require 'company-go)
 
-; NOTE: $ go get -u github.com/rogpeppe/godef
+     ; NOTE: $ go get -u github.com/rogpeppe/godef
      (define-key go-mode-map (kbd "M-.") 'godef-jump)
      (define-key go-mode-map (kbd "M-,") 'pop-tag-mark)
 
