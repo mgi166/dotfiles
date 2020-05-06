@@ -176,7 +176,7 @@
     "showOtherTriggersTab" : true,
     "BSTSnapAreaDefaultPictoDistanceFromLeft" : 0.10000000149011612
   },
-  "BTTPresetUUID" : "D54C91EC-4C69-4A28-B2FE-2004EF3B2F36",
+  "BTTPresetUUID" : "451D2E9F-814E-426B-9BF2-2EF0BB90432C",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "org.gnu.Emacs",
@@ -319,20 +319,23 @@
           "BTTDisplayOrder" : 0
         },
         {
-          "BTTTriggerType" : -1,
+          "BTTTriggerType" : 0,
           "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTPredefinedActionType" : -1,
-          "BTTPredefinedActionName" : "No Action",
+          "BTTPredefinedActionType" : 49,
+          "BTTPredefinedActionName" : "Launch Application \/ Open File \/ Start Apple Script …",
+          "BTTLaunchPath" : "file:\/\/\/Applications\/Authy%20Desktop.app",
+          "BTTAdditionalConfiguration" : "1048584",
           "BTTEnabled2" : 1,
           "BTTKeyboardShortcutKeyboardType" : 0,
           "BTTRepeatDelay" : 0,
           "BTTUUID" : "35C1491E-2D79-4BE5-AE20-D83C7590ABEA",
           "BTTTriggerOnDown" : 1,
           "BTTNotesInsteadOfDescription" : 0,
+          "BTTLayoutIndependentChar" : "滗",
           "BTTEnabled" : 1,
           "BTTModifierMode" : 0,
-          "BTTShortcutKeyCode" : -1,
-          "BTTShortcutModifierKeys" : -1,
+          "BTTShortcutKeyCode" : 31,
+          "BTTShortcutModifierKeys" : 1048576,
           "BTTOrder" : 1,
           "BTTDisplayOrder" : 0,
           "BTTAutoAdaptToKeyboardLayout" : 0
@@ -351,6 +354,22 @@
           "BTTOrder" : 0,
           "BTTIconData" : "",
           "BTTAlternateIconData" : ""
+        },
+        {
+          "BTTTriggerType" : -1,
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : 49,
+          "BTTPredefinedActionName" : "Launch Application \/ Open File \/ Start Apple Script …",
+          "BTTLaunchPath" : "file:\/\/\/Applications\/Authy%20Desktop.app",
+          "BTTEnabled2" : 1,
+          "BTTAlternateModifierKeys" : 0,
+          "BTTRepeatDelay" : 0,
+          "BTTUUID" : "BE463EFC-014E-4DBF-A10F-38631C885348",
+          "BTTNotesInsteadOfDescription" : 0,
+          "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
+          "BTTOrder" : 1,
+          "BTTDisplayOrder" : 0
         },
         {
           "BTTTriggerType" : 104,
