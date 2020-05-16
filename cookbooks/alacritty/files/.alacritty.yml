@@ -166,10 +166,10 @@ font:
   #use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
-#draw_bold_text_with_bright_colors: false
+draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night Bright)
-#colors:
+colors:
   # Default colors
   #primary:
   #  background: '#000000'
@@ -187,26 +187,26 @@ font:
   #
   # Colors which should be used to draw the terminal cursor. If these are
   # unset, the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '#000000'
-  #  cursor: '#ffffff'
+  cursor:
+    text: '#d5d5d5'
+    cursor: '#c0c0c0'
 
   # Vi mode cursor colors
   #
   # Colors for the cursor when the vi mode is active. If these are unset, the
   # cursor color will be the inverse of the cell color.
-  #vi_mode_cursor:
-  #  text: '#000000'
-  #  cursor: '#ffffff'
+  vi_mode_cursor:
+    text: '#d5d5d5'
+    cursor: '#c0c0c0'
 
   # Selection colors
   #
   # Colors which should be used to draw the selection area. If selection
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
-  #selection:
-  #  text: '#eaeaea'
-  #  background: '#404040'
+  selection:
+    text: '#eaeaea'
+    background: '#5f6ef9'
 
   # Normal colors
   #normal:
