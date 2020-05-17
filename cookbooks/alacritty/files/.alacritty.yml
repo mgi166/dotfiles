@@ -188,7 +188,6 @@ colors:
   # Colors which should be used to draw the terminal cursor. If these are
   # unset, the cursor color will be the inverse of the cell color.
   cursor:
-    text: '#d5d5d5'
     cursor: '#c0c0c0'
 
   # Vi mode cursor colors
@@ -196,7 +195,6 @@ colors:
   # Colors for the cursor when the vi mode is active. If these are unset, the
   # cursor color will be the inverse of the cell color.
   vi_mode_cursor:
-    text: '#d5d5d5'
     cursor: '#c0c0c0'
 
   # Selection colors
@@ -209,15 +207,15 @@ colors:
     background: '#5f6ef9'
 
   # Normal colors
-  #normal:
-  #  black:   '#000000'
-  #  red:     '#d54e53'
-  #  green:   '#b9ca4a'
-  #  yellow:  '#e6c547'
-  #  blue:    '#7aa6da'
-  #  magenta: '#c397d8'
-  #  cyan:    '#70c0ba'
-  #  white:   '#eaeaea'
+  normal:
+   black:   '#000000'
+   red:     '#d54e53'
+   green:   '#b9ca4a'
+   yellow:  '#e6c547'
+   blue:    '#7aa6da'
+   magenta: '#c397d8'
+   cyan:    '#70c0ba'
+   white:   '#eaeaea'
 
   # Bright colors
   #bright:
