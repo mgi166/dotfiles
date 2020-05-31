@@ -561,6 +561,8 @@ key_bindings:
   - { key: D, mods: Alt, chars: "\x1bd" }
   - { key: Q, mods: Control, chars: "\x11" } # https://github.com/alacritty/alacritty/issues/1359#issuecomment-430265381
   - { key: V, mods: Alt, chars: "\x1bv" }
+  - { key: W, mods: Alt, chars: "\x1bw" }
+  - { key: Space, mods: Control, chars: "\x00" }
 
   - { key: Key0,      mods: Command,       action: ResetFontSize }
   - { key: Semicolon, mods: Command|Shift, action: IncreaseFontSize }
