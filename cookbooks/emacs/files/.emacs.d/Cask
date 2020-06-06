@@ -31,6 +31,7 @@
 (depends-on "helm-gtags")
 (depends-on "helm-ls-git")
 (depends-on "helm-projectile")
+(depends-on "highlight-indent-guides")
 (depends-on "init-loader")
 (depends-on "initchart")
 (depends-on "jade-mode")
