@@ -2,7 +2,6 @@
 ; go get -u github.com/nsf/gocode
 (eval-after-load "go-mode"
   '(progn
-     (subword-mode)
      (require 'go-autocomplete)
      (ac-config-default)
      (require 'company-go)
@@ -22,3 +21,6 @@
 ; NOTE: $ go get golang.org/x/tools/cmd/goimports
 (setq gofmt-command "goimports")
 (add-hook 'before-save-hook 'gofmt-before-save)
+
+(add-hook 'go-mode-hook (lambda ()
+                          (subword-mode 1)))
