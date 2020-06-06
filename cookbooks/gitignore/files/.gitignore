@@ -66,6 +66,8 @@ doc/
 
 # emacs.ignore
 ac-comphist.dat
+network-security.data
+
 */auto-save-list/*
 *~
 */#!*
