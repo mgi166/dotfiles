@@ -564,6 +564,12 @@ key_bindings:
   - { key: W, mods: Alt, chars: "\x1bw" }
   - { key: Space, mods: Control, chars: "\x00" }
 
+  # https://github.com/alacritty/alacritty/issues/2017#issuecomment-581707489
+  - { key: Backslash, mods: Alt,       chars: "\x1B\\" }
+  - { key: Backslash, mods: Alt|Shift, chars: "\x1B|"  }
+  - { key: Slash,     mods: Alt,       chars: "\x1B/"  }
+  - { key: Slash,     mods: Alt|Shift, chars: "\x1B?"  }
+
   - { key: Key0,      mods: Command,       action: ResetFontSize }
   - { key: Semicolon, mods: Command|Shift, action: IncreaseFontSize }
   - { key: Minus,     mods: Command,       action: DecreaseFontSize }
