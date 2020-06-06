@@ -136,3 +136,6 @@ terraform.tfstate*
 amplify
 
 vendor
+
+# golang
+test.go
