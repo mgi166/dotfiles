@@ -63,3 +63,7 @@ alias emasc='emacs'
 alias ya='yarn'
 alias dc='docker-compose'
 alias kube='kubectl'
+alias sk='skaffold'
+compdef kube=kubectl
+
+alias stern='stern --color always'
