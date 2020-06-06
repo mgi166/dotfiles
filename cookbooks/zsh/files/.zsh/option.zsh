@@ -33,3 +33,8 @@ setopt no_flow_control
 
 # C-d でログアウトしないようにする
 setopt ignore_eof
+
+# alias を補完候補に含める
+setopt complete_aliases
+
+# complete -o default -F __start_kubectl kube
