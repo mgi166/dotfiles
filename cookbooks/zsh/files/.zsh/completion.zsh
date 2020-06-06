@@ -1,5 +1,6 @@
 # 補完関数の path を追加
 fpath=($fpath ~/.nodebrew/completions/zsh/ ~/.zsh/completion.d/)
+fpath=(${HOMEBREW_PREFIX}/share/zsh-completions $fpath)
 
 # 補完をon
 autoload -U compinit
