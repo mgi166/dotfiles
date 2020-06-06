@@ -13,6 +13,7 @@
 (depends-on "company-go")
 (depends-on "company-lsp")
 (depends-on "company-terraform")
+(depends-on "dart-mode")
 (depends-on "dockerfile-mode")
 (depends-on "elscreen")
 (depends-on "esup")
