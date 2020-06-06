@@ -3,6 +3,7 @@
   editor = "emacsclient -nw"
   column = 40
   selectcmd = "fzf"
+  backend = "gist"
 
 [Gist]
   file_name = "pet-snippet.toml"
