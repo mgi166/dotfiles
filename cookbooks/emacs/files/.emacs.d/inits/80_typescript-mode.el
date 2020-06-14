@@ -3,4 +3,5 @@
           (lambda ()
             (tide-setup)
             (eldoc-mode t)
-            (company-mode-on)))
+            (company-mode-on)
+            (subword-mode 1)))
