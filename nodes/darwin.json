@@ -2,6 +2,7 @@
   "packages": [
     "ag",
     "bash",
+    "circleci",
     "cmigemo",
     "ctags",
     "direnv",
