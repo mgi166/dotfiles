@@ -17,6 +17,7 @@
     "imagemagick",
     "iproute2mac",
     "jq",
+    "kustomize",
     "libxml2",
     "libyaml",
     "mecab",
