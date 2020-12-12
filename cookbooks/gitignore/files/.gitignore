@@ -141,3 +141,7 @@ vendor
 
 # golang
 test.go
+
+
+# go-dlv
+__debug_bin
