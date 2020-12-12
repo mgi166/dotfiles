@@ -251,7 +251,7 @@ function ghq-new() {
 function peco-src() {
   local REPO_DIR=$(ghq list | peco --query "$LBUFFER")
     if [ -n "$REPO_DIR" ]; then
-        BUFFER="cd ${GOPATH}/src/${REPO_DIR}"
+        BUFFER="cd $(ghq root)/${REPO_DIR}"
         zle accept-line
     fi
     zle clear-screen
