@@ -62,6 +62,7 @@
 (depends-on "rjsx-mode")
 (depends-on "ruby-block")
 (depends-on "ruby-end")
+(depends-on "rust-mode")
 (depends-on "scala-mode")
 (depends-on "slim-mode")
 (depends-on "string-inflection")
