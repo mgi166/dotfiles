@@ -70,6 +70,9 @@ fi
 # flutter
 export PATH="$HOME/.flutter/bin:$PATH"
 
+# rust
+export PATH="$PATH:${HOME}/.cargo/bin"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('~/.anaconda/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
