@@ -1,6 +1,5 @@
 ;; point-undo (ポイントの位置を undo する)
-(require 'point-undo)
-(define-key global-map [f5] 'point-undo)
-(define-key global-map [f6] 'point-redo)
-(define-key global-map (kbd "C-c p") 'point-undo)
-(define-key global-map (kbd "C-c n") 'point-redo)
+(use-package point-undo
+  :ensure t
+  :bind (("C-c p" . point-undo)
+         ("C-c n" . point-redo))
