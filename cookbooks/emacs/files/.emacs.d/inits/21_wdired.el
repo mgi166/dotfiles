@@ -1,3 +1,4 @@
 ;; wdired (dired 中に r を押すと、file を rename してくれる)
-(require 'wdired)
-(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+(use-package wdired
+  :ensure t
+  :bind ("r" . wdired-change-to-wdired-mode))
