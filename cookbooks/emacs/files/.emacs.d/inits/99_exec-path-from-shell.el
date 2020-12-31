@@ -1,3 +1,3 @@
-(require 'exec-path-from-shell)
-(let ((envs '("PATH")))
-  (exec-path-from-shell-copy-envs envs))
+(use-package exec-path-from-shell
+  :ensure t
+  :config (exec-path-from-shell-initialize))
