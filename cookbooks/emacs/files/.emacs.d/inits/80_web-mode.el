@@ -1,3 +1,2 @@
-(autoload 'web-mode "web-mode" nil t)
-(add-to-list 'auto-mode-alist
-             '("\\.jsx$" . web-mode))
+(use-package web-mode
+  :mode (("\\.jsx$" . web-mode)))
