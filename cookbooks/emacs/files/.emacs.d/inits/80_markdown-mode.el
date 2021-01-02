@@ -1,9 +1,5 @@
-(require 'markdown-mode)
-(defun markdown-custom ()
-  "markdown-mode-hook"
-  (define-key markdown-mode-map (kbd "M-n") 'markdown-forward-paragraph)
-  (define-key markdown-mode-map (kbd "M-p") 'markdown-backward-paragraph))
-
-(add-hook 'markdown-mode-hook
-          (progn 'markdown-custom))
-
+(use-package markdown-mode
+  :ensure t
+  :bind (:map markdown-mode-map
+              ("M-n" . markdown-forward-paragraph)
+              ("M-p" . markdown-backward-paragraph)))
