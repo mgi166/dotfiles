@@ -1,5 +1,4 @@
 (use-package server
-  :ensure t
   :bind ("C-x C-c" . ns-do-hide-emacs)
         ("C-x #" . delete-frame)
   :config (defalias 'exit 'save-buffers-kill-emacs)
