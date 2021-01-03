@@ -1,4 +1,5 @@
 (use-package color-moccur
+  :ensure t
   :init (setq moccur-split-word t)
   :config (add-to-list 'dmoccur-exclusion-mask "\\.DS_Store")
           (add-to-list 'dmoccur-exclusion-mask "^#.+#$"))
