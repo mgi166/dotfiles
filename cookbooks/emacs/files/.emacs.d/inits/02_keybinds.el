@@ -25,6 +25,3 @@
   "" (interactive) (scroll-up 3))
 (global-set-key [wheel-up] 'scroll-down-with-lines)
 (global-set-key [wheel-down] 'scroll-up-with-lines)
-
-;; dired
-(define-key global-map "\C-x\C-d" 'dired)
