@@ -3,9 +3,8 @@
   :bind ("C-x C-d" . dired)
         (:map dired-mode-map
               ("k" . dired-previous-line)
-              ("j" . dired-next-line)))
+              ("j" . dired-next-line)
+              ("r" . wdired-change-to-wdired-mode)))
 
 (use-package wdired
-  :ensure t
-  :bind (:map dired-mode-map
-              ("r" . wdired-change-to-wdired-mode)))
+  :ensure t)
