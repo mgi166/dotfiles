@@ -1,13 +1,16 @@
-(require 'wgrep)
-(require 'wgrep-helm)
-(require 'ag)
-(require 'wgrep-ag)
+(use-package wgrep
+  :ensure t
+  :init (setq wgrep-auto-save-buffer t)
+        (setq wgrep-enable-key "r"))
 
-(setq wgrep-auto-save-buffer t)
-(setq wgrep-enable-key "r")
-(autoload 'wgrep-ag-setup "wgrep-ag")
-(add-hook 'ag-mode-hook 'wgrep-ag-setup)
-(define-key ag-mode-map (kbd "r") 'wgrep-change-to-wgrep-mode)
+(use-package wgrep-helm
+  :ensure t)
 
-;; http://qiita.com/koshigoe/items/eadf026fbfc3a704d63d
-(setq ag-group-matches nil)
+(use-package ag
+  :ensure t)
+
+(use-package wgrep-ag
+  :init (add-hook 'ag-mode-hook 'wgrep-ag-setup)
+        ;; http://qiita.com/koshigoe/items/eadf026fbfc3a704d63d
+        (setq ag-group-matches nil)
+  :bind (:map ag-mode-map ("r" . wgrep-change-to-wgrep-mode)))
