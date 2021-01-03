@@ -1,5 +1,4 @@
 (use-package shell-script-mode
-  :ensure t
   :init (setq sh-basic-offset 2)
         (setq sh-indentation 2)
         (setq sh-indent-for-case-label 0)
