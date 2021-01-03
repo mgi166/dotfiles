@@ -1,5 +1,4 @@
-(require 'helm-files)
-(require 'helm-ag)
-
-(global-set-key (kbd "M-g .") 'helm-ag)
-(global-set-key (kbd "M-g ,") 'helm-ag-pop-stack)
+(use-package helm-ag
+  :ensure t
+  :bind ("M-g ." . helm-ag)
+        ("M-g ," . helm-ag-pop-stack))
