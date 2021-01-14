@@ -562,6 +562,7 @@ key_bindings:
   - { key: Q, mods: Control, chars: "\x11" } # https://github.com/alacritty/alacritty/issues/1359#issuecomment-430265381
   - { key: V, mods: Alt, chars: "\x1bv" }
   - { key: W, mods: Alt, chars: "\x1bw" }
+  - { key: Q, mods: Alt, chars: "\x1bq" }
   - { key: Space, mods: Control, chars: "\x00" }
 
   # https://github.com/alacritty/alacritty/issues/2017#issuecomment-581707489
