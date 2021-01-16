@@ -12,4 +12,4 @@
     (load-library "migemo")
     (migemo-init)
     (set-process-query-on-exit-flag migemo-process nil) ;; この設定がないと、Active processes exist; kill them and exit anyway?"などと云われて，"y"を押さないと終了しない
-  :bind ("C-h" . 'isearch-delete-char))
+  :bind ("C-c h" . 'isearch-delete-char))
