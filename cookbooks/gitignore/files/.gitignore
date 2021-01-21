@@ -67,7 +67,9 @@ doc/
 ac-comphist.dat
 network-security.data
 elpa
-
+.extension/
+.dap-*
+.lsp-*
 */auto-save-list/*
 *~
 */#!*
