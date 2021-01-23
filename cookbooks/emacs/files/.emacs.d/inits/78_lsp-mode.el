@@ -1,6 +1,9 @@
 (use-package lsp-mode
   :ensure t
   :init (yas-global-mode)
+        (setq lsp-keymap-prefix "M-l")
+        (setq gc-cons-threshold 100000000) ;; 100mb
+        (setq read-process-output-max (* 1024 1024)) ;; 1mb
   :hook
   (rust-mode . lsp)
   (lsp-mode . lsp-enable-which-key-integration)
