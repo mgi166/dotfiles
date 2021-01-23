@@ -6,7 +6,6 @@
     "cmigemo",
     "ctags",
     "direnv",
-    "erlang",
     "ffmpeg",
     "fontforge",
     "gettext",
@@ -38,7 +37,6 @@
     "source-highlight",
     "sqlite",
     "stern"
-    "tig",
     "tree",
     "unrar",
     "watch",
