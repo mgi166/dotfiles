@@ -71,7 +71,6 @@
 (depends-on "string-inflection")
 (depends-on "svg-mode-line-themes")
 (depends-on "terraform-mode")
-(depends-on "tide")
 (depends-on "typescript-mode")
 (depends-on "undo-tree")
 (depends-on "use-package")
