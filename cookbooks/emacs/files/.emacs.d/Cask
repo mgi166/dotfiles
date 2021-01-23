@@ -79,5 +79,6 @@
 (depends-on "wgrep")
 (depends-on "wgrep-ag")
 (depends-on "wgrep-helm")
+(depends-on "whitespace-cleanup-mode")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
