@@ -20,5 +20,47 @@
         :program "target/debug/rpn"
         :name "LLDB::Run"))
 
-(use-package lsp-ui :commands lsp-ui-mode)
+(use-package lsp-ui
+  :ensure t
+  :hook (lsp-mode . lsp-ui-mode)
+  :custom
+    ;; lsp-ui-doc
+    (lsp-ui-doc-enable t)
+    (lsp-ui-doc-header t)
+    (lsp-ui-doc-include-signature t)
+    (lsp-ui-doc-position 'top) ;; top, bottom, or at-point
+    (lsp-ui-doc-max-width 150)
+    (lsp-ui-doc-max-height 30)
+    (lsp-ui-doc-use-childframe t)
+    (lsp-ui-doc-use-webkit t)
+    ;; lsp-ui-flycheck
+    ;;(lsp-ui-flycheck-enable nil)
+    ;; lsp-ui-sideline
+    (lsp-ui-sideline-enable t)
+    ;; (lsp-ui-sideline-ignore-duplicate t)
+    (lsp-ui-sideline-show-symbol t)
+    (lsp-ui-sideline-show-hover t)
+    ;; (lsp-ui-sideline-show-diagnostics nil)
+    ;; (lsp-ui-sideline-show-code-actions nil)
+    ;; lsp-ui-imenu
+    ;; (lsp-ui-imenu-enable nil)
+    ;; (lsp-ui-imenu-kind-position 'top)
+    ;; lsp-ui-peek
+    (lsp-ui-peek-enable t)
+    ;; (lsp-ui-peek-peek-height 20)
+    ;; (lsp-ui-peek-list-width 50)
+    ;; (lsp-ui-peek-fontify 'on-demand) ;; never, on-demand, or always
+  :commands (lsp-ui-mode))
+
+(use-package company-lsp
+  :ensure t
+  :custom
+  (company-lsp-cache-candidates t) ;; always using cache
+  (company-lsp-async t)
+  (company-lsp-enable-recompletion nil))
+
 (use-package helm-lsp :commands helm-lsp-workspace-symbol)
+
+(use-package which-key
+  :ensure t
+  :config (which-key-mode))
