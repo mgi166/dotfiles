@@ -11,7 +11,10 @@
           (use-package dap-gdb-lldb)
           ;; Install gdb.js to ~/.emacs.d/.extension/vscode/webfreak.debug/extension/out/src/
           (dap-gdb-lldb-setup)
-          (use-package dap-lldb)
-          (use-package dap-ui
-              :ensure nil
-              :config (dap-ui-mode 1)))
+          (use-package dap-lldb))
+
+(use-package dap-ui
+  :ensure nil
+  :config (dap-ui-mode 1)
+          (dap-tooltip-mode 1)
+          (dap-ui-controls-mode nil))
