@@ -1,17 +1,22 @@
+; NOTE: GO111MODULE=on go get golang.org/x/tools/gopls@latest
+; SEE: https://github.com/golang/tools/blob/master/gopls/doc/emacs.md
 (use-package go-mode
   ; NOTE: $ go get golang.org/x/tools/cmd/goimports
-  :init (subword-mode 1)
-        (setq gofmt-command "goimports")
-  :config (use-package go-autocomplete)
+  :init (setq gofmt-command "goimports")
+        (add-hook 'before-save-hook 'gofmt-before-save)
+        ;(add-hook 'go-mode-hook 'go-eldoc-setup)
+        (add-hook 'go-mode-hook 'lsp-deferred)
+  :config (subword-mode 1)
+          (use-package go-autocomplete)
           (ac-config-default)
-          (use-package company-go)
-          (use-package go-eldoc)
-  :hook (go-mode . #'go-eldoc-setup)
-        (go-mode . #'gofmt-before-save)
+          (use-package company-go))
+          ;(use-package go-eldoc)
   ; NOTE: $ go get -u github.com/rogpeppe/godef
-  :bind
-  (:map go-mode-map ("M-." . godef-jump)
-                    ("M-," . pop-tag-mark)))
+  ; NOTE: Use lsp-ui-peek-find-(definitions|references|implementation) functions
+  ;; :bind
+  ;; (:map go-mode-map ("M-." . godef-jump)
+  ;;                   ("C-c M-." . godef-jump-other-window)
+  ;;                   ("M-," . pop-tag-mark)))
 
 (defun go-debug-config-generator ()
   "Generate debug configuration for Go dap-mode."
