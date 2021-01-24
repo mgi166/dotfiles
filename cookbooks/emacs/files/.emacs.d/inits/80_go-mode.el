@@ -4,11 +4,10 @@
   ; NOTE: $ go get golang.org/x/tools/cmd/goimports
   :init (setq gofmt-command "goimports")
         (add-hook 'before-save-hook 'gofmt-before-save)
-        ;(add-hook 'go-mode-hook 'go-eldoc-setup)
         (add-hook 'go-mode-hook 'lsp-deferred)
-  :config (subword-mode 1)
-          (use-package go-autocomplete)
-          (ac-config-default)
+        (add-hook 'go-mode-hook 'subword-mode)
+  :config ;(use-package go-autocomplete)
+          ;(ac-config-default)
           (use-package company-go))
           ;(use-package go-eldoc)
   ; NOTE: $ go get -u github.com/rogpeppe/godef
