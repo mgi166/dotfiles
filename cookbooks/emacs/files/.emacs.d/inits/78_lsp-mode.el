@@ -9,6 +9,10 @@
   (go-mode . lsp)
   (lsp-mode . lsp-enable-which-key-integration)
   :bind ("C-c h" . lsp-describe-thing-at-point)
+        (:map lsp-mode-map
+          ("M-." . lsp-ui-peek-find-definitions)
+          ("M-," . lsp-ui-peek-find-references)
+          ("M-/" . lsp-ui-peek-find-implementation))
   :custom (lsp-rust-server 'rls)
   :commands
   (lsp))
@@ -47,9 +51,9 @@
     ;; (lsp-ui-imenu-kind-position 'top)
     ;; lsp-ui-peek
     (lsp-ui-peek-enable t)
-    ;; (lsp-ui-peek-peek-height 20)
-    ;; (lsp-ui-peek-list-width 50)
-    ;; (lsp-ui-peek-fontify 'on-demand) ;; never, on-demand, or always
+    (lsp-ui-peek-peek-height 20)
+    (lsp-ui-peek-list-width 50)
+    (lsp-ui-peek-fontify 'on-demand) ;; never, on-demand, or always
   :commands (lsp-ui-mode))
 
 (use-package company-lsp
