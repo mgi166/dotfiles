@@ -2,6 +2,7 @@
   :ensure t
   :after lsp-mode
   :custom (dap-auto-configure-features '(sessions locals breakpoints expressions repl controls tooltip))
+  :bind (:map dap-mode-map ("<f5>" . dap-debug))
   :config (dap-mode 1)
           (dap-auto-configure-mode 1)
           ;(require 'dap-hydra)
