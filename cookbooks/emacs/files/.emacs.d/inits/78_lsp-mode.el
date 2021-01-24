@@ -6,6 +6,7 @@
         (setq read-process-output-max (* 1024 1024)) ;; 1mb
   :hook
   (rust-mode . lsp)
+  (go-mode . lsp)
   (lsp-mode . lsp-enable-which-key-integration)
   :bind ("C-c h" . lsp-describe-thing-at-point)
   :custom (lsp-rust-server 'rls)
