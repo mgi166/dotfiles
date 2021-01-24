@@ -70,6 +70,7 @@ elpa
 .extension/
 .dap-*
 .lsp-*
+
 */auto-save-list/*
 *~
 */#!*
@@ -144,6 +145,8 @@ vendor
 # golang
 test.go
 
-.vscode
 # go-dlv
 __debug_bin
+
+# vscode
+.vscode
