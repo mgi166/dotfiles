@@ -14,8 +14,7 @@
           ("M-," . lsp-ui-peek-find-references)
           ("M-/" . lsp-ui-peek-find-implementation))
   :custom (lsp-rust-server 'rls)
-  :commands
-  (lsp))
+  :commands (lsp))
 
 (dap-register-debug-template
   "LLDB::Run vs-code"
