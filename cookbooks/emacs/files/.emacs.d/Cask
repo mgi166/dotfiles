@@ -15,6 +15,7 @@
 (depends-on "company-go")
 (depends-on "company-lsp")
 (depends-on "company-terraform")
+(depends-on "cython-mode")
 (depends-on "dap-mode")
 (depends-on "dart-mode")
 (depends-on "dockerfile-mode")
