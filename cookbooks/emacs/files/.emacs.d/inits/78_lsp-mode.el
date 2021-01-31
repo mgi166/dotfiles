@@ -4,10 +4,9 @@
         (setq lsp-keymap-prefix "M-l")
         (setq gc-cons-threshold 100000000) ;; 100mb
         (setq read-process-output-max (* 1024 1024)) ;; 1mb
-  :hook
-  (rust-mode . lsp)
-  (go-mode . lsp)
-  (lsp-mode . lsp-enable-which-key-integration)
+  :hook (rust-mode . lsp)
+        ;(go-mode . lsp)
+        (lsp-mode . lsp-enable-which-key-integration)
   :bind ("C-c h" . lsp-describe-thing-at-point)
         (:map lsp-mode-map
           ("M-." . lsp-ui-peek-find-definitions)
