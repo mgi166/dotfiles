@@ -138,7 +138,6 @@ terraform.tfstate*
 .glide
 .go-version
 
-.python-version
 amplify
 
 vendor
