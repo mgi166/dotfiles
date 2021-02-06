@@ -9,6 +9,7 @@
   ;; C-n, C-pで補完候補を次/前の候補を選択
   :bind (:map company-active-map ("C-n" . company-select-next)
                                  ("C-p" . company-select-previous)
+                                 ("C-h" . delete-backward-char)
                                  ;; C-sで絞り込む
                                  ("C-s" . company-filter-candidates)
                                  ("<tab>" . company-complete-common-or-cycle)
