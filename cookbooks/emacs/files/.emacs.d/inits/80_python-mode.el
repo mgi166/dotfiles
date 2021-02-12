@@ -1,7 +1,7 @@
 (use-package python-mode
   :ensure t
   :init (add-hook 'python-mode-hook 'highlight-indent-guides-mode)
-  :config (setq highlight-indent-guides-method 'character))
+  :config (setq highlight-indent-guides-method 'column))
 
 (use-package lsp-jedi
   :ensure t
