@@ -117,17 +117,28 @@ kinesisVendorIDs = { 10730, 1452 }
 
 karabinerCliPath = "/Library/Application\\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli"
 
+local function has_value(tabl, val)
+   for _, value in ipairs(tabl) do
+      if value == val then
+         return true
+      end
+   end
+
+   return false
+end
+
 local function changeKarabinerProfile(tbl)
    cmd = ""
 
    if tbl["eventType"] == "added" then
-      if tbl["vendorID"] == kinesisVendorID and tbl["productID"] == kinesisProductID then
+      -- if tbl["vendorID"] == kinesisVendorID and tbl["productID"] == kinesisProductID then
+      if has_value(kinesisProductIDs, tbl["productID"]) and has_value(kinesisVendorIDs, tbl["vendorID"]) then
          cmd = string.format("%s --select-profile '%s'", karabinerCliPath, karabinerKinesisProfile)
       end
    end
 
    if tbl["eventType"] == "removed" then
-      if tbl["vendorID"] == kinesisVendorID and tbl["productID"] == kinesisProductID then
+      if has_value(kinesisProductIDs, tbl["productID"]) and has_value(kinesisVendorIDs, tbl["vendorID"]) then
          cmd = string.format("%s --select-profile '%s'", karabinerCliPath, karabinerDefaultProfile)
       end
    end
