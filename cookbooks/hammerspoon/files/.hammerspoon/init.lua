@@ -109,8 +109,11 @@ hs.hotkey.bind({'cmd', 'shift' }, '2', moveMousePointerOnMac)
 karabinerDefaultProfile = "Default profile"
 karabinerKinesisProfile = "Kinesis"
 
-kinesisProductID = 258
-kinesisVendorID = 10730
+-- NOTE: 258 is Cherry MX Red version, 516 is Cherry MX Brown version. These are both Kinesis Advantage2
+kinesisProductIDs = { 258, 516 }
+
+-- NOTE: 10730 is Cherry MX Red version, 1452 is Cherry MX Brown version. These are both Kinesis Advantage2
+kinesisVendorIDs = { 10730, 1452 }
 
 karabinerCliPath = "/Library/Application\\ Support/org.pqrs/Karabiner-Elements/bin/karabiner_cli"
 
