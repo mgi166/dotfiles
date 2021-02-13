@@ -89,6 +89,28 @@ k:bind({"cmd", "shift", "ctrl"}, 'P', function()
     k:exit()
 end)
 
+
+local function appTitle()
+   app = hs.application.frontmostApplication()
+   if app ~= nil then
+      return app:title()
+   end
+end
+
+-- Add keybindings each Applications
+local function handleAppActivatedEvent(appName, eventType, appObject)
+   if (eventType == hs.application.watcher.activated) then
+      if appTitle() ~= "Google%sChrome" then
+         chromeKeyMap:enter()
+      else
+         chromeKeyMap:exit()
+      end
+   end
+end
+
+local appsWatcher = hs.application.watcher.new(handleAppActivatedEvent)
+appsWatcher:start()
+
 local function moveMousePointerOnDisplay()
    displayCoOrdinates = {}
    displayCoOrdinates['x'] = 2390
