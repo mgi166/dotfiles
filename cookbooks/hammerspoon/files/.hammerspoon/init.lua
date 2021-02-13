@@ -100,6 +100,14 @@ k:bind({"cmd", "shift", "ctrl"}, 'P', function()
 end)
 
 
+-- Google Chrome keybinds
+local chromeKeyMap = hs.hotkey.modal.new()
+
+-- cmd + shift + ] -> ctrl + tab
+-- cmd + shift + [ -> ctrl + shift + tab
+-- chromeKeyMap:bind({'cmd', 'shift'}, ']', keyCode(nil, {'ctrl', 'tab'}))
+-- chromeKeyMap:bind({'cmd', 'shift'}, '[', keyCode(nil, {'ctrl', 'shift', 'tab'}))
+
 local function appTitle()
    app = hs.application.frontmostApplication()
    if app ~= nil then
