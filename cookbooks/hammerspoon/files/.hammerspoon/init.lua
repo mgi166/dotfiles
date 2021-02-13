@@ -2,9 +2,19 @@
 local function keyCode(key, modifiers)
    modifiers = modifiers or {}
    return function()
-      hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post()
-      hs.timer.usleep(1000)
-      hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post()
+      if key then
+         hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), true):post()
+         hs.timer.usleep(1000)
+         hs.eventtap.event.newKeyEvent(modifiers, string.lower(key), false):post()
+      else
+         for idx, key in pairs(modifiers) do
+            hs.eventtap.event.newKeyEvent(hs.keycodes.map[key], true):post()
+         end
+         hs.timer.usleep(1000)
+         for idx, key in pairs(modifiers) do
+            hs.eventtap.event.newKeyEvent(hs.keycodes.map[key], false):post()
+         end
+      end
    end
 end
 
