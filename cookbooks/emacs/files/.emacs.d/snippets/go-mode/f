@@ -2,4 +2,4 @@
 # name: f
 # key: f
 # --
-fmt.Println("${1:here}")
+fmt.Println($1)
