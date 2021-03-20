@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: here
+# key: here
+# binding: direct-keybinding
+# --
+console.log("here")
