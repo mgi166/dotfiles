@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ty
+# key: ty
+# --
+reflect.TypeOf($0)
