@@ -13,6 +13,7 @@
 (depends-on "color-moccur")
 (depends-on "color-theme-modern")
 (depends-on "company-go")
+(depends-on "company-jedi")
 (depends-on "company-lsp")
 (depends-on "company-terraform")
 (depends-on "cython-mode")
