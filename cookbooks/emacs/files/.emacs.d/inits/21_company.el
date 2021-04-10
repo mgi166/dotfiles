@@ -15,5 +15,4 @@
                                  ("<tab>" . company-complete-common-or-cycle)
                                  ("<backtab>" . company-select-previous))
         ;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
-        (:map emacs-lisp-mode-map ("C-M-i" . company-complete))
-  :config (global-company-mode +1))
+        (:map emacs-lisp-mode-map ("C-M-i" . company-complete)))
