@@ -130,6 +130,7 @@ mitamae*
 # terraform
 .terraform
 terraform.tfstate*
+.terraform.lock.hcl
 
 # virtualenv
 .venv
