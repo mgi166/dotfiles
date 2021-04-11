@@ -1,32 +1,3 @@
-;; elscreen.el 非依存版 (バッファをタブ化。http://d.hatena.ne.jp/tam5917/20120922/1348286748)
-(require 'elscreen)
-(elscreen-start)
-(if window-system
-  (define-key elscreen-map "\C-z" 'iconify-or-deiconify-frame)
-  (define-key elscreen-map "\C-z" 'suspend-emacs))
-
-;; [X]を表示しない
-(setq elscreen-tab-display-kill-screen nil)
-;; [<->]を表示しない
-(setq elscreen-tab-display-control nil)
-
-;; elscreen 用 keybind
-;;(define-key mac-key-mode-map [(alt t)] 'elscreen-create) ;; 新しいタブを開く(elscreen + mac-key-mode 必須)
-(define-key global-map "\M-[" 'elscreen-previous)
-(define-key global-map "\M-]" 'elscreen-next)
-(define-key global-map (kbd "s-{") 'elscreen-previous)
-(define-key global-map (kbd "s-}") 'elscreen-next)
-(define-key global-map (kbd "“") 'elscreen-previous)
-(define-key global-map (kbd "”") 'elscreen-next)
-
-;; C-z k or C-z C-k でバッファもkillするように
-;; C-z K or C-z C-K で screen のみ kill する
-(define-key elscreen-map "\C-k" 'elscreen-kill-screen-and-buffers)
-(define-key elscreen-map "k" 'elscreen-kill-screen-and-buffers)
-(define-key elscreen-map "K" 'elscreen-kill)
-(define-key elscreen-map "\C-K" 'elscreen-kill)
-(define-key elscreen-map "\C-o" 'elscreen-kill-others)
-
 ;; [0, 1, 2] で 1 をkill-screen したときに [0, 1] となるようにする
 ;; see(http://d.hatena.ne.jp/asudofu/20091121/1258778536)
 (defun elscreen-insert-internal (screen)
@@ -58,8 +29,30 @@
     (elscreen-goto pack)
     (elscreen-notify-screen-modification 'force)))
 
-;killしたらpackする
-(add-hook 'elscreen-kill-hook 'elscreen-pack-list)
+;; elscreen.el 非依存版 (バッファをタブ化。http://d.hatena.ne.jp/tam5917/20120922/1348286748)
+(use-package elscreen
+  :ensure t
+  :init (setq elscreen-tab-display-kill-screen nil) ;; [X]を表示しない
+        (setq elscreen-tab-display-control nil)     ;; [<->]を表示しない
+        (add-hook 'elscreen-kill-hook 'elscreen-pack-list) ;; killしたらpackする
+  ;; C-z k or C-z C-k でバッファもkillするように
+  ;; C-z K or C-z C-K で screen のみ kill する
+  :bind (:map elscreen-map ("C-k" . elscreen-kill-screen-and-buffers)
+                           ("k" . elscreen-kill-screen-and-buffers)
+                           ("K" . elscreen-kill-screen-and-buffers)
+                           ("C-K" . elscreen-kill)
+                           ("C-o" . elscreen-kill-others))
+        ("M-[" . elscreen-previous)
+        ("M-]" . elscreen-next)
+        ("s-{" . elscreen-previous)
+        ("s-}" . elscreen-next)
+        ("“" . elscreen-previous)
+        ("”" . 'elscreen-next)
+  :init (elscreen-start))
+
+(if window-system
+  (define-key elscreen-map "\C-z" 'iconify-or-deiconify-frame)
+  (define-key elscreen-map "\C-z" 'suspend-emacs))
 
 ;; elscreen-server
-(require 'elscreen-server)
+(use-package elscreen-server)
