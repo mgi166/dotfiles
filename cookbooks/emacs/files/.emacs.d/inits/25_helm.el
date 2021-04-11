@@ -1,20 +1,11 @@
 (use-package helm
   :ensure t)
 
-(use-package helm-config
-  :ensure t)
-
-(use-package vc
-  :ensure t)
-
-(use-package vc-git
-  :ensure t)
-
-(use-package helm-files
-  :ensure t)
-
-(use-package helm-types
-  :ensure t)
+(use-package helm-config)
+(use-package vc)
+(use-package vc-git)
+(use-package helm-files)
+(use-package helm-types)
 
 (use-package helm-ls-git
   :ensure t)
