@@ -1,13 +1,29 @@
-(require 'helm)
-(require 'helm-config)
-(require 'vc)
-(require 'vc-git)
-(require 'helm-files)
-(require 'helm-types)
-(require 'helm-ls-git)
-(require 'helm-descbinds)
-;(require 'helm-projectile)
-(require 'helm-elscreen)
+(use-package helm
+  :ensure t)
+
+(use-package helm-config
+  :ensure t)
+
+(use-package vc
+  :ensure t)
+
+(use-package vc-git
+  :ensure t)
+
+(use-package helm-files
+  :ensure t)
+
+(use-package helm-types
+  :ensure t)
+
+(use-package helm-ls-git
+  :ensure t)
+
+(use-package helm-descbinds
+  :ensure t)
+
+(use-package helm-elscreen
+  :ensure t)
 
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "M-o") 'helm-occur)
