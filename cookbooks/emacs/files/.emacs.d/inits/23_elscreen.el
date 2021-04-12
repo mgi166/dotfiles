@@ -37,17 +37,17 @@
         (add-hook 'elscreen-kill-hook 'elscreen-pack-list) ;; killしたらpackする
   ;; C-z k or C-z C-k でバッファもkillするように
   ;; C-z K or C-z C-K で screen のみ kill する
-  :bind (:map elscreen-map ("C-k" . elscreen-kill-screen-and-buffers)
-                           ("k" . elscreen-kill-screen-and-buffers)
-                           ("K" . elscreen-kill-screen-and-buffers)
-                           ("C-K" . elscreen-kill)
-                           ("C-o" . elscreen-kill-others))
-        ("M-[" . elscreen-previous)
+  :bind ("M-[" . elscreen-previous)
         ("M-]" . elscreen-next)
         ("s-{" . elscreen-previous)
         ("s-}" . elscreen-next)
         ("“" . elscreen-previous)
         ("”" . 'elscreen-next)
+        (:map elscreen-map ("C-k" . elscreen-kill-screen-and-buffers)
+                           ("k" . elscreen-kill-screen-and-buffers)
+                           ("K" . elscreen-kill-screen-and-buffers)
+                           ("C-K" . elscreen-kill)
+                           ("C-o" . elscreen-kill-others))
   :init (elscreen-start))
 
 (if window-system
