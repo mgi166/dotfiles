@@ -1,4 +1,4 @@
-(require 'string-inflection)
+(use-package string-inflection)
 
 (defun my/string-inflection-cycle-function (str)
   "foo_bar => fooBar => FooBar => FOO_BAR => foo_bar"
