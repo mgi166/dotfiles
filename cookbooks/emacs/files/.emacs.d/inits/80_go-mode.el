@@ -8,7 +8,8 @@
         (add-hook 'go-mode-hook 'subword-mode)
   :config ;(use-package go-autocomplete)
           ;(ac-config-default)
-          (use-package company-go))
+          (use-package company-go)
+          (add-to-list 'lsp-enabled-clients 'gopls))
           ;(use-package go-eldoc)
   ; NOTE: $ go get -u github.com/rogpeppe/godef
   ; NOTE: Use lsp-ui-peek-find-(definitions|references|implementation) functions
