@@ -3,4 +3,4 @@
 # key: b
 # binding: direct-keybinding
 # --
-require 'pry'; binding.pry
+require 'irb'; binding.irb
