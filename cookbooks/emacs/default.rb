@@ -1,9 +1,5 @@
 files_path = "cookbooks/emacs/files"
 
-execute "git submodule update --init" do
-  not_if "[[ -e #{files_path}/.emacs.d/elisp/replace-colorthemes ]] && [[ -e #{files_path}/.emacs.d/site-lisp/jumar ]] && [[ -e #{files_path}/.emacs.d/site-lisp/erfi ]]"
-end
-
 package "emacs" do
   options "--with-cocoa"
 end
