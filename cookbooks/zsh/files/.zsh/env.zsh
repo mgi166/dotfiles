@@ -49,7 +49,7 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 if which pyenv > /dev/null; then
-  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
 fi
 
 if [ -e $PYENV_ROOT/plugins/pyenv-virtualenv ]; then
