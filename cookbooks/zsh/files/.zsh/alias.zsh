@@ -24,8 +24,6 @@ alias xargs='xargs -I {}'
 ## vcs alias
 alias git='hub'
 
-alias gh='ghq'
-
 alias g='git'
 alias gb='git branch'
 alias gs='git show'
@@ -42,8 +40,6 @@ alias gdh='git diff HEAD'
 alias ga='git add --all'
 alias gp='git pull origin `git rev-parse --abbrev-ref HEAD`'
 alias gpp='git push origin $(git rev-parse --abbrev-ref HEAD)'
-
-alias gh='ghq'
 
 alias s='svn'
 alias ss='svn st'
