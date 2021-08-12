@@ -1,7 +1,7 @@
 files_path = "cookbooks/emacs/files"
 
 package "emacs" do
-  options "--with-cocoa"
+  options "--cask"
 end
 
 # NOTE: Deprecate `linkapps` command
