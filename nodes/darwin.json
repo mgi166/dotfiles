@@ -48,6 +48,22 @@
             "unrar",
             "wireshark"
         ],
+        "cask": [
+            "1password",
+            "appcleaner",
+            "bettortouchtool",
+            "discord",
+            "docker",
+            "google-chrome",
+            "google-japanese-ime",
+            "karabiner-elements"
+            "lens",
+            "notion",
+            "skitch",
+            "slack",
+            "spotify",
+            "zoom"
+        ],
         "all": [
             "ag",
             "bash",
