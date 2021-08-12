@@ -13,7 +13,6 @@ export PATH=$HOMEBREW_PREFIX/bin:$PATH
 
 bin/mitamae local -l debug --node-json nodes/darwin.json cookbooks/packages/cask.rb
 bin/mitamae local -l debug cookbooks/zsh/default.rb
-bin/mitamae local -l debug cookbooks/git/default.rb
 bin/mitamae local -l debug cookbooks/emacs/default.rb
 bin/mitamae local -l debug cookbooks/bundle/default.rb
 bin/mitamae local -l debug cookbooks/config/default.rb
