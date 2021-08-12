@@ -3,6 +3,8 @@ set -ex
 
 . ./bin/setup
 
+xcode-select --install
+
 # FIXME: Always run Darwin recipe.
 bin/mitamae local -l debug cookbooks/homebrew/default.rb
 
