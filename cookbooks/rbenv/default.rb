@@ -18,13 +18,3 @@ end
 git File.expand_path("~/.rbenv/plugins/rbenv-update") do
   repository "https://github.com/rkh/rbenv-update.git"
 end
-
-ruby_version = "2.3.3"
-
-execute "PATH=$HOME/.rbenv/bin:$PATH rbenv install #{ruby_version}" do
-  not_if "rbenv versions | grep #{ruby_version}"
-end
-
-execute "PATH=$HOME/.rbenv/bin:$PATH rbenv global #{ruby_version}" do
-  not_if "rbenv versions | grep '\*' | grep #{ruby_version}"
-end
