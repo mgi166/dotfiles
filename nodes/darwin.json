@@ -58,6 +58,7 @@
         ],
         "cask": [
             "1password",
+            "alacritty",
             "alfred",
             "appcleaner",
             "bettertouchtool",
