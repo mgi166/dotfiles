@@ -12,6 +12,7 @@ execute "install awscli@v2" do
   command <<~EOF
     curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
     sudo installer -pkg AWSCLIV2.pkg -target /
+    rm AWSCLIV2.pkg
   EOF
   not_if "which aws"
 end
