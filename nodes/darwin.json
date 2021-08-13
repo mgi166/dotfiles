@@ -9,6 +9,7 @@
             "hyperkit",
             "iproute2mac",
             "jq",
+            "kubectl",
             "peco",
             "pet",
             "pstree",
