@@ -54,7 +54,7 @@
             "sops",
             "source-highlight",
             "sqlite",
-            "stern"
+            "stern",
             "telnet",
             "unrar",
             "wireshark"
@@ -69,7 +69,7 @@
             "google-chrome",
             "google-japanese-ime",
             "hammerspoon",
-            "karabiner-elements"
+            "karabiner-elements",
             "lens",
             "notion",
             "skitch",
@@ -114,13 +114,13 @@
             "skaffold",
             "source-highlight",
             "sqlite",
-            "stern"
+            "stern",
             "tree",
             "unrar",
             "watch",
             "wget",
-            "wireshark"
-            "z"
+            "wireshark",
+            "z",
             "zsh",
             "zsh-completions"
         ]
