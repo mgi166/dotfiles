@@ -22,7 +22,9 @@ alias rr='rbenv rehash'
 alias xargs='xargs -I {}'
 
 ## vcs alias
-alias git='hub'
+if which hub > /dev/null; then
+  alias git='hub'
+fi
 
 alias g='git'
 alias gb='git branch'
