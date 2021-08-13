@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -eu
+
+export HOMEBREW_PREFIX=$HOME/.homebrew
+export PATH=$HOMEBREW_PREFIX/bin:$PATH
+
+bin/mitamae local -l debug cookbooks/$1/default.rb
