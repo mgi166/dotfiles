@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -eu
+
+OS_TYPE=$(uname)
+
+case "$OS_TYPE" in
+  "Darwin" )
+    export HOMEBREW_PREFIX=$HOME/.homebrew
+    export PATH=$HOMEBREW_PREFIX/bin:$PATH  ;;
+  * ) echo "Unknown OS" ;;
+esac
+
+bin/mitamae local -l debug cookbooks/${1}/default.rb
