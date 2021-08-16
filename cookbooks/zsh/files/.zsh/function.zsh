@@ -11,19 +11,25 @@ function exists { which $1 &> /dev/null }
 
 # peco
 if exists peco; then
-    function peco_select_history() {
-        local tac
-        if which tac > /dev/null; then
-            tac="tac"
-        else
-            tac="tail -r"
-        fi
-        BUFFER=$(history -n 1 | \
-            eval $tac | \
-            peco --query "$LBUFFER")
-        CURSOR=$#BUFFER
-        zle redisplay
-    }
+  function peco_select_history() {
+    # https://github.com/peco/peco/issues/417#issuecomment-289290816
+    if (($+zle_bracketed_paste)); then
+      print $zle_bracketed_paste[2]
+    fi
+
+    local tac
+    if which tac > /dev/null; then
+      tac="tac"
+    else
+      tac="tail -r"
+    fi
+    BUFFER=$(history -n 1 | \
+               eval $tac | \
+               awk '!a[$0]++' | \ # https://github.com/peco/peco/issues/417#issuecomment-289290816
+               peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle redisplay
+  }
 
     zle -N peco_select_history
     bindkey '^r' peco_select_history
