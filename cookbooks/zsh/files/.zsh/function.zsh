@@ -23,9 +23,10 @@ if exists peco; then
     else
       tac="tail -r"
     fi
+    # https://github.com/peco/peco/issues/417#issuecomment-289290816
     BUFFER=$(history -n 1 | \
                eval $tac | \
-               awk '!a[$0]++' | \ # https://github.com/peco/peco/issues/417#issuecomment-289290816
+               awk '!a[$0]++' | \
                peco --query "$LBUFFER")
     CURSOR=$#BUFFER
     zle redisplay
