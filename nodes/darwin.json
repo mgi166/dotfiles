@@ -27,6 +27,7 @@
             "circleci",
             "ctags",
             "ffmpeg",
+            "getsentry/tools/sentry-cli",
             "gettext",
             "gh",
             "goreleaser",
