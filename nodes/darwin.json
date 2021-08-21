@@ -26,6 +26,7 @@
         "develop": [
             "circleci",
             "ctags",
+            "conftest",
             "ffmpeg",
             "getsentry/tools/sentry-cli",
             "gettext",
