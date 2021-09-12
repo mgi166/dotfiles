@@ -1,6 +1,7 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: ifn
-# key: ifn
+# name: main
+# key: main
 # binding: direct-keybinding
 # --
-if __name__ == '__main__'
+if __name__ == '__main__':
+   $0
