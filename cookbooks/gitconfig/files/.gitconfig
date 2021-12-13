@@ -19,6 +19,8 @@
 	pr = pull-request
 	see = browse
 	sepr = !hub browse -- pull/$(git symbolic-ref --short HEAD)
+	sw = switch
+	rs = restore
 
 [include]
 	path = .gitconfig.local
@@ -28,6 +30,7 @@
 	autosetuprebase = always
 [pull]
 	rebase = true
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
