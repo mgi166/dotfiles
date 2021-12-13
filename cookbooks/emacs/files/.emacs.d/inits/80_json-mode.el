@@ -1,4 +1,5 @@
 (use-package json-mode
   :ensure t
-  :init (make-local-variable 'js-indent-level)
-        (setq js-indent-level 2))
+  :mode ("\\.json?\\'" . json-mode)
+  :config (make-local-variable 'js-indent-level)
+          (custom-set-variables '(js-indent-level 2)))
