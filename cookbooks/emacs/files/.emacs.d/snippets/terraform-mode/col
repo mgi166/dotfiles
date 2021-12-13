@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: col
+# key: col
+# binding: direct-keybinding
+# --
+
+columns {
+  name = "$0"
+  type = ""
+}
