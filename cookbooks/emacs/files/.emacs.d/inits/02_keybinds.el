@@ -14,6 +14,8 @@
 (define-key global-map (kbd "C-c q") 'quoted-insert)
 (define-key global-map (kbd "M-q") 'shell-command)
 (define-key global-map (kbd "M-<delete>") 'kill-word)
+(define-key global-map (kbd "<s-down>") 'end-of-buffer)
+(define-key global-map (kbd "<s-up>") 'beginning-of-buffer)
 
 ;; copy
 (define-key global-map (kbd "M-w") 'clipboard-kill-ring-save)
