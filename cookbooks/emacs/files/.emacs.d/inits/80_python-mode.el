@@ -3,7 +3,8 @@
   :init (add-hook 'python-mode-hook 'highlight-indent-guides-mode)
   :config (setq highlight-indent-guides-method 'column)
   (setq jedi:server-command (list (executable-find "jediepcserver")))
-  (add-to-list 'company-backends 'company-jedi))
+  (add-to-list 'company-backends 'company-jedi)
+  (subword-mode 1))
 
 (use-package lsp-jedi
   :ensure t
@@ -14,3 +15,7 @@
 (use-package company-jedi
   :ensure t
   :config (setq jedi:use-shortcuts t))
+
+;; poetry
+;; (use-package poetry
+;;   :ensure t)
