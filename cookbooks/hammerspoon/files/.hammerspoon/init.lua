@@ -68,8 +68,8 @@ end
 -- ページスクロール
 -- remapKey({'ctrl'}, 'v', keyCode('pagedown'))
 -- remapKey({'alt'}, 'v', keyCode('pageup'))
-remapKey({'alt', 'shift'}, ',', keyCode('home'))
-remapKey({'alt', 'shift'}, '.', keyCode('end'))
+-- remapKey({'alt', 'shift'}, ',', keyCode('home'))
+-- remapKey({'alt', 'shift'}, '.', keyCode('end'))
 
 -- NOTE: For debug
 -- http://kitak.hatenablog.jp/entry/2016/11/28/104038
