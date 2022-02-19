@@ -73,7 +73,7 @@ export PATH="$HOME/.flutter/bin:$PATH"
 # rust
 export PATH="$PATH:${HOME}/.cargo/bin"
 
-export KUBECONFIG=$HOME/.okteto/okteto-kube.config:${KUBECONFIG:-$HOME/.kube/config}
+# export KUBECONFIG=${KUBECONFIG:-$HOME/.kube/config}
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
