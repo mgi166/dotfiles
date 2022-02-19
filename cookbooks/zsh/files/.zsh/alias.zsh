@@ -64,4 +64,5 @@ alias kube='kubectl'
 alias sk='skaffold'
 compdef kube=kubectl
 
+alias arog=argo
 alias stern='stern --color always'
