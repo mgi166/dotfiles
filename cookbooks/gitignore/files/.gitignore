@@ -91,7 +91,11 @@ recentf
 .svn
 
 # Ignore .config files
-**/*/.config/*
+**/*/.config/pet
+**/*/.config/gh
+**/*/.config/gcloud
+**/*/.config/configstore
+**/*/.config/karabiner/automatic_backups
 
 # Ignore direnv
 .envrc
