@@ -1,0 +1,41 @@
+add_newline = false
+
+format = """[\\[](cyan)[$directory$git_branch](white)[\\]](cyan) $character"""
+right_format = "$time"
+
+[character]
+success_symbol = "[%%](white)"
+# success_symbol = "[[$directory](white)](bold cyan) [%%](white)"
+error_symbol = "[%%](red)"
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[terraform]
+disabled = true
+
+[git_branch]
+format = "[$symbol$branch]($style)"
+style = "blue"
+truncation_length = 8
+
+[directory]
+truncation_symbol = "…/"
+truncation_length = 1
+style = "yellow"
+
+[time]
+disabled = false
+format = '🕙[\[$time\]]($style)'
+style = "white"
+time_format = "%FT%T"
+utc_time_offset = "+9"
+
+[username]
+style_user = "white bold"
+style_root = "red bold"
+format = "user: [$user]($style) "
+disabled = false
