@@ -17,6 +17,7 @@ include_recipe "../cookbooks/rbenv/default"
 include_recipe "../cookbooks/tmux/default"
 include_recipe "../cookbooks/peco/default"
 include_recipe "../cookbooks/osx_defaults/default"
+include_recipe "../cookbooks/starship/default"
 include_recipe "../cookbooks/packages/essential"
 # include_recipe "../cookbooks/packages/develop" # NOTE: Too slow. If you execute, commentin this line
 # include_recipe "../cookbooks/vichrome/default"
