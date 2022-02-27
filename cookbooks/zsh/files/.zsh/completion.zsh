@@ -1,10 +1,16 @@
 # 補完関数の path を追加
 fpath=($fpath ~/.nodebrew/completions/zsh/ ~/.zsh/completion.d/)
-fpath=(${HOMEBREW_PREFIX}/share/zsh-completions $fpath)
+
+if which brew &> /dev/null; then
+  fpath=($(brew --prefix)/share/zsh-completions $fpath)
+  if [ -e $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  fi
+fi
 
 # 補完をon
-autoload -U compinit
-compinit
+autoload -U compinit && compinit
 
 # tab で順に補完候補を切り替える
 setopt auto_menu
