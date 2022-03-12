@@ -1,10 +1,24 @@
+;; https://robert.kra.hn/posts/2021-02-07_rust-with-emacs/
+(add-to-list 'exec-path (expand-file-name "~/.cargo/bin"))
+
+(defun kill-buffer-compiration ()
+  "Kill compiration buffer with no confirm"
+  (interactive)
+  (let ((kill-buffer-query-functions nil)
+        (kill-buffer "*compilation*")))
+  (delete-other-windows))
+
+; ref: https://stackoverflow.com/questions/9725015/how-do-i-make-the-compilation-window-in-emacs-to-always-be-a-certain-size
+
 (use-package rust-mode
   :ensure t
   :custom rust-format-on-save t
-  :bind
-  ("C-c c" . rust-run)
-  ("C-c C-v" . rust-run)
-  ("C-c t" . rust-test))
+  :config (add-to-list 'lsp-enabled-clients 'rust-analyzer)
+          (add-to-list 'lsp-enabled-clients 'rls)
+  :bind ("C-c c" . rust-run)
+        ("C-c C-v" . rust-run)
+        ("C-c t" . rust-test)
+        ("C-c q" . kill-buffer-compiration))
 
 (use-package cargo
   :ensure t
