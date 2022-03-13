@@ -105,3 +105,6 @@
 
 ;; ¥(yen) を \(backslash) に
 (define-key global-map [165] [92])
+
+;; 非nil値に変更した場合、*compilation* buffer の出力に追随して自動的にスクロールする
+(setq compilation-scroll-output t)
