@@ -96,6 +96,7 @@ recentf
 **/*/.config/gcloud
 **/*/.config/configstore
 **/*/.config/karabiner/automatic_backups
+**/*/.config/solana
 
 # Ignore direnv
 .envrc
