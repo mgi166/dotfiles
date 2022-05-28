@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: sys
+# key: sys
+# binding: direct-keybinding
+# --
+sys.stdin = open('/dev/fd/3')
