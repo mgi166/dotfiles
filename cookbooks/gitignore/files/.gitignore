@@ -70,6 +70,7 @@ elpa
 .extension/
 .dap-*
 .lsp-*
+history.el
 
 */auto-save-list/*
 *~
