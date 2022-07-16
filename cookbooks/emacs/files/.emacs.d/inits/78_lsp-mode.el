@@ -10,9 +10,12 @@
         (lsp-mode . lsp-enable-which-key-integration)
   :bind ("C-c h" . lsp-describe-thing-at-point)
         (:map lsp-mode-map
-          ("M-." . lsp-ui-peek-find-definitions)
-          ("M-," . lsp-ui-peek-find-references)
-          ("M-/" . lsp-ui-peek-find-implementation))
+              ("M-*" . xref-pop-marker-stack)
+              ("M-." . xref-find-definitions)
+              ("M-/" . xref-find-references))
+          ;; ("M-." . lsp-ui-peek-find-definitions)
+          ;; ("M-," . lsp-ui-peek-find-references)
+          ;; ("M-/" . lsp-ui-peek-find-implementation))
   :custom (lsp-rust-server 'rls)
   :commands (lsp))
 
