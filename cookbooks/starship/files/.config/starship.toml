@@ -4,9 +4,9 @@ format = """[\\[](cyan)[$directory$git_branch](white)[\\]](cyan) $character"""
 right_format = "$time"
 
 [character]
-success_symbol = "[%%](white)"
+success_symbol = "[%](white)"
 # success_symbol = "[[$directory](white)](bold cyan) [%%](white)"
-error_symbol = "[%%](red)"
+error_symbol = "[%](red)"
 
 [aws]
 disabled = true
