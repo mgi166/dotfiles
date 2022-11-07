@@ -1,4 +1,4 @@
-##### 日本語
+### 日本語
 export LANG=ja_JP.UTF-8
 
 # rbenv
@@ -73,19 +73,9 @@ export PATH="$HOME/.flutter/bin:$PATH"
 # rust
 export PATH="$PATH:${HOME}/.cargo/bin"
 
-# export KUBECONFIG=${KUBECONFIG:-$HOME/.kube/config}
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('~/.anaconda/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "~/.anaconda/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "~/.anaconda/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="~/.anaconda/anaconda3/bin:$PATH"
-    fi
+# aquaproj
+if which aqua > /dev/null; then
+  export AQUA_ROOT_DIR=${XDG_DATA_HOME:-$HOME}/.aqua
+  export PATH="${AQUA_ROOT_DIR}/bin:$PATH"
+  export AQUA_GLOBAL_CONFIG="${AQUA_ROOT_DIR}/global/aqua.yaml"
 fi
-unset __conda_setup
-# <<< conda initialize <<<
