@@ -2,6 +2,7 @@
   "packages": {
     "essential": [
       "ag",
+      "aquaproj/aqua/aqua",
       "bash",
       "cmigemo",
       "direnv",
