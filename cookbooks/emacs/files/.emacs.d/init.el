@@ -1,6 +1,5 @@
 (setq gc-cons-threshold 134217728)
 (setq byte-compile-warnings '(not cl-functions obsolete))
-(require 'cl)
 
 ;; 引数の directory とその sub_directory を load-path に追加
 (defun add-to-load-path (&rest paths)
