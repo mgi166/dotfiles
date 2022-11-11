@@ -86,7 +86,7 @@ recentf
 
 # Ignore zsh
 .zsh/.zcompdump
-*/zsh/*/.zsh/completion.d
+cookbooks/zsh/files/.zsh/completion.d
 
 # Ignore svn
 .svn
