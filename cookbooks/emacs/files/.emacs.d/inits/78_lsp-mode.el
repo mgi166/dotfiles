@@ -19,12 +19,12 @@
   :custom (lsp-rust-server 'rls)
   :commands (lsp))
 
-(dap-register-debug-template
-  "LLDB::Run vs-code"
-  (list :type "lldb"
-        :request "launch"
-        :program "target/debug/rpn"
-        :name "LLDB::Run"))
+;(dap-register-debug-template
+;  "LLDB::Run vs-code"
+;  (list :type "lldb"
+;        :request "launch"
+;        :program "target/debug/rpn"
+;        :name "LLDB::Run"))
 
 (use-package lsp-ui
   :ensure t
@@ -58,12 +58,12 @@
     (lsp-ui-peek-fontify 'on-demand) ;; never, on-demand, or always
   :commands (lsp-ui-mode))
 
-(use-package company-lsp
-  :ensure t
-  :custom
-  (company-lsp-cache-candidates t) ;; always using cache
-  (company-lsp-async t)
-  (company-lsp-enable-recompletion nil))
+;; (use-package company-lsp
+;;   :ensure t
+;;   :custom
+;;   (company-lsp-cache-candidates t) ;; always using cache
+;;   (company-lsp-async t)
+;;   (company-lsp-enable-recompletion nil))
 
 (use-package helm-lsp :commands helm-lsp-workspace-symbol)
 
