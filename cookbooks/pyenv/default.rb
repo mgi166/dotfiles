@@ -3,5 +3,5 @@ git File.expand_path("~/.pyenv") do
 end
 
 git File.expand_path("~/.pyenv/plugins/pyenv-update") do
-  repository "https://github.com/pyenv/pyenv-update.git"a
+  repository "https://github.com/pyenv/pyenv-update.git"
 end
