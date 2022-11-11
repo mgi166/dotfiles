@@ -13,8 +13,8 @@
           (set-face-background 'git-gutter:added "Gray18")
           (set-face-background 'git-gutter:deleted "Gray18")
 
-          (set-face-attribute 'default nil :family "HackGenNerd" :height 220)
-          (set-fontset-font nil '(#x80 . #x10ffff) (font-spec :family "HackGenNerd"))
+          (set-face-attribute 'default nil :family "HackGen" :height 220)
+          (set-fontset-font nil '(#x80 . #x10ffff) (font-spec :family "HackGen"))
 
           (defface my-hl-line-face
             '((((class color) (background dark))
