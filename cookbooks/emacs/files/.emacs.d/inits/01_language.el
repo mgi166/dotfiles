@@ -11,9 +11,9 @@
 
 ;; font の設定
 (set-face-attribute 'default nil
-                    :family "Ricty"
+                    :family "HackGen Console"
                     :height 200)
 
 (set-fontset-font "fontset-default"
                   'japanese-jisx0208
-                  (font-spec :family "Ricty"))
+                  (font-spec :family "HackGen Console"))
