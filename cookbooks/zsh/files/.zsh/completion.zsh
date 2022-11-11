@@ -32,3 +32,7 @@ setopt complete_aliases
 
 # 補完時に文字列末尾へカーソル移動
 setopt always_to_end
+
+if which kubectl &> /dev/null; then
+  compdef kubectl kube
+fi

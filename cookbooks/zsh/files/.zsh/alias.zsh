@@ -62,9 +62,6 @@ alias ya='yarn'
 alias dc='docker-compose'
 alias kube='kubectl'
 alias sk='skaffold'
-if which kubectl &> /dev/null; then
-  compdef kube=kubectl
-fi
 
 alias arog=argo
 alias stern='stern --color always'
