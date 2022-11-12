@@ -12,6 +12,8 @@
       "kubectl",
       "peco",
       "knqyf263/pet/pet",
+      "font-hackgen",
+      "font-hackgen-nerd",
       "pstree",
       "readline",
       "reattach-to-user-namespace",
