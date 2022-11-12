@@ -59,8 +59,13 @@
    '(helm-source-buffers-list helm-source-ls-git helm-source-recentf helm-elscreen-source-history-list helm-elscreen-source-list helm-source-buffer-not-found))
  '(helm-truncate-lines t)
  '(package-selected-packages
-   '(helm-elscreen use-package color-theme-modern rust-mode helm-gtags package-build shut-up epl git commander f dash s))
- '(terraform-indent-level 4))
+   '(company-lsp helm-elscreen use-package color-theme-modern rust-mode helm-gtags package-build shut-up epl git commander f dash s))
+ '(terraform-indent-level 4)
+ '(typescript-indent-level 2)
+ '(warning-suppress-log-types
+   '(((package reinitialization))
+     ((package reinitialization))))
+ '(warning-suppress-types '(((package reinitialization)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
