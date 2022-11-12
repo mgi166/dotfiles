@@ -20,3 +20,7 @@ end
 execute "killall SystemUIServer" do
   action :nothing
 end
+
+execute "sudo softwareupdate --install-rosetta" do
+  not_if "pkgutil --files com.apple.pkg.RosettaUpdateAuto | grep rosetta"
+end
