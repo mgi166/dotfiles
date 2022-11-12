@@ -20,8 +20,8 @@
 ;; M-x package-refresh-contents で repository を最新にする
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(package-initialize)
 ;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;(package-initialize)
 
 ;; cask.el
 (condition-case err
