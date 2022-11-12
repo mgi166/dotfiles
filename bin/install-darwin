@@ -23,6 +23,7 @@ bin/mitamae local -l debug cookbooks/aws/default.rb
 bin/mitamae local -l debug cookbooks/docker/default.rb
 bin/mitamae local -l debug cookbooks/font/default.rb
 bin/mitamae local -l debug cookbooks/peco/default.rb
+bin/mitamae local -l debug cookbooks/pet/default.rb
 bin/mitamae local -l debug cookbooks/aquaproj/default.rb
 bin/mitamae local -l debug cookbooks/tmux/default.rb
 bin/mitamae local -l debug cookbooks/emacs/default.rb
