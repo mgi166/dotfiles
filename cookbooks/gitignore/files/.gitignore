@@ -71,6 +71,7 @@ elpa
 .dap-*
 .lsp-*
 history.el
+async-bytecomp.log
 
 */auto-save-list/*
 *~
