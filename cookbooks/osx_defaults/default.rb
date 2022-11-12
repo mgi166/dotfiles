@@ -3,6 +3,8 @@
 
 location = "~/Pictures/Screenshots"
 
+directory File.expand_path("~/Pictures/Screenshots")
+
 execute "defaults write com.apple.screencapture location '#{location}'" do
   not_if "defaults read com.apple.screencapture location | grep '^#{location}$'"
   notifies :run, 'execute[killall SystemUIServer]'
