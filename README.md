@@ -27,6 +27,11 @@ bin/setup
 bin/cleanup
 ```
 
+## Manual Setups
+
+- [ ] [bettertouchtool](cookbooks/bettertouchtools/README.md)
+- [ ] [osx_default](cookbooks/osx_default/README.md)
+
 # Stacks
 
 * [itamae-kitchen/mitamae](https://github.com/itamae-kitchen/mitamae)
