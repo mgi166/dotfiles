@@ -22,5 +22,5 @@ execute "killall SystemUIServer" do
 end
 
 execute "sudo softwareupdate --install-rosetta" do
-  not_if "pkgutil --files com.apple.pkg.RosettaUpdateAuto | grep rosetta"
+  not_if "(uname -m | grep arm64) && (pkgutil --files com.apple.pkg.RosettaUpdateAuto | grep rosetta)"
 end
