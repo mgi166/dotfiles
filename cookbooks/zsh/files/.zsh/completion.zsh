@@ -34,5 +34,8 @@ setopt complete_aliases
 setopt always_to_end
 
 if which kubectl &> /dev/null; then
+  if [ ! -e ~/.zsh/completion.d/_kubectl ]; then
+    kubectl completion zsh > ~/.zsh/completion.d/_kubectl
+  fi
   compdef kubectl kube
 fi
