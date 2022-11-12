@@ -39,7 +39,6 @@
       "helmfile",
       "imagemagick",
       "kayac/tap/ecspresso",
-      "kustomize",
       "libxml2",
       "libyaml",
       "mecab",
