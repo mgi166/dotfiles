@@ -29,8 +29,8 @@
     "develop": [
       "argo",
       "circleci",
-      "ctags",
       "conftest",
+      "ctags",
       "ffmpeg",
       "gettext",
       "gh",
