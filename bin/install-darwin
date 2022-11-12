@@ -32,5 +32,6 @@ bin/mitamae local -l debug cookbooks/rbenv/default.rb
 bin/mitamae local -l debug cookbooks/bettertouchtools/default.rb
 bin/mitamae local -l debug cookbooks/karabiner/default.rb
 bin/mitamae local -l debug cookbooks/alacritty/default.rb
+bin/mitamae local -l debug cookbooks/starship/default.rb
 bin/mitamae local -l debug --node-json nodes/darwin.json cookbooks/packages/essential.rb
 bin/mitamae local -l debug --node-json nodes/darwin.json cookbooks/packages/develop.rb
