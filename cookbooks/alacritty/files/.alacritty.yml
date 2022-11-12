@@ -559,9 +559,9 @@ key_bindings:
   #- { key: L,         mods: Control, mode: ~Vi,  chars: "\x0c"          }
   #- { key: PageUp,    mods: Shift,   mode: ~Alt, action: ScrollPageUp,  }
   #- { key: PageDown,  mods: Shift,   mode: ~Alt, action: ScrollPageDown }
-  - { key: F, mods: Alt, chars: "\x1bf" }
-  - { key: B, mods: Alt, chars: "\x1bb" }
-  - { key: D, mods: Alt, chars: "\x1bd" }
+  - { key: F, mods: Alt, chars: "\x1bf" } # NOTE: version > 0.11.x is broken this keybinding
+  - { key: B, mods: Alt, chars: "\x1bb" } # NOTE: version > 0.11.x is broken this keybinding
+  - { key: D, mods: Alt, chars: "\x1bd" } # NOTE: version > 0.11.x is broken this keybinding
   - { key: Q, mods: Control, chars: "\x11" } # https://github.com/alacritty/alacritty/issues/1359#issuecomment-430265381
   - { key: V, mods: Alt, chars: "\x1bv" }
   - { key: W, mods: Alt, chars: "\x1bw" }
