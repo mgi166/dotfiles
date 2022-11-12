@@ -99,6 +99,7 @@ cookbooks/zsh/files/.zsh/completion.d
 **/*/.config/configstore
 **/*/.config/karabiner/automatic_backups
 **/*/.config/solana
+**/*/.config/starship.toml
 
 # Ignore direnv
 .envrc
