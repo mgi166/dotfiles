@@ -57,7 +57,7 @@
  '(git-gutter:update-interval 2)
  '(helm-truncate-lines t)
  '(package-selected-packages
-   '(lsp-dart company-lsp use-package color-theme-modern rust-mode helm-gtags package-build shut-up epl git commander f dash s))
+   '(lsp-dired-mode helm-lsp lsp-dart company-lsp use-package color-theme-modern rust-mode helm-gtags package-build shut-up epl git commander f dash s))
  '(terraform-indent-level 4)
  '(typescript-indent-level 2)
  '(warning-suppress-log-types
