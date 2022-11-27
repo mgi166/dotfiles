@@ -56,14 +56,18 @@
  '(git-gutter:modified-sign "=")
  '(git-gutter:update-interval 2)
  '(helm-truncate-lines t)
+ '(js-indent-level 2)
  '(package-selected-packages
-   '(lsp-dired-mode helm-lsp lsp-dart company-lsp use-package color-theme-modern rust-mode helm-gtags package-build shut-up epl git commander f dash s))
+   '(treemacs-tab-bar lsp-dired-mode helm-lsp lsp-dart company-lsp use-package color-theme-modern rust-mode helm-gtags package-build shut-up epl git commander f dash s))
  '(terraform-indent-level 4)
  '(typescript-indent-level 2)
  '(warning-suppress-log-types
    '(((package reinitialization))
      ((package reinitialization))))
- '(warning-suppress-types '(((package reinitialization)))))
+ '(warning-suppress-types
+   '((files)
+     ((package reinitialization))
+     ((package reinitialization)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
