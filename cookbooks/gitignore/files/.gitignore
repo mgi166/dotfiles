@@ -81,6 +81,7 @@ async-bytecomp.log
 recentf
 **/*/.emacs.d/url/
 **/*/.emacs.d/transient/*
+**/*/.emacs.d/.cache/*
 
 # Ignore vagrant caches
 /.vagrant
