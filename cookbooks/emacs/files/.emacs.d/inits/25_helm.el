@@ -18,8 +18,6 @@
            '(helm-mini-default-sources '(helm-source-buffers-list
                                          helm-source-ls-git
                                          helm-source-recentf
-                                         helm-elscreen-source-history-list
-                                         helm-elscreen-source-list
                                          helm-source-buffer-not-found)))
   :bind ("M-o" . helm-occur)
         ("C-;" . 'helm-M-x)
