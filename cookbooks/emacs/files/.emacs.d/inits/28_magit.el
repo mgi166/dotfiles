@@ -21,19 +21,15 @@
   "Restores the previous window configuration and kills the magit buffer"
   (interactive)
   (jump-to-register :magit-fullscreen)
-  (delete-all-magit-buffers)
-  (elscreen-kill-all-scratch-screen)
-  (elscreen-squish-duplicated-screens))
+  (delete-all-magit-buffers))
 
 (define-key magit-status-mode-map (kbd "q") 'magit-mode-quit-window)
 
 (defun with-editor-post-finish-hook-1 ()
-  (delete-all-magit-buffers)
-  (elscreen-kill-all-scratch-screen))
+  (delete-all-magit-buffers))
 
 (defun with-editor-post-cancel-hook-1 ()
-  (delete-all-magit-buffers)
-  (elscreen-kill-all-scratch-screen))
+  (delete-all-magit-buffers))
 
 (set-face-foreground 'magit-blame-heading "white")
 (set-face-background 'magit-blame-heading "grey25")
