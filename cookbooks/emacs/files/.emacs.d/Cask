@@ -31,7 +31,6 @@
 (depends-on "deferred" "0.3.1")
 (depends-on "dockerfile-mode")
 (depends-on "eldoc" "1.11")
-(depends-on "elscreen")
 (depends-on "emacs" "24.3")
 (depends-on "epc" "0.1.0")
 (depends-on "epl" "0.8")
