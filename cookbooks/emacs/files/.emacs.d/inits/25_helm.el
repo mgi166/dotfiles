@@ -18,6 +18,7 @@
            '(helm-mini-default-sources '(helm-source-buffers-list
                                          helm-source-ls-git
                                          helm-source-recentf
+                                         helm-source-files-in-current-dir
                                          helm-source-buffer-not-found)))
   :bind ("M-o" . helm-occur)
         ("C-;" . 'helm-M-x)
@@ -28,6 +29,7 @@
         ("M-r" . helm-resume)
         ("C-x C-b" . 'my/helm-mini)
         ("C-x b" . 'my/helm-mini)
+        ("C-x <left>" . 'my/helm-mini) ;; FIXME: I thought I pressed `C-x C-b`, but it was determined to be `C-x <left>`.
         (:map helm-map ("C-h" . delete-backward-char)))
 
 (use-package helm-config)
