@@ -1,4 +1,5 @@
 (use-package git-gutter-fringe
+  :ensure t
   :custom (setq-default left-fringe-width  18)
           (setq-default right-fringe-width 18)
           (custom-set-variables
