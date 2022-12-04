@@ -10,6 +10,7 @@
   :ensure t)
 
 (use-package wgrep-ag
+  :ensure t
   :init (add-hook 'ag-mode-hook 'wgrep-ag-setup)
         ;; http://qiita.com/koshigoe/items/eadf026fbfc3a704d63d
         (setq ag-group-matches nil)
