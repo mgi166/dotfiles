@@ -1,4 +1,5 @@
 (use-package yasnippet
+  :ensure t
   :init (setq yas-snippet-dirs nil)
         (setq yas-snippet-dirs '("~/.emacs.d/snippets"))
         (defun toggle-yas-mode ()
