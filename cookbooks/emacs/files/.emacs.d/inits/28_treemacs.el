@@ -81,6 +81,6 @@
         ("M-t"   . treemacs)))
 
 (use-package treemacs-tab-bar
-  :after (treemacs)
   :ensure t
+  :after (treemacs)
   :config (treemacs-set-scope-type 'Tabs))
