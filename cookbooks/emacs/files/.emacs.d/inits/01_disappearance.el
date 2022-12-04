@@ -32,6 +32,6 @@
 (setq ring-bell-function 'ignore)
 
 ;; "ls does not support --dired see `dired-use-ls-dired' for more details." とミニバッファに表示しない
-(use-package ls-lisp)
-(setq ls-lisp-use-insert-directory-program nil)
-(setq dired-use-ls-dired nil)
+(use-package ls-lisp
+  :config (setq ls-lisp-use-insert-directory-program nil)
+          (setq dired-use-ls-dired nil))
