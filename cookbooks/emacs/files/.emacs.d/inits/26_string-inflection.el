@@ -1,4 +1,5 @@
-(use-package string-inflection)
+(use-package string-inflection
+  :ensure t)
 
 (defun my/string-inflection-cycle-function (str)
   "foo_bar => fooBar => FooBar => FOO_BAR => foo_bar"
