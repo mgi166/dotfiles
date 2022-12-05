@@ -1,9 +1,8 @@
-(require 'magit)
-(define-key global-map (kbd "M-m") 'magit-status)
-(define-key global-map (kbd "C-x g") 'magit-status)
-
-(define-key magit-status-mode-map (kbd "TAB") 'magit-diff-dwim)
-(define-key magit-log-mode-map (kbd "TAB") 'magit-diff-dwim)
+(use-package magit
+  :ensure t
+  :bind (("M-m" . 'magit-status)
+         (:map magit-status-mode-map
+               ("q" . 'magit-mode-quit-window))))
 
 (defun delete-all-magit-buffers ()
   "Delete all *magit buffer"
@@ -23,13 +22,11 @@
   (jump-to-register :magit-fullscreen)
   (delete-all-magit-buffers))
 
-(define-key magit-status-mode-map (kbd "q") 'magit-mode-quit-window)
-
 (defun with-editor-post-finish-hook-1 ()
   (delete-all-magit-buffers))
 
 (defun with-editor-post-cancel-hook-1 ()
   (delete-all-magit-buffers))
 
-(set-face-foreground 'magit-blame-heading "white")
-(set-face-background 'magit-blame-heading "grey25")
+;; (set-face-foreground 'magit-blame-heading "white")
+;; (set-face-background 'magit-blame-heading "grey25")
