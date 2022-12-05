@@ -1,6 +1,7 @@
 ; NOTE: GO111MODULE=on go get golang.org/x/tools/gopls@latest
 ; SEE: https://github.com/golang/tools/blob/master/gopls/doc/emacs.md
 (use-package go-mode
+  :ensure t
   ; NOTE: $ go get golang.org/x/tools/cmd/goimports
   :init (setq gofmt-command "goimports")
         (add-hook 'before-save-hook 'gofmt-before-save)
