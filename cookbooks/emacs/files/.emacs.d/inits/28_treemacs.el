@@ -52,8 +52,8 @@
           treemacs-text-scale                      nil
           treemacs-user-mode-line-format           nil
           treemacs-user-header-line-format         nil
-          treemacs-wide-toggle-width               35
-          treemacs-width                           35
+          treemacs-wide-toggle-width               30
+          treemacs-width                           30
           treemacs-width-increment                 1
           treemacs-width-is-initially-locked       t
           treemacs-workspace-switch-cleanup        nil)
@@ -84,3 +84,16 @@
   :ensure t
   :after (treemacs)
   :config (treemacs-set-scope-type 'Tabs))
+
+(use-package treemacs-projectile
+  :ensure t
+  :after (treemacs projectile))
+
+(use-package treemacs-icons-dired
+  :ensure t
+  :after (treemacs dired)
+  :config (treemacs-icons-dired-mode))
+
+(use-package treemacs-magit
+  :ensure t
+  :after (treemacs magit))
