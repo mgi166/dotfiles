@@ -82,6 +82,8 @@ recentf
 **/*/.emacs.d/url/
 **/*/.emacs.d/transient/*
 **/*/.emacs.d/.cache/*
+projectile-bookmarks.eld
+markdown-preview
 
 # Ignore vagrant caches
 /.vagrant
