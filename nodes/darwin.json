@@ -42,6 +42,7 @@
       "kayac/tap/ecspresso",
       "libxml2",
       "libyaml",
+      "markdown",
       "mecab",
       "mysql",
       "nginx",
