@@ -20,7 +20,9 @@
 ;; M-x package-refresh-contents で repository を最新にする
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+
 ;(package-initialize)
 
 ;; cask.el
