@@ -14,3 +14,5 @@
 
 (define-key global-map (kbd "M-]") 'tab-next)
 (define-key global-map (kbd "M-[") 'tab-previous)
+(define-key global-map (kbd "s-}") 'tab-next)
+(define-key global-map (kbd "s-{") 'tab-previous)
