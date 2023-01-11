@@ -13,9 +13,11 @@ if ! [ -f "bin/${mitamae_cache}" ]; then
       case "$(uname -m)" in
       "arm64")
         mitamae_bin="mitamae-aarch64-darwin"
+        ;;
       *)
         mitamae_bin="mitamae-x86_64-darwin"
-      ;;
+        ;;
+      esac ;;
     *)
       echo "unexpected uname: $(uname)"
       exit 1
