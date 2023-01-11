@@ -91,14 +91,6 @@
 (cua-mode t)
 (setq cua-enable-cua-keys nil)
 
-;; ミニバッファの履歴を "C-p" と "C-n" で辿れるようにする
-(define-key minibuffer-local-must-match-map "\C-p" 'previous-history-element)
-(define-key minibuffer-local-must-match-map "\C-n" 'next-history-element)
-(define-key minibuffer-local-completion-map "\C-p" 'previous-history-element)
-(define-key minibuffer-local-completion-map "\C-n" 'next-history-element)
-(define-key minibuffer-local-map "\C-p" 'previous-history-element)
-(define-key minibuffer-local-map "\C-n" 'next-history-element)
-
 ;; キャレット(カーソル)のタイプと表示
 (setq cursor-type 'box)
 (blink-cursor-mode 0)
