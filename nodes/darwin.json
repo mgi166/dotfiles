@@ -59,6 +59,7 @@
       "sqlite",
       "starship",
       "stern",
+      "tailscale",
       "telnet",
       "wireshark"
     ],
