@@ -32,7 +32,7 @@
       "conftest",
       "ctags",
       "ffmpeg",
-      "dart@2.18",
+      "dart-lang/dart/dart",
       "gettext",
       "gh",
       "goreleaser",
