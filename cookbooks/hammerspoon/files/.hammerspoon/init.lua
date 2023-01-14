@@ -132,7 +132,7 @@ appsWatcher:start()
 -- Mouse pointer を Display に jump させる
 local function moveMousePointerOnDisplay()
    displayCoOrdinates = {}
-   displayCoOrdinates['x'] = 2390
+   displayCoOrdinates['x'] = -2390
    displayCoOrdinates['y'] = 610
    hs.mouse.setAbsolutePosition(displayCoOrdinates)
 end
