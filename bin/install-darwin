@@ -27,7 +27,7 @@ bin/mitamae local -l debug cookbooks/pet/default.rb
 bin/mitamae local -l debug cookbooks/aquaproj/default.rb
 bin/mitamae local -l debug cookbooks/tmux/default.rb
 bin/mitamae local -l debug cookbooks/emacs/default.rb
-bin/mitamae local -l debug cookbooks/nodebrew/default.rb
+bin/mitamae local -l debug cookbooks/nodenv/default.rb
 bin/mitamae local -l debug cookbooks/pyenv/default.rb
 bin/mitamae local -l debug cookbooks/rbenv/default.rb
 bin/mitamae local -l debug cookbooks/bettertouchtools/default.rb
