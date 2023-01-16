@@ -1,5 +1,6 @@
 ### 日本語
 export LANG=ja_JP.UTF-8
+export LC_ALL=$LANG
 
 # rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
@@ -56,7 +57,13 @@ if [ -e $PYENV_ROOT/plugins/pyenv-virtualenv ]; then
   eval "$(pyenv virtualenv-init -)"
 fi
 
-export LC_ALL=$LANG
+# nodenv
+export NODENV_ROOT=$HOME/.nodenv
+export PATH=$NODENV_ROOT/bin:$PATH
+if which nodenv > /dev/null; then
+  eval "$(nodenv init -)"
+fi
+
 # tfenv
 export PATH="$HOME/.tfenv/bin:$PATH"
 
