@@ -26,6 +26,9 @@
                                         "bundle_identifiers": [
                                             "^io\\.alacritty$",
                                             "^org\\.alacritty$",
+                                            "^com\\.microsoft\\.Excel$",
+                                            "^com\\.microsoft\\.Powerpoint$",
+                                            "^com\\.microsoft\\.Word$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -59,6 +62,9 @@
                                         "bundle_identifiers": [
                                             "^io\\.alacritty$",
                                             "^org\\.alacritty$",
+                                            "^com\\.microsoft\\.Excel$",
+                                            "^com\\.microsoft\\.Powerpoint$",
+                                            "^com\\.microsoft\\.Word$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
