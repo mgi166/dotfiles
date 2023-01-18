@@ -39,3 +39,9 @@ if which kubectl &> /dev/null; then
   fi
   compdef kubectl kube
 fi
+
+if which pyenv &> /dev/null; then
+  if [ ! -e $(pyenv root)/completions/pyenv.zsh ]; then
+    source $(pyenv root)/completions/pyenv.zsh
+  fi
+fi
