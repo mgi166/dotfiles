@@ -132,7 +132,7 @@ appsWatcher:start()
 -- Mouse pointer を Display に jump させる
 local function moveMousePointerOnDisplay()
    displayCoOrdinates = {}
-   displayCoOrdinates['x'] = -2390
+   displayCoOrdinates['x'] = 600
    displayCoOrdinates['y'] = 610
    hs.mouse.setAbsolutePosition(displayCoOrdinates)
 end
@@ -140,8 +140,8 @@ end
 -- Mouse pointer を MacOS に jump させる
 local function moveMousePointerOnMac()
    displayCoOrdinates = {}
-   displayCoOrdinates['x'] = 600
-   displayCoOrdinates['y'] = 300
+   displayCoOrdinates['x'] = 4300
+   displayCoOrdinates['y'] = 900
    hs.mouse.setAbsolutePosition(displayCoOrdinates)
 end
 
