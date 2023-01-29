@@ -15,13 +15,13 @@ $ git clone https://github.com/mgi166/dotfiles.git ~/Dotfiles
 bin/install
 ```
 
-## Setup mitamae
+### Setup mitamae
 
 ```
 bin/setup
 ```
 
-## Cleanup mitamae
+### Cleanup mitamae
 
 ```
 bin/cleanup
@@ -29,8 +29,14 @@ bin/cleanup
 
 ## Manual Setups
 
-- [ ] [bettertouchtool](cookbooks/bettertouchtools/README.md)
-- [ ] [osx_default](cookbooks/osx_default/README.md)
+After bin/install is executed, setup is performed in manual.
+
+### OSX
+
+- [ ] Manual Setups
+  - [ ] [bettertouchtool](https://github.com/mgi166/dotfiles/cookbooks/bettertouchtools/README.md)
+  - [ ] [osx_default](https://github.com/mgi166/dotfiles/cookbooks/osx_default/README.md)
+- [ ] `sudo reboot`
 
 # Stacks
 
