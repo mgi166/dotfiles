@@ -1,16 +1,3 @@
-; http://garaemon.hatenadiary.jp/entry/2018/06/08/005533
-(defun my/helm-mini ()
-   (interactive)
-    (require 'helm-x-files)
-    (unless helm-source-buffers-list
-      (setq helm-source-buffers-list
-            (helm-make-source "Buffers" 'helm-source-buffers)))
-    (setq helm-source-ls-git (helm-ls-git-build-ls-git-source))
-    (helm :sources helm-mini-default-sources
-          :buffer "*helm mini*"
-          :ff-transformer-show-only-basename nil
-          :truncate-lines helm-buffers-truncate-lines))
-
 (use-package helm
   :ensure t
   :custom (custom-set-variables
@@ -43,3 +30,15 @@
 
 (use-package helm-descbinds
   :ensure t)
+; http://garaemon.hatenadiary.jp/entry/2018/06/08/005533
+;; @deprecated
+;; (defun my/helm-mini ()
+;;    (interactive)
+;;     (unless helm-source-buffers-list
+;;       (setq helm-source-buffers-list
+;;             (helm-make-source "Buffers" 'helm-source-buffers)))
+;;     (helm :sources my/helm-mini-default-sources
+;;           :buffer "*my/helm mini*"
+;;           :ff-transformer-show-only-basename nil
+;;           :truncate-lines helm-buffers-truncate-lines))
+
