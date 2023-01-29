@@ -25,6 +25,9 @@
 
 (use-package helm-descbinds
   :ensure t)
+
+(use-package helm-for-files)
+
 ; http://garaemon.hatenadiary.jp/entry/2018/06/08/005533
 ;; @deprecated
 ;; (defun my/helm-mini ()
