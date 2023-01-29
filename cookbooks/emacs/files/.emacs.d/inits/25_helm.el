@@ -28,18 +28,8 @@
 
 (use-package helm-for-files)
 
-; http://garaemon.hatenadiary.jp/entry/2018/06/08/005533
-;; @deprecated
-;; (defun my/helm-mini ()
-;;    (interactive)
-;;     (unless helm-source-buffers-list
-;;       (setq helm-source-buffers-list
-;;             (helm-make-source "Buffers" 'helm-source-buffers)))
-;;     (helm :sources my/helm-mini-default-sources
-;;           :buffer "*my/helm mini*"
-;;           :ff-transformer-show-only-basename nil
-;;           :truncate-lines helm-buffers-truncate-lines))
-
+;; http://garaemon.hatenadiary.jp/entry/2018/06/08/005533
+;; https://www.ncaq.net/2018/03/29/14/01/44/
 (defun my/helm-mini ()
   "helm mini to custom helm sources"
   (interactive)
