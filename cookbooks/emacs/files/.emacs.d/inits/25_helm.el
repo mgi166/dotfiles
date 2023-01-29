@@ -33,8 +33,8 @@
         (:map helm-map ("C-h" . delete-backward-char)))
 
 (use-package helm-config)
-(use-package vc)
-(use-package vc-git)
+;; (use-package vc)
+;; (use-package vc-git)
 (use-package helm-files)
 (use-package helm-types)
 
