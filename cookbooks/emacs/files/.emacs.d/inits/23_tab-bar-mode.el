@@ -6,6 +6,7 @@
 (define-key ctl-z-map (kbd "t") 'dired-other-tab)
 (define-key ctl-z-map (kbd "u") 'tab-undo)
 (define-key ctl-z-map (kbd "d") 'dired-other-tab)
+(define-key ctl-z-map (kbd "s") 'tab-move)
 (define-key ctl-z-map (kbd "C-k") 'tab-close)
 (define-key ctl-z-map (kbd "C-c") 'tab-new)
 (define-key ctl-z-map (kbd "C-d") 'dired-other-tab)
