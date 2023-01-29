@@ -5,12 +5,12 @@
   :bind ("M-o" . helm-occur)
         ("C-;" . 'helm-M-x)
         ("C-c C-b" . helm-ls-git-ls)
-        ("C-c d" . helm-browse-project)
+        ("C-c d" . my/helm-browse-project)
         ("C-c C-d" . helm-browse-project)
         ("M-y" . helm-show-kill-ring)
         ("M-r" . helm-resume)
         ("C-x C-b" . 'my/helm-mini)
-        ("C-x b" . 'my/helm-mini)
+        ("C-x b" . 'my/helm-mini+)
         ("C-x <left>" . 'my/helm-mini) ;; FIXME: I thought I pressed `C-x C-b`, but it was determined to be `C-x <left>`.
         (:map helm-map ("C-h" . delete-backward-char)))
 
