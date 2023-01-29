@@ -1,12 +1,7 @@
 (use-package helm
   :ensure t
   :custom (custom-set-variables
-           '(helm-truncate-lines t)
-           '(helm-mini-default-sources '(helm-source-buffers-list
-                                         helm-source-ls-git
-                                         helm-source-recentf
-                                         helm-source-files-in-current-dir
-                                         helm-source-buffer-not-found)))
+           '(helm-truncate-lines t))
   :bind ("M-o" . helm-occur)
         ("C-;" . 'helm-M-x)
         ("C-c C-b" . helm-ls-git-ls)
