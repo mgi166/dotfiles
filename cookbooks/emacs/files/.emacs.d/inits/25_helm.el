@@ -37,3 +37,43 @@
 ;;           :ff-transformer-show-only-basename nil
 ;;           :truncate-lines helm-buffers-truncate-lines))
 
+(defun my/helm-mini ()
+  "helm mini to custom helm sources"
+  (interactive)
+  ;; Refresh the buffer list every time
+  (unless helm-source-buffers-list
+    (setq helm-source-buffers-list
+          (helm-make-source "Buffers" 'helm-source-buffers)))
+
+  ;; Refresh the helm-ls-git source every time
+  (setq helm-source-ls-git-status
+        (helm-ls-git-build-git-status-source)
+        helm-source-ls-git
+        (helm-ls-git-build-ls-git-source)
+        helm-source-ls-git-buffers
+        (helm-ls-git-build-buffers-source))
+
+  ;; https://w.atwiki.jp/ntemacs/pages/32.html
+  ;; tramp で開くときに helm-source-files-in-current-dir が遅くなりがちなので外す
+  ;; 実際 helm-source-ls-git でなんとかなることが多いので問題ないはず
+  (setq my/helm-ls-git-default-sources '(helm-source-buffers-list
+                                         helm-source-ls-git-status
+                                         helm-source-ls-git
+                                         helm-source-recentf
+                                         helm-source-buffer-not-found))
+
+  (helm :sources my/helm-ls-git-default-sources
+        :ff-transformer-show-only-basename nil
+        :truncate-lines helm-buffers-truncate-lines
+        :buffer "*my/helm mini*"))
+
+(defun my/helm-mini+ ()
+  "Create new tab and my/helm-mini"
+  (interactive)
+  (tab-new)
+  (my/helm-mini))
+
+(defun my/helm-browse-project ()
+  "Create screen and helm-ls-git-ls+"
+  (tab-new)
+  (helm-browse-project))
