@@ -163,3 +163,6 @@ __debug_bin
 
 # vscode
 .vscode
+
+# fvm
+.fvm
