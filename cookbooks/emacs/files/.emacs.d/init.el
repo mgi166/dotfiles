@@ -47,9 +47,11 @@
 ;; (initchart-record-execution-time-of require feature)
 
 ;; init-loader.el
-(require 'init-loader)
-(setq init-loader-show-log-after-init nil) ;; debug したい時は t にする
-(init-loader-load "~/.emacs.d/inits")
+(use-package init-loader
+  :ensure t
+  :init (setq init-loader-show-log-after-init nil) ;; debug したい時は t にする
+  :config (init-loader-load "~/.emacs.d/inits"))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
