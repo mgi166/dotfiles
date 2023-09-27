@@ -2,8 +2,13 @@
   :ensure t
   :init (add-hook 'python-mode-hook 'highlight-indent-guides-mode)
         (add-hook 'python-mode-hook 'subword-mode)
+        (add-hook 'python-mode-hook 'python-isort-on-save-mode)
+        (add-hook 'python-mode-hook 'python-black-on-save-mode-enable-dwim)
+
+;  :hook (python-mode-hook . jedi:setup)
+  :hook (python-mode . lsp-deferred)
   :config (setq highlight-indent-guides-method 'column)
-  (setq jedi:server-command (list (executable-find "jediepcserver")))
+  (setq jedi:use-shortcuts t)
   (add-to-list 'company-backends 'company-jedi))
 
 (use-package lsp-jedi
