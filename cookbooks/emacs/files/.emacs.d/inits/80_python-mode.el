@@ -12,6 +12,13 @@
             (add-to-list 'lsp-disabled-clients 'pyls)
             (add-to-list 'lsp-enabled-clients 'jedi)))
 
+(use-package 'python-isort
+  :ensure t)
+
+(use-package 'python-black
+  :ensure t
+  :after python)
+
 (use-package company-jedi
   :ensure t
   :config (setq jedi:use-shortcuts t))
