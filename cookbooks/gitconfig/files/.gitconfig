@@ -21,6 +21,8 @@
 	sepr = !hub browse -- pull/$(git symbolic-ref --short HEAD)
 	sw = switch
 	rs = restore
+	cb = branch --contains
+	wip = !git commit --fixup $(git log -1 --pretty=format:"%H" --grep="^fixup" --invert-grep)
 
 [include]
 	path = .gitconfig.local
@@ -39,3 +41,5 @@
 
 [ghq]
 	root = ~/repositories/src
+[rebase]
+	autosquash = true
