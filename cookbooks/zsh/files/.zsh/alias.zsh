@@ -19,7 +19,6 @@ alias csv='cut -d ","'
 alias tsv='cut'
 alias psv='cut -d "|"'
 alias rr='rbenv rehash'
-alias xargs='xargs -I {}'
 
 ## vcs alias
 if which hub > /dev/null; then
