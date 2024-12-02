@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: main
+# key: main
+# --
+void main(List<String> arguments) async {
+  $1
+}
