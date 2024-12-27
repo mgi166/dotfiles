@@ -1,0 +1,154 @@
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "F"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "B"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bd"
+key = "D"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0011"
+key = "Q"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001Bv"
+key = "V"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bw"
+key = "W"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bq"
+key = "Q"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0000"
+key = "Space"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B\\"
+key = "Backslash"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B|"
+key = "Backslash"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B/"
+key = "Slash"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001B?"
+key = "Slash"
+mods = "Alt|Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Semicolon"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Command"
+
+[general]
+live_config_reload = true
+
+[colors.bright]
+black = "#666666"
+blue = "#7aa6da"
+cyan = "#54ced6"
+green = "#9ec400"
+magenta = "#b77ee0"
+red = "#ff3334"
+white = "#ffffff"
+yellow = "#e7c547"
+
+[colors.cursor]
+cursor = "#c0c0c0"
+
+[colors.normal]
+black = "#000000"
+blue = "#7aa6da"
+cyan = "#70c0ba"
+green = "#b9ca4a"
+magenta = "#c397d8"
+red = "#d54e53"
+white = "#eaeaea"
+yellow = "#e6c547"
+
+[colors.selection]
+background = "#5f6ef9"
+text = "#eaeaea"
+
+[colors.vi_mode_cursor]
+cursor = "#c0c0c0"
+
+[cursor]
+style = "Block"
+vi_mode_style = "None"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 20.0
+
+[font.bold]
+family = "HackGen Console"
+style = "Bold"
+
+[font.bold_italic]
+family = "HackGen Console"
+style = "Bold Italic"
+
+[font.italic]
+family = "HackGen Console"
+style = "Italic"
+
+[font.normal]
+family = "HackGen Console"
+style = "Regular"
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = '''/,│`|:"' ()[]{}<>	_-'''
+
+[window]
+dynamic_title = true
+opacity = 0.85
+
+[window.dimensions]
+columns = 144
+lines = 60
+
+[window.position]
+x = 0
+y = 0
+
+[keyboard]
