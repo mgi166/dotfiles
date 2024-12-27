@@ -353,10 +353,10 @@ live_config_reload: true
 # Send ESC (\x1b) before characters when alt is pressed.
 #alt_send_esc: true
 
-selection:
-  # This string contains all characters that are used as separators for
-  # "semantic words" in Alacritty.
-  semantic_escape_chars: ".,=|:\"' ()[]{}<>\t"
+# selection:
+#   # This string contains all characters that are used as separators for
+#   # "semantic words" in Alacritty.
+#   semantic_escape_chars: ".,=|:\"' ()[]{}<>\t"
 
 #mouse:
   # Click settings
