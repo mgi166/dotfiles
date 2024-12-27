@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-mitamae_version="1.12.7"
+mitamae_version="1.14.2"
 mitamae_cache="mitamae-${mitamae_version}"
 
 if ! [ -f "bin/${mitamae_cache}" ]; then
