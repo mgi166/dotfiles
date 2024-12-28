@@ -1,5 +1,5 @@
 [core]
-	editor = emacsclient -nw -q
+	editor = vi
 	excludesfile = ~/.gitignore
 	quotepath = false
 	precomposeunicode = true
@@ -41,5 +41,6 @@
 
 [ghq]
 	root = ~/repositories/src
+
 [rebase]
 	autosquash = true
