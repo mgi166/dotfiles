@@ -33,12 +33,12 @@ setopt complete_aliases
 # 補完時に文字列末尾へカーソル移動
 setopt always_to_end
 
-if which kubectl &> /dev/null; then
-  if [ ! -e ~/.zsh/completion.d/_kubectl ]; then
-    kubectl completion zsh > ~/.zsh/completion.d/_kubectl
-  fi
-  compdef kubectl kube
-fi
+# if which kubectl &> /dev/null; then
+#   if [ ! -e ~/.zsh/completion.d/_kubectl ]; then
+#     kubectl completion zsh > ~/.zsh/completion.d/_kubectl
+#   fi
+#   compdef kubectl kube
+# fi
 
 if which pyenv &> /dev/null; then
   if [ ! -e $(pyenv root)/completions/pyenv.zsh ]; then
