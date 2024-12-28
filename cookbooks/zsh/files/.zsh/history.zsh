@@ -1,6 +1,6 @@
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=30000
+SAVEHIST=30000
 
 # 実行したコマンドラインの実行時刻を保存
 setopt extended_history
