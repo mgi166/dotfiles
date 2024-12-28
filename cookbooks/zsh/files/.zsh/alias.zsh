@@ -20,11 +20,6 @@ alias tsv='cut'
 alias psv='cut -d "|"'
 alias rr='rbenv rehash'
 
-## vcs alias
-if which hub > /dev/null; then
-  alias git='hub'
-fi
-
 alias g='git'
 alias gb='git branch'
 alias gs='git show'
@@ -42,23 +37,11 @@ alias ga='git add --all'
 alias gp='git pull origin `git rev-parse --abbrev-ref HEAD`'
 alias gpp='git push origin $(git rev-parse --abbrev-ref HEAD)'
 
-alias s='svn'
-alias ss='svn st'
-alias sc='svn ci'
-alias so='svn co'
-alias sa='svn add'
-alias sd='svn diff'
-alias sw='svn switch'
-alias sl='svn log -l 3'
-alias sup='svn up'
-
 alias ee='emacs'
 alias em='emacs'
 alias e='emacs'
 alias emasc='emacs'
 
-alias ya='yarn'
-alias dc='docker-compose'
 alias kube='kubectl'
 alias sk='skaffold'
 
