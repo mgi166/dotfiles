@@ -13,9 +13,6 @@
 ;;カーソルの位置が何行目か表示
 (line-number-mode t)
 
-;;行数表示
-(line-number-mode t)
-
 ;;画像ファイルを表示
 (auto-image-file-mode t)
 
