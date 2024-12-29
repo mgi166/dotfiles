@@ -18,11 +18,8 @@
                        ("M-n" . helm-next-source)
                        ("M-p" . helm-previous-source)))
 
-(use-package helm-config)
 ;; (use-package vc)
 ;; (use-package vc-git)
-(use-package helm-files)
-(use-package helm-types)
 
 (use-package helm-ls-git
   :ensure t)
