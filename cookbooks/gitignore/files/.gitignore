@@ -82,6 +82,7 @@ recentf
 **/*/.emacs.d/url/
 **/*/.emacs.d/transient/*
 **/*/.emacs.d/.cache/*
+**/*/custom.el
 projectile-bookmarks.eld
 markdown-preview
 
