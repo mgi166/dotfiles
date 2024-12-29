@@ -100,3 +100,8 @@
 
 ;; 左側に行数表示
 (global-display-line-numbers-mode 1)
+
+;; custom variable の保存先を変更
+(setq custom-file (locate-user-emacs-file "~/.emacs.d/custom.el"))
+(when (file-exists-p (expand-file-name custom-file))
+  (load-file (expand-file-name custom-file)))
