@@ -100,3 +100,6 @@
 
 ;; 非nil値に変更した場合、*compilation* buffer の出力に追随して自動的にスクロールする
 (setq compilation-scroll-output t)
+
+;; 左側に行数表示
+(global-display-line-numbers-mode 1)
