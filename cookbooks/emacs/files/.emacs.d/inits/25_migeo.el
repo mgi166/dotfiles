@@ -1,5 +1,6 @@
 ;; migemo (ローマ字検索で日本語が引っかかるようにする。事前に cmigemo の install が必要)
 (use-package migemo
+  :ensure t
   :init
     (if (eq system-type 'darwin)
       (setq migemo-command (concat (getenv "HOMEBREW_PREFIX") "/bin/cmigemo"))
