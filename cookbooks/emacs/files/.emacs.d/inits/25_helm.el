@@ -1,5 +1,7 @@
 (use-package helm
   :ensure t
+  ;; Seamlessly go to the next/previous source when `helm-next/previous-line`
+  :init (custom-set-variables '(helm-move-to-line-cycle-in-source nil))
   :custom (custom-set-variables
            '(helm-truncate-lines t))
   :bind ("M-o" . helm-occur)
