@@ -1,9 +1,15 @@
 (tab-bar-mode 1)
 (defvar ctl-z-map (make-keymap))
 (define-key global-map (kbd "C-z") ctl-z-map)
+(tab-bar-history-mode 1)
 
-(define-key ctl-z-map (kbd "k") 'tab-close)
-(define-key ctl-z-map (kbd "t") 'dired-other-tab)
+(defun my/tab-close-with-buffer ()
+  "tab close + kill buffer"
+  (interactive)
+  (kill-this-buffer)
+  (tab-close))
+
+(define-key ctl-z-map (kbd "k") 'my/tab-close-with-buffer)
 (define-key ctl-z-map (kbd "u") 'tab-undo)
 (define-key ctl-z-map (kbd "d") 'dired-other-tab)
 (define-key ctl-z-map (kbd "C-s") 'tab-move)
