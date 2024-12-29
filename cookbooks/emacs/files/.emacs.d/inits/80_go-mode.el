@@ -6,10 +6,9 @@
   :init (setq gofmt-command "goimports")
         (add-hook 'before-save-hook 'gofmt-before-save)
         (add-hook 'go-mode-hook 'lsp-deferred)
-        (add-hook 'go-mode-hook 'subword-mode)
-  :config ;(use-package go-autocomplete)
+        (add-hook 'go-mode-hook 'subword-mode))
+;  :config ;(use-package go-autocomplete)
           ;(ac-config-default)
-          (use-package company-go))
           ; require gopls clinet before emacs exec
           ;(add-to-list 'lsp-enabled-clients 'gopls))
           ;(use-package go-eldoc)
@@ -60,3 +59,6 @@
       (require 'dap-mode)
       (dap-register-debug-template name tpl)
       (message "Register go debug configuration as " name))))
+
+(use-package company-go
+  :ensure t)
