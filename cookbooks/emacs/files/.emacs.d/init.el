@@ -52,29 +52,30 @@
   :init (setq init-loader-show-log-after-init nil) ;; debug したい時は t にする
   :config (init-loader-load "~/.emacs.d/inits"))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(git-gutter:modified-sign "=")
- '(git-gutter:update-interval 2)
- '(helm-truncate-lines t)
- '(js-indent-level 2)
- '(package-selected-packages
-   '(treemacs-tab-bar lsp-dired-mode helm-lsp lsp-dart company-lsp use-package color-theme-modern rust-mode helm-gtags package-build shut-up epl git commander f dash s))
- '(terraform-indent-level 4)
- '(typescript-indent-level 2)
- '(warning-suppress-log-types
-   '(((package reinitialization))
-     ((package reinitialization))))
- '(warning-suppress-types
-   '((files)
-     ((package reinitialization))
-     ((package reinitialization)))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(linum ((t (:inherit (shadow default) :background "Gray23")))))
+;; (custom-set-variables
+;;  ;; custom-set-variables was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(flycheck-display-errors-delay 0.1)
+;;  '(git-gutter:modified-sign "=")
+;;  '(git-gutter:update-interval 2)
+;;  '(helm-truncate-lines t)
+;;  '(js-indent-level 2)
+;;  '(package-selected-packages
+;;    '(linum 0blayout treemacs-tab-bar lsp-dired-mode helm-lsp lsp-dart company-lsp use-package color-theme-modern rust-mode helm-gtags package-build shut-up epl git commander f dash s))
+;;  '(terraform-indent-level 4)
+;;  '(typescript-indent-level 2)
+;;  '(warning-suppress-log-types
+;;    '(((package reinitialization))
+;;      ((package reinitialization))))
+;;  '(warning-suppress-types
+;;    '((files)
+;;      ((package reinitialization))
+;;      ((package reinitialization)))))
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(linum ((t (:inherit (shadow default) :background "Gray23")))))
