@@ -12,6 +12,7 @@
         (:map lsp-mode-map
               ("M-*" . xref-pop-marker-stack)
               ("M-." . xref-find-definitions)
+              ("C-M-." . my/new-tab-xref-find-definitions)
               ("M-/" . xref-find-references))
           ;; ("M-." . lsp-ui-peek-find-definitions)
           ;; ("M-," . lsp-ui-peek-find-references)
@@ -58,6 +59,11 @@
     (lsp-ui-peek-fontify 'on-demand) ;; never, on-demand, or always
   :commands (lsp-ui-mode))
 
+(defun my/new-tab-xref-find-definitions ()
+  "new tab + xref-find-definitions"
+  (interactive)
+  (tab-new)
+  (xref-find-definitions))
 ;; (use-package company-lsp
 ;;   :ensure t
 ;;   :custom
