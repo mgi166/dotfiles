@@ -19,19 +19,16 @@
 ;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-(defun create-my-scratch-buffer (&optional arg)
+(defun kill-most-buffers (&optional arg)
+  "Kill all buffers except *scratch* and *Messages*."
   (interactive)
-  (progn
-    ;; "*scratch*" を作成して buffer-list に放り込む
-    (set-buffer (get-buffer-create "*scratch*"))
-    (funcall initial-major-mode)
-    (erase-buffer)
-    (when (and initial-scratch-message (not inhibit-startup-message))
-      (insert initial-scratch-message))
-    (or arg (progn (setq arg 0)
-                   (switch-to-buffer "*scratch*")))
-    (cond ((= arg 0) (message "*scratch* is cleared up."))
-          ((= arg 1) (message "another *scratch* is created")))))
+  (dolist (buf (buffer-list))
+    (let ((name (buffer-name buf)))
+      (unless (or (string= name "*scratch*")
+                  (string= name "*Messages*"))
+        (kill-buffer buf))))
+  (tab-bar-close-other-tabs)
+  (message "Killed most buffers (except *scratch* and *Messages*)"))
 
 (add-hook 'kill-buffer-query-functions
           ;; *scratch* バッファで kill-buffer したら内容を消去するだけにする
@@ -40,14 +37,7 @@
                 (progn (create-my-scratch-buffer 0) nil)
               t)))
 
-(add-hook 'after-save-hook
-          ;; *scratch* バッファの内容を保存したら *scratch* バッファを新しく作る
-          (lambda ()
-            (unless (member (get-buffer "*scratch*") (buffer-list))
-              (create-my-scratch-buffer 1))))
-
-;(define-key ctl-z-map (kbd "C-c") 'create-my-scratch-buffer)
-(define-key global-map (kbd "C-M-l") 'create-my-scratch-buffer)
+(define-key global-map (kbd "C-M-l") 'kill-most-buffers)
 
 ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
 (defun yel-yank ()
