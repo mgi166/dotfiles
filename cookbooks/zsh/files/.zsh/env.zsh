@@ -86,3 +86,7 @@ if which aqua > /dev/null; then
   export PATH="${AQUA_ROOT_DIR}/bin:$PATH"
   export AQUA_GLOBAL_CONFIG="${AQUA_ROOT_DIR}/global/aqua.yaml"
 fi
+
+if [ -e $HOME/.local/bin ]; then
+  export PATH="$PATH:$HOME/.local/bin"
+fi
