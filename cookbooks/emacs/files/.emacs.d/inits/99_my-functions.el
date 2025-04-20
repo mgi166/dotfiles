@@ -25,17 +25,20 @@
   (dolist (buf (buffer-list))
     (let ((name (buffer-name buf)))
       (unless (or (string= name "*scratch*")
-                  (string= name "*Messages*"))
-        (kill-buffer buf))))
+                  (string= name "*Messages*")
+                  (string-match "*LSP*" name))
+        (kill-buffer buf))
+      (if (string= name "*scratch*")
+          (erase-buffer))))
   (tab-bar-close-other-tabs)
   (message "Killed most buffers (except *scratch* and *Messages*)"))
 
-(add-hook 'kill-buffer-query-functions
-          ;; *scratch* バッファで kill-buffer したら内容を消去するだけにする
-          (lambda ()
-            (if (string= "*scratch*" (buffer-name))
-                (progn (create-my-scratch-buffer 0) nil)
-              t)))
+;; (add-hook 'kill-buffer-query-functions
+;;           ;; *scratch* バッファで kill-buffer したら内容を消去するだけにする
+;;           (lambda ()
+;;             (if (string= "*scratch*" (buffer-name))
+;;                 (erase-buffer)
+;;               t)))
 
 (define-key global-map (kbd "C-M-l") 'kill-most-buffers)
 
