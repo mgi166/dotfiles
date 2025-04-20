@@ -105,3 +105,6 @@
 (setq custom-file (locate-user-emacs-file "~/.emacs.d/custom.el"))
 (when (file-exists-p (expand-file-name custom-file))
   (load-file (expand-file-name custom-file)))
+
+;; 以前に開いていた位置を保存/復元する
+(save-place-mode 1)
