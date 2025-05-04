@@ -9,6 +9,7 @@ export PATH=$HOMEBREW_PREFIX/bin:$PATH
 
 bin/mitamae local -l debug cookbooks/osx_defaults/default.rb
 bin/mitamae local -l debug cookbooks/zsh/default.rb
+bin/mitamae local -l debug cookbooks/homebrew/bundle.rb
 
 bin/mitamae local -l debug cookbooks/alacritty/default.rb
 bin/mitamae local -l debug cookbooks/aws/default.rb
