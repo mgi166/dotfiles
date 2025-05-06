@@ -5,6 +5,7 @@ location = "~/Pictures/Screenshots"
 
 directory File.expand_path("~/Pictures/Screenshots")
 
+# Screencapture path
 execute "defaults write com.apple.screencapture location -string '#{location}'" do
   not_if "defaults read com.apple.screencapture location | grep '^#{location}$'"
   notifies :run, 'execute[killall SystemUIServer]'
@@ -12,6 +13,7 @@ end
 
 screenshot_name = "screenshot"
 
+# screencapture name format
 execute "defaults write com.apple.screencapture name -string '#{screenshot_name}'" do
   not_if "defaults read com.apple.screencapture name | grep '^#{screenshot_name}$'"
   notifies :run, 'execute[killall SystemUIServer]'
@@ -21,6 +23,7 @@ execute "killall SystemUIServer" do
   action :nothing
 end
 
+# Install rosetta
 execute "sudo softwareupdate --install-rosetta" do
   not_if "(uname -m | grep arm64) && (pkgutil --files com.apple.pkg.RosettaUpdateAuto | grep rosetta)"
 end
@@ -52,6 +55,11 @@ end
 
 execute "defaults write com.apple.dock largesize -int 128" do
   not_if "defaults read com.apple.dock largesize | grep 128"
+  notifies :run, 'execute[killall Dock]'
+end
+
+execute "defaults write com.apple.dock tilesize -int 16" do
+  not_if "defaults read com.apple.dock tilesize | grep 16"
   notifies :run, 'execute[killall Dock]'
 end
 
