@@ -5,7 +5,6 @@ bin/mitamae local -l debug cookbooks/homebrew/default.rb
 export HOMEBREW_PREFIX=$HOME/.homebrew
 export PATH=$HOMEBREW_PREFIX/bin:$PATH
 
-bin/mitamae local -l debug cookbooks/osx_defaults/default.rb
 bin/mitamae local -l debug cookbooks/zsh/default.rb
 bin/mitamae local -l debug cookbooks/homebrew/bundle.rb
 
@@ -32,3 +31,6 @@ bin/mitamae local -l debug cookbooks/rbenv/default.rb
 bin/mitamae local -l debug cookbooks/ssh/default.rb
 bin/mitamae local -l debug cookbooks/starship/default.rb
 bin/mitamae local -l debug cookbooks/tmux/default.rb
+
+bin/mitamae local -l debug cookbooks/osx_defaults/default.rb
+bin/mitamae local -l debug cookbooks/osx_defaults/input_source.rb
