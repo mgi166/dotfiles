@@ -6,7 +6,9 @@ dotfiles.
 # Getting started
 
 ```
+$ xcode-select --install
 $ git clone https://github.com/mgi166/dotfiles.git ~/Dotfiles
+$ cd ~/Dotfiles
 ```
 
 ## Install dotfiles
