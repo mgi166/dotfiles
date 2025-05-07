@@ -34,6 +34,11 @@ execute "defaults write NSGlobalDomain AppleShowAllExtensions -bool true" do
   notifies :run, 'execute[killall Finder]'
 end
 
+execute "defaults write com.apple.finder ShowSidebar -bool true" do
+  not_if "defaults read com.apple.finder ShowSidebar | grep 1"
+  notifies :run, 'execute[killall Finder]'
+end
+
 execute "killall Finder" do
   action :nothing
 end
