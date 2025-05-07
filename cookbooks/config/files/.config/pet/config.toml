@@ -1,6 +1,6 @@
 [General]
   snippetfile = "~/.config/pet/pet-snippet.toml"
-  editor = "emacsclient -nw"
+  editor = "vi"
   column = 40
   selectcmd = "fzf"
   backend = "gist"
