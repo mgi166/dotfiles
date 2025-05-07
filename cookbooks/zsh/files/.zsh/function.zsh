@@ -136,30 +136,16 @@ fi
 # emacs (GUI)
 function emacs () {
    EMACS='/Applications/Emacs.app'
+   EMACSCLIENT="${EMACS}/Contents/MacOS/bin/emacsclient"
 
    [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
 
    if pgrep Emacs > /dev/null; then
-     emacsclient -n $_ARGV
+     $EMACSCLIENT -n $_ARGV
    else
      open -a $EMACS $_ARGV
    fi
 }
-
-# emacs -nw
-function emacsnw () {
-  EMACS='/Applications/Emacs.app/Contents/MacOS/Emacs'
-
-  if ! pgrep Emacs > /dev/null; then
-    $EMACS --daemon
-  fi
-
-  [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
-
-  emacsclient -nw -q $_ARGV
-}
-alias emacsn='emacsnw'
-alias nemacs='emacsnw'
 
 function ekill () {
   pkill Emacs
