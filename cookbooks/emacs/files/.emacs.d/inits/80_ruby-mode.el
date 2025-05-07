@@ -1,10 +1,13 @@
 ;; end に対応する行の highlight
-(autoload 'ruby-block-mode "ruby-block" nil t)
-(setq ruby-block-highlight-toggle t)
+(use-package ruby-mode
+  :ensure t)
 
-(defun ruby-mode-hooks ()
-  (ruby-block-mode t)
-  (setq ruby-block-highlight-toggle t))
+;; (autoload 'ruby-block-mode "ruby-block" nil t)
+;; (setq ruby-block-highlight-toggle t)
+
+;; (defun ruby-mode-hooks ()
+;;   (ruby-block-mode t)
+;;   (setq ruby-block-highlight-toggle t))
 
 (defun toggle-ruby-magic-comment ()
   "toggle magic comment top of line"
@@ -33,7 +36,7 @@
 ;; デフォルトではマジックコメントを挿入しない
 (setq ruby-insert-encoding-magic-comment nil)
 
-(add-hook 'ruby-mode-hook 'ruby-mode-hooks 'ruby-indent-line)
+;; (add-hook 'ruby-mode-hook 'ruby-mode-hooks 'ruby-indent-line)
 (autoload 'ruby-mode "ruby-mode" nil t)
 (add-to-list 'auto-mode-alist
              '("\\.rake$" . ruby-mode))
