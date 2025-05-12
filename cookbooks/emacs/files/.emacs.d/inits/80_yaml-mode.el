@@ -1,3 +1,6 @@
+(use-package highlight-indent-guides
+  :ensure t)
+
 (use-package yaml-mode
   :ensure t
   :mode (("\\.dig$" . yaml-mode)
