@@ -19,19 +19,18 @@
 ;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-(defun kill-most-buffers (&optional arg)
-  "Kill all buffers except *scratch* and *Messages*."
+(defun initialize-buffers (&optional arg)
+  "Kill all buffers except those whose names contain `xxxx`"
   (interactive)
+  (switch-to-buffer "*scratch*")
   (dolist (buf (buffer-list))
     (let ((name (buffer-name buf)))
-      (unless (or (string= name "*scratch*")
-                  (string= name "*Messages*")
-                  (string-match "*LSP*" name))
+      (unless (or (string-match-p "\\*.+\\*" name))
         (kill-buffer buf))
       (if (string= name "*scratch*")
           (erase-buffer))))
   (tab-bar-close-other-tabs)
-  (message "Killed most buffers (except *scratch* and *Messages*)"))
+  (message "initialize buffers"))
 
 ;; (add-hook 'kill-buffer-query-functions
 ;;           ;; *scratch* バッファで kill-buffer したら内容を消去するだけにする
@@ -40,7 +39,7 @@
 ;;                 (erase-buffer)
 ;;               t)))
 
-(define-key global-map (kbd "C-M-l") 'kill-most-buffers)
+(define-key global-map (kbd "C-M-l") 'initialize-buffers)
 
 ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
 (defun yel-yank ()
