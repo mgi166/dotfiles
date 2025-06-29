@@ -167,3 +167,5 @@ __debug_bin
 
 # fvm
 .fvm
+
+.claude/settings.local.json
