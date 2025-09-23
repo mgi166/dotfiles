@@ -125,7 +125,6 @@
                                             "^co\\.zeit\\.hyper$",
                                             "^io\\.alacritty$",
                                             "^org\\.alacritty$",
-                                            "^com\\.mitchellh\\.ghostty$",
                                             "^net\\.kovidgoyal\\.kitty$",
                                             "^org\\.vim\\.",
                                             "^com\\.qvacua\\.VimR$",
