@@ -23,6 +23,7 @@ bin/mitamae local -l debug cookbooks/gitignore/default.rb
 bin/mitamae local -l debug cookbooks/hammerspoon/default.rb
 bin/mitamae local -l debug cookbooks/irbrc/default.rb
 bin/mitamae local -l debug cookbooks/karabiner/default.rb
+bin/mitamae local -l debug cookbooks/ghostty/default.rb
 bin/mitamae local -l debug cookbooks/nodenv/default.rb
 bin/mitamae local -l debug cookbooks/peco/default.rb
 bin/mitamae local -l debug cookbooks/pet/default.rb
