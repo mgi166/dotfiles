@@ -1,0 +1,30 @@
+shell-integration = zsh
+shell-integration-features = no-cursor
+
+theme = Catppuccin Mocha
+
+font-family = HackGen Console
+font-size = 20
+
+title = 👻
+
+macos-titlebar-proxy-icon = hidden
+
+background-opacity = 0.80
+
+cursor-style = block
+cursor-style-blink = false
+cursor-opacity = 1
+cursor-color = gray80
+
+window-position-x = 0
+window-position-y = 0
+window-height = 60
+window-width = 140
+window-padding-balance = true
+
+mouse-hide-while-typing = true
+
+keybind = alt+d=esc:d
+keybind = ctrl+enter=text:\r
+keybind = shift+enter=text:\r
