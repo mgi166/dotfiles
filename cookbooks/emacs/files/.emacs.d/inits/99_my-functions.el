@@ -32,13 +32,6 @@
   (tab-bar-close-other-tabs)
   (message "initialize buffers"))
 
-;; (add-hook 'kill-buffer-query-functions
-;;           ;; *scratch* バッファで kill-buffer したら内容を消去するだけにする
-;;           (lambda ()
-;;             (if (string= "*scratch*" (buffer-name))
-;;                 (erase-buffer)
-;;               t)))
-
 (define-key global-map (kbd "C-M-l") 'initialize-buffers)
 
 ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
