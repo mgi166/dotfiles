@@ -92,11 +92,6 @@ if exists peco; then
     bindkey '^x^d' peco-git-delete-branch
 fi
 
-# z
-if [ -f $HOMEBREW_PREFIX/etc/profile.d/z.sh ]; then
-  . `brew --prefix`/etc/profile.d/z.sh
-fi
-
 # pbcopy-buffer
 pbcopy-buffer(){
     print -rn $BUFFER | pbcopy
