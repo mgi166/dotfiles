@@ -1,18 +1,11 @@
 # homebrew
 export PATH=$HOMEBREW_PREFIX/bin:$PATH
 
-# rbenv
-export PATH=$HOME/.rbenv/bin:$PATH
-if which rbenv > /dev/null; then
-  eval "$(rbenv init -)"
-fi
-
 # whalebrew
 export PATH=$WHALEBREW_INSTALL_PATH:$PATH
 
 # go
 export PATH=$PATH:$GOPATH/bin
-
 
 # goenv
 if which goenv > /dev/null; then
@@ -22,8 +15,16 @@ if which goenv > /dev/null; then
   eval "$(goenv init -)"
 fi
 
-if which pyenv > /dev/null; then
-  export PYENV_ROOT=$HOME/.pyenv
+# rbenv
+export RBENV_ROOT=$HOME/.rbenv
+if [ -e $RBENV_ROOT ]; then
+  export PATH=$RBENV_ROOT/bin:$PATH
+  eval "$(rbenv init -)"
+fi
+
+# pyenv
+export PYENV_ROOT=$HOME/.pyenv
+if [ -e $PYENV_ROOT ]; then
   export PATH=$PYENV_ROOT/bin:$PATH
   eval "$(pyenv init --path)"
 fi
@@ -34,10 +35,17 @@ if [ -e $PYENV_ROOT/plugins/pyenv-virtualenv ]; then
 fi
 
 # nodenv
-if which nodenv > /dev/null; then
-  export NODENV_ROOT=$HOME/.nodenv
+export NODENV_ROOT=$HOME/.nodenv
+if [ -e $NODENV_ROOT ]; then
   export PATH=$NODENV_ROOT/bin:$PATH
   eval "$(nodenv init -)"
+fi
+
+# jenv
+export JENV_ROOT=$HOME/.jenv
+if [ -e $JENV_ROOT ]; then
+  export PATH=${JENV_ROOT}/bin:$PATH
+  eval "$(jenv init -)"
 fi
 
 # tfenv
@@ -62,12 +70,6 @@ if which aqua > /dev/null; then
   export AQUA_ROOT_DIR=${XDG_DATA_HOME:-$HOME}/.aqua
   export PATH="${AQUA_ROOT_DIR}/bin:$PATH"
   export AQUA_GLOBAL_CONFIG="${AQUA_ROOT_DIR}/global/aqua.yaml"
-fi
-
-# jenv
-if which jenv > /dev/null; then
-  export PATH="$HOME/.jenv/bin:$PATH"
-  eval "$(jenv init -)"
 fi
 
 # mysql-client
