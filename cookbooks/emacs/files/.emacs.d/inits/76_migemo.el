@@ -1,14 +1,14 @@
 ;; migemo (ローマ字検索で日本語が引っかかるようにする。事前に cmigemo の install が必要)
 (use-package migemo
   :ensure t
-  :init
-    (if (eq system-type 'darwin)
-      (setq migemo-command (concat (getenv "HOMEBREW_PREFIX") "/bin/cmigemo"))
-      (setq migemo-options '("-q" "--emacs"))
-      (setq migemo-dictionary (concat (getenv "HOMEBREW_PREFIX") "/share/migemo/utf-8/migemo-dict"))
-      (setq migemo-user-dictionary nil)
-      (setq migemo-regex-dictionary nil)
-      (setq migemo-coding-system 'utf-8-unix))
+  :init (when (eq system-type 'darwin)
+          (let* ((homebrew_prefix (getenv "HOMEBREW_PREFIX")))
+            (setq migemo-command          (concat homebrew_prefix "/bin/cmigemo")
+                  migemo-options          '("-q" "--emacs")
+                  migemo-dictionary       (concat homebrew_prefix "/share/migemo/utf-8/migemo-dict")
+                  migemo-user-dictionary  nil
+                  migemo-regex-dictionary nil
+                  migemo-coding-system    'utf-8-unix)))
   :config
     (load-library "migemo")
     (migemo-init)
