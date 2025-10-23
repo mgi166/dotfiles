@@ -14,6 +14,7 @@
         ("C-x C-b" . 'my/helm-mini)
         ("C-x b" . 'my/helm-mini+)
         ("C-x <left>" . 'my/helm-mini) ;; FIXME: I thought I pressed `C-x C-b`, but it was determined to be `C-x <left>`.
+        ("C-c m" . 'helm-all-mark-rings)
         (:map helm-map ("C-h" . delete-backward-char)
                        ("M-n" . helm-next-source)
                        ("M-p" . helm-previous-source)))
