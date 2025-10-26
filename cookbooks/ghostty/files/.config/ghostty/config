@@ -28,3 +28,4 @@ mouse-hide-while-typing = true
 keybind = alt+d=esc:d
 keybind = ctrl+enter=text:\r
 keybind = shift+enter=text:\r
+keybind = alt+w=text:\x1bw # tmux keybind に key code を送る ref: https://github.com/ghostty-org/ghostty/discussions/3431
