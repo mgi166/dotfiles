@@ -135,9 +135,7 @@ function emacs () {
    EMACS='/Applications/Emacs.app'
    EMACSCLIENT="${EMACS}/Contents/MacOS/bin/emacsclient"
 
-   [ 0 -eq $# ] && _ARGV=. || _ARGV=$*
-
-   if pgrep Emacs > /dev/null; then
+   [ 0 -eq $# ] && _ARGV=. || _   if pgrep Emacs > /dev/null; then
      $EMACSCLIENT -n $_ARGV
    else
      open -a $EMACS $_ARGV
@@ -170,6 +168,10 @@ function init-direnv() {
     default-envrc-contents > .envrc
   fi
 }
+
+if exists direnv; then
+  eval "$(direnv hook zsh)"
+fi
 
 function default-envrc-contents() {
   cat <<-'EOF'
