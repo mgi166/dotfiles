@@ -34,6 +34,21 @@
 
 (define-key global-map (kbd "C-M-l") 'initialize-buffers)
 
+(defun new-tab-and-empty-scratch ()
+  "Open a new tab, show *scratch*, and clear its contents."
+  (interactive)
+  (tab-new)
+  ;; *scratch* を表示し、内容を消す
+  (let ((buf (get-buffer-create "*scratch*")))
+    (switch-to-buffer buf)
+    ; scratch と同じモードにしておく
+    (lisp-interaction-mode)
+    (setq-local initial-scratch-message nil)
+    (erase-buffer)
+    (message "Opened new tab and cleared *scratch*.")))
+
+(define-key global-map (kbd "C-z s") 'new-tab-and-empty-scratch)
+
 ;;- See more at: http://yohshiy.blog.fc2.com/blog-entry-129.html#sthash.YmDFR3nk.dpuf
 (defun yel-yank ()
   "yank to cycle kill ring"
