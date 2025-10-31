@@ -107,7 +107,9 @@ function chpwd(){
 }
 
 # direnv
-eval "$(direnv hook zsh)"
+if exists direnv; then
+  eval "$(direnv hook zsh)"
+fi
 
 # Launch screen saver in mac
 function screensaver () {
