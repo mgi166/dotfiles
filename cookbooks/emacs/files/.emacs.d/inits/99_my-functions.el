@@ -20,7 +20,7 @@
 ;; Boston, MA 02110-1301, USA.
 
 (defun initialize-buffers (&optional arg)
-  "Kill all buffers except those whose names contain `xxxx`"
+  "Kill all buffers except those whose names contain `*xxxx*`"
   (interactive)
   (switch-to-buffer "*scratch*")
   (dolist (buf (buffer-list))
