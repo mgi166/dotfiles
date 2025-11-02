@@ -13,13 +13,14 @@
                   (,dap-ui--debug-window-buffer . ((side . bottom) (slot . 1) (window-width . 0.05)))
                   (,dap-ui--repl-buffer . ((side . left) (slot . 2) (window-width . 0.5)))))
           ;(require 'dap-hydra)
-          (use-package dap-go)
+          ;(use-package dap-go)
           ;; Install goDebug.js to ~/.emacs.d/.extension/vscode/golang.go/extension/out/src/debugAdapter/
-          (dap-go-setup)
-          (use-package dap-gdb-lldb)
+          ;;(dap-go-setup)
+          ;;(use-package dap-gdb-lldb)
           ;; Install gdb.js to ~/.emacs.d/.extension/vscode/webfreak.debug/extension/out/src/
-          (dap-gdb-lldb-setup)
-          (use-package dap-lldb))
+          ;;(dap-gdb-lldb-setup)
+          ;;(use-package dap-lldb)
+          )
 
 (use-package dap-ui
   :ensure nil
