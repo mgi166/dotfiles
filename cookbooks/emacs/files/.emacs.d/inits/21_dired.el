@@ -1,6 +1,6 @@
 (use-package dired
-  :bind ("C-x C-d" . dired)
   :straight nil
+  :bind ("C-x C-d" . dired-jump)
         (:map dired-mode-map
               ("k" . dired-previous-line)
               ("j" . dired-next-line)
