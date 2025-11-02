@@ -15,6 +15,7 @@
 (define-key global-map (kbd "M-<delete>") 'kill-word)
 (define-key global-map (kbd "<s-down>") 'end-of-buffer)
 (define-key global-map (kbd "<s-up>") 'beginning-of-buffer)
+(define-key global-map (kbd "M-s C-s") 'isearch-forward-thing-at-point)
 
 ;; copy
 (define-key global-map (kbd "M-w") 'clipboard-kill-ring-save)
