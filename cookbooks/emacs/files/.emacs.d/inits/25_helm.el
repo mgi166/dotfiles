@@ -19,6 +19,10 @@
                        ("M-n" . helm-next-source)
                        ("M-p" . helm-previous-source)))
 
+(with-eval-after-load 'helm
+  (require 'helm-files)
+  (require 'helm-for-files))
+
 ;; (use-package vc)
 ;; (use-package vc-git)
 
@@ -27,8 +31,6 @@
 
 (use-package helm-descbinds
   :ensure t)
-
-(use-package helm-for-files)
 
 ;; http://garaemon.hatenadiary.jp/entry/2018/06/08/005533
 ;; https://www.ncaq.net/2018/03/29/14/01/44/
