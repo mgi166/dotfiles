@@ -7,6 +7,8 @@
   :straight (:type git :host github :repo "stevemolitor/claude-code.el")
   :config
   (claude-code-mode)
+  (setq claude-code-terminal-backend 'vterm)
+  :bind-keymap ("C-c M-c" . claude-code-command-map)
 
   ;; Optionally define a repeat map so that "M" will cycle thru Claude auto-accept/plan/confirm modes after invoking claude-code-cycle-mode / C-c M.
   :bind
