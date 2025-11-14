@@ -1,6 +1,4 @@
-(use-package lsp-dart
+(use-package dart-mode
   :ensure t
-  :hook (dart-mode . lsp-deferred)
-  :config (add-to-list 'lsp-enabled-clients 'dart_analysis_server)
-          (setq dart-enable-analysis-server t)
+  :config (setq dart-enable-analysis-server t)
           (setq dart-format-on-save t))
