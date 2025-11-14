@@ -17,7 +17,6 @@
           ;; ("M-." . lsp-ui-peek-find-definitions)
           ;; ("M-," . lsp-ui-peek-find-references)
           ;; ("M-/" . lsp-ui-peek-find-implementation))
-  :custom (lsp-rust-server 'rls)
   :commands (lsp lsp-deferred))
 
 ;(dap-register-debug-template
