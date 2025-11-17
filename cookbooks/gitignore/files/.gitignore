@@ -89,6 +89,7 @@ markdown-preview
 **/*/.emacs.d/forge-database.sqlite
 .dir-locals.el
 .authinfo.gpg
+**/*/tramp
 
 # Ignore vagrant caches
 /.vagrant
