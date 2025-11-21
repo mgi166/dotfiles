@@ -28,7 +28,7 @@
 (defun with-editor-post-cancel-hook-1 ()
   (delete-all-magit-buffers))
 
-(defun magit-open-pr-in-browser ()
+(defun magit-open-current-pr-in-browser ()
   "Open the GitHub Pull Request for the current branch in a browser. (same as `forge-open`)"
   (interactive)
   (let ((default-directory (or (when (fboundp 'magit-toplevel)
