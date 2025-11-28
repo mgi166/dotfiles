@@ -3,22 +3,29 @@
   :ensure t)
 
 
+(defun claude-code-ide--find-vterm-buffer ()
+  "Return the Claude Code vterm buffer, or nil if not found."
+  (seq-find
+   (lambda (b)
+     (with-current-buffer b
+       (and (string-prefix-p "*claude-code[" (buffer-name b))
+            (derived-mode-p 'vterm-mode))))
+   (buffer-list)))
+
 (defun claude-code-ide-command-pr-c ()
   "Run /pr -c slash command in Claude Code IDE."
   (interactive)
   (claude-code-ide)
   (claude-code-ide-send-prompt "/pr -c")
-  ;; 3. `*claude-code[...]*` 形式の vterm バッファを探して Enter を送る
-  (let ((buf (seq-find
-              (lambda (b)
-                (with-current-buffer b
-                  (and (string-prefix-p "*claude-code[" (buffer-name b))
-                       (derived-mode-p 'vterm-mode))))
-              (buffer-list))))
-    (if (not buf)
-        (message "No Claude Code vterm buffer found.")
-      (with-current-buffer buf
-        (vterm-send-return)))))
+  ;; 5秒後に一度だけ実行
+  (run-at-time
+   5 nil
+   (lambda ()
+     (let ((buf (claude-code-ide--find-vterm-buffer)))
+       (if (not buf)
+           (message "No Claude Code vterm buffer found.")
+         (with-current-buffer buf
+           (vterm-send-return)))))))
 
 (use-package claude-code
   :ensure t
