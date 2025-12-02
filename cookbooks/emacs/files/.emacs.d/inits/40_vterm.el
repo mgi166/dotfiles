@@ -2,7 +2,7 @@
   :straight t
   :hook
   (vterm-mode . (lambda ()
-                  (setq show-trailing-whitespace nil))
+                  (setq show-trailing-whitespace nil)))
   :bind
   ;; vterm 上で 1 文字消せないので明示的に関数を bind
   (:map vterm-mode-map
