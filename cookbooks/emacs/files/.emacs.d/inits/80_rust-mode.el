@@ -12,8 +12,9 @@
   :ensure t
   :custom (rust-format-on-save t)
   :config (add-to-list 'lsp-enabled-clients 'rust-analyzer)
-  :bind (("C-c C-r r" . rust-run)
-        ("C-c C-r t" . rust-test)
-        ("C-c C-r c" . rust-compile)
-        ("C-c C-r k" . rust-check)
-        ("C-c C-r q" . rust-kill-buffer-compiration)))
+  :bind (:map rust-mode-map
+              ("C-c C-r r". rust-run)
+              ("C-c C-r t" . rust-test)
+              ("C-c C-r c" . rust-compile)
+              ("C-c C-r k" . rust-check)
+              ("C-c C-r q" . rust-kill-buffer-compiration)))
