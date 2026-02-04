@@ -21,12 +21,12 @@
 (define-key global-map (kbd "M-w") 'clipboard-kill-ring-save)
 
 ;; ミニバッファの履歴を "C-p" と "C-n" で辿れるようにする
-(define-key minibuffer-local-must-match-map "\C-p" 'previous-history-element)
-(define-key minibuffer-local-must-match-map "\C-n" 'next-history-element)
-(define-key minibuffer-local-completion-map "\C-p" 'previous-history-element)
-(define-key minibuffer-local-completion-map "\C-n" 'next-history-element)
-(define-key minibuffer-local-map "\C-p" 'previous-history-element)
-(define-key minibuffer-local-map "\C-n" 'next-history-element)
+(define-key minibuffer-local-must-match-map (kbd "C-p") 'previous-history-element)
+(define-key minibuffer-local-must-match-map (kbd "C-n") 'next-history-element)
+(define-key minibuffer-local-completion-map (kbd "C-p") 'previous-history-element)
+(define-key minibuffer-local-completion-map (kbd "C-n") 'next-history-element)
+(define-key minibuffer-local-map (kbd "C-p") 'previous-history-element)
+(define-key minibuffer-local-map (kbd "C-n") 'next-history-element)
 
 ;; マウスのホイールスクロールスピードを調節
 (defun scroll-down-with-lines ()
