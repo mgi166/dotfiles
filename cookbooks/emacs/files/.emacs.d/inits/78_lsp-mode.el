@@ -2,8 +2,7 @@
   :ensure t
   :init (yas-global-mode)
         (setq lsp-keymap-prefix "M-l")
-        (setq gc-cons-threshold (* 1024 1024 1024 3) ;; 3GiB
-        (setq read-process-output-max (* 1024 1024 3)) ;; 3mb
+        (setq gc-cons-threshold (* 1024 1024 1024 3)) ;; 3GiB
   :hook (rust-mode . lsp)
         ;(go-mode . lsp)
         (python-mode . lsp)
