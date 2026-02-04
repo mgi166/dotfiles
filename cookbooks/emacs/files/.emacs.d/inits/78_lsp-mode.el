@@ -19,12 +19,9 @@
           ;; ("M-/" . lsp-ui-peek-find-implementation))
   :commands (lsp lsp-deferred))
 
-;(dap-register-debug-template
-;  "LLDB::Run vs-code"
-;  (list :type "lldb"
-;        :request "launch"
-;        :program "target/debug/rpn"
-;        :name "LLDB::Run"))
+(use-package lsp-treemacs
+  :ensure t
+  :config (lsp-treemacs-sync-mode 1))
 
 (use-package lsp-ui
   :ensure t
