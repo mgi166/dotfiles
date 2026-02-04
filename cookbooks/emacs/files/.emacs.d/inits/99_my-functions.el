@@ -123,7 +123,7 @@
                                   (a (min l1 l2)) (b (max l1 l2)))
                              (if (= a b) (format "#L%d" a) (format "#L%d-L%d" a b)))
                          (format "#L%d" l1))))
-            (format "blob/%s/%s%s" ref (url-hexify-string relpath) frag)))
+            (format "blob/%s/%s%s" ref relpath frag)))
     (setq url (concat https-base "/" path+frag))
     (browse-url url)
     (message "Opened GitHub URL: %s" url)))
