@@ -103,6 +103,6 @@ Saves the buffer first if it has unsaved changes."
       (save-buffer))))
 
 (with-eval-after-load 'markdown-mode
-  (define-key markdown-mode-map (kbd "C-c C-p") #'mo-markdown-preview-open))
+  (define-key markdown-mode-map (kbd "C-x m p") #'mo-markdown-preview-open))
 
 (add-hook 'markdown-mode-hook #'mo-markdown-preview-mode)
