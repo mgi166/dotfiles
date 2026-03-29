@@ -12,6 +12,7 @@
   :ensure t
   :custom (rust-format-on-save t)
   :config (add-to-list 'lsp-enabled-clients 'rust-analyzer)
+          (setq lsp-auto-guess-root t)
   :bind (:map rust-mode-map
               ("C-c C-r r". rust-run)
               ("C-c C-r t" . rust-test)
