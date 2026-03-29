@@ -77,7 +77,18 @@ if [ -f ${HOMEBREW_PREFIX}/opt/mysql-client/bin ]; then
   export PATH="${HOMEBREW_PREFIX}/opt/mysql-client/bin:$PATH"
 fi
 
+# vector
+if [ -e $HOME/.vector/bin ]; then
+  export PATH="$PATH:$HOME/.vector/bin"
+fi
+
+# emacs
+if [ -e /Applications/Emacs.app/Contents/MacOS/bin ]; then
+  export PATH="$PATH:/Applications/Emacs.app/Contents/MacOS/bin"
+fi
+
 # local
 if [ -e $HOME/.local/bin ]; then
   export PATH="$PATH:$HOME/.local/bin"
 fi
+
