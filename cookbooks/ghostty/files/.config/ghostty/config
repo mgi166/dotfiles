@@ -21,8 +21,8 @@ cursor-color = gray80
 
 window-position-x = 0
 window-position-y = 0
-window-height = 60
-window-width = 140
+window-height = 80
+window-width = 150
 window-padding-balance = true
 
 mouse-hide-while-typing = true
