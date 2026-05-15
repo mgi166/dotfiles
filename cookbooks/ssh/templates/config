@@ -1,6 +1,6 @@
 Host github.com
   HostName github.com
-  IdentityFile ~/.ssh/github/id_rsa
+  IdentityFile ~/.ssh/github/id_ed25519
   StrictHostKeyChecking no
   User git
 
