@@ -1,3 +1,5 @@
+term = xterm-256color
+
 shell-integration = zsh
 shell-integration-features = no-cursor
 
