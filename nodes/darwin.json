@@ -35,6 +35,7 @@
       "helm",
       "helmfile",
       "imagemagick",
+      "k1LoW/tap/mo",
       "kayac/tap/ecspresso",
       "libxml2",
       "libyaml",
