@@ -12,18 +12,19 @@ bin/mitamae local -l debug cookbooks/alacritty/default.rb
 bin/mitamae local -l debug cookbooks/aws/default.rb
 bin/mitamae local -l debug cookbooks/bettertouchtools/default.rb
 bin/mitamae local -l debug cookbooks/bundle/default.rb
+bin/mitamae local -l debug cookbooks/claude_code/default.rb
 bin/mitamae local -l debug cookbooks/config/default.rb
 bin/mitamae local -l debug cookbooks/docker/default.rb
 bin/mitamae local -l debug cookbooks/emacs/default.rb
 bin/mitamae local -l debug cookbooks/font/default.rb
 bin/mitamae local -l debug cookbooks/gemrc/default.rb
+bin/mitamae local -l debug cookbooks/ghostty/default.rb
 bin/mitamae local -l debug cookbooks/git/default.rb
 bin/mitamae local -l debug cookbooks/gitconfig/default.rb
 bin/mitamae local -l debug cookbooks/gitignore/default.rb
 bin/mitamae local -l debug cookbooks/hammerspoon/default.rb
 bin/mitamae local -l debug cookbooks/irbrc/default.rb
 bin/mitamae local -l debug cookbooks/karabiner/default.rb
-bin/mitamae local -l debug cookbooks/ghostty/default.rb
 bin/mitamae local -l debug cookbooks/nodenv/default.rb
 bin/mitamae local -l debug cookbooks/peco/default.rb
 bin/mitamae local -l debug cookbooks/pet/default.rb
@@ -35,3 +36,4 @@ bin/mitamae local -l debug cookbooks/tmux/default.rb
 
 bin/mitamae local -l debug cookbooks/osx_defaults/default.rb
 bin/mitamae local -l debug cookbooks/osx_defaults/input_source.rb
+
