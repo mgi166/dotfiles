@@ -8,5 +8,5 @@ execute "unzip #{KEYBOARD_LAYOUT_ZIP_PATH} -d #{KEYBOARD_LAYOUT_BASE_PATH}" do
 end
 
 execute "mv #{KEYBOARD_LAYOUT_BASE_PATH}/#{BUNDLE_FILE_NAME} #{File.expand_path("~/Library/Keyboard\\ Layouts/")}" do
-  not_if "[[ -e #{File.expand_path("~/Library/Keyboard\\ Layouts/")} ]]"
+  not_if "[[ -e #{File.expand_path("~/Library/Keyboard\\ Layouts/#{BUNDLE_FILE_NAME}")} ]]"
 end
