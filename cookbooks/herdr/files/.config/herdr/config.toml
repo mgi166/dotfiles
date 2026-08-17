@@ -1,0 +1,39 @@
+[terminal]
+default_shell = "zsh"
+shell_mode = "login"
+new_cwd = "follow"
+
+[theme]
+name = "nord"
+auto_switch = false
+
+[keys]
+prefix = "ctrl+q"
+reload_config = "prefix+shift+r"
+
+# pane 移動
+focus_pane_left = ["prefix+ctrl+h"]
+focus_pane_down = ["prefix+ctrl+j"]
+focus_pane_up = ["prefix+ctrl+k"]
+focus_pane_right = ["prefix+ctrl+l"]
+
+# pane 削除
+close_pane = ["prefix+k"]
+
+# pane 分割
+split_horizontal = ["prefix+minus", "prefix+2"]
+split_vertical = ["prefix+v", "prefix+3"]
+
+# window(tab) 切り替え
+next_tab = ["prefix+n", "prefix+ctrl+n"]
+previous_tab = ["prefix+p", "prefix+ctrl+p"]
+
+goto = ["prefix+g", "prefix+ctrl+w"]
+
+[ui]
+tab_bar_position = "bottom"
+mouse_capture = false
+copy_on_select = true
+
+[advanced]
+scrollback_limit_bytes = 20000000
