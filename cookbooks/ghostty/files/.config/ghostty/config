@@ -35,4 +35,5 @@ keybind = alt+w=text:\x1bw
 keybind = alt+q=text:\x1bq
 keybind = alt+v=text:\x1bv
 keybind = alt+n=text:\x1bn
+keybind = ctrl+d=text:\x04
 keybind = shift+enter=text:\n
