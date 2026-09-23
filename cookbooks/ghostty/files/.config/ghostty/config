@@ -11,6 +11,7 @@ font-size = 20
 title = 👻 Ghostty
 
 macos-titlebar-proxy-icon = hidden
+macos-option-as-alt = true
 
 background-opacity = 0.80
 
