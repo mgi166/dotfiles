@@ -92,3 +92,8 @@ if [ -e $HOME/.local/bin ]; then
   export PATH="$PATH:$HOME/.local/bin"
 fi
 
+
+# mise
+if which mise > /dev/null; then
+  eval "$(mise activate zsh)"
+fi
