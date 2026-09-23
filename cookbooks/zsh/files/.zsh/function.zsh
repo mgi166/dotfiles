@@ -90,6 +90,16 @@ if exists peco; then
     }
     zle -N peco-git-delete-branch
     bindkey '^x^d' peco-git-delete-branch
+
+    function peco-gwt-cd () {
+        local selected_dir=$(git worktree list | awk '{ print $1 }' | peco --query "$LBUFFER")
+        if [ -n "$selected_dir" ]; then
+            BUFFER="cd ${selected_dir}"
+            zle accept-line
+        fi
+    }
+    zle -N peco-gwt-cd
+    bindkey '^xw' peco-gwt-cd
 fi
 
 # pbcopy-buffer
