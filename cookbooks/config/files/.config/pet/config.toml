@@ -2,7 +2,7 @@
   snippetfile = "~/.config/pet/pet-snippet.toml"
   editor = "vi"
   column = 40
-  selectcmd = "fzf"
+  selectcmd = "peco"
   backend = "gist"
 
 [Gist]
