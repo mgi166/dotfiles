@@ -13,11 +13,11 @@ auto_switch = false
 prefix = "ctrl+q"
 reload_config = "prefix+shift+r"
 
-# pane 移動
-focus_pane_left = ["prefix+ctrl+h"]
-focus_pane_down = ["prefix+ctrl+j"]
-focus_pane_up = ["prefix+ctrl+k"]
-focus_pane_right = ["prefix+ctrl+l"]
+# pane 移動は端で循環させるため [[keys.command]] で定義する
+focus_pane_left = []
+focus_pane_down = []
+focus_pane_up = []
+focus_pane_right = []
 
 # pane 削除
 close_pane = ["prefix+k"]
@@ -32,8 +32,69 @@ previous_tab = ["prefix+p", "prefix+ctrl+p"]
 
 goto = ["prefix+g", "prefix+ctrl+w"]
 
+# tab の番号移動(prefix+1..3 は tmux に合わせて pane 操作に使う)
+switch_tab = "prefix+alt+1..9"
+
+# pane のリサイズ
+resize_pane_left = "prefix+shift+h"
+resize_pane_down = "prefix+shift+j"
+resize_pane_up = "prefix+shift+k"
+resize_pane_right = "prefix+shift+l"
+
+# pane の入れ替え(既定の prefix+shift+hjkl はリサイズに使う)
+swap_pane_left = "prefix+alt+h"
+swap_pane_down = "prefix+alt+j"
+swap_pane_up = "prefix+alt+k"
+swap_pane_right = "prefix+alt+l"
+
+detach = ["prefix+d", "prefix+q"]
+
+# pane の循環移動
+[[keys.command]]
+key = "prefix+ctrl+h"
+type = "shell"
+command = '"$HOME/.config/herdr/focus-pane-cyclic.sh" left'
+description = "Focus pane left (cyclic)"
+
+[[keys.command]]
+key = "prefix+ctrl+j"
+type = "shell"
+command = '"$HOME/.config/herdr/focus-pane-cyclic.sh" down'
+description = "Focus pane down (cyclic)"
+
+[[keys.command]]
+key = "prefix+ctrl+k"
+type = "shell"
+command = '"$HOME/.config/herdr/focus-pane-cyclic.sh" up'
+description = "Focus pane up (cyclic)"
+
+[[keys.command]]
+key = "prefix+ctrl+l"
+type = "shell"
+command = '"$HOME/.config/herdr/focus-pane-cyclic.sh" right'
+description = "Focus pane right (cyclic)"
+
+# pane を新しい tab に切り出す(tmux の break-pane)
+[[keys.command]]
+key = "prefix+1"
+type = "shell"
+command = '"$HERDR_BIN_PATH" pane move "$HERDR_ACTIVE_PANE_ID" --new-tab --focus'
+description = "Break pane"
+
+# C-y で paste
+[[keys.command]]
+key = "ctrl+y"
+type = "shell"
+command = '"$HERDR_BIN_PATH" pane send-text "$HERDR_ACTIVE_PANE_ID" "$(pbpaste)"'
+description = "Paste clipboard"
+
 [ui]
 tab_bar_position = "bottom"
+tab_bar_right = [
+  { type = "hostname" },
+  { type = "datetime", format = "[%Y-%m-%d %H:%M]" },
+]
+prompt_new_tab_name = false
 mouse_capture = false
 copy_on_select = true
 
