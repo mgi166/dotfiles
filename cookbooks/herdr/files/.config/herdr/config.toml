@@ -92,7 +92,6 @@ description = "Paste clipboard"
 tab_bar_position = "bottom"
 tab_bar_right = [
   { type = "hostname" },
-  { type = "datetime", format = "[%Y-%m-%d %H:%M]" },
 ]
 prompt_new_tab_name = false
 sidebar_start_collapsed = true
