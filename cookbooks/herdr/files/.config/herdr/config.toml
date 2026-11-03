@@ -95,7 +95,9 @@ tab_bar_right = [
   { type = "datetime", format = "[%Y-%m-%d %H:%M]" },
 ]
 prompt_new_tab_name = false
-mouse_capture = false
+sidebar_start_collapsed = true
+sidebar_collapsed_mode = "hidden"
+mouse_capture = true
 copy_on_select = true
 
 [advanced]
